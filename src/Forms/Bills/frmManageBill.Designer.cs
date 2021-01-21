@@ -1,0 +1,1117 @@
+﻿namespace OLKI.Programme.QuiAbl.src.Forms.Bills
+{
+    partial class ManageBill
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBill));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lsvInvoiceItems = new OLKI.Widgets.SortListView();
+            this.tabInformation = new System.Windows.Forms.TabControl();
+            this.tbpInformationGenerel = new System.Windows.Forms.TabPage();
+            this.btnManageBillClasses = new System.Windows.Forms.Button();
+            this.lblComment = new System.Windows.Forms.Label();
+            this.txtComment = new System.Windows.Forms.TextBox();
+            this.mtbExpidation = new System.Windows.Forms.MaskedTextBox();
+            this.lblExpidation = new System.Windows.Forms.Label();
+            this.lblBillClasses = new System.Windows.Forms.Label();
+            this.txtCustomNumber = new System.Windows.Forms.TextBox();
+            this.trvBillClasses = new System.Windows.Forms.TreeView();
+            this.lblCustomNumber = new System.Windows.Forms.Label();
+            this.txtBillNumber = new System.Windows.Forms.TextBox();
+            this.lblBillNumber = new System.Windows.Forms.Label();
+            this.tbpInformationDocument = new System.Windows.Forms.TabPage();
+            this.btnFileRemove = new System.Windows.Forms.Button();
+            this.grbFileData = new System.Windows.Forms.GroupBox();
+            this.btnFileSave = new System.Windows.Forms.Button();
+            this.grbFileModify = new System.Windows.Forms.GroupBox();
+            this.btnFileModifyCropUndo = new System.Windows.Forms.Button();
+            this.lblFileModifyThreshold = new System.Windows.Forms.Label();
+            this.lblFileModifyContrast = new System.Windows.Forms.Label();
+            this.lblFileModifyBrightnes = new System.Windows.Forms.Label();
+            this.btnFileModifyCrop = new System.Windows.Forms.Button();
+            this.tbaFileModifyThreshold = new System.Windows.Forms.TrackBar();
+            this.tbaFileModifyContrast = new System.Windows.Forms.TrackBar();
+            this.tbaFileModifyBrightnes = new System.Windows.Forms.TrackBar();
+            this.cboFileModifyColor = new System.Windows.Forms.ComboBox();
+            this.lblFileModifyVolor = new System.Windows.Forms.Label();
+            this.txtFileComment = new System.Windows.Forms.TextBox();
+            this.btnFileOpen = new System.Windows.Forms.Button();
+            this.txtFileTitle = new System.Windows.Forms.TextBox();
+            this.lblFileTitle = new System.Windows.Forms.Label();
+            this.tabFileSource = new System.Windows.Forms.TabControl();
+            this.tbpFileSourceFile = new System.Windows.Forms.TabPage();
+            this.btnFileAttech = new System.Windows.Forms.Button();
+            this.btnFileBrowse = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.lblFilePath = new System.Windows.Forms.Label();
+            this.tbpFileSourceScan = new System.Windows.Forms.TabPage();
+            this.nudFileScanResolution = new System.Windows.Forms.NumericUpDown();
+            this.btnFileScan = new System.Windows.Forms.Button();
+            this.lblFileScanResolution = new System.Windows.Forms.Label();
+            this.cboFileScanDevice = new System.Windows.Forms.ComboBox();
+            this.lblFileScanDevice = new System.Windows.Forms.Label();
+            this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
+            this.picFilePreview = new OLKI.Widgets.PictrueBoxCropSimple();
+            this.lblFileComment = new System.Windows.Forms.Label();
+            this.btnFileAdd = new System.Windows.Forms.Button();
+            this.lsvFiles = new OLKI.Widgets.SortListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
+            this.prbInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
+            this.btnInvoiceItemRemove = new System.Windows.Forms.Button();
+            this.btnInvoiceItemAdd = new System.Windows.Forms.Button();
+            this.lblOrgFileLocation = new System.Windows.Forms.Label();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.cboCompany = new System.Windows.Forms.ComboBox();
+            this.txtOrgFileLocation = new System.Windows.Forms.TextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.mtbDate = new System.Windows.Forms.MaskedTextBox();
+            this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnManageCompanies = new System.Windows.Forms.Button();
+            this.spcFilePreview = new System.Windows.Forms.SplitContainer();
+            this.prgFilePreview = new OLKI.Widgets.ReadOnlyPropertyGrid();
+            this.tabInformation.SuspendLayout();
+            this.tbpInformationGenerel.SuspendLayout();
+            this.tbpInformationDocument.SuspendLayout();
+            this.grbFileData.SuspendLayout();
+            this.grbFileModify.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyContrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyBrightnes)).BeginInit();
+            this.tabFileSource.SuspendLayout();
+            this.tbpFileSourceFile.SuspendLayout();
+            this.tbpFileSourceScan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFileScanResolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).BeginInit();
+            this.tbpInformationInvoiceItems.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).BeginInit();
+            this.spcFilePreview.Panel1.SuspendLayout();
+            this.spcFilePreview.Panel2.SuspendLayout();
+            this.spcFilePreview.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Kommentar";
+            this.columnHeader7.Width = 120;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Gesamtpreis";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Anzahl";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Preis";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Artikelnummer";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Artikel";
+            this.columnHeader2.Width = 240;
+            // 
+            // lsvInvoiceItems
+            // 
+            this.lsvInvoiceItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvInvoiceItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lsvInvoiceItems.FullRowSelect = true;
+            this.lsvInvoiceItems.GridLines = true;
+            this.lsvInvoiceItems.HideSelection = false;
+            this.lsvInvoiceItems.Location = new System.Drawing.Point(6, 36);
+            this.lsvInvoiceItems.MultiSelect = false;
+            this.lsvInvoiceItems.Name = "lsvInvoiceItems";
+            this.lsvInvoiceItems.ShowItemToolTips = true;
+            this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 441);
+            this.lsvInvoiceItems.TabIndex = 1;
+            this.lsvInvoiceItems.UseCompatibleStateImageBehavior = false;
+            this.lsvInvoiceItems.View = System.Windows.Forms.View.Details;
+            this.lsvInvoiceItems.SelectedIndexChanged += new System.EventHandler(this.lsvInvoiceItems_SelectedIndexChanged);
+            // 
+            // tabInformation
+            // 
+            this.tabInformation.Controls.Add(this.tbpInformationGenerel);
+            this.tabInformation.Controls.Add(this.tbpInformationDocument);
+            this.tabInformation.Controls.Add(this.tbpInformationInvoiceItems);
+            this.tabInformation.ImageList = this.imlTabIcons;
+            this.tabInformation.Location = new System.Drawing.Point(12, 66);
+            this.tabInformation.Name = "tabInformation";
+            this.tabInformation.SelectedIndex = 0;
+            this.tabInformation.Size = new System.Drawing.Size(868, 510);
+            this.tabInformation.TabIndex = 9;
+            // 
+            // tbpInformationGenerel
+            // 
+            this.tbpInformationGenerel.BackColor = System.Drawing.Color.Transparent;
+            this.tbpInformationGenerel.Controls.Add(this.btnManageBillClasses);
+            this.tbpInformationGenerel.Controls.Add(this.lblComment);
+            this.tbpInformationGenerel.Controls.Add(this.txtComment);
+            this.tbpInformationGenerel.Controls.Add(this.mtbExpidation);
+            this.tbpInformationGenerel.Controls.Add(this.lblExpidation);
+            this.tbpInformationGenerel.Controls.Add(this.lblBillClasses);
+            this.tbpInformationGenerel.Controls.Add(this.txtCustomNumber);
+            this.tbpInformationGenerel.Controls.Add(this.trvBillClasses);
+            this.tbpInformationGenerel.Controls.Add(this.lblCustomNumber);
+            this.tbpInformationGenerel.Controls.Add(this.txtBillNumber);
+            this.tbpInformationGenerel.Controls.Add(this.lblBillNumber);
+            this.tbpInformationGenerel.ImageKey = "Properties.png";
+            this.tbpInformationGenerel.Location = new System.Drawing.Point(4, 23);
+            this.tbpInformationGenerel.Name = "tbpInformationGenerel";
+            this.tbpInformationGenerel.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpInformationGenerel.Size = new System.Drawing.Size(860, 483);
+            this.tbpInformationGenerel.TabIndex = 0;
+            this.tbpInformationGenerel.Text = "Allgemeines";
+            // 
+            // btnManageBillClasses
+            // 
+            this.btnManageBillClasses.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Class;
+            this.btnManageBillClasses.Location = new System.Drawing.Point(77, 84);
+            this.btnManageBillClasses.Name = "btnManageBillClasses";
+            this.btnManageBillClasses.Size = new System.Drawing.Size(37, 24);
+            this.btnManageBillClasses.TabIndex = 7;
+            this.btnManageBillClasses.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageBillClasses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageBillClasses.UseVisualStyleBackColor = true;
+            this.btnManageBillClasses.Click += new System.EventHandler(this.btnManageBillClasses_Click);
+            // 
+            // lblComment
+            // 
+            this.lblComment.Location = new System.Drawing.Point(465, 9);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(100, 23);
+            this.lblComment.TabIndex = 9;
+            this.lblComment.Text = "Kommentar";
+            // 
+            // txtComment
+            // 
+            this.txtComment.AcceptsReturn = true;
+            this.txtComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtComment.Location = new System.Drawing.Point(465, 32);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtComment.Size = new System.Drawing.Size(389, 445);
+            this.txtComment.TabIndex = 10;
+            this.txtComment.TextChanged += new System.EventHandler(this.txtComment_TextChanged);
+            // 
+            // mtbExpidation
+            // 
+            this.mtbExpidation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.mtbExpidation.Location = new System.Drawing.Point(120, 58);
+            this.mtbExpidation.Mask = "00/00/0000";
+            this.mtbExpidation.Name = "mtbExpidation";
+            this.mtbExpidation.Size = new System.Drawing.Size(80, 20);
+            this.mtbExpidation.TabIndex = 5;
+            this.mtbExpidation.ValidatingType = typeof(System.DateTime);
+            this.mtbExpidation.TextChanged += new System.EventHandler(this.mtbExpidation_TextChanged);
+            // 
+            // lblExpidation
+            // 
+            this.lblExpidation.Location = new System.Drawing.Point(6, 61);
+            this.lblExpidation.Name = "lblExpidation";
+            this.lblExpidation.Size = new System.Drawing.Size(114, 23);
+            this.lblExpidation.TabIndex = 4;
+            this.lblExpidation.Text = "Gültig bis:";
+            // 
+            // lblBillClasses
+            // 
+            this.lblBillClasses.Location = new System.Drawing.Point(6, 84);
+            this.lblBillClasses.Name = "lblBillClasses";
+            this.lblBillClasses.Size = new System.Drawing.Size(100, 23);
+            this.lblBillClasses.TabIndex = 6;
+            this.lblBillClasses.Text = "Kategorie:";
+            // 
+            // txtCustomNumber
+            // 
+            this.txtCustomNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtCustomNumber.Location = new System.Drawing.Point(120, 32);
+            this.txtCustomNumber.Name = "txtCustomNumber";
+            this.txtCustomNumber.Size = new System.Drawing.Size(339, 20);
+            this.txtCustomNumber.TabIndex = 3;
+            this.txtCustomNumber.TextChanged += new System.EventHandler(this.txtCustomNumber_TextChanged);
+            // 
+            // trvBillClasses
+            // 
+            this.trvBillClasses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.trvBillClasses.HideSelection = false;
+            this.trvBillClasses.Location = new System.Drawing.Point(120, 84);
+            this.trvBillClasses.Name = "trvBillClasses";
+            this.trvBillClasses.Size = new System.Drawing.Size(339, 393);
+            this.trvBillClasses.TabIndex = 8;
+            this.trvBillClasses.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.trvBillClasses_BeforeCollapse);
+            this.trvBillClasses.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvBillClasses_AfterSelect);
+            this.trvBillClasses.MouseDown += new System.Windows.Forms.MouseEventHandler(this.trvBillClasses_MouseDown);
+            // 
+            // lblCustomNumber
+            // 
+            this.lblCustomNumber.Location = new System.Drawing.Point(6, 35);
+            this.lblCustomNumber.Name = "lblCustomNumber";
+            this.lblCustomNumber.Size = new System.Drawing.Size(114, 23);
+            this.lblCustomNumber.TabIndex = 2;
+            this.lblCustomNumber.Text = "Kunde Nummer:";
+            // 
+            // txtBillNumber
+            // 
+            this.txtBillNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtBillNumber.Location = new System.Drawing.Point(120, 6);
+            this.txtBillNumber.Name = "txtBillNumber";
+            this.txtBillNumber.Size = new System.Drawing.Size(339, 20);
+            this.txtBillNumber.TabIndex = 1;
+            this.txtBillNumber.TextChanged += new System.EventHandler(this.txtBillNumber_TextChanged);
+            // 
+            // lblBillNumber
+            // 
+            this.lblBillNumber.Location = new System.Drawing.Point(6, 9);
+            this.lblBillNumber.Name = "lblBillNumber";
+            this.lblBillNumber.Size = new System.Drawing.Size(114, 23);
+            this.lblBillNumber.TabIndex = 0;
+            this.lblBillNumber.Text = "Rechnung Nummer:";
+            // 
+            // tbpInformationDocument
+            // 
+            this.tbpInformationDocument.BackColor = System.Drawing.Color.Transparent;
+            this.tbpInformationDocument.Controls.Add(this.btnFileRemove);
+            this.tbpInformationDocument.Controls.Add(this.grbFileData);
+            this.tbpInformationDocument.Controls.Add(this.btnFileAdd);
+            this.tbpInformationDocument.Controls.Add(this.lsvFiles);
+            this.tbpInformationDocument.ImageKey = "File.png";
+            this.tbpInformationDocument.Location = new System.Drawing.Point(4, 23);
+            this.tbpInformationDocument.Name = "tbpInformationDocument";
+            this.tbpInformationDocument.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpInformationDocument.Size = new System.Drawing.Size(860, 483);
+            this.tbpInformationDocument.TabIndex = 1;
+            this.tbpInformationDocument.Text = "Dokumente";
+            // 
+            // btnFileRemove
+            // 
+            this.btnFileRemove.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Delete;
+            this.btnFileRemove.Location = new System.Drawing.Point(112, 6);
+            this.btnFileRemove.Name = "btnFileRemove";
+            this.btnFileRemove.Size = new System.Drawing.Size(100, 24);
+            this.btnFileRemove.TabIndex = 1;
+            this.btnFileRemove.Text = "Löschen";
+            this.btnFileRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileRemove.UseVisualStyleBackColor = true;
+            this.btnFileRemove.Click += new System.EventHandler(this.btnFileRemove_Click);
+            // 
+            // grbFileData
+            // 
+            this.grbFileData.Controls.Add(this.spcFilePreview);
+            this.grbFileData.Controls.Add(this.btnFileSave);
+            this.grbFileData.Controls.Add(this.grbFileModify);
+            this.grbFileData.Controls.Add(this.txtFileComment);
+            this.grbFileData.Controls.Add(this.btnFileOpen);
+            this.grbFileData.Controls.Add(this.txtFileTitle);
+            this.grbFileData.Controls.Add(this.lblFileTitle);
+            this.grbFileData.Controls.Add(this.tabFileSource);
+            this.grbFileData.Controls.Add(this.lblFileComment);
+            this.grbFileData.Location = new System.Drawing.Point(218, 6);
+            this.grbFileData.Name = "grbFileData";
+            this.grbFileData.Size = new System.Drawing.Size(636, 471);
+            this.grbFileData.TabIndex = 3;
+            this.grbFileData.TabStop = false;
+            this.grbFileData.Text = "Dokument";
+            // 
+            // btnFileSave
+            // 
+            this.btnFileSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFileSave.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Save;
+            this.btnFileSave.Location = new System.Drawing.Point(530, 441);
+            this.btnFileSave.Name = "btnFileSave";
+            this.btnFileSave.Size = new System.Drawing.Size(100, 24);
+            this.btnFileSave.TabIndex = 8;
+            this.btnFileSave.Text = "Speichern";
+            this.btnFileSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileSave.UseVisualStyleBackColor = true;
+            this.btnFileSave.Click += new System.EventHandler(this.btnFileSave_Click);
+            // 
+            // grbFileModify
+            // 
+            this.grbFileModify.Controls.Add(this.btnFileModifyCropUndo);
+            this.grbFileModify.Controls.Add(this.lblFileModifyThreshold);
+            this.grbFileModify.Controls.Add(this.lblFileModifyContrast);
+            this.grbFileModify.Controls.Add(this.lblFileModifyBrightnes);
+            this.grbFileModify.Controls.Add(this.btnFileModifyCrop);
+            this.grbFileModify.Controls.Add(this.tbaFileModifyThreshold);
+            this.grbFileModify.Controls.Add(this.tbaFileModifyContrast);
+            this.grbFileModify.Controls.Add(this.tbaFileModifyBrightnes);
+            this.grbFileModify.Controls.Add(this.cboFileModifyColor);
+            this.grbFileModify.Controls.Add(this.lblFileModifyVolor);
+            this.grbFileModify.Location = new System.Drawing.Point(6, 163);
+            this.grbFileModify.Name = "grbFileModify";
+            this.grbFileModify.Size = new System.Drawing.Size(343, 229);
+            this.grbFileModify.TabIndex = 3;
+            this.grbFileModify.TabStop = false;
+            this.grbFileModify.Text = "Bild bearbeiten";
+            // 
+            // btnFileModifyCropUndo
+            // 
+            this.btnFileModifyCropUndo.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Undo;
+            this.btnFileModifyCropUndo.Location = new System.Drawing.Point(302, 199);
+            this.btnFileModifyCropUndo.Name = "btnFileModifyCropUndo";
+            this.btnFileModifyCropUndo.Size = new System.Drawing.Size(35, 24);
+            this.btnFileModifyCropUndo.TabIndex = 9;
+            this.btnFileModifyCropUndo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileModifyCropUndo.UseVisualStyleBackColor = true;
+            this.btnFileModifyCropUndo.Click += new System.EventHandler(this.btnFileModifyCropUndo_Click);
+            // 
+            // lblFileModifyThreshold
+            // 
+            this.lblFileModifyThreshold.AutoSize = true;
+            this.lblFileModifyThreshold.Location = new System.Drawing.Point(6, 148);
+            this.lblFileModifyThreshold.Name = "lblFileModifyThreshold";
+            this.lblFileModifyThreshold.Size = new System.Drawing.Size(84, 13);
+            this.lblFileModifyThreshold.TabIndex = 6;
+            this.lblFileModifyThreshold.Text = "Schwellwert: {0}";
+            // 
+            // lblFileModifyContrast
+            // 
+            this.lblFileModifyContrast.AutoSize = true;
+            this.lblFileModifyContrast.Location = new System.Drawing.Point(6, 70);
+            this.lblFileModifyContrast.Name = "lblFileModifyContrast";
+            this.lblFileModifyContrast.Size = new System.Drawing.Size(66, 13);
+            this.lblFileModifyContrast.TabIndex = 4;
+            this.lblFileModifyContrast.Text = "Kontrast: {0}";
+            // 
+            // lblFileModifyBrightnes
+            // 
+            this.lblFileModifyBrightnes.AutoSize = true;
+            this.lblFileModifyBrightnes.Location = new System.Drawing.Point(6, 19);
+            this.lblFileModifyBrightnes.Name = "lblFileModifyBrightnes";
+            this.lblFileModifyBrightnes.Size = new System.Drawing.Size(70, 13);
+            this.lblFileModifyBrightnes.TabIndex = 2;
+            this.lblFileModifyBrightnes.Text = "Helligkeit: {0}";
+            // 
+            // btnFileModifyCrop
+            // 
+            this.btnFileModifyCrop.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Crop;
+            this.btnFileModifyCrop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileModifyCrop.Location = new System.Drawing.Point(120, 199);
+            this.btnFileModifyCrop.Name = "btnFileModifyCrop";
+            this.btnFileModifyCrop.Size = new System.Drawing.Size(176, 24);
+            this.btnFileModifyCrop.TabIndex = 8;
+            this.btnFileModifyCrop.Text = "Zuschneiden";
+            this.btnFileModifyCrop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileModifyCrop.UseVisualStyleBackColor = true;
+            this.btnFileModifyCrop.Click += new System.EventHandler(this.btnFileModifyCrop_Click);
+            // 
+            // tbaFileModifyThreshold
+            // 
+            this.tbaFileModifyThreshold.LargeChange = 10;
+            this.tbaFileModifyThreshold.Location = new System.Drawing.Point(116, 148);
+            this.tbaFileModifyThreshold.Maximum = 255;
+            this.tbaFileModifyThreshold.Name = "tbaFileModifyThreshold";
+            this.tbaFileModifyThreshold.Size = new System.Drawing.Size(217, 45);
+            this.tbaFileModifyThreshold.TabIndex = 7;
+            this.tbaFileModifyThreshold.TickFrequency = 85;
+            this.tbaFileModifyThreshold.Value = 127;
+            this.tbaFileModifyThreshold.Scroll += new System.EventHandler(this.tbaFileModifyThreshold_Scroll);
+            this.tbaFileModifyThreshold.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbaFileModifyThreshold_MouseDown);
+            // 
+            // tbaFileModifyContrast
+            // 
+            this.tbaFileModifyContrast.LargeChange = 10;
+            this.tbaFileModifyContrast.Location = new System.Drawing.Point(116, 70);
+            this.tbaFileModifyContrast.Maximum = 100;
+            this.tbaFileModifyContrast.Minimum = -100;
+            this.tbaFileModifyContrast.Name = "tbaFileModifyContrast";
+            this.tbaFileModifyContrast.Size = new System.Drawing.Size(217, 45);
+            this.tbaFileModifyContrast.TabIndex = 5;
+            this.tbaFileModifyContrast.TickFrequency = 25;
+            this.tbaFileModifyContrast.Scroll += new System.EventHandler(this.tbaFileModifyContrast_Scroll);
+            this.tbaFileModifyContrast.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbaFileModifyContrast_MouseDown);
+            // 
+            // tbaFileModifyBrightnes
+            // 
+            this.tbaFileModifyBrightnes.LargeChange = 10;
+            this.tbaFileModifyBrightnes.Location = new System.Drawing.Point(116, 19);
+            this.tbaFileModifyBrightnes.Maximum = 255;
+            this.tbaFileModifyBrightnes.Minimum = -255;
+            this.tbaFileModifyBrightnes.Name = "tbaFileModifyBrightnes";
+            this.tbaFileModifyBrightnes.Size = new System.Drawing.Size(217, 45);
+            this.tbaFileModifyBrightnes.TabIndex = 3;
+            this.tbaFileModifyBrightnes.TickFrequency = 85;
+            this.tbaFileModifyBrightnes.Scroll += new System.EventHandler(this.tbaFileModifyBrightnes_Scroll);
+            this.tbaFileModifyBrightnes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbaFileModifyBrightnes_MouseDown);
+            // 
+            // cboFileModifyColor
+            // 
+            this.cboFileModifyColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cboFileModifyColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFileModifyColor.FormattingEnabled = true;
+            this.cboFileModifyColor.Items.AddRange(new object[] {
+            "Farbe",
+            "Graustufen",
+            "Schwarz Weiiß"});
+            this.cboFileModifyColor.Location = new System.Drawing.Point(120, 121);
+            this.cboFileModifyColor.Name = "cboFileModifyColor";
+            this.cboFileModifyColor.Size = new System.Drawing.Size(217, 21);
+            this.cboFileModifyColor.TabIndex = 1;
+            this.cboFileModifyColor.SelectedIndexChanged += new System.EventHandler(this.cboFileModifyColor_SelectedIndexChanged);
+            // 
+            // lblFileModifyVolor
+            // 
+            this.lblFileModifyVolor.AutoSize = true;
+            this.lblFileModifyVolor.Location = new System.Drawing.Point(6, 124);
+            this.lblFileModifyVolor.Name = "lblFileModifyVolor";
+            this.lblFileModifyVolor.Size = new System.Drawing.Size(37, 13);
+            this.lblFileModifyVolor.TabIndex = 0;
+            this.lblFileModifyVolor.Text = "Farbe:";
+            // 
+            // txtFileComment
+            // 
+            this.txtFileComment.AcceptsReturn = true;
+            this.txtFileComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtFileComment.Location = new System.Drawing.Point(6, 411);
+            this.txtFileComment.Multiline = true;
+            this.txtFileComment.Name = "txtFileComment";
+            this.txtFileComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtFileComment.Size = new System.Drawing.Size(343, 54);
+            this.txtFileComment.TabIndex = 5;
+            this.txtFileComment.TextChanged += new System.EventHandler(this.txtFileComment_TextChanged);
+            // 
+            // btnFileOpen
+            // 
+            this.btnFileOpen.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FileOpen;
+            this.btnFileOpen.Location = new System.Drawing.Point(355, 441);
+            this.btnFileOpen.Name = "btnFileOpen";
+            this.btnFileOpen.Size = new System.Drawing.Size(169, 24);
+            this.btnFileOpen.TabIndex = 7;
+            this.btnFileOpen.Text = "Dokument öffnen";
+            this.btnFileOpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileOpen.UseVisualStyleBackColor = true;
+            this.btnFileOpen.Click += new System.EventHandler(this.btnFileOpen_Click);
+            // 
+            // txtFileTitle
+            // 
+            this.txtFileTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtFileTitle.Location = new System.Drawing.Point(50, 19);
+            this.txtFileTitle.Name = "txtFileTitle";
+            this.txtFileTitle.Size = new System.Drawing.Size(299, 20);
+            this.txtFileTitle.TabIndex = 1;
+            this.txtFileTitle.TextChanged += new System.EventHandler(this.txtFileTitle_TextChanged);
+            // 
+            // lblFileTitle
+            // 
+            this.lblFileTitle.AutoSize = true;
+            this.lblFileTitle.Location = new System.Drawing.Point(3, 22);
+            this.lblFileTitle.Name = "lblFileTitle";
+            this.lblFileTitle.Size = new System.Drawing.Size(38, 13);
+            this.lblFileTitle.TabIndex = 0;
+            this.lblFileTitle.Text = "Name:";
+            // 
+            // tabFileSource
+            // 
+            this.tabFileSource.Controls.Add(this.tbpFileSourceFile);
+            this.tabFileSource.Controls.Add(this.tbpFileSourceScan);
+            this.tabFileSource.ImageList = this.imlTabIcons;
+            this.tabFileSource.Location = new System.Drawing.Point(6, 45);
+            this.tabFileSource.Name = "tabFileSource";
+            this.tabFileSource.SelectedIndex = 0;
+            this.tabFileSource.Size = new System.Drawing.Size(343, 116);
+            this.tabFileSource.TabIndex = 2;
+            // 
+            // tbpFileSourceFile
+            // 
+            this.tbpFileSourceFile.BackColor = System.Drawing.Color.Transparent;
+            this.tbpFileSourceFile.Controls.Add(this.btnFileAttech);
+            this.tbpFileSourceFile.Controls.Add(this.btnFileBrowse);
+            this.tbpFileSourceFile.Controls.Add(this.txtFilePath);
+            this.tbpFileSourceFile.Controls.Add(this.lblFilePath);
+            this.tbpFileSourceFile.ImageKey = "File.png";
+            this.tbpFileSourceFile.Location = new System.Drawing.Point(4, 23);
+            this.tbpFileSourceFile.Name = "tbpFileSourceFile";
+            this.tbpFileSourceFile.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpFileSourceFile.Size = new System.Drawing.Size(335, 89);
+            this.tbpFileSourceFile.TabIndex = 0;
+            this.tbpFileSourceFile.Text = "Von Datei";
+            // 
+            // btnFileAttech
+            // 
+            this.btnFileAttech.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FileOpen;
+            this.btnFileAttech.Location = new System.Drawing.Point(112, 60);
+            this.btnFileAttech.Name = "btnFileAttech";
+            this.btnFileAttech.Size = new System.Drawing.Size(217, 24);
+            this.btnFileAttech.TabIndex = 3;
+            this.btnFileAttech.Text = "Datei(n) anhängen";
+            this.btnFileAttech.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileAttech.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileAttech.UseVisualStyleBackColor = true;
+            this.btnFileAttech.Click += new System.EventHandler(this.btnFileAttech_Click);
+            // 
+            // btnFileBrowse
+            // 
+            this.btnFileBrowse.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Open;
+            this.btnFileBrowse.Location = new System.Drawing.Point(229, 8);
+            this.btnFileBrowse.Name = "btnFileBrowse";
+            this.btnFileBrowse.Size = new System.Drawing.Size(100, 24);
+            this.btnFileBrowse.TabIndex = 2;
+            this.btnFileBrowse.Text = "Durchsuchen";
+            this.btnFileBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileBrowse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileBrowse.UseVisualStyleBackColor = true;
+            this.btnFileBrowse.Click += new System.EventHandler(this.btnFileBrowse_Click);
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtFilePath.Location = new System.Drawing.Point(47, 11);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(176, 20);
+            this.txtFilePath.TabIndex = 1;
+            this.txtFilePath.TextChanged += new System.EventHandler(this.txtFilePath_TextChanged);
+            // 
+            // lblFilePath
+            // 
+            this.lblFilePath.AutoSize = true;
+            this.lblFilePath.Location = new System.Drawing.Point(6, 14);
+            this.lblFilePath.Name = "lblFilePath";
+            this.lblFilePath.Size = new System.Drawing.Size(35, 13);
+            this.lblFilePath.TabIndex = 0;
+            this.lblFilePath.Text = "Datei:";
+            // 
+            // tbpFileSourceScan
+            // 
+            this.tbpFileSourceScan.BackColor = System.Drawing.Color.Transparent;
+            this.tbpFileSourceScan.Controls.Add(this.nudFileScanResolution);
+            this.tbpFileSourceScan.Controls.Add(this.btnFileScan);
+            this.tbpFileSourceScan.Controls.Add(this.lblFileScanResolution);
+            this.tbpFileSourceScan.Controls.Add(this.cboFileScanDevice);
+            this.tbpFileSourceScan.Controls.Add(this.lblFileScanDevice);
+            this.tbpFileSourceScan.ImageKey = "Scanner.png";
+            this.tbpFileSourceScan.Location = new System.Drawing.Point(4, 23);
+            this.tbpFileSourceScan.Name = "tbpFileSourceScan";
+            this.tbpFileSourceScan.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpFileSourceScan.Size = new System.Drawing.Size(335, 89);
+            this.tbpFileSourceScan.TabIndex = 1;
+            this.tbpFileSourceScan.Text = "Von Scanner";
+            // 
+            // nudFileScanResolution
+            // 
+            this.nudFileScanResolution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.nudFileScanResolution.Location = new System.Drawing.Point(112, 33);
+            this.nudFileScanResolution.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudFileScanResolution.Name = "nudFileScanResolution";
+            this.nudFileScanResolution.Size = new System.Drawing.Size(217, 20);
+            this.nudFileScanResolution.TabIndex = 3;
+            this.nudFileScanResolution.ThousandsSeparator = true;
+            this.nudFileScanResolution.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // btnFileScan
+            // 
+            this.btnFileScan.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Scanner;
+            this.btnFileScan.Location = new System.Drawing.Point(112, 59);
+            this.btnFileScan.Name = "btnFileScan";
+            this.btnFileScan.Size = new System.Drawing.Size(217, 24);
+            this.btnFileScan.TabIndex = 4;
+            this.btnFileScan.Text = "Scannen";
+            this.btnFileScan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileScan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileScan.UseVisualStyleBackColor = true;
+            this.btnFileScan.Click += new System.EventHandler(this.btnFileScan_Click);
+            // 
+            // lblFileScanResolution
+            // 
+            this.lblFileScanResolution.AutoSize = true;
+            this.lblFileScanResolution.Location = new System.Drawing.Point(6, 35);
+            this.lblFileScanResolution.Name = "lblFileScanResolution";
+            this.lblFileScanResolution.Size = new System.Drawing.Size(57, 13);
+            this.lblFileScanResolution.TabIndex = 2;
+            this.lblFileScanResolution.Text = "Auflösung:";
+            // 
+            // cboFileScanDevice
+            // 
+            this.cboFileScanDevice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cboFileScanDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFileScanDevice.FormattingEnabled = true;
+            this.cboFileScanDevice.Location = new System.Drawing.Point(112, 6);
+            this.cboFileScanDevice.Name = "cboFileScanDevice";
+            this.cboFileScanDevice.Size = new System.Drawing.Size(217, 21);
+            this.cboFileScanDevice.TabIndex = 1;
+            // 
+            // lblFileScanDevice
+            // 
+            this.lblFileScanDevice.AutoSize = true;
+            this.lblFileScanDevice.Location = new System.Drawing.Point(6, 9);
+            this.lblFileScanDevice.Name = "lblFileScanDevice";
+            this.lblFileScanDevice.Size = new System.Drawing.Size(50, 13);
+            this.lblFileScanDevice.TabIndex = 0;
+            this.lblFileScanDevice.Text = "Scanner:";
+            // 
+            // imlTabIcons
+            // 
+            this.imlTabIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTabIcons.ImageStream")));
+            this.imlTabIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlTabIcons.Images.SetKeyName(0, "File.png");
+            this.imlTabIcons.Images.SetKeyName(1, "Properties.png");
+            this.imlTabIcons.Images.SetKeyName(2, "Comment.png");
+            this.imlTabIcons.Images.SetKeyName(3, "List.png");
+            this.imlTabIcons.Images.SetKeyName(4, "Scanner.png");
+            // 
+            // picFilePreview
+            // 
+            this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picFilePreview.CropMode = true;
+            this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.picFilePreview.Name = "picFilePreview";
+            this.picFilePreview.Size = new System.Drawing.Size(275, 272);
+            this.picFilePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFilePreview.TabIndex = 3;
+            this.picFilePreview.TabStop = false;
+            this.picFilePreview.DoubleClick += new System.EventHandler(this.picFilePreview_DoubleClick);
+            // 
+            // lblFileComment
+            // 
+            this.lblFileComment.AutoSize = true;
+            this.lblFileComment.Location = new System.Drawing.Point(6, 395);
+            this.lblFileComment.Name = "lblFileComment";
+            this.lblFileComment.Size = new System.Drawing.Size(63, 13);
+            this.lblFileComment.TabIndex = 4;
+            this.lblFileComment.Text = "Kommentar:";
+            // 
+            // btnFileAdd
+            // 
+            this.btnFileAdd.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.New;
+            this.btnFileAdd.Location = new System.Drawing.Point(6, 6);
+            this.btnFileAdd.Name = "btnFileAdd";
+            this.btnFileAdd.Size = new System.Drawing.Size(100, 24);
+            this.btnFileAdd.TabIndex = 0;
+            this.btnFileAdd.Text = "Hinzufügen";
+            this.btnFileAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFileAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileAdd.UseVisualStyleBackColor = true;
+            this.btnFileAdd.Click += new System.EventHandler(this.btnFileAdd_Click);
+            // 
+            // lsvFiles
+            // 
+            this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lsvFiles.GridLines = true;
+            this.lsvFiles.HideSelection = false;
+            this.lsvFiles.Location = new System.Drawing.Point(6, 36);
+            this.lsvFiles.MultiSelect = false;
+            this.lsvFiles.Name = "lsvFiles";
+            this.lsvFiles.ShowItemToolTips = true;
+            this.lsvFiles.Size = new System.Drawing.Size(206, 441);
+            this.lsvFiles.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lsvFiles.TabIndex = 2;
+            this.lsvFiles.UseCompatibleStateImageBehavior = false;
+            this.lsvFiles.View = System.Windows.Forms.View.Details;
+            this.lsvFiles.SelectedIndexChanged += new System.EventHandler(this.lsvFiles_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Datei";
+            this.columnHeader1.Width = 165;
+            // 
+            // tbpInformationInvoiceItems
+            // 
+            this.tbpInformationInvoiceItems.BackColor = System.Drawing.Color.Transparent;
+            this.tbpInformationInvoiceItems.Controls.Add(this.prbInvoiceItemProperty);
+            this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemRemove);
+            this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemAdd);
+            this.tbpInformationInvoiceItems.Controls.Add(this.lsvInvoiceItems);
+            this.tbpInformationInvoiceItems.ImageKey = "List.png";
+            this.tbpInformationInvoiceItems.Location = new System.Drawing.Point(4, 23);
+            this.tbpInformationInvoiceItems.Name = "tbpInformationInvoiceItems";
+            this.tbpInformationInvoiceItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpInformationInvoiceItems.Size = new System.Drawing.Size(860, 483);
+            this.tbpInformationInvoiceItems.TabIndex = 2;
+            this.tbpInformationInvoiceItems.Text = "Positionen";
+            // 
+            // prbInvoiceItemProperty
+            // 
+            this.prbInvoiceItemProperty.Location = new System.Drawing.Point(651, 9);
+            this.prbInvoiceItemProperty.Name = "prbInvoiceItemProperty";
+            this.prbInvoiceItemProperty.Size = new System.Drawing.Size(206, 471);
+            this.prbInvoiceItemProperty.TabIndex = 3;
+            this.prbInvoiceItemProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.prbInvoiceItemProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prbInvoiceItemProperty_PropertyValueChanged);
+            // 
+            // btnInvoiceItemRemove
+            // 
+            this.btnInvoiceItemRemove.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Delete;
+            this.btnInvoiceItemRemove.Location = new System.Drawing.Point(542, 6);
+            this.btnInvoiceItemRemove.Name = "btnInvoiceItemRemove";
+            this.btnInvoiceItemRemove.Size = new System.Drawing.Size(100, 24);
+            this.btnInvoiceItemRemove.TabIndex = 2;
+            this.btnInvoiceItemRemove.Text = "Löschen";
+            this.btnInvoiceItemRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInvoiceItemRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInvoiceItemRemove.UseVisualStyleBackColor = true;
+            this.btnInvoiceItemRemove.Click += new System.EventHandler(this.btnInvoiceItemRemove_Click);
+            // 
+            // btnInvoiceItemAdd
+            // 
+            this.btnInvoiceItemAdd.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.New;
+            this.btnInvoiceItemAdd.Location = new System.Drawing.Point(6, 6);
+            this.btnInvoiceItemAdd.Name = "btnInvoiceItemAdd";
+            this.btnInvoiceItemAdd.Size = new System.Drawing.Size(100, 24);
+            this.btnInvoiceItemAdd.TabIndex = 0;
+            this.btnInvoiceItemAdd.Text = "Hinzufügen";
+            this.btnInvoiceItemAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInvoiceItemAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInvoiceItemAdd.UseVisualStyleBackColor = true;
+            this.btnInvoiceItemAdd.Click += new System.EventHandler(this.btnInvoiceItemAdd_Click);
+            // 
+            // lblOrgFileLocation
+            // 
+            this.lblOrgFileLocation.AutoSize = true;
+            this.lblOrgFileLocation.Location = new System.Drawing.Point(428, 41);
+            this.lblOrgFileLocation.Name = "lblOrgFileLocation";
+            this.lblOrgFileLocation.Size = new System.Drawing.Size(43, 13);
+            this.lblOrgFileLocation.TabIndex = 7;
+            this.lblOrgFileLocation.Text = "Ablage:";
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(12, 41);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(35, 13);
+            this.lblCompany.TabIndex = 4;
+            this.lblCompany.Text = "Firma:";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtTitle.Location = new System.Drawing.Point(83, 12);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(339, 20);
+            this.txtTitle.TabIndex = 1;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(12, 15);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(65, 13);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Benennung:";
+            // 
+            // cboCompany
+            // 
+            this.cboCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cboCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCompany.FormattingEnabled = true;
+            this.cboCompany.Location = new System.Drawing.Point(83, 38);
+            this.cboCompany.Name = "cboCompany";
+            this.cboCompany.Size = new System.Drawing.Size(296, 21);
+            this.cboCompany.TabIndex = 5;
+            this.cboCompany.SelectedIndexChanged += new System.EventHandler(this.cboCompany_SelectedIndexChanged);
+            // 
+            // txtOrgFileLocation
+            // 
+            this.txtOrgFileLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtOrgFileLocation.Location = new System.Drawing.Point(477, 38);
+            this.txtOrgFileLocation.Name = "txtOrgFileLocation";
+            this.txtOrgFileLocation.Size = new System.Drawing.Size(403, 20);
+            this.txtOrgFileLocation.TabIndex = 8;
+            this.txtOrgFileLocation.TextChanged += new System.EventHandler(this.txtOrgFileLocation_TextChanged);
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(428, 15);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(41, 13);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "Datum:";
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Accept;
+            this.btnAccept.Location = new System.Drawing.Point(118, 581);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(100, 24);
+            this.btnAccept.TabIndex = 11;
+            this.btnAccept.Text = "Ü&bernehmen";
+            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAccept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(780, 581);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 24);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "&Abbrechen";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOk
+            // 
+            this.btnOk.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Ok;
+            this.btnOk.Location = new System.Drawing.Point(12, 581);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(100, 24);
+            this.btnOk.TabIndex = 10;
+            this.btnOk.Text = "&Ok";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // mtbDate
+            // 
+            this.mtbDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.mtbDate.Location = new System.Drawing.Point(477, 12);
+            this.mtbDate.Mask = "00/00/0000";
+            this.mtbDate.Name = "mtbDate";
+            this.mtbDate.Size = new System.Drawing.Size(80, 20);
+            this.mtbDate.TabIndex = 3;
+            this.mtbDate.ValidatingType = typeof(System.DateTime);
+            this.mtbDate.TextChanged += new System.EventHandler(this.mtbDate_TextChanged);
+            // 
+            // erpMannageBill
+            // 
+            this.erpMannageBill.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.erpMannageBill.ContainerControl = this;
+            // 
+            // btnManageCompanies
+            // 
+            this.btnManageCompanies.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Company;
+            this.btnManageCompanies.Location = new System.Drawing.Point(385, 38);
+            this.btnManageCompanies.Name = "btnManageCompanies";
+            this.btnManageCompanies.Size = new System.Drawing.Size(37, 24);
+            this.btnManageCompanies.TabIndex = 6;
+            this.btnManageCompanies.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageCompanies.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageCompanies.UseVisualStyleBackColor = true;
+            this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
+            // 
+            // spcFilePreview
+            // 
+            this.spcFilePreview.Location = new System.Drawing.Point(355, 19);
+            this.spcFilePreview.Name = "spcFilePreview";
+            this.spcFilePreview.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // spcFilePreview.Panel1
+            // 
+            this.spcFilePreview.Panel1.Controls.Add(this.picFilePreview);
+            this.spcFilePreview.Panel1MinSize = 272;
+            // 
+            // spcFilePreview.Panel2
+            // 
+            this.spcFilePreview.Panel2.Controls.Add(this.prgFilePreview);
+            this.spcFilePreview.Panel2MinSize = 0;
+            this.spcFilePreview.Size = new System.Drawing.Size(275, 416);
+            this.spcFilePreview.SplitterDistance = 272;
+            this.spcFilePreview.TabIndex = 11;
+            // 
+            // prgFilePreview
+            // 
+            this.prgFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prgFilePreview.HelpVisible = false;
+            this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.prgFilePreview.Name = "prgFilePreview";
+            this.prgFilePreview.ReadOnly = true;
+            this.prgFilePreview.Size = new System.Drawing.Size(275, 140);
+            this.prgFilePreview.TabIndex = 11;
+            this.prgFilePreview.ToolbarVisible = false;
+            this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            // 
+            // ManageBill
+            // 
+            this.AcceptButton = this.btnOk;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(892, 617);
+            this.Controls.Add(this.btnManageCompanies);
+            this.Controls.Add(this.mtbDate);
+            this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.tabInformation);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.lblOrgFileLocation);
+            this.Controls.Add(this.lblCompany);
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.cboCompany);
+            this.Controls.Add(this.txtOrgFileLocation);
+            this.Controls.Add(this.lblDate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "ManageBill";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "frmManageBill";
+            this.tabInformation.ResumeLayout(false);
+            this.tbpInformationGenerel.ResumeLayout(false);
+            this.tbpInformationGenerel.PerformLayout();
+            this.tbpInformationDocument.ResumeLayout(false);
+            this.grbFileData.ResumeLayout(false);
+            this.grbFileData.PerformLayout();
+            this.grbFileModify.ResumeLayout(false);
+            this.grbFileModify.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyContrast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyBrightnes)).EndInit();
+            this.tabFileSource.ResumeLayout(false);
+            this.tbpFileSourceFile.ResumeLayout(false);
+            this.tbpFileSourceFile.PerformLayout();
+            this.tbpFileSourceScan.ResumeLayout(false);
+            this.tbpFileSourceScan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFileScanResolution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).EndInit();
+            this.tbpInformationInvoiceItems.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).EndInit();
+            this.spcFilePreview.Panel1.ResumeLayout(false);
+            this.spcFilePreview.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).EndInit();
+            this.spcFilePreview.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private OLKI.Widgets.SortListView lsvInvoiceItems;
+        private System.Windows.Forms.TabControl tabInformation;
+        private System.Windows.Forms.TabPage tbpInformationInvoiceItems;
+        private System.Windows.Forms.TabPage tbpInformationGenerel;
+        private System.Windows.Forms.Label lblExpidation;
+        private System.Windows.Forms.TextBox txtCustomNumber;
+        private System.Windows.Forms.Label lblCustomNumber;
+        private System.Windows.Forms.TextBox txtBillNumber;
+        private System.Windows.Forms.Label lblBillNumber;
+        private System.Windows.Forms.Label lblBillClasses;
+        private System.Windows.Forms.TreeView trvBillClasses;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Label lblOrgFileLocation;
+        private System.Windows.Forms.Button btnFileOpen;
+        private System.Windows.Forms.Label lblFileTitle;
+        private System.Windows.Forms.TabControl tabFileSource;
+        private System.Windows.Forms.TabPage tbpFileSourceFile;
+        private System.Windows.Forms.Button btnFileBrowse;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.Label lblFilePath;
+        private System.Windows.Forms.TabPage tbpFileSourceScan;
+        private System.Windows.Forms.Label lblFileScanResolution;
+        private System.Windows.Forms.ComboBox cboFileScanDevice;
+        private System.Windows.Forms.Label lblFileScanDevice;
+        private System.Windows.Forms.TextBox txtFileTitle;
+        private OLKI.Widgets.SortListView lsvFiles;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label lblTitle;
+        private OLKI.Widgets.PictrueBoxCropSimple picFilePreview;
+        private System.Windows.Forms.ComboBox cboCompany;
+        private System.Windows.Forms.TextBox txtOrgFileLocation;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Button btnFileRemove;
+        private System.Windows.Forms.Button btnFileAdd;
+        private System.Windows.Forms.Button btnInvoiceItemRemove;
+        private System.Windows.Forms.Button btnInvoiceItemAdd;
+        private System.Windows.Forms.TabPage tbpInformationDocument;
+        private System.Windows.Forms.GroupBox grbFileData;
+        private System.Windows.Forms.PropertyGrid prbInvoiceItemProperty;
+        private System.Windows.Forms.ImageList imlTabIcons;
+        private System.Windows.Forms.TextBox txtFileComment;
+        private System.Windows.Forms.Button btnFileScan;
+        private System.Windows.Forms.GroupBox grbFileModify;
+        private System.Windows.Forms.Label lblFileModifyThreshold;
+        private System.Windows.Forms.Label lblFileModifyContrast;
+        private System.Windows.Forms.Label lblFileModifyBrightnes;
+        private System.Windows.Forms.Button btnFileModifyCrop;
+        private System.Windows.Forms.TrackBar tbaFileModifyThreshold;
+        private System.Windows.Forms.TrackBar tbaFileModifyContrast;
+        private System.Windows.Forms.TrackBar tbaFileModifyBrightnes;
+        private System.Windows.Forms.ComboBox cboFileModifyColor;
+        private System.Windows.Forms.Label lblFileModifyVolor;
+        private System.Windows.Forms.Label lblFileComment;
+        private System.Windows.Forms.Button btnFileAttech;
+        private System.Windows.Forms.MaskedTextBox mtbDate;
+        private System.Windows.Forms.ErrorProvider erpMannageBill;
+        private System.Windows.Forms.MaskedTextBox mtbExpidation;
+        private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.TextBox txtComment;
+        private System.Windows.Forms.Button btnManageCompanies;
+        private System.Windows.Forms.Button btnManageBillClasses;
+        private System.Windows.Forms.Button btnFileSave;
+        private System.Windows.Forms.NumericUpDown nudFileScanResolution;
+        private System.Windows.Forms.Button btnFileModifyCropUndo;
+        private System.Windows.Forms.SplitContainer spcFilePreview;
+        private Widgets.ReadOnlyPropertyGrid prgFilePreview;
+    }
+}

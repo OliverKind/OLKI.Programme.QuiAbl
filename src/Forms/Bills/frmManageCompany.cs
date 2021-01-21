@@ -1,0 +1,200 @@
+﻿/*
+ * QuiAbl - Quittungsablage
+ * 
+ * Copyright:   Oliver Kind - 2021
+ * License:     LGPL
+ * 
+ * Desctiption:
+ * Form to manage Companys
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
+
+using OLKI.Programme.QuiAbl.src.Project;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace OLKI.Programme.QuiAbl.src.Forms.Bills
+{
+    /// <summary>
+    /// Form to manage Companys
+    /// </summary>
+    public partial class ManageCompany : Form
+    {
+        #region Events
+        /// <summary>
+        /// Raised if saving of BillClasses is requested
+        /// </summary>
+        public event EventHandler CompaniesSaveRequest;
+        #endregion
+
+        #region Fields
+        /// <summary>
+        /// Project to get data from
+        /// </summary>
+        private readonly Project.Project _project;
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// List with Companies
+        /// </summary>
+        public Dictionary<int, Company> _companies;
+
+        /// <summary>
+        /// Last insertes Company Id
+        /// </summary>
+        private int _companyLastInsertedId;
+        #endregion
+
+        #region Methodes
+        /// <summary>
+        /// Initial a new ManageCompany Form
+        /// </summary>
+        /// <param name="project">Project to get data from</param>
+        public ManageCompany(Project.Project project)
+        {
+            InitializeComponent();
+            this._project = project;
+            this._companyLastInsertedId = this._project.CompanyLastInsertedId;
+            this._companies = new Dictionary<int, Company>();
+
+            foreach (KeyValuePair<int, Company> CompanyItem in this._project.Companies)
+            {
+                this._companies.Add(CompanyItem.Key, CompanyItem.Value.Clone());
+                this._companies[CompanyItem.Key].CompanyChanged -= new EventHandler(this._project.ToggleSubItemChanged);
+            }
+            this.lsvCompanies.BeginUpdate();
+
+            ListViewItem NewItem;
+            foreach (KeyValuePair<int, Company> companyItem in this._companies.OrderBy(o => o.Value.Title))
+            {
+                NewItem = new ListViewItem
+                {
+                    Tag = companyItem.Value,
+                    Text = companyItem.Value.Title
+                };
+                this.lsvCompanies.Items.Add(NewItem);
+            }
+            this.lsvCompanies.EndUpdate();
+            this.lsvCompanies_SelectedIndexChanged(this, new EventArgs());
+        }
+
+        /// <summary>
+        /// Convert the ListView to a List of Companys
+        /// </summary>
+        private void ListViewToCompanyList()
+        {
+            Company TempCompany;
+            foreach (ListViewItem CompanyItem in this.lsvCompanies.Items)
+            {
+                TempCompany = (Company)CompanyItem.Tag;
+                this._companies.Add(TempCompany.Id, TempCompany);
+            }
+        }
+
+        #region Controle Events
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            this._project.CompanyLastInsertedId = this._companyLastInsertedId;
+            this._project.Companies.Clear();
+
+            this._companies.Clear();
+            this.ListViewToCompanyList();
+            this._project.Companies = this._companies;
+            foreach (KeyValuePair<int, Company> CompanyItem in this._project.Companies)
+            {
+                CompanyItem.Value.CompanyChanged += new EventHandler(this._project.ToggleSubItemChanged);
+            }
+            this._project.ToggleSubItemChanged(sender, e);
+            this.CompaniesSaveRequest?.Invoke(this, new EventArgs());
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnCompanyAdd_Click(object sender, EventArgs e)
+        {
+            this._companyLastInsertedId++;
+            Company NewCompany = new Company(this._companyLastInsertedId);
+            ListViewItem NewItem = new ListViewItem
+            {
+                Tag = NewCompany,
+                Text = NewCompany.TitleNoText
+            };
+            this.lsvCompanies.Items.Add(NewItem);
+            int i = 0;
+            foreach (ListViewItem Item in this.lsvCompanies.Items)
+            {
+                if (((Company)Item.Tag).Id == this._companyLastInsertedId)
+                {
+                    this.lsvCompanies.Items[i].Selected = true;
+                    return;
+                }
+                i++;
+            }
+        }
+
+        private void btnCompanyRemove_Click(object sender, EventArgs e)
+        {
+            this.lsvCompanies.SelectedItems[0].Remove();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.btnAccept_Click(sender, e);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void lsvCompanies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.grbProperties.Enabled = this.lsvCompanies.SelectedItems.Count == 1;
+            if (this.lsvCompanies.SelectedItems.Count == 1)
+            {
+                this.txtComment.Text = ((Company)this.lsvCompanies.SelectedItems[0].Tag).Comment;
+                this.txtTitle.Text = ((Company)this.lsvCompanies.SelectedItems[0].Tag).Title;
+            }
+            else
+            {
+                this.txtComment.Text = "";
+                this.txtTitle.Text = "";
+            }
+        }
+
+        private void txtComment_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lsvCompanies.SelectedItems.Count != 1) return;
+
+            ((Company)this.lsvCompanies.SelectedItems[0].Tag).Comment = this.txtComment.Text;
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lsvCompanies.SelectedItems.Count != 1) return;
+
+            ((Company)this.lsvCompanies.SelectedItems[0].Tag).Title = this.txtTitle.Text;
+            this.lsvCompanies.SelectedItems[0].Text = ((Company)this.lsvCompanies.SelectedItems[0].Tag).TitleNoText;
+        }
+        #endregion
+        #endregion
+    }
+}

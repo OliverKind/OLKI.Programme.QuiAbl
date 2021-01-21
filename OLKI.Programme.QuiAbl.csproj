@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55F50500-72B9-4E8F-AD27-F0134A199FDC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OLKI.Programme.QuiAbl</RootNamespace>
+    <AssemblyName>QuiAbl</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OLKI.Programme.QuiAbl.src.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Program_Symbol.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Stringtable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stringtable.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsSaveProjectArguments.cs" />
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsSaveProjectState.cs" />
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsLoadProjectState.cs" />
+    <Compile Include="src\Forms\MainForm\SubForms\frmAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\SubForms\frmAboutForm.designer.cs">
+      <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageCompany.Designer.cs">
+      <DependentUpon>frmManageCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\frmProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\frmProgressForm.Designer.cs">
+      <DependentUpon>frmProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\frmMainForm_bgwLoadFilesAtStartup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\frmMainForm_bgwSaveFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\frmMainForm_bgwLoadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\LoadSaveAsync\frmMainForm_bgwExitApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\SubForms\frmApplicationSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\SubForms\frmApplicationSettingsForm.designer.cs">
+      <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Project\Bill\clsBill.cs" />
+    <Compile Include="src\Project\Bill\clsFile.cs" />
+    <Compile Include="src\Project\Bill\clsInvoiceItem.cs" />
+    <Compile Include="src\Project\clsCompany.cs" />
+    <Compile Include="src\Project\clsBillClass.cs" />
+    <Compile Include="src\Project\clsProject.cs" />
+    <EmbeddedResource Include="Properties\Stringtable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainForm\SubForms\frmAboutForm.resx">
+      <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\Bills\frmProjectForm.resx">
+      <DependentUpon>frmProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainForm\frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\Bills\frmManageBill.resx">
+      <DependentUpon>frmManageBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\Bills\frmManageCompany.resx">
+      <DependentUpon>frmManageCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\Bills\frmManageBillClass.resx">
+      <DependentUpon>frmManageBillClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\frmProgressForm.resx">
+      <DependentUpon>frmProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="src\clsProjectManager.cs" />
+    <Compile Include="src\Forms\Bills\frmProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmProjectForm.Designer.cs">
+      <DependentUpon>frmProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm\frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageBill.Designer.cs">
+      <DependentUpon>frmManageBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageBillClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\Bills\frmManageBillClass.Designer.cs">
+      <DependentUpon>frmManageBillClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\frmSearch.Designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="src\Forms\MainForm\SubForms\frmApplicationSettingsForm.resx">
+      <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="AssociationTestfile.QuiAblDb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CONTRIBUTING.md" />
+    <None Include="doc\Eula.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="doc\Information.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="installation\setup__QuAbl.nsi" />
+    <None Include="LICENSE" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OLKI.Tools\ColorAndPicture\OLKI.Tools.ColorAndPicture.csproj">
+      <Project>{2e402f8b-a952-4c82-a67b-580218a5aa11}</Project>
+      <Name>OLKI.Tools.ColorAndPicture</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OLKI.Tools\CommonTools\repository\OLKI.Tools.CommonTools.csproj">
+      <Project>{eacf8cee-e449-4591-aaf1-ecdda827ad8a}</Project>
+      <Name>OLKI.Tools.CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OLKI.Widgets\repository\OLKI.Widgets.csproj">
+      <Project>{913126dd-a263-49aa-8f0a-b6460d0d4a1a}</Project>
+      <Name>OLKI.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="Resources\Icons\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\FileOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\FileNext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\FilePrevious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\WindowCascade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\WindowHorizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\WindowVertiacal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Scanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Class.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Company.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\GenericDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="doc\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="licenses\COPL-License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="licenses\LGPL-License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Program_Symbol.ico" />
+    <Content Include="Resources\Icons\Bill.ico" />
+    <Content Include="Resources\Icons\Bill.png" />
+    <Content Include="Resources\Icons\Crop.png" />
+    <Content Include="Resources\Icons\Help.ico" />
+    <Content Include="Resources\Icons\Help.png" />
+    <Content Include="Resources\Icons\Undo.png" />
+    <None Include="Resources\Icons\Save.png" />
+    <None Include="Resources\Icons\Properties.ico" />
+    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.png" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QuiAbl.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ProjectFile_DefaultExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuiAblDb</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Quittungsdatenbank (*.QuiAblDb)|*.QuiAblDb|QuiAbl (*.xml)|*.xml|Alle Dateien (*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterIndex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ProjectFile_DefaultPath" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Internal_SettingsUpgradet" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Startup_DefaultLoadEmptyProject" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DateFormat" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dd.MM.yyyy</Value>
+    </Setting>
+    <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionDescription" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuiAbl Database</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuiAbl.Database</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionIconFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Project_Symbol.ico</Value>
+    </Setting>
+    <Setting Name="FileAssociation_TestFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AssociationTestfile.QuiAblDb</Value>
+    </Setting>
+    <Setting Name="ScanDefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="TreeView_BillClasses_ExpandAllDefault" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TreeView_BillClasses_AllowCollaps" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
