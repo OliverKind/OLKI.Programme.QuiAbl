@@ -183,15 +183,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AssociationTestfile.QuiAblDb")]
-        public string FileAssociation_TestFile {
-            get {
-                return ((string)(this["FileAssociation_TestFile"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]

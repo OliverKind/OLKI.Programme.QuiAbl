@@ -179,9 +179,6 @@
       <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="AssociationTestfile.QuiAblDb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="CONTRIBUTING.md" />
     <None Include="doc\Eula.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
