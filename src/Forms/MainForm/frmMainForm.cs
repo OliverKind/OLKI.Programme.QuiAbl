@@ -184,7 +184,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this.LoadInitialProject(this._args);
 
             //Check for file association
-            if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(true);
+            if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
         }
         #endregion
 
