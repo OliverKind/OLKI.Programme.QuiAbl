@@ -25,7 +25,7 @@
 using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Project;
 using OLKI.Programme.QuiAbl.src.Project.Bill;
-using OLKI.Tools.ColorAndPicture.Picture.Scan;
+using OLKI.Toolbox.ColorAndPicture.Picture.Scan;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -654,7 +654,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 Brightness = this.tbaFileModifyBrightnes.Value,
                 Contrast = this.tbaFileModifyContrast.Value,
-                Palette = (Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex,
+                Palette = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex,
                 Threshold = this.tbaFileModifyThreshold.Value
             };
         }

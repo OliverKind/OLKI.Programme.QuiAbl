@@ -23,7 +23,7 @@
  * */
 
 using OLKI.Programme.QuiAbl.Properties;
-using OLKI.Tools.CommonTools;
+using OLKI.Toolbox.Common;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -274,7 +274,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 if (this.Image == null || !cropArea.HasValue) return;
                 if (this._imageBeforceCrop == null) this._imageBeforceCrop = this.Image;
 
-                this.Image = Tools.ColorAndPicture.Picture.Modify.Crop(this.Image, cropArea);
+                this.Image = Toolbox.ColorAndPicture.Picture.Modify.Crop(this.Image, cropArea);
             }
             catch (Exception ex)
             {
@@ -419,18 +419,18 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             Image ProcedetImage = (Image)this.Image.Clone();
 
             // Proced brightness and contrast modifications
-            ProcedetImage = Tools.ColorAndPicture.Picture.Modify.BrightnessAndContrast(ProcedetImage, this.Modification.Brightness, this.Modification.Contrast);
+            ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.BrightnessAndContrast(ProcedetImage, this.Modification.Brightness, this.Modification.Contrast);
 
             // Proced palette modifications
             switch (this.Modification.Palette)
             {
-                case Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color:
+                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color:
                     break;
-                case Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Grayscale:
-                    ProcedetImage = Tools.ColorAndPicture.Picture.Modify.Palette.ToGrayscale(ProcedetImage);
+                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Grayscale:
+                    ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Palette.ToGrayscale(ProcedetImage);
                     break;
-                case Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette.BlackWhite:
-                    ProcedetImage = Tools.ColorAndPicture.Picture.Modify.Palette.ToBlackWhite(ProcedetImage, this.Modification.Threshold);
+                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.BlackWhite:
+                    ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Palette.ToBlackWhite(ProcedetImage, this.Modification.Threshold);
                     break;
                 default:
                     break;
@@ -503,7 +503,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// <summary>
             /// Get or set ow the Palette should been changed
             /// </summary>
-            public Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = Tools.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color;
+            public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color;
 
             /// <summary>
             /// Get or set the Threshold if an image shold been converted to an Black and White Palette

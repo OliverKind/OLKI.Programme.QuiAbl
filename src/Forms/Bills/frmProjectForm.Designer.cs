@@ -42,7 +42,7 @@
             this.btnBillFilePrev = new System.Windows.Forms.Button();
             this.lblBillFileNumber = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
-            this.lsvBills = new OLKI.Widgets.SortListView();
+            this.lsvBills = new OLKI.Toolbox.Widgets.SortListView();
             this.cohBillsTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsDocuments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -436,7 +436,7 @@
         private System.Windows.Forms.ColumnHeader cohBillsDocuments;
         private System.Windows.Forms.ColumnHeader cohBillsDate;
         private System.Windows.Forms.ColumnHeader cohBillsTitle;
-        private OLKI.Widgets.SortListView lsvBills;
+        private OLKI.Toolbox.Widgets.SortListView lsvBills;
         private System.Windows.Forms.ColumnHeader cohBillsCategory;
         private System.Windows.Forms.TabControl tabBill;
         private System.Windows.Forms.TabPage tabpBillData;

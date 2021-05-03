@@ -134,7 +134,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         #region Form events
         private void btnGoToLicenses_Click(object sender, EventArgs e)
         {
-            Tools.CommonTools.DirectoryAndFile.Directory.Open(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Licenses\", false);
+            Toolbox.DirectoryAndFile.Directory.Open(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Licenses\", false);
         }
         #endregion
     }

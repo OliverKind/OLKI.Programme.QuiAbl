@@ -36,7 +36,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lsvInvoiceItems = new OLKI.Widgets.SortListView();
+            this.lsvInvoiceItems = new OLKI.Toolbox.Widgets.SortListView();
             this.tabInformation = new System.Windows.Forms.TabControl();
             this.tbpInformationGenerel = new System.Windows.Forms.TabPage();
             this.btnManageBillClasses = new System.Windows.Forms.Button();
@@ -82,10 +82,10 @@
             this.cboFileScanDevice = new System.Windows.Forms.ComboBox();
             this.lblFileScanDevice = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
-            this.picFilePreview = new OLKI.Widgets.PictrueBoxCropSimple();
+            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
             this.lblFileComment = new System.Windows.Forms.Label();
             this.btnFileAdd = new System.Windows.Forms.Button();
-            this.lsvFiles = new OLKI.Widgets.SortListView();
+            this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
             this.prbInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
@@ -105,7 +105,7 @@
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
             this.spcFilePreview = new System.Windows.Forms.SplitContainer();
-            this.prgFilePreview = new OLKI.Widgets.ReadOnlyPropertyGrid();
+            this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -1044,7 +1044,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private OLKI.Widgets.SortListView lsvInvoiceItems;
+        private OLKI.Toolbox.Widgets.SortListView lsvInvoiceItems;
         private System.Windows.Forms.TabControl tabInformation;
         private System.Windows.Forms.TabPage tbpInformationInvoiceItems;
         private System.Windows.Forms.TabPage tbpInformationGenerel;
@@ -1070,12 +1070,12 @@
         private System.Windows.Forms.ComboBox cboFileScanDevice;
         private System.Windows.Forms.Label lblFileScanDevice;
         private System.Windows.Forms.TextBox txtFileTitle;
-        private OLKI.Widgets.SortListView lsvFiles;
+        private OLKI.Toolbox.Widgets.SortListView lsvFiles;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblTitle;
-        private OLKI.Widgets.PictrueBoxCropSimple picFilePreview;
+        private OLKI.Toolbox.Widgets.PictrueBoxCropSimple picFilePreview;
         private System.Windows.Forms.ComboBox cboCompany;
         private System.Windows.Forms.TextBox txtOrgFileLocation;
         private System.Windows.Forms.Label lblDate;
@@ -1112,6 +1112,6 @@
         private System.Windows.Forms.NumericUpDown nudFileScanResolution;
         private System.Windows.Forms.Button btnFileModifyCropUndo;
         private System.Windows.Forms.SplitContainer spcFilePreview;
-        private Widgets.ReadOnlyPropertyGrid prgFilePreview;
+        private OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid prgFilePreview;
     }
 }

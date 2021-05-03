@@ -24,7 +24,7 @@
 
 using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Project.Bill;
-using OLKI.Widgets.Invoke;
+using OLKI.Toolbox.Widgets.Invoke;
 using System;
 using System.Collections.Generic;
 using System.Data;

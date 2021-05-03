@@ -94,7 +94,7 @@ namespace OLKI.Programme.QuiAbl.src
             IconPath += Settings.Default.FileAssociation_ExtensionIconFile;
 
             // Check File Association
-            Tools.CommonTools.DirectoryAndFile.FileAssociation.CheckMatchWithApplicationAndSet(
+            Toolbox.DirectoryAndFile.FileAssociation.CheckMatchWithApplicationAndSet(
                 Application.ExecutablePath,
                 "." + Settings.Default.ProjectFile_DefaultExtension,
                 Settings.Default.ProjectFile_DefaultExtension,

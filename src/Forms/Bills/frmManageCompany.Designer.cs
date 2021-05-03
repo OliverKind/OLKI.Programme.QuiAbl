@@ -39,7 +39,7 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.lsvCompanies = new OLKI.Widgets.SortListView();
+            this.lsvCompanies = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbProperties.SuspendLayout();
             this.SuspendLayout();
@@ -225,7 +225,7 @@
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private OLKI.Widgets.SortListView lsvCompanies;
+        private OLKI.Toolbox.Widgets.SortListView lsvCompanies;
         private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
