@@ -132,7 +132,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Original image before it was cropped
         /// </summary>
-        private Image _imageBeforceCrop;
+        private Image _imageBeforeCrop;
 
         /// <summary>
         /// Get the image if file is an image, or set an image to FileObject
@@ -272,7 +272,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 exception = null;
 
                 if (this.Image == null || !cropArea.HasValue) return;
-                if (this._imageBeforceCrop == null) this._imageBeforceCrop = this.Image;
+                if (this._imageBeforeCrop == null) this._imageBeforeCrop = this.Image;
 
                 this.Image = Toolbox.ColorAndPicture.Picture.Modify.Crop(this.Image, cropArea);
             }
@@ -299,8 +299,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             try
             {
                 exception = null;
-                if (this._imageBeforceCrop == null) return;
-                this.Image = this._imageBeforceCrop;
+                if (this._imageBeforeCrop == null) return;
+                this.Image = this._imageBeforeCrop;
             }
             catch (Exception ex)
             {
