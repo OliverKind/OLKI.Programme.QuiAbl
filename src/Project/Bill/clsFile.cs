@@ -394,7 +394,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                     FileToOpen += new System.IO.FileInfo(this.OriginalFileName).Extension;
                 }
                 System.IO.File.Move(TempFile, FileToOpen);
-                System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
+                if (this.Image == null)
+                {
+                    System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
+                }
+                else
+                {
+                    this.ImageProcedet.Save(FileToOpen);
+                }
 
                 System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
                 FileOpener.StartInfo.FileName = "explorer";
