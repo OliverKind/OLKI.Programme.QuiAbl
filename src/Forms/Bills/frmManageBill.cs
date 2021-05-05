@@ -323,7 +323,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 }
 
                 if (FilteItem.Id > MaxFileId) MaxFileId = FilteItem.Id;
-                this.Bill.Files.Add(FilteItem.Id, FilteItem);
+                if (!this.Bill.Files.ContainsKey(FilteItem.Id))
+                {
+                    this.Bill.Files.Add(FilteItem.Id, null);
+                }
+                this.Bill.Files[FilteItem.Id] = FilteItem;
             }
             this.Bill.FilesLastInsertedId = MaxFileId;
             this.lsvFiles_SelectedIndexChanged(sender, e);
