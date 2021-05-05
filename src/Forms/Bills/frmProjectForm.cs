@@ -330,11 +330,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._selectedFileIndex -= 1;
             this.SetFilePreview();
         }
-
-        private void picBilFilePreview_DoubleClick(object sender, EventArgs e)
-        {
-            this.btnBillFileOpen_Click(sender, e);
-        }
         #endregion
         #endregion
 
@@ -434,8 +429,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.FillListView(this._searchBill.BillsFound);
         }
         #endregion
-
         #endregion
-
     }
 }
