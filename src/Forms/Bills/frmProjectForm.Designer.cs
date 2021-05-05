@@ -187,6 +187,7 @@
             this.picBilFilePreview.Size = new System.Drawing.Size(327, 458);
             this.picBilFilePreview.TabIndex = 19;
             this.picBilFilePreview.TabStop = false;
+            this.picBilFilePreview.DoubleClick += new System.EventHandler(this.picBilFilePreview_DoubleClick);
             // 
             // btnBillFilePrev
             // 
@@ -391,7 +392,7 @@
             this.mnuBillForm_Search_Bill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
             this.mnuBillForm_Search_Bill.Name = "mnuBillForm_Search_Bill";
             this.mnuBillForm_Search_Bill.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(180, 22);
+            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(147, 22);
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
             // 
