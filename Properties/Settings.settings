@@ -56,5 +56,20 @@
     <Setting Name="TreeView_BillClasses_AllowCollaps" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="AppUpdate_SetupSearchPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuiAbl__v{0}__Setup.exe</Value>
+    </Setting>
+    <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Owner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OliverKind</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OLKI.Programme.QuiAbl</Value>
+    </Setting>
+    <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Changelog.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

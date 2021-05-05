@@ -26,7 +26,9 @@ using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Forms.Bills;
 using OLKI.Programme.QuiAbl.src.Forms.MainForm.LoadSaveAsync;
 using OLKI.Toolbox.Common;
+using OLKI.Toolbox.UpdateApp;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
@@ -185,6 +187,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
             //Check for file association
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
+
+
+            // Check for Updates for the Apllication
+            if (Settings.Default.AppUpdate_CheckAtStartUp) Program.CheckForUpdate(this, true);
         }
         #endregion
 
@@ -277,6 +283,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         {
             this._frmAbout.ShowDialog(this);
         }
+
+        private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
+        {
+            Program.CheckForUpdate(this, false);
+        }
+
 
         private void tolMain_Basedata_BillClass_Click(object sender, EventArgs e)
         {

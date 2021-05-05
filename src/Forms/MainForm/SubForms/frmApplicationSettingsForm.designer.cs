@@ -56,8 +56,9 @@
             this.chkAutoCheckFileAssociation = new System.Windows.Forms.CheckBox();
             this.erpDateFormat = new System.Windows.Forms.ErrorProvider(this.components);
             this.grbBillClassesTreeView = new System.Windows.Forms.GroupBox();
-            this.chkTreeViewBillClassesAllowCollaps = new System.Windows.Forms.CheckBox();
             this.chkTreeViewBillClassesExpandAllDefault = new System.Windows.Forms.CheckBox();
+            this.chkTreeViewBillClassesAllowCollaps = new System.Windows.Forms.CheckBox();
+            this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -70,7 +71,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 323);
+            this.btnCancel.Location = new System.Drawing.Point(590, 339);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 24);
             this.btnCancel.TabIndex = 9;
@@ -83,7 +84,7 @@
             // btnOk
             // 
             this.btnOk.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Ok;
-            this.btnOk.Location = new System.Drawing.Point(12, 317);
+            this.btnOk.Location = new System.Drawing.Point(12, 339);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 24);
             this.btnOk.TabIndex = 8;
@@ -99,7 +100,7 @@
             this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
             this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 359);
+            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 375);
             this.tolApplicationSettings.TabIndex = 10;
             this.tolApplicationSettings.Text = "toolStrip1";
             // 
@@ -332,16 +333,6 @@
             this.grbBillClassesTreeView.TabStop = false;
             this.grbBillClassesTreeView.Text = "Kategorienbraum";
             // 
-            // chkTreeViewBillClassesAllowCollaps
-            // 
-            this.chkTreeViewBillClassesAllowCollaps.AutoSize = true;
-            this.chkTreeViewBillClassesAllowCollaps.Location = new System.Drawing.Point(6, 19);
-            this.chkTreeViewBillClassesAllowCollaps.Name = "chkTreeViewBillClassesAllowCollaps";
-            this.chkTreeViewBillClassesAllowCollaps.Size = new System.Drawing.Size(117, 17);
-            this.chkTreeViewBillClassesAllowCollaps.TabIndex = 0;
-            this.chkTreeViewBillClassesAllowCollaps.Text = "Erlaube einklappen";
-            this.chkTreeViewBillClassesAllowCollaps.UseVisualStyleBackColor = true;
-            // 
             // chkTreeViewBillClassesExpandAllDefault
             // 
             this.chkTreeViewBillClassesExpandAllDefault.AutoSize = true;
@@ -352,13 +343,34 @@
             this.chkTreeViewBillClassesExpandAllDefault.Text = "Standardmäßig ausgeklappt";
             this.chkTreeViewBillClassesExpandAllDefault.UseVisualStyleBackColor = true;
             // 
+            // chkTreeViewBillClassesAllowCollaps
+            // 
+            this.chkTreeViewBillClassesAllowCollaps.AutoSize = true;
+            this.chkTreeViewBillClassesAllowCollaps.Location = new System.Drawing.Point(6, 19);
+            this.chkTreeViewBillClassesAllowCollaps.Name = "chkTreeViewBillClassesAllowCollaps";
+            this.chkTreeViewBillClassesAllowCollaps.Size = new System.Drawing.Size(117, 17);
+            this.chkTreeViewBillClassesAllowCollaps.TabIndex = 0;
+            this.chkTreeViewBillClassesAllowCollaps.Text = "Erlaube einklappen";
+            this.chkTreeViewBillClassesAllowCollaps.UseVisualStyleBackColor = true;
+            // 
+            // chkCheckForUpdates
+            // 
+            this.chkCheckForUpdates.AutoSize = true;
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 316);
+            this.chkCheckForUpdates.Name = "chkCheckForUpdates";
+            this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
+            this.chkCheckForUpdates.TabIndex = 12;
+            this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
+            this.chkCheckForUpdates.UseVisualStyleBackColor = true;
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 359);
+            this.ClientSize = new System.Drawing.Size(729, 375);
+            this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.grbBillClassesTreeView);
             this.Controls.Add(this.chkAutoCheckFileAssociation);
             this.Controls.Add(this.grbAddTextToFiile);
@@ -422,5 +434,6 @@
         private System.Windows.Forms.GroupBox grbBillClassesTreeView;
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesExpandAllDefault;
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesAllowCollaps;
+        private System.Windows.Forms.CheckBox chkCheckForUpdates;
     }
 }

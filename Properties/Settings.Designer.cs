@@ -221,5 +221,63 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["TreeView_BillClasses_AllowCollaps"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("QuiAbl__v{0}__Setup.exe")]
+        public string AppUpdate_SetupSearchPattern {
+            get {
+                return ((string)(this["AppUpdate_SetupSearchPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool AppUpdate_CheckAtStartUp {
+            get {
+                return ((bool)(this["AppUpdate_CheckAtStartUp"]));
+            }
+            set {
+                this["AppUpdate_CheckAtStartUp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OliverKind")]
+        public string AppUpdate_Owner {
+            get {
+                return ((string)(this["AppUpdate_Owner"]));
+            }
+            set {
+                this["AppUpdate_Owner"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OLKI.Programme.QuiAbl")]
+        public string AppUpdate_Name {
+            get {
+                return ((string)(this["AppUpdate_Name"]));
+            }
+            set {
+                this["AppUpdate_Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Changelog.txt")]
+        public string AppUpdate_ChangeLog {
+            get {
+                return ((string)(this["AppUpdate_ChangeLog"]));
+            }
+            set {
+                this["AppUpdate_ChangeLog"] = value;
+            }
+        }
     }
 }

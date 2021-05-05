@@ -70,6 +70,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
+            this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
         }
@@ -149,6 +150,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Settings.Default.AppUpdate_CheckAtStartUp = this.chkCheckForUpdates.Checked;
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
