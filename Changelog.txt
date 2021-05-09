@@ -2,15 +2,19 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased]
+## [1.1.0.2] - 2021-05-09
 ### Added
-- N/A
+- Update function
 
 ### Changed
-- N/A
+- Changed to OLKI.Toolbox library
+- Open file if preeview PictureBox was double clicked
+- Speed up image processing
 
 ### Fixed
-- N/A
+- Check for file association is unreliable
+- Crash while save Bill, if an File-Image was modified
+- Open unmodified Image, if Image was not saved
 
 ## [1.0.0.1 - develop] - 2021-01-22
 ### Initial release

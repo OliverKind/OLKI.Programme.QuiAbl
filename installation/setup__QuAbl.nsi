@@ -1,4 +1,4 @@
-;NSIS Installer for QuiAbl 1.0.0.1
+;NSIS Installer for QuiAbl 1.1.0.2
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QuiAbl'
-  !define Version          '1.0.0.1'
+  !define Version          '1.1.0.2'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um Quittungen und Rechnungen zu ordnen'
   !define Copyright        '2021 - Oliver Kind'
@@ -110,12 +110,9 @@ Section ""
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
 
-  File ".\..\bin\Release\AssociationTestfile.QuiAblDb"
   File ".\..\bin\Release\changelog.txt"
   File ".\..\bin\Release\QuiAbl.exe"
-  File ".\..\bin\Release\OLKI.Tools.ColorAndPicture.dll"
-  File ".\..\bin\Release\OLKI.Tools.CommonTools.dll"
-  File ".\..\bin\Release\OLKI.Widgets.dll"
+  File ".\..\bin\Release\OLKI.Toolbox.dll"
   File ".\..\bin\Release\Interop.WIA.dll"
   File ".\..\bin\Release\doc\${EulaFile}"
   File ".\..\bin\Release\doc\${InformationFile}"
