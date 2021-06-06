@@ -237,7 +237,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void mnuMain_File_SaveAs_Click(object sender, EventArgs e)
         {
-            if (!this._bgwSaveFile.IsBusy) this._bgwSaveFile.RunWorkerAsync(SaveProjectsArguments.SaveMode.SaveAs);
+            if (!this._bgwSaveFile.IsBusy)
+            {
+                this._bgwSaveFile.RunWorkerAsync(new SaveProjectsArguments(SaveProjectsArguments.SaveMode.SaveAs, null, false));
+            }
         }
 
         private void mnuMain_File_Exit_Click(object sender, EventArgs e)
