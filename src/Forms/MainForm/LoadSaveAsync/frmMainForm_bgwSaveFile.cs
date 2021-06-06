@@ -73,6 +73,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 default:
                     throw new NotImplementedException();
             }
+            _ = State;
             e.Result = State;
         }
 
@@ -88,10 +89,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void _bgwSaveFile_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            SaveProjectsState State = (SaveProjectsState)e.Result;
-            if (State.SaveSucess && State.CloseFormAfterSave && State.ProjectForm != null)
+            if (!e.Cancelled)
             {
-                State.ProjectForm.Close(true);
+                SaveProjectsState State = (SaveProjectsState)e.Result;
+                if (State.SaveSucess && State.CloseFormAfterSave && State.ProjectForm != null)
+                {
+                    State.ProjectForm.Close(true);
+                }
             }
 
             if (this._progressForm != null)
