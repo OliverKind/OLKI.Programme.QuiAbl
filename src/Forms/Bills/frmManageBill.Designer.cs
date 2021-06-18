@@ -53,6 +53,9 @@
             this.tbpInformationDocument = new System.Windows.Forms.TabPage();
             this.btnFileRemove = new System.Windows.Forms.Button();
             this.grbFileData = new System.Windows.Forms.GroupBox();
+            this.spcFilePreview = new System.Windows.Forms.SplitContainer();
+            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
+            this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.btnFileSave = new System.Windows.Forms.Button();
             this.grbFileModify = new System.Windows.Forms.GroupBox();
             this.btnFileModifyCropUndo = new System.Windows.Forms.Button();
@@ -82,7 +85,6 @@
             this.cboFileScanDevice = new System.Windows.Forms.ComboBox();
             this.lblFileScanDevice = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
-            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
             this.lblFileComment = new System.Windows.Forms.Label();
             this.btnFileAdd = new System.Windows.Forms.Button();
             this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
@@ -104,12 +106,15 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
-            this.spcFilePreview = new System.Windows.Forms.SplitContainer();
-            this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
             this.grbFileData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).BeginInit();
+            this.spcFilePreview.Panel1.SuspendLayout();
+            this.spcFilePreview.Panel2.SuspendLayout();
+            this.spcFilePreview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).BeginInit();
             this.grbFileModify.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyContrast)).BeginInit();
@@ -118,13 +123,8 @@
             this.tbpFileSourceFile.SuspendLayout();
             this.tbpFileSourceScan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFileScanResolution)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).BeginInit();
             this.tbpInformationInvoiceItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).BeginInit();
-            this.spcFilePreview.Panel1.SuspendLayout();
-            this.spcFilePreview.Panel2.SuspendLayout();
-            this.spcFilePreview.SuspendLayout();
             this.SuspendLayout();
             // 
             // columnHeader7
@@ -190,7 +190,6 @@
             // 
             // tbpInformationGenerel
             // 
-            this.tbpInformationGenerel.BackColor = System.Drawing.Color.Transparent;
             this.tbpInformationGenerel.Controls.Add(this.btnManageBillClasses);
             this.tbpInformationGenerel.Controls.Add(this.lblComment);
             this.tbpInformationGenerel.Controls.Add(this.txtComment);
@@ -317,7 +316,6 @@
             // 
             // tbpInformationDocument
             // 
-            this.tbpInformationDocument.BackColor = System.Drawing.Color.Transparent;
             this.tbpInformationDocument.Controls.Add(this.btnFileRemove);
             this.tbpInformationDocument.Controls.Add(this.grbFileData);
             this.tbpInformationDocument.Controls.Add(this.btnFileAdd);
@@ -360,6 +358,50 @@
             this.grbFileData.TabIndex = 3;
             this.grbFileData.TabStop = false;
             this.grbFileData.Text = "Dokument";
+            // 
+            // spcFilePreview
+            // 
+            this.spcFilePreview.Location = new System.Drawing.Point(355, 19);
+            this.spcFilePreview.Name = "spcFilePreview";
+            this.spcFilePreview.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // spcFilePreview.Panel1
+            // 
+            this.spcFilePreview.Panel1.Controls.Add(this.picFilePreview);
+            this.spcFilePreview.Panel1MinSize = 272;
+            // 
+            // spcFilePreview.Panel2
+            // 
+            this.spcFilePreview.Panel2.Controls.Add(this.prgFilePreview);
+            this.spcFilePreview.Panel2MinSize = 0;
+            this.spcFilePreview.Size = new System.Drawing.Size(275, 416);
+            this.spcFilePreview.SplitterDistance = 272;
+            this.spcFilePreview.TabIndex = 11;
+            // 
+            // picFilePreview
+            // 
+            this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picFilePreview.CropMode = true;
+            this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.picFilePreview.Name = "picFilePreview";
+            this.picFilePreview.Size = new System.Drawing.Size(275, 272);
+            this.picFilePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFilePreview.TabIndex = 3;
+            this.picFilePreview.TabStop = false;
+            this.picFilePreview.DoubleClick += new System.EventHandler(this.picFilePreview_DoubleClick);
+            // 
+            // prgFilePreview
+            // 
+            this.prgFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prgFilePreview.HelpVisible = false;
+            this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.prgFilePreview.Name = "prgFilePreview";
+            this.prgFilePreview.ReadOnly = true;
+            this.prgFilePreview.Size = new System.Drawing.Size(275, 140);
+            this.prgFilePreview.TabIndex = 11;
+            this.prgFilePreview.ToolbarVisible = false;
+            this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
             // btnFileSave
             // 
@@ -563,7 +605,6 @@
             // 
             // tbpFileSourceFile
             // 
-            this.tbpFileSourceFile.BackColor = System.Drawing.Color.Transparent;
             this.tbpFileSourceFile.Controls.Add(this.btnFileAttech);
             this.tbpFileSourceFile.Controls.Add(this.btnFileBrowse);
             this.tbpFileSourceFile.Controls.Add(this.txtFilePath);
@@ -622,7 +663,6 @@
             // 
             // tbpFileSourceScan
             // 
-            this.tbpFileSourceScan.BackColor = System.Drawing.Color.Transparent;
             this.tbpFileSourceScan.Controls.Add(this.nudFileScanResolution);
             this.tbpFileSourceScan.Controls.Add(this.btnFileScan);
             this.tbpFileSourceScan.Controls.Add(this.lblFileScanResolution);
@@ -706,19 +746,6 @@
             this.imlTabIcons.Images.SetKeyName(3, "List.png");
             this.imlTabIcons.Images.SetKeyName(4, "Scanner.png");
             // 
-            // picFilePreview
-            // 
-            this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picFilePreview.CropMode = true;
-            this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picFilePreview.Location = new System.Drawing.Point(0, 0);
-            this.picFilePreview.Name = "picFilePreview";
-            this.picFilePreview.Size = new System.Drawing.Size(275, 272);
-            this.picFilePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picFilePreview.TabIndex = 3;
-            this.picFilePreview.TabStop = false;
-            this.picFilePreview.DoubleClick += new System.EventHandler(this.picFilePreview_DoubleClick);
-            // 
             // lblFileComment
             // 
             this.lblFileComment.AutoSize = true;
@@ -766,7 +793,6 @@
             // 
             // tbpInformationInvoiceItems
             // 
-            this.tbpInformationInvoiceItems.BackColor = System.Drawing.Color.Transparent;
             this.tbpInformationInvoiceItems.Controls.Add(this.prbInvoiceItemProperty);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemRemove);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemAdd);
@@ -947,37 +973,6 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
-            // spcFilePreview
-            // 
-            this.spcFilePreview.Location = new System.Drawing.Point(355, 19);
-            this.spcFilePreview.Name = "spcFilePreview";
-            this.spcFilePreview.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // spcFilePreview.Panel1
-            // 
-            this.spcFilePreview.Panel1.Controls.Add(this.picFilePreview);
-            this.spcFilePreview.Panel1MinSize = 272;
-            // 
-            // spcFilePreview.Panel2
-            // 
-            this.spcFilePreview.Panel2.Controls.Add(this.prgFilePreview);
-            this.spcFilePreview.Panel2MinSize = 0;
-            this.spcFilePreview.Size = new System.Drawing.Size(275, 416);
-            this.spcFilePreview.SplitterDistance = 272;
-            this.spcFilePreview.TabIndex = 11;
-            // 
-            // prgFilePreview
-            // 
-            this.prgFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prgFilePreview.HelpVisible = false;
-            this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
-            this.prgFilePreview.Name = "prgFilePreview";
-            this.prgFilePreview.ReadOnly = true;
-            this.prgFilePreview.Size = new System.Drawing.Size(275, 140);
-            this.prgFilePreview.TabIndex = 11;
-            this.prgFilePreview.ToolbarVisible = false;
-            this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1012,6 +1007,11 @@
             this.tbpInformationDocument.ResumeLayout(false);
             this.grbFileData.ResumeLayout(false);
             this.grbFileData.PerformLayout();
+            this.spcFilePreview.Panel1.ResumeLayout(false);
+            this.spcFilePreview.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).EndInit();
+            this.spcFilePreview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).EndInit();
             this.grbFileModify.ResumeLayout(false);
             this.grbFileModify.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyThreshold)).EndInit();
@@ -1023,13 +1023,8 @@
             this.tbpFileSourceScan.ResumeLayout(false);
             this.tbpFileSourceScan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFileScanResolution)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).EndInit();
             this.tbpInformationInvoiceItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).EndInit();
-            this.spcFilePreview.Panel1.ResumeLayout(false);
-            this.spcFilePreview.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).EndInit();
-            this.spcFilePreview.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
