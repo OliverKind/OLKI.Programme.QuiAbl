@@ -89,7 +89,6 @@
             // 
             // tabpBillData
             // 
-            this.tabpBillData.BackColor = System.Drawing.Color.Transparent;
             this.tabpBillData.Controls.Add(this.prgBillProperty);
             this.tabpBillData.ImageKey = "Properties.png";
             this.tabpBillData.Location = new System.Drawing.Point(4, 4);
@@ -106,14 +105,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.prgBillProperty.Location = new System.Drawing.Point(6, 6);
             this.prgBillProperty.Name = "prgBillProperty";
-            this.prgBillProperty.Size = new System.Drawing.Size(292, 517);
+            this.prgBillProperty.Size = new System.Drawing.Size(327, 517);
             this.prgBillProperty.TabIndex = 0;
             this.prgBillProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.prgBillProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prgBillProperty_PropertyValueChanged);
             // 
             // tabpBillDocs
             // 
-            this.tabpBillDocs.BackColor = System.Drawing.Color.Transparent;
             this.tabpBillDocs.Controls.Add(this.pnlBillFiles);
             this.tabpBillDocs.ImageKey = "File.png";
             this.tabpBillDocs.Location = new System.Drawing.Point(4, 4);
@@ -184,7 +182,7 @@
             this.picBilFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picBilFilePreview.Location = new System.Drawing.Point(6, 6);
             this.picBilFilePreview.Name = "picBilFilePreview";
-            this.picBilFilePreview.Size = new System.Drawing.Size(327, 458);
+            this.picBilFilePreview.Size = new System.Drawing.Size(324, 458);
             this.picBilFilePreview.TabIndex = 19;
             this.picBilFilePreview.TabStop = false;
             this.picBilFilePreview.DoubleClick += new System.EventHandler(this.picBilFilePreview_DoubleClick);
