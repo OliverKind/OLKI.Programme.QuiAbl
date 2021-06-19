@@ -183,11 +183,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             if (SelectedBill.Files.Count > 0)
             {
-                SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]].SetToPictureBox(this.picBilFilePreview);
+                File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
+                FileItem.SetToPictureBox(this.picBilFilePreview);
+
+                this.btnBillFileOpen.Enabled = true;
+                this.btnBillFileSave.Enabled = FileItem.Source != File.FileSource.Link;
             }
             else
             {
                 this.picBilFilePreview.Image = null;
+                this.btnBillFileOpen.Enabled = false;
+                this.btnBillFileSave.Enabled = false;
             }
         }
 
@@ -316,13 +322,25 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void btnBillFileOpen_Click(object sender, EventArgs e)
         {
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
-            SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]].OpenFileFromTemp(this);
+            File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
+
+            if (FileItem.Source == File.FileSource.Link)
+            {
+                FileItem.OpenFileFromLink(this);
+            }
+            else
+            {
+                FileItem.OpenFileFromTemp(this);
+            }
         }
 
         private void btnBillFileSave_Click(object sender, EventArgs e)
         {
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
-            SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]].OpenFileFromPath(this);
+            File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
+
+            if (FileItem.Source == File.FileSource.Link) return;
+            FileItem.OpenFileFromPath(this);
         }
 
         private void btnBillFilePrev_Click(object sender, EventArgs e)

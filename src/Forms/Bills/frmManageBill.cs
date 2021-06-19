@@ -161,9 +161,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvFiles_SelectedIndexChanged(this, new EventArgs());
             this.lsvFiles.EndUpdate();
 
-            // Initial open fiel dialog
-            this._openFileDialog.Multiselect = true;
-
             // Initial scan devices
             this.cboFileScanDevice.Items.Clear();
             this._scanDeviceList = WIAscan.GetDevices();
@@ -482,49 +479,51 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             int OrgSelectedIndex = this.lsvFiles.SelectedIndices[0];
 
             List<string> Files = this.txtFilePath.Text.Split(FILE_SEPERATOR).ToList();
-            if (string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).FileBase64) || MessageBox.Show(this, Stringtable._0x0006m, Stringtable._0x0006c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (!this.OverwriteExistingFileDate(OrgSelectedIndex)) return;
+            for (int i = 0; i < Files.Count; i++)
             {
-
-                for (int i = 0; i < Files.Count; i++)
+                // Create a new ListViewItem
+                if (i > 0)
                 {
-                    // Create a new ListViewItem
-                    if (i > 0)
+                    // Add file to list
+                    this.Bill.FilesLastInsertedId++;
+                    NewFile = new File(this.Bill.FilesLastInsertedId)
                     {
-                        // Add file to list
-                        this.Bill.FilesLastInsertedId++;
-                        NewFile = new File(this.Bill.FilesLastInsertedId)
-                        {
-                            Title = string.Format(MULTI_FILENAME_FORMAT, new object[] { this.lsvFiles.Items[OrgSelectedIndex].Text, (i + 1) })
-                        };
-                        this.Bill.Files.Add(this.Bill.FilesLastInsertedId, NewFile);
+                        LinkPath="",
+                        Source = File.FileSource.File,
+                        Title = string.Format(MULTI_FILENAME_FORMAT, new object[] { this.lsvFiles.Items[OrgSelectedIndex].Text, (i + 1) })
+                    };
+                    this.Bill.Files.Add(this.Bill.FilesLastInsertedId, NewFile);
 
-                        // Add item to list view
-                        NewLsvFileItem = new ListViewItem
-                        {
-                            Tag = NewFile,
-                            Text = NewFile.TitleNoText
-                        };
-                        this.lsvFiles.Items.Insert(OrgSelectedIndex + i, NewLsvFileItem);
-                    }
-
-                    // Add the file
-                    try
+                    // Add item to list view
+                    NewLsvFileItem = new ListViewItem
                     {
-                        ((File)this.lsvFiles.Items[OrgSelectedIndex + i].Tag).LoadFile(Files[i]);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(this, string.Format(Stringtable._0x0007m, new object[] { Files[i], ex.Message }), Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    this.txtFilePath.Text = "";
-                    ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
+                        Tag = NewFile,
+                        Text = NewFile.TitleNoText
+                    };
+                    this.lsvFiles.Items.Insert(OrgSelectedIndex + i, NewLsvFileItem);
                 }
+
+                // Add the file
+                try
+                {
+                    ((File)this.lsvFiles.Items[OrgSelectedIndex + i].Tag).LinkPath = "";
+                    ((File)this.lsvFiles.Items[OrgSelectedIndex + i].Tag).LoadFile(Files[i]);
+                    ((File)this.lsvFiles.Items[OrgSelectedIndex + i].Tag).Source = File.FileSource.File;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, string.Format(Stringtable._0x0007m, new object[] { Files[i], ex.Message }), Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.txtFilePath.Text = "";
+                ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
             }
         }
 
         private void btnFileScan_Click(object sender, EventArgs e)
         {
             if (this.cboFileScanDevice.SelectedIndex == -1) return;
+            if (!this.OverwriteExistingFileDate(this.lsvFiles.SelectedIndices[0])) return;
             string ScanDeviceId = this._scanDeviceList[this.cboFileScanDevice.SelectedIndex].DeviceID;
 
             Image NewImage = WIAscan.Scan(ScanDeviceId, (uint)this.nudFileScanResolution.Value, out Exception ScanExteption);
@@ -535,40 +534,59 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else if (NewImage != null)
             {
+                ((File)this.lsvFiles.SelectedItems[0].Tag).LinkPath = "";
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LoadFile(NewImage);
+                ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
             }
 
-            if (this.lsvFiles.SelectedItems.Count == 1)
-            {
-                File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-
-                this.grbFileModify.Enabled = (FileItem.Image != null);
-                this.txtFileComment.Text = FileItem.Comment;
-                this.txtFileTitle.Text = FileItem.Title;
-                this.txtFilePath.Text = "";
-
-                this.SetSelectedFileToPicturebox();
-            }
+            this.SetSelectedFileToControles(false);
         }
 
         private void btnFileBrowse_Click(object sender, EventArgs e)
         {
+            this._openFileDialog.Multiselect = true;
             if (this._openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 this.txtFilePath.Text = string.Join(FILE_SEPERATOR.ToString(), this._openFileDialog.FileNames);
             }
         }
 
+        private void btnFileLinkBrowse_Click(object sender, EventArgs e)
+        {
+            this._openFileDialog.Multiselect = false;
+            if (this._openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (!this.OverwriteExistingFileDate(this.lsvFiles.SelectedIndices[0])) return;
+                this.txtFileLinkPath.Text = this._openFileDialog.FileName;
+                ((File)this.lsvFiles.SelectedItems[0].Tag).LinkPath = this._openFileDialog.FileName;
+                ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Link;
+
+                this.SetSelectedFileToControles(false);
+            }
+        }
+
         private void btnFileOpen_Click(object sender, EventArgs e)
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
-            ((File)this.lsvFiles.SelectedItems[0].Tag).OpenFileFromTemp(this);
+            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+
+            if (FileItem.Source == File.FileSource.Link)
+            {
+                FileItem.OpenFileFromLink(this);
+            }
+            else
+            {
+                FileItem.OpenFileFromTemp(this);
+            }
         }
 
         private void btnFileSave_Click(object sender, EventArgs e)
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
-            ((File)this.lsvFiles.SelectedItems[0].Tag).OpenFileFromPath(this);
+            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+            
+            if (FileItem.Source == File.FileSource.Link) return;
+            FileItem.OpenFileFromPath(this);
         }
 
         private void btnFileRemove_Click(object sender, EventArgs e)
@@ -579,27 +597,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.grbFileData.Enabled = (this.lsvFiles.SelectedItems.Count == 1);
-            if (this.lsvFiles.SelectedItems.Count == 1)
-            {
-                File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-
-                this.grbFileModify.Enabled = (FileItem.Image != null);
-                this.GetImageModification();
-                this.SetSelectedFileToPicturebox();
-                this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
-                this.txtFileComment.Text = FileItem.Comment;
-                this.txtFileTitle.Text = FileItem.Title;
-                this.txtFilePath.Text = "";
-            }
-            else
-            {
-                this.grbFileModify.Enabled = false;
-                this.picFilePreview.Image = null;
-                this.prgFilePreview.SelectedObject = null;
-                this.txtFileComment.Text = "";
-                this.txtFileTitle.Text = "";
-                this.txtFilePath.Text = "";
-            }
+            this.SetSelectedFileToControles(true);
             this.txtFilePath_TextChanged(sender, e);
         }
 
@@ -625,6 +623,45 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             ((File)this.lsvFiles.SelectedItems[0].Tag).Title = this.txtFileTitle.Text;
             this.lsvFiles.SelectedItems[0].Text = ((File)this.lsvFiles.SelectedItems[0].Tag).Title;
+        }
+
+        /// <summary>
+        /// Get if the selected File has data and if yes if they sould been overwritten
+        /// </summary>
+        /// <param name="OrgSelectedIndex">Index of the selected file item</param>
+        /// <returns></returns>
+        private bool OverwriteExistingFileDate(int OrgSelectedIndex)
+        {
+            return string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).FileBase64) && string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).LinkPath) || MessageBox.Show(this, Stringtable._0x0006m, Stringtable._0x0006c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
+        }
+
+        private void SetSelectedFileToControles(bool GetImageModification)
+        {
+            if (this.lsvFiles.SelectedItems.Count == 1)
+            {
+                File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+
+                this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
+                this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
+                this.txtFileComment.Text = FileItem.Comment;
+                this.txtFileTitle.Text = FileItem.Title;
+                this.txtFilePath.Text = "";
+
+                this.btnFileOpen.Enabled = true;
+                this.btnFileSave.Enabled = FileItem.Source != File.FileSource.Link;
+
+                if (GetImageModification) this.GetImageModification();
+                this.SetSelectedFileToPicturebox();
+            }
+            else
+            {
+                this.grbFileModify.Enabled = false;
+                this.picFilePreview.Image = null;
+                this.prgFilePreview.SelectedObject = null;
+                this.txtFileComment.Text = "";
+                this.txtFileTitle.Text = "";
+                this.txtFilePath.Text = "";
+            }
         }
 
         #region Image modification

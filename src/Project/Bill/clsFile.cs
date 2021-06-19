@@ -53,6 +53,16 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public event EventHandler FileChanged;
         #endregion
 
+        #region Enums
+        public enum FileSource
+        {
+            Unknown,
+            File,
+            Scan,
+            Link
+        }
+        #endregion
+
         #region Properties
         /// <summary>
         /// True if the Fike data was changed
@@ -145,6 +155,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 try
                 {
+                    if (this.Source == FileSource.Link) return Image.FromFile(this.LinkPath);
                     return Image.FromStream(new System.IO.MemoryStream(Convert.FromBase64String(this._fileBase64)));
                 }
                 catch
@@ -179,10 +190,24 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// The path where the file is located, if the source is a linkes file
+        /// </summary>
+        [Category("Allgemein")]
+        [Description("Pfad zur Verknüpften Datei.")]
+        [DisplayName("Verknüpfungspfad")]
+        public string LinkPath { get; set; }
+
+        /// <summary>
         /// Get or set modifications to store. Modifications will be done, if proceed method is called
         /// </summary>
         [Browsable(false)]
         public ImageModification Modification { get; set; }
+
+        /// <summary>
+        /// Source of the file
+        /// </summary>
+        [Browsable(false)]
+        public FileSource Source { get; set; } = FileSource.Unknown;
 
         /// <summary>
         /// The Name of the File
@@ -240,7 +265,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="inputFile">XElement to read File data from</param>
         public File(XElement inputFile)
         {
-            this.FromFromXElementML(inputFile);
+            this.FromFromXElement(inputFile);
         }
 
         /// <summary>
@@ -312,12 +337,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// Get the File from an XElement object
         /// </summary>
         /// <param name="inputCompany">XElement to read File data from</param>
-        public void FromFromXElementML(XElement inputFile)
+        public void FromFromXElement(XElement inputFile)
         {
             this.Id = Serialize.GetFromXElement(inputFile, "Id", 0);
             this._comment = Serialize.GetFromXElement(inputFile, "Comment", "");
             this._fileBase64 = Serialize.GetFromXElement(inputFile, "StreamBase64", "");
+            this.LinkPath = Serialize.GetFromXElement(inputFile, "LinkPath", "");
             this.OriginalFileName = Serialize.GetFromXElement(inputFile, "OriginalFileName", "");
+            this.Source = (FileSource)Serialize.GetFromXElement(inputFile, "Source", (int)FileSource.Unknown);
             this._title = Serialize.GetFromXElement(inputFile, "Title", "");
         }
 
@@ -342,6 +369,25 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Open the linked file
+        /// </summary>
+        /// <param name="owner">Owner form to show messages modal</param>
+        public void OpenFileFromLink(IWin32Window owner)
+        {
+            try
+            {
+                System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
+                FileOpener.StartInfo.FileName = "explorer";
+                FileOpener.StartInfo.Arguments = "\"" + this.LinkPath + "\"";
+                FileOpener.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(owner, string.Format(Stringtable._0x0008m, new object[] { ex.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// Write the file to an defined directory an open it with system default application
         /// </summary>
         /// <param name="owner">Owner form to show messages modal</param>
@@ -353,7 +399,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 SaveFileDialog SaveFileDialog = new SaveFileDialog
                 {
                     DefaultExt = Extension,
-                    Filter = string.Format("(*.{0}) | *.{0}", new object[] { Extension })
+                    Filter = string.Format("(*{0}) | *{0}", new object[] { Extension })
                 };
                 if (SaveFileDialog.ShowDialog(owner) != DialogResult.OK) return;
 
@@ -483,8 +529,10 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
             FileRoot.Add(new XElement("Id", this.Id));
             FileRoot.Add(new XElement("Comment", this._comment));
-            FileRoot.Add(new XElement("StreamBase64", this._fileBase64));
+            FileRoot.Add(new XElement("LinkPath", this.LinkPath));
             FileRoot.Add(new XElement("OriginalFileName", this.OriginalFileName));
+            FileRoot.Add(new XElement("Source", (int)this.Source));
+            FileRoot.Add(new XElement("StreamBase64", this._fileBase64));
             FileRoot.Add(new XElement("Title", this._title));
 
             return FileRoot;

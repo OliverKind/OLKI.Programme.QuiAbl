@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">1;2</Value>
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -33,7 +33,7 @@
       <Value Profile="(Default)">dd.MM.yyyy</Value>
     </Setting>
     <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
