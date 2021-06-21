@@ -180,9 +180,6 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="CONTRIBUTING.md" />
-    <None Include="doc\Eula.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="doc\Information.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

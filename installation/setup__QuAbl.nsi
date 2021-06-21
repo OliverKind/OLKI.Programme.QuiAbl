@@ -27,7 +27,7 @@
   !define Copyright        '2021 - Oliver Kind'
   !define FinishFile       'QuiAbl.exe'
   !define ReadmeFile       'ReadMe.txt'
-  !define EulaFile         'Eula.rtf'
+  !define EulaFile         'LGPL-License.txt'
   !define InformationFile  'Information.rtf'
 
 ;--------------------------------
@@ -54,7 +54,7 @@
   ;Install Pages
   !insertmacro MUI_PAGE_WELCOME
     !define MUI_LICENSEPAGE_RADIOBUTTONS
-  !insertmacro MUI_PAGE_LICENSE .\..\doc\${EulaFile}
+  !insertmacro MUI_PAGE_LICENSE .\..\bin\Release\licenses\${EulaFile}
     !define MUI_PAGE_HEADER_TEXT "Installationshinweise"
     !define MUI_PAGE_HEADER_SUBTEXT "Bitte lesen Sie die Hinweise zur Installation der Software"
   !insertmacro MUI_PAGE_LICENSE .\..\doc\${InformationFile}
@@ -114,7 +114,6 @@ Section ""
   File ".\..\bin\Release\QuiAbl.exe"
   File ".\..\bin\Release\OLKI.Toolbox.dll"
   File ".\..\bin\Release\Interop.WIA.dll"
-  File ".\..\bin\Release\doc\${EulaFile}"
   File ".\..\bin\Release\doc\${InformationFile}"
   File ".\..\bin\Release\doc\${ReadmeFile}"
   File ".\..\bin\Release\Resources\ProgamIcons\project_symbol\Project_Symbol.ico"
