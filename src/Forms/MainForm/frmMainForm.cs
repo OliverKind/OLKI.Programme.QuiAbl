@@ -26,8 +26,9 @@ using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Forms.Bills;
 using OLKI.Programme.QuiAbl.src.Forms.MainForm.LoadSaveAsync;
 using OLKI.Toolbox.Common;
-using OLKI.Toolbox.UpdateApp;
+using OLKI.Toolbox.Widgets.AboutForm;
 using System;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -48,11 +49,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         /// Schould close form be foreced
         /// </summary>
         private bool _appClose = false;
-
-        /// <summary>
-        /// Specifies the application about form
-        /// </summary>
-        private readonly SubForms.AboutForm _frmAbout = new SubForms.AboutForm();
 
         /// <summary>
         /// Specifies the application settings form
@@ -284,7 +280,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void mnuMain_File_Help_Info_Click(object sender, EventArgs e)
         {
-            this._frmAbout.ShowDialog(this);
+            System.Reflection.Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Drawing.Image AppImage = Resources.QuiAbl;
+            AboutForm AboutForm = new AboutForm(Assembly, AppImage, null)
+            {
+                Credits = Resources.Credits,
+                LicenseDirectory = Path.GetDirectoryName(Assembly.Location) + @"\Licenses\"
+            };
+            AboutForm.Show(this);
         }
 
         private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)

@@ -151,6 +151,30 @@ namespace OLKI.Programme.QuiAbl.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die // Entwickler:
+        ///Programmierung: Oliver Kind
+        ///Design: Oliver Kind
+        ///Orthographie: Lydia Kind
+        ///
+        ///
+        ///// Software von Drittanbietern:
+        ///Widgets und Komponenten von Widgets
+        ///- Sort listview Columns and Set Sort Arrow Icon on Column Header
+        ///  Autor und Veröffentlichung: sagar_253, 21 Mar 2014
+        ///  Quelle: http://www.codeproject.com/Tips/734463/Sort-listview-Columns-and-Set-Sort-Arrow-Icon-on-C
+        ///  Lizenz: The Code Project Open License (CPOL)
+        ///  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
+        ///
+        ///
+        //// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Crop {

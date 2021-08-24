@@ -62,12 +62,6 @@
     <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsSaveProjectArguments.cs" />
     <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsSaveProjectState.cs" />
     <Compile Include="src\Forms\MainForm\LoadSaveAsync\clsLoadProjectState.cs" />
-    <Compile Include="src\Forms\MainForm\SubForms\frmAboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Forms\MainForm\SubForms\frmAboutForm.designer.cs">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Forms\Bills\frmManageCompany.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,9 +101,6 @@
     <EmbeddedResource Include="Properties\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\MainForm\SubForms\frmAboutForm.resx">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\Bills\frmProjectForm.resx">
       <DependentUpon>frmProjectForm.cs</DependentUpon>
