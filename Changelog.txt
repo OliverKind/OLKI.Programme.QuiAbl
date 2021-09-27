@@ -1,4 +1,11 @@
 # Change Log
+## [1.2.1.5] - 2021-09-27
+### Added
+- Show ReferencedAssemblies at AboutForm
+
+### Fixed
+- Wrong Credits shown at AboutForm
+
 ## [1.2.0.4] - 2021-09-25
 ### Added
 - Link to a file
