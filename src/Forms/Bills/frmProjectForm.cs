@@ -225,7 +225,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (billItem.Date != null) this.lsvBills.Items[ItemIndex].SubItems[1].Text = ((DateTime)billItem.Date).ToString(Settings.Default.DateFormat);
             this.lsvBills.Items[ItemIndex].SubItems[2].Text = billItem.Files.Count.ToString();
             this.lsvBills.Items[ItemIndex].SubItems[3].Text = billItem.BillClassName;
-            this.lsvBills.Items[ItemIndex].SubItems[5].Text = billItem.CompanyName;
+            this.lsvBills.Items[ItemIndex].SubItems[4].Text = billItem.CompanyName;
             this.lsvBills.Items[ItemIndex].SubItems[5].Text = billItem.Comment;
 
             this.prgBillProperty.Refresh();
@@ -245,6 +245,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this._manageBill.ShowDialog(this) == DialogResult.OK)
             {
                 ListViewItem NewItem = new ListViewItem();
+                NewItem.SubItems.Add("");
                 NewItem.SubItems.Add("");
                 NewItem.SubItems.Add("");
                 NewItem.SubItems.Add("");
