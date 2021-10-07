@@ -62,6 +62,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the BillNumber
         /// </summary>
+        [Browsable(true)]
         [Category("Zusatzinformationen")]
         [Description("Nummer der Rechnung.")]
         [DisplayName("Rechnungsnummer")]
@@ -102,6 +103,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [ReadOnly(true)]
         public int BillClassId
@@ -117,6 +120,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get the name of the BillClass, belonging to the Bill
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Die Kategorie die der Rechnung zugeordnet wurde.")]
         [DisplayName("Kategorie")]
@@ -142,6 +146,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         public bool Changed
@@ -164,6 +170,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the comment to the Bill
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Kommentar zur Rechnung.")]
         [DisplayName("Kommentar")]
@@ -187,6 +194,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
@@ -203,6 +212,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get the name of the Company, belonging to the Bill
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Die Firma von der die Rechnung ist.")]
         [DisplayName("Rechnungsfirma")]
@@ -226,6 +236,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the date of the customer number of the bill
         /// </summary>
+        [Browsable(true)]
         [Category("Zusatzinformationen")]
         [Description("Nummer des Kunden.")]
         [DisplayName("Kundennummer")]
@@ -246,6 +257,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the date of the bill
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Das Datum an dem die Rechnung ausgestellt wurde.")]
         [DisplayName("Rechnungsdatum")]
@@ -267,6 +279,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the date where the bill is expired, and can be dispose and deleted
         /// </summary>
+        [Browsable(true)]
         [Category("Zusatzinformationen")]
         [Description("Datum bis zu dem die Rechnung gültig ist, ab dem sie vernichtet werden kann.")]
         [DisplayName("Gültigkeitsdatum")]
@@ -307,6 +320,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
@@ -332,6 +347,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
@@ -342,6 +359,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
@@ -354,6 +373,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the location where the original files are located
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Der Ort an dem die Originalrechnung abgelegt wurde.")]
         [DisplayName("Ablageort")]
@@ -391,6 +411,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get the number if invoice items
         /// </summary>
+        [Browsable(true)]
         [Category("Zusatzinformationen")]
         [Description("Anzahl der eingetragenen Rechnungspositionen.")]
         [DisplayName("Positionen")]
@@ -402,6 +423,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// </summary>
 #if !DEBUG
         [Browsable(false)]
+#else
+        [Browsable(true)]
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
@@ -414,6 +437,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Get or set the Name of the Bill
         /// </summary>
+        [Browsable(true)]
         [Category("Allgemein")]
         [Description("Benennung der Rechnung.")]
         [DisplayName("Benennung")]
