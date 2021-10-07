@@ -51,7 +51,19 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// List with all Companies in project
         /// </summary>
-        private readonly Dictionary<int, Company> _companies;
+        private Dictionary<int, Company> _companies;
+        /// <summary>
+        /// Set the list with all Companies in project
+        /// </summary>
+        [Browsable(false)]
+        [ReadOnly(true)]
+        public Dictionary<int, Company> Companies
+        {
+            set
+            {
+                this._companies = value;
+            }
+        }
         #endregion
 
         #region Properties

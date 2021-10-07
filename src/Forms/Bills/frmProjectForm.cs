@@ -217,6 +217,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// <param name="billItem">BillItem with new data for ListViewItem</param>
         private void UpdateListviewItem(int ItemIndex, Bill billItem)
         {
+            billItem.BillClasses = this.Project.BillClasses;
+            billItem.Companies = this.Project.Companies;
+
             if (ItemIndex < 0) return;
             this.lsvBills.Items[ItemIndex].Tag = billItem;
             this.lsvBills.Items[ItemIndex].Text = billItem.TitleNoText;
