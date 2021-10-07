@@ -271,14 +271,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             this.UpdateListviewItem(this.lsvBills.SelectedIndices[0], (Bill)this.lsvBills.SelectedItems[0].Tag);
             this.lsvBills_SelectedIndexChanged(sender, e);
+            this.Project.Changed = true;
         }
 
         private void btnBillRemove_Click(object sender, EventArgs e)
         {
-            if (this.lsvBills.SelectedItems.Count != 1) return;
+            if (this.lsvBills.SelectedItems.Count < 1) return;
 
-            this.lsvBills.SelectedItems[0].Remove();
+            foreach (ListViewItem BillItem in this.lsvBills.SelectedItems)
+            {
+                this.Project.Bills.Remove(((Bill)BillItem.Tag).Id);
+                BillItem.Remove();
+            }
             this.lsvBills_SelectedIndexChanged(sender, e);
+            this.Project.Changed = true;
         }
 
         private void lsvBills_MouseDoubleClick(object sender, MouseEventArgs e)
