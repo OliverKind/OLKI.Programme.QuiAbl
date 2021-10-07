@@ -264,12 +264,10 @@
             // 
             // cohBillsComapny
             // 
-            this.cohBillsComapny.DisplayIndex = 5;
             this.cohBillsComapny.Text = "Firma";
             // 
             // cohBillsComment
             // 
-            this.cohBillsComment.DisplayIndex = 4;
             this.cohBillsComment.Text = "Kommentar";
             this.cohBillsComment.Width = 90;
             // 
