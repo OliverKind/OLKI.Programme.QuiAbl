@@ -80,7 +80,8 @@ namespace OLKI.Programme.QuiAbl.src
         {
             foreach (Form Form in this._mainForm.MdiChildren)
             {
-                if (((Forms.Bills.ProjectForm)Form).Project.File.FullName == file) return true;
+                Forms.Bills.ProjectForm ProjectForm = ((Forms.Bills.ProjectForm)Form);
+                if (ProjectForm.Project.File != null && ProjectForm.Project.File.FullName == file) return true;
             }
             return false;
         }
