@@ -87,7 +87,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewItem = new ListViewItem
                 {
                     Tag = companyItem.Value,
-                    Text = companyItem.Value.Title
+                    Text = companyItem.Value.TitleNoText
                 };
                 this.lsvCompanies.Items.Add(NewItem);
             }

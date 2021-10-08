@@ -591,11 +591,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnFileRemove_Click(object sender, EventArgs e)
         {
+            if (this.lsvFiles.SelectedItems.Count != 1) return;
             this.lsvFiles.SelectedItems[0].Remove();
         }
 
         private void lsvFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.btnFileRemove.Enabled = this.lsvFiles.SelectedItems.Count == 1;
             this.grbFileData.Enabled = (this.lsvFiles.SelectedItems.Count == 1);
             this.SetSelectedFileToControles(true);
             this.txtFilePath_TextChanged(sender, e);
@@ -833,11 +835,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnInvoiceItemRemove_Click(object sender, EventArgs e)
         {
+            if (this.lsvFiles.SelectedItems.Count != 1) return;
             this.lsvInvoiceItems.SelectedItems[0].Remove();
         }
 
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count == 1;
             if (this.lsvInvoiceItems.SelectedItems.Count == 1)
             {
                 this.prbInvoiceItemProperty.SelectedObject = (InvoiceItem)this.lsvInvoiceItems.SelectedItems[0].Tag;
