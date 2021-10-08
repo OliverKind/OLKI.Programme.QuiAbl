@@ -340,6 +340,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             this.Bill.InvoiceItemLastInsertedId = MaxInvoiceItemsId;
 
+            this.trvBillClasses_AfterSelect(sender, new TreeViewEventArgs(this.trvBillClasses.SelectedNode));
             this.Bill.BillChanged += new EventHandler(this._project.ToggleSubItemChanged);
             this._project.ToggleSubItemChanged(sender, e);
 
