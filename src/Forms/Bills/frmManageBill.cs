@@ -624,7 +624,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
 
             ((File)this.lsvFiles.SelectedItems[0].Tag).Title = this.txtFileTitle.Text;
-            this.lsvFiles.SelectedItems[0].Text = ((File)this.lsvFiles.SelectedItems[0].Tag).Title;
+            this.lsvFiles.SelectedItems[0].Text = ((File)this.lsvFiles.SelectedItems[0].Tag).TitleNoText;
         }
 
         /// <summary>
