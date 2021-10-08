@@ -257,10 +257,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._comboToCompanyId.Add(i, 0);
 
             //Add company items
-            foreach (KeyValuePair<int, Company> companyItem in this._project.Companies.OrderBy(o => o.Value.Title))
+            foreach (KeyValuePair<int, Company> companyItem in this._project.Companies.OrderBy(o => o.Value.TitleNoText))
             {
                 i++;
-                this.cboCompany.Items.Add(companyItem.Value.Title);
+                this.cboCompany.Items.Add(companyItem.Value.TitleNoText);
                 this._comboToCompanyId.Add(i, companyItem.Value.Id);
                 if (this.Bill.CompanyId > 0 && companyItem.Value.Id == this.Bill.CompanyId) this.cboCompany.SelectedIndex = i;
             }
