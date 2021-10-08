@@ -1,4 +1,4 @@
-'QuiAbl - 1.0.0.1' - Quittungsablage
+'QuiAbl - 1.2.4.8' - Quittungsablage
 ************************************
 
 Copyright © 2021 OLKI - Oliver Kind
@@ -52,7 +52,7 @@ das Computersystem folgende Voraussetzungen erfüllen:
 - Betriebssystem - Microsoft Windows 7 (32 oder 64 Bit)
 Die Unterstützung durch weitere Windows Versionen ist möglich - wurde jedoch nicht getestet.
 
-- .NET Framework 4.7.2 oder höher
+- .NET Framework 4.8 oder höher
 
 
 Bei der Darstellung der Programm-Oberflächen können je nach
