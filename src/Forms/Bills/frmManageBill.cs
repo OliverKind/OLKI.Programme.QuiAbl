@@ -226,7 +226,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewNode = new TreeNode
                 {
                     Tag = billClassItem.Value,
-                    Text = billClassItem.Value.Title
+                    Text = billClassItem.Value.TitleNoText
                 };
 
                 if (parentNode != null)
