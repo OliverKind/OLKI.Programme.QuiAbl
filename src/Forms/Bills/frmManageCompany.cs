@@ -155,6 +155,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnCompanyRemove_Click(object sender, EventArgs e)
         {
+            if (this.lsvCompanies.SelectedItems.Count < 1) return;
             this.lsvCompanies.SelectedItems[0].Remove();
         }
 
@@ -168,6 +169,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvCompanies_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.grbProperties.Enabled = this.lsvCompanies.SelectedItems.Count == 1;
+            this.btnCompanyRemove.Enabled = this.lsvCompanies.SelectedItems.Count == 1;
             if (this.lsvCompanies.SelectedItems.Count == 1)
             {
                 this.txtComment.Text = ((Company)this.lsvCompanies.SelectedItems[0].Tag).Comment;
