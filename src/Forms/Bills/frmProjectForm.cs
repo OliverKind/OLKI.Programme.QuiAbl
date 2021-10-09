@@ -253,8 +253,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewItem.SubItems.Add("");
                 NewItem.SubItems.Add("");
                 NewItem.SubItems.Add("");
+                NewItem.Tag = this._manageBill.Bill;
 
                 this.lsvBills.Items.Add(NewItem);
+                
                 int NewBillIndex = this.GetListViewItemIndex(this._manageBill.Bill.Id);
                 if (NewBillIndex > -1)
                 {
