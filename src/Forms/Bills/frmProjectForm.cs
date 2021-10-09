@@ -255,8 +255,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewItem.SubItems.Add("");
 
                 this.lsvBills.Items.Add(NewItem);
-                this.UpdateListviewItem(this.lsvBills.Items.Count - 1, this._manageBill.Bill);
-                this.lsvBills_SelectedIndexChanged(sender, e);
+                int NewBillIndex = this.GetListViewItemIndex(this._manageBill.Bill.Id);
+                if (NewBillIndex > -1)
+                {
+                    this.UpdateListviewItem(this.lsvBills.Items.Count - 1, this._manageBill.Bill);
+                    this.lsvBills_SelectedIndexChanged(sender, e);
+                }
                 this._manageBill.Bill.BillChanged += new EventHandler(this.Project.ToggleSubItemChanged);
                 this.Project.Changed = true;
             }
