@@ -1,5 +1,21 @@
-# Change Log
-## [1.2.3.7] - 2021-10-??
+# QuiAbl - Quittungsablage
+## [1.2.4.8] - 2021-10-10
+### Changed
+- Show more Bill optiosn at DataGrid
+
+### Fixed
+- Bills can not be deleted if more than one is selected
+- Bills will not be deleted
+- BillClasses and Company names not shown if they were edited at Bill Editor
+- Crash if no company is selected at company Management
+- Crash if try to delete File or Invoice Item if no File or Invoice Item is selected
+- Crash at BillEditor Form if Compnay Name is Empty
+- No default Text shown at Bill Filelist, if Title of a file was set to an empty string
+- No default Text shown at Bill BillClasses TreeView, if Title of a file was set to an empty string
+- Losing Line Breakes at Multiline TextBoxes
+- Unselected BillClass not saved to Bill
+
+## [1.2.3.7] - 2021-10-07
 Changed
 - Set required .NET-Framework to Version 4.8
 
