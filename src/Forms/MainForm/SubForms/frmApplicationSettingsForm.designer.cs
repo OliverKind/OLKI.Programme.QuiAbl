@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationSettingsForm));
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.tolApplicationSettings = new System.Windows.Forms.ToolStrip();
             this.grbProjectFolder = new System.Windows.Forms.GroupBox();
             this.btnDefaultFileOpen_Delete = new System.Windows.Forms.Button();
             this.btnDefaultPath_Delete = new System.Windows.Forms.Button();
@@ -59,6 +57,7 @@
             this.chkTreeViewBillClassesExpandAllDefault = new System.Windows.Forms.CheckBox();
             this.chkTreeViewBillClassesAllowCollaps = new System.Windows.Forms.CheckBox();
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -66,20 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).BeginInit();
             this.grbBillClassesTreeView.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 339);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 24);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "&Abbrechen";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
@@ -94,16 +79,6 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // tolApplicationSettings
-            // 
-            this.tolApplicationSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
-            this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 375);
-            this.tolApplicationSettings.TabIndex = 10;
-            this.tolApplicationSettings.Text = "toolStrip1";
-            // 
             // grbProjectFolder
             // 
             this.grbProjectFolder.Controls.Add(this.btnDefaultFileOpen_Delete);
@@ -116,7 +91,7 @@
             this.grbProjectFolder.Controls.Add(this.lblDefaultPath);
             this.grbProjectFolder.Location = new System.Drawing.Point(12, 12);
             this.grbProjectFolder.Name = "grbProjectFolder";
-            this.grbProjectFolder.Size = new System.Drawing.Size(688, 71);
+            this.grbProjectFolder.Size = new System.Drawing.Size(705, 71);
             this.grbProjectFolder.TabIndex = 0;
             this.grbProjectFolder.TabStop = false;
             this.grbProjectFolder.Text = "Standardordner und -dateien";
@@ -124,7 +99,7 @@
             // btnDefaultFileOpen_Delete
             // 
             this.btnDefaultFileOpen_Delete.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultFileOpen_Delete.Image")));
-            this.btnDefaultFileOpen_Delete.Location = new System.Drawing.Point(647, 42);
+            this.btnDefaultFileOpen_Delete.Location = new System.Drawing.Point(664, 42);
             this.btnDefaultFileOpen_Delete.Name = "btnDefaultFileOpen_Delete";
             this.btnDefaultFileOpen_Delete.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultFileOpen_Delete.TabIndex = 7;
@@ -134,7 +109,7 @@
             // btnDefaultPath_Delete
             // 
             this.btnDefaultPath_Delete.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultPath_Delete.Image")));
-            this.btnDefaultPath_Delete.Location = new System.Drawing.Point(647, 16);
+            this.btnDefaultPath_Delete.Location = new System.Drawing.Point(664, 16);
             this.btnDefaultPath_Delete.Name = "btnDefaultPath_Delete";
             this.btnDefaultPath_Delete.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultPath_Delete.TabIndex = 3;
@@ -144,7 +119,7 @@
             // btnDefaultFileOpen_Browse
             // 
             this.btnDefaultFileOpen_Browse.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultFileOpen_Browse.Image")));
-            this.btnDefaultFileOpen_Browse.Location = new System.Drawing.Point(606, 42);
+            this.btnDefaultFileOpen_Browse.Location = new System.Drawing.Point(623, 42);
             this.btnDefaultFileOpen_Browse.Name = "btnDefaultFileOpen_Browse";
             this.btnDefaultFileOpen_Browse.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultFileOpen_Browse.TabIndex = 6;
@@ -155,7 +130,7 @@
             // 
             this.txtDefaultFileOpen.Location = new System.Drawing.Point(142, 45);
             this.txtDefaultFileOpen.Name = "txtDefaultFileOpen";
-            this.txtDefaultFileOpen.Size = new System.Drawing.Size(458, 20);
+            this.txtDefaultFileOpen.Size = new System.Drawing.Size(475, 20);
             this.txtDefaultFileOpen.TabIndex = 5;
             // 
             // lblDefaultFileOpen
@@ -170,7 +145,7 @@
             // btnDefaultPath_Browse
             // 
             this.btnDefaultPath_Browse.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultPath_Browse.Image")));
-            this.btnDefaultPath_Browse.Location = new System.Drawing.Point(606, 16);
+            this.btnDefaultPath_Browse.Location = new System.Drawing.Point(623, 16);
             this.btnDefaultPath_Browse.Name = "btnDefaultPath_Browse";
             this.btnDefaultPath_Browse.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultPath_Browse.TabIndex = 2;
@@ -181,7 +156,7 @@
             // 
             this.txtDefaultPath.Location = new System.Drawing.Point(142, 19);
             this.txtDefaultPath.Name = "txtDefaultPath";
-            this.txtDefaultPath.Size = new System.Drawing.Size(458, 20);
+            this.txtDefaultPath.Size = new System.Drawing.Size(475, 20);
             this.txtDefaultPath.TabIndex = 1;
             // 
             // lblDefaultPath
@@ -201,7 +176,7 @@
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
             this.grbRecentFiles.Location = new System.Drawing.Point(12, 233);
             this.grbRecentFiles.Name = "grbRecentFiles";
-            this.grbRecentFiles.Size = new System.Drawing.Size(688, 48);
+            this.grbRecentFiles.Size = new System.Drawing.Size(705, 48);
             this.grbRecentFiles.TabIndex = 4;
             this.grbRecentFiles.TabStop = false;
             this.grbRecentFiles.Text = "Zuletzt geöffnete Dateien";
@@ -261,7 +236,7 @@
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(494, 287);
+            this.btnSetDefaults.Location = new System.Drawing.Point(511, 288);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
             this.btnSetDefaults.TabIndex = 7;
@@ -276,7 +251,7 @@
             this.grbAddTextToFiile.Controls.Add(this.txtDateFormat);
             this.grbAddTextToFiile.Location = new System.Drawing.Point(12, 89);
             this.grbAddTextToFiile.Name = "grbAddTextToFiile";
-            this.grbAddTextToFiile.Size = new System.Drawing.Size(688, 45);
+            this.grbAddTextToFiile.Size = new System.Drawing.Size(705, 45);
             this.grbAddTextToFiile.TabIndex = 3;
             this.grbAddTextToFiile.TabStop = false;
             this.grbAddTextToFiile.Text = "Formatierung";
@@ -328,7 +303,7 @@
             this.grbBillClassesTreeView.Controls.Add(this.chkTreeViewBillClassesAllowCollaps);
             this.grbBillClassesTreeView.Location = new System.Drawing.Point(12, 140);
             this.grbBillClassesTreeView.Name = "grbBillClassesTreeView";
-            this.grbBillClassesTreeView.Size = new System.Drawing.Size(688, 65);
+            this.grbBillClassesTreeView.Size = new System.Drawing.Size(705, 65);
             this.grbBillClassesTreeView.TabIndex = 11;
             this.grbBillClassesTreeView.TabStop = false;
             this.grbBillClassesTreeView.Text = "Kategorienbraum";
@@ -363,6 +338,20 @@
             this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
             this.chkCheckForUpdates.UseVisualStyleBackColor = true;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(607, 339);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 24);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "&Abbrechen";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -378,7 +367,6 @@
             this.Controls.Add(this.btnCheckFileAssociation);
             this.Controls.Add(this.grbRecentFiles);
             this.Controls.Add(this.grbProjectFolder);
-            this.Controls.Add(this.tolApplicationSettings);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -405,10 +393,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.ToolStrip tolApplicationSettings;
         private System.Windows.Forms.GroupBox grbProjectFolder;
         private System.Windows.Forms.TextBox txtDefaultFileOpen;
         private System.Windows.Forms.Label lblDefaultFileOpen;
@@ -435,5 +420,6 @@
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesExpandAllDefault;
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesAllowCollaps;
         private System.Windows.Forms.CheckBox chkCheckForUpdates;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
