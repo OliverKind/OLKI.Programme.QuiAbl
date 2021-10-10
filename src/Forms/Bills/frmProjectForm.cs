@@ -202,12 +202,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// </summary>
         public void UpdateAllListviewItems()
         {
+            this.lsvBills.BeginUpdate();
             Bill BillItem;
             for (int i = 0; i < this.lsvBills.Items.Count; i++)
             {
                 BillItem = (Bill)this.lsvBills.Items[i].Tag;
                 this.UpdateListviewItem(i, BillItem);
             }
+            this.lsvBills.EndUpdate();
         }
 
         /// <summary>
