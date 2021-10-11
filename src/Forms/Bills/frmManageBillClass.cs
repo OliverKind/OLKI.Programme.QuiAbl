@@ -183,6 +183,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.trvBillClasses.Nodes.Add(NewNode);
             }
             this.trvBillClasses.SelectedNode = NewNode;
+            this.txtTitle.Focus();
             this.trvBillClasses_AfterSelect(sender, new TreeViewEventArgs(null));
             if (Properties.Settings.Default.TreeView_BillClasses_ExpandAllDefault || !Properties.Settings.Default.TreeView_BillClasses_AllowCollaps) this.trvBillClasses.ExpandAll();
         }

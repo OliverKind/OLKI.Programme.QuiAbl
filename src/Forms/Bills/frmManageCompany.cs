@@ -147,6 +147,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 CompanyItem = (Company)this.lsvCompanies.Items[i].Tag;
                 if (CompanyItem.Id == this._companyLastInsertedId) this.lsvCompanies.Items[i].Selected = true;
             }
+            this.txtTitle.Focus();
         }
 
         private void btnCompanyRemove_Click(object sender, EventArgs e)
