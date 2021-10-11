@@ -517,6 +517,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     MessageBox.Show(this, string.Format(Stringtable._0x0007m, new object[] { Files[i], ex.Message }), Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 this.txtFilePath.Text = "";
+                this.lblOriginalFileName.Text = ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).OriginalFileName;
                 ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
             }
         }
@@ -646,6 +647,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
+                this.lblOriginalFileName.Text = FileItem.OriginalFileName;
                 this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
@@ -660,6 +662,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             else
             {
                 this.grbFileModify.Enabled = false;
+                this.lblOriginalFileName.Text = "";
                 this.picFilePreview.Image = null;
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";

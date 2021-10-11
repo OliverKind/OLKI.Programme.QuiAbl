@@ -111,6 +111,7 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
+            this.lblOriginalFileName = new System.Windows.Forms.Label();
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -563,6 +564,7 @@
             // 
             // tbpFileSourceFile
             // 
+            this.tbpFileSourceFile.Controls.Add(this.lblOriginalFileName);
             this.tbpFileSourceFile.Controls.Add(this.btnFileAttech);
             this.tbpFileSourceFile.Controls.Add(this.btnFileBrowse);
             this.tbpFileSourceFile.Controls.Add(this.txtFilePath);
@@ -1034,6 +1036,14 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
+            // lblOriginalFileName
+            // 
+            this.lblOriginalFileName.Location = new System.Drawing.Point(6, 32);
+            this.lblOriginalFileName.Name = "lblOriginalFileName";
+            this.lblOriginalFileName.Size = new System.Drawing.Size(323, 13);
+            this.lblOriginalFileName.TabIndex = 4;
+            this.lblOriginalFileName.Text = "lblOriginalFileName";
+            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1176,5 +1186,6 @@
         private System.Windows.Forms.TextBox txtFileLinkPath;
         private System.Windows.Forms.Label lblFileLinkPath;
         private System.Windows.Forms.Label lblFileLinkNote;
+        private System.Windows.Forms.Label lblOriginalFileName;
     }
 }
