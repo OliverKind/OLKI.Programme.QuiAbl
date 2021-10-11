@@ -285,6 +285,7 @@
     <Content Include="Resources\Icons\Crop.png" />
     <Content Include="Resources\Icons\Help.ico" />
     <Content Include="Resources\Icons\Help.png" />
+    <None Include="Resources\Icons\NoDocument.png" />
     <Content Include="Resources\Icons\Undo.png" />
     <None Include="Resources\Icons\Save.png" />
     <None Include="Resources\Icons\Properties.ico" />
