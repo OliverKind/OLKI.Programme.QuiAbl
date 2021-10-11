@@ -549,6 +549,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this._openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 this.txtFilePath.Text = string.Join(FILE_SEPERATOR.ToString(), this._openFileDialog.FileNames);
+                this.btnFileAttech_Click(sender, e);
             }
         }
 
