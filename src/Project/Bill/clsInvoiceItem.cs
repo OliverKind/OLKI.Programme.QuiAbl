@@ -186,12 +186,13 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         [Category("Allgemein")]
         [Description("Die Benennung des Artikels.")]
         [DisplayName("Benennung")]
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public string Title
         {
             get => _title;
             set
             {
-                this._title = value;
+                this._title = value.Replace("\r\n", "").Replace("\n", "");
                 this.Changed = true;
             }
         }
