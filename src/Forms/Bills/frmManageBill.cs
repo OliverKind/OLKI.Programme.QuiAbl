@@ -170,7 +170,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             this.cboFileScanDevice.SelectedIndex = (this.cboFileScanDevice.Items.Count > 0 ? 0 : -1);
             this.nudFileScanResolution.Value = Settings.Default.ScanDefaultResolution;
-            this.cboFileModifyColor.SelectedIndex = 0;
+            this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
 
             this.tbaFileModifyBrightnes_Scroll(this, new EventArgs());
             this.tbaFileModifyContrast_Scroll(this, new EventArgs());
@@ -541,6 +541,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
             }
 
+            this.cboFileModifyColor_SelectedIndexChanged(sender, e);
             this.SetSelectedFileToControles(false);
         }
 
@@ -679,7 +680,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            if (FileItem.Image == null) return;
+            if (FileItem.Image == null)
+            {
+                this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
+                return;
+            }
 
             File.ImageModification Modification = FileItem.Modification ?? new File.ImageModification();
 

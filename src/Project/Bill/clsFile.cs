@@ -497,7 +497,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="pictureBox">PictureBox to set the file to</param>
         public void SetToPictureBox(PictureBox pictureBox)
         {
-            if(this.Image == null && string.IsNullOrEmpty(this._fileBase64))
+            if (this.Image == null && string.IsNullOrEmpty(this._fileBase64))
             {
                 pictureBox.Image = Resources.NoDocument;
                 pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -563,7 +563,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// <summary>
             /// Get or set ow the Palette should been changed
             /// </summary>
-            public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color;
+            public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
 
             /// <summary>
             /// Get or set the Threshold if an image shold been converted to an Black and White Palette

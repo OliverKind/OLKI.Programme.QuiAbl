@@ -71,5 +71,8 @@
     <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="User">
       <Value Profile="(Default)">Changelog.txt</Value>
     </Setting>
+    <Setting Name="ScanDefaultColorMode" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

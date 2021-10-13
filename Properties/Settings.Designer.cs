@@ -279,5 +279,18 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["AppUpdate_ChangeLog"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ScanDefaultColorMode {
+            get {
+                return ((int)(this["ScanDefaultColorMode"]));
+            }
+            set {
+                this["ScanDefaultColorMode"] = value;
+            }
+        }
     }
 }

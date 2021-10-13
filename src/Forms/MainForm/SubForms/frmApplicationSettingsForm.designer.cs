@@ -59,8 +59,10 @@
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grbScanDefault = new System.Windows.Forms.GroupBox();
-            this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
             this.lblScanDefaultResolution = new System.Windows.Forms.Label();
+            this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
+            this.cboScanDefaultColorMode = new System.Windows.Forms.ComboBox();
+            this.lblFileModifyVolor = new System.Windows.Forms.Label();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -359,6 +361,8 @@
             // 
             // grbScanDefault
             // 
+            this.grbScanDefault.Controls.Add(this.cboScanDefaultColorMode);
+            this.grbScanDefault.Controls.Add(this.lblFileModifyVolor);
             this.grbScanDefault.Controls.Add(this.lblScanDefaultResolution);
             this.grbScanDefault.Controls.Add(this.nudScanDefaultResolution);
             this.grbScanDefault.Location = new System.Drawing.Point(203, 140);
@@ -367,6 +371,15 @@
             this.grbScanDefault.TabIndex = 3;
             this.grbScanDefault.TabStop = false;
             this.grbScanDefault.Text = "Standard Scaneinstellungen";
+            // 
+            // lblScanDefaultResolution
+            // 
+            this.lblScanDefaultResolution.AutoSize = true;
+            this.lblScanDefaultResolution.Location = new System.Drawing.Point(6, 21);
+            this.lblScanDefaultResolution.Name = "lblScanDefaultResolution";
+            this.lblScanDefaultResolution.Size = new System.Drawing.Size(57, 13);
+            this.lblScanDefaultResolution.TabIndex = 0;
+            this.lblScanDefaultResolution.Text = "Auflösung:";
             // 
             // nudScanDefaultResolution
             // 
@@ -386,14 +399,28 @@
             0,
             0});
             // 
-            // lblScanDefaultResolution
+            // cboFileModifyColor
             // 
-            this.lblScanDefaultResolution.AutoSize = true;
-            this.lblScanDefaultResolution.Location = new System.Drawing.Point(6, 21);
-            this.lblScanDefaultResolution.Name = "lblScanDefaultResolution";
-            this.lblScanDefaultResolution.Size = new System.Drawing.Size(57, 13);
-            this.lblScanDefaultResolution.TabIndex = 0;
-            this.lblScanDefaultResolution.Text = "Auflösung:";
+            this.cboScanDefaultColorMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cboScanDefaultColorMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboScanDefaultColorMode.FormattingEnabled = true;
+            this.cboScanDefaultColorMode.Items.AddRange(new object[] {
+            "Farbe",
+            "Graustufen",
+            "Schwarz Weiiß"});
+            this.cboScanDefaultColorMode.Location = new System.Drawing.Point(184, 18);
+            this.cboScanDefaultColorMode.Name = "cboFileModifyColor";
+            this.cboScanDefaultColorMode.Size = new System.Drawing.Size(217, 21);
+            this.cboScanDefaultColorMode.TabIndex = 3;
+            // 
+            // lblFileModifyVolor
+            // 
+            this.lblFileModifyVolor.AutoSize = true;
+            this.lblFileModifyVolor.Location = new System.Drawing.Point(141, 21);
+            this.lblFileModifyVolor.Name = "lblFileModifyVolor";
+            this.lblFileModifyVolor.Size = new System.Drawing.Size(37, 13);
+            this.lblFileModifyVolor.TabIndex = 2;
+            this.lblFileModifyVolor.Text = "Farbe:";
             // 
             // ApplicationSettingsForm
             // 
@@ -471,5 +498,7 @@
         private System.Windows.Forms.GroupBox grbScanDefault;
         private System.Windows.Forms.Label lblScanDefaultResolution;
         private System.Windows.Forms.NumericUpDown nudScanDefaultResolution;
+        private System.Windows.Forms.ComboBox cboScanDefaultColorMode;
+        private System.Windows.Forms.Label lblFileModifyVolor;
     }
 }

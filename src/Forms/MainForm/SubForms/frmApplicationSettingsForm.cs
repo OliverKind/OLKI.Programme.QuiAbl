@@ -66,6 +66,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         /// </summary>
         private void SetControlesFromSettings()
         {
+            this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.ScanDefaultColorMode;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
             this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
@@ -155,6 +156,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
+            Settings.Default.ScanDefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
             Settings.Default.ScanDefaultResolution = (int)this.nudScanDefaultResolution.Value;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
             Settings.Default.TreeView_BillClasses_AllowCollaps = this.chkTreeViewBillClassesAllowCollaps.Checked;
