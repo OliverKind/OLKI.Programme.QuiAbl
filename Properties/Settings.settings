@@ -48,7 +48,7 @@
       <Value Profile="(Default)">Project_Symbol.ico</Value>
     </Setting>
     <Setting Name="ScanDefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="TreeView_BillClasses_ExpandAllDefault" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
