@@ -66,13 +66,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         /// </summary>
         private void SetControlesFromSettings()
         {
-            this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
-            this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
-            this.txtDateFormat.Text = Settings.Default.DateFormat;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
             this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
+            this.nudScanDefaultResolution.Value = Settings.Default.ScanDefaultResolution;
+            this.txtDateFormat.Text = Settings.Default.DateFormat;
+            this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
+            this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
         }
 
         /// <summary>
@@ -154,6 +155,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
+            Settings.Default.ScanDefaultResolution = (int)this.nudScanDefaultResolution.Value;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
             Settings.Default.TreeView_BillClasses_AllowCollaps = this.chkTreeViewBillClassesAllowCollaps.Checked;
             Settings.Default.TreeView_BillClasses_ExpandAllDefault = this.chkTreeViewBillClassesExpandAllDefault.Checked;

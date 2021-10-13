@@ -58,12 +58,17 @@
             this.chkTreeViewBillClassesAllowCollaps = new System.Windows.Forms.CheckBox();
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.grbScanDefault = new System.Windows.Forms.GroupBox();
+            this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
+            this.lblScanDefaultResolution = new System.Windows.Forms.Label();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
             this.grbAddTextToFiile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).BeginInit();
             this.grbBillClassesTreeView.SuspendLayout();
+            this.grbScanDefault.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScanDefaultResolution)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOk
@@ -72,7 +77,7 @@
             this.btnOk.Location = new System.Drawing.Point(12, 339);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 24);
-            this.btnOk.TabIndex = 8;
+            this.btnOk.TabIndex = 9;
             this.btnOk.Text = "&OK";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -252,7 +257,7 @@
             this.grbAddTextToFiile.Location = new System.Drawing.Point(12, 89);
             this.grbAddTextToFiile.Name = "grbAddTextToFiile";
             this.grbAddTextToFiile.Size = new System.Drawing.Size(705, 45);
-            this.grbAddTextToFiile.TabIndex = 3;
+            this.grbAddTextToFiile.TabIndex = 1;
             this.grbAddTextToFiile.TabStop = false;
             this.grbAddTextToFiile.Text = "Formatierung";
             // 
@@ -262,7 +267,7 @@
             this.lblDateFormatPreview.Location = new System.Drawing.Point(283, 22);
             this.lblDateFormatPreview.Name = "lblDateFormatPreview";
             this.lblDateFormatPreview.Size = new System.Drawing.Size(110, 13);
-            this.lblDateFormatPreview.TabIndex = 4;
+            this.lblDateFormatPreview.TabIndex = 2;
             this.lblDateFormatPreview.Text = "lblDateFormatPreview";
             // 
             // lblDateFormat
@@ -271,7 +276,7 @@
             this.lblDateFormat.Location = new System.Drawing.Point(6, 22);
             this.lblDateFormat.Name = "lblDateFormat";
             this.lblDateFormat.Size = new System.Drawing.Size(75, 13);
-            this.lblDateFormat.TabIndex = 2;
+            this.lblDateFormat.TabIndex = 0;
             this.lblDateFormat.Text = "Datumsformat:";
             // 
             // txtDateFormat
@@ -279,7 +284,7 @@
             this.txtDateFormat.Location = new System.Drawing.Point(87, 19);
             this.txtDateFormat.Name = "txtDateFormat";
             this.txtDateFormat.Size = new System.Drawing.Size(190, 20);
-            this.txtDateFormat.TabIndex = 3;
+            this.txtDateFormat.TabIndex = 1;
             this.txtDateFormat.TextChanged += new System.EventHandler(this.txtDateFormat_TextChanged);
             // 
             // chkAutoCheckFileAssociation
@@ -303,8 +308,8 @@
             this.grbBillClassesTreeView.Controls.Add(this.chkTreeViewBillClassesAllowCollaps);
             this.grbBillClassesTreeView.Location = new System.Drawing.Point(12, 140);
             this.grbBillClassesTreeView.Name = "grbBillClassesTreeView";
-            this.grbBillClassesTreeView.Size = new System.Drawing.Size(705, 65);
-            this.grbBillClassesTreeView.TabIndex = 11;
+            this.grbBillClassesTreeView.Size = new System.Drawing.Size(185, 65);
+            this.grbBillClassesTreeView.TabIndex = 2;
             this.grbBillClassesTreeView.TabStop = false;
             this.grbBillClassesTreeView.Text = "Kategorienbraum";
             // 
@@ -334,7 +339,7 @@
             this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 316);
             this.chkCheckForUpdates.Name = "chkCheckForUpdates";
             this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
-            this.chkCheckForUpdates.TabIndex = 12;
+            this.chkCheckForUpdates.TabIndex = 8;
             this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
             this.chkCheckForUpdates.UseVisualStyleBackColor = true;
             // 
@@ -345,12 +350,50 @@
             this.btnCancel.Location = new System.Drawing.Point(607, 339);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 24);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "&Abbrechen";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // grbScanDefault
+            // 
+            this.grbScanDefault.Controls.Add(this.lblScanDefaultResolution);
+            this.grbScanDefault.Controls.Add(this.nudScanDefaultResolution);
+            this.grbScanDefault.Location = new System.Drawing.Point(203, 140);
+            this.grbScanDefault.Name = "grbScanDefault";
+            this.grbScanDefault.Size = new System.Drawing.Size(508, 65);
+            this.grbScanDefault.TabIndex = 3;
+            this.grbScanDefault.TabStop = false;
+            this.grbScanDefault.Text = "Standard Scaneinstellungen";
+            // 
+            // nudScanDefaultResolution
+            // 
+            this.nudScanDefaultResolution.Location = new System.Drawing.Point(70, 19);
+            this.nudScanDefaultResolution.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudScanDefaultResolution.Name = "nudScanDefaultResolution";
+            this.nudScanDefaultResolution.Size = new System.Drawing.Size(65, 20);
+            this.nudScanDefaultResolution.TabIndex = 1;
+            this.nudScanDefaultResolution.ThousandsSeparator = true;
+            this.nudScanDefaultResolution.Value = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            // 
+            // lblScanDefaultResolution
+            // 
+            this.lblScanDefaultResolution.AutoSize = true;
+            this.lblScanDefaultResolution.Location = new System.Drawing.Point(6, 21);
+            this.lblScanDefaultResolution.Name = "lblScanDefaultResolution";
+            this.lblScanDefaultResolution.Size = new System.Drawing.Size(57, 13);
+            this.lblScanDefaultResolution.TabIndex = 0;
+            this.lblScanDefaultResolution.Text = "Auflösung:";
             // 
             // ApplicationSettingsForm
             // 
@@ -359,6 +402,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(729, 375);
+            this.Controls.Add(this.grbScanDefault);
             this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.grbBillClassesTreeView);
             this.Controls.Add(this.chkAutoCheckFileAssociation);
@@ -387,6 +431,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).EndInit();
             this.grbBillClassesTreeView.ResumeLayout(false);
             this.grbBillClassesTreeView.PerformLayout();
+            this.grbScanDefault.ResumeLayout(false);
+            this.grbScanDefault.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScanDefaultResolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,5 +468,8 @@
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesAllowCollaps;
         private System.Windows.Forms.CheckBox chkCheckForUpdates;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox grbScanDefault;
+        private System.Windows.Forms.Label lblScanDefaultResolution;
+        private System.Windows.Forms.NumericUpDown nudScanDefaultResolution;
     }
 }
