@@ -59,10 +59,10 @@
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grbScanDefault = new System.Windows.Forms.GroupBox();
-            this.lblScanDefaultResolution = new System.Windows.Forms.Label();
-            this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
             this.cboScanDefaultColorMode = new System.Windows.Forms.ComboBox();
             this.lblFileModifyVolor = new System.Windows.Forms.Label();
+            this.lblScanDefaultResolution = new System.Windows.Forms.Label();
+            this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -135,6 +135,7 @@
             // 
             // txtDefaultFileOpen
             // 
+            this.txtDefaultFileOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDefaultFileOpen.Location = new System.Drawing.Point(142, 45);
             this.txtDefaultFileOpen.Name = "txtDefaultFileOpen";
             this.txtDefaultFileOpen.Size = new System.Drawing.Size(475, 20);
@@ -161,6 +162,7 @@
             // 
             // txtDefaultPath
             // 
+            this.txtDefaultPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDefaultPath.Location = new System.Drawing.Point(142, 19);
             this.txtDefaultPath.Name = "txtDefaultPath";
             this.txtDefaultPath.Size = new System.Drawing.Size(475, 20);
@@ -212,6 +214,7 @@
             // 
             // nudNumRecentFiles
             // 
+            this.nudNumRecentFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudNumRecentFiles.Location = new System.Drawing.Point(245, 19);
             this.nudNumRecentFiles.Maximum = new decimal(new int[] {
             4,
@@ -283,6 +286,7 @@
             // 
             // txtDateFormat
             // 
+            this.txtDateFormat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDateFormat.Location = new System.Drawing.Point(87, 19);
             this.txtDateFormat.Name = "txtDateFormat";
             this.txtDateFormat.Size = new System.Drawing.Size(190, 20);
@@ -372,6 +376,29 @@
             this.grbScanDefault.TabStop = false;
             this.grbScanDefault.Text = "Standard Scaneinstellungen";
             // 
+            // cboScanDefaultColorMode
+            // 
+            this.cboScanDefaultColorMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cboScanDefaultColorMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboScanDefaultColorMode.FormattingEnabled = true;
+            this.cboScanDefaultColorMode.Items.AddRange(new object[] {
+            "Farbe",
+            "Graustufen",
+            "Schwarz Weiiß"});
+            this.cboScanDefaultColorMode.Location = new System.Drawing.Point(184, 18);
+            this.cboScanDefaultColorMode.Name = "cboScanDefaultColorMode";
+            this.cboScanDefaultColorMode.Size = new System.Drawing.Size(217, 21);
+            this.cboScanDefaultColorMode.TabIndex = 3;
+            // 
+            // lblFileModifyVolor
+            // 
+            this.lblFileModifyVolor.AutoSize = true;
+            this.lblFileModifyVolor.Location = new System.Drawing.Point(141, 21);
+            this.lblFileModifyVolor.Name = "lblFileModifyVolor";
+            this.lblFileModifyVolor.Size = new System.Drawing.Size(37, 13);
+            this.lblFileModifyVolor.TabIndex = 2;
+            this.lblFileModifyVolor.Text = "Farbe:";
+            // 
             // lblScanDefaultResolution
             // 
             this.lblScanDefaultResolution.AutoSize = true;
@@ -383,6 +410,7 @@
             // 
             // nudScanDefaultResolution
             // 
+            this.nudScanDefaultResolution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudScanDefaultResolution.Location = new System.Drawing.Point(70, 19);
             this.nudScanDefaultResolution.Maximum = new decimal(new int[] {
             100000,
@@ -398,29 +426,6 @@
             0,
             0,
             0});
-            // 
-            // cboFileModifyColor
-            // 
-            this.cboScanDefaultColorMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cboScanDefaultColorMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboScanDefaultColorMode.FormattingEnabled = true;
-            this.cboScanDefaultColorMode.Items.AddRange(new object[] {
-            "Farbe",
-            "Graustufen",
-            "Schwarz Weiiß"});
-            this.cboScanDefaultColorMode.Location = new System.Drawing.Point(184, 18);
-            this.cboScanDefaultColorMode.Name = "cboFileModifyColor";
-            this.cboScanDefaultColorMode.Size = new System.Drawing.Size(217, 21);
-            this.cboScanDefaultColorMode.TabIndex = 3;
-            // 
-            // lblFileModifyVolor
-            // 
-            this.lblFileModifyVolor.AutoSize = true;
-            this.lblFileModifyVolor.Location = new System.Drawing.Point(141, 21);
-            this.lblFileModifyVolor.Name = "lblFileModifyVolor";
-            this.lblFileModifyVolor.Size = new System.Drawing.Size(37, 13);
-            this.lblFileModifyVolor.TabIndex = 2;
-            this.lblFileModifyVolor.Text = "Farbe:";
             // 
             // ApplicationSettingsForm
             // 
