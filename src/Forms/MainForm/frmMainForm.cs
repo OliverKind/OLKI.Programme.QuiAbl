@@ -28,6 +28,7 @@ using OLKI.Programme.QuiAbl.src.Forms.MainForm.LoadSaveAsync;
 using OLKI.Toolbox.Common;
 using OLKI.Toolbox.Widgets.AboutForm;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -88,6 +89,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this._projectManager.ActiveProjecChanged += new EventHandler(this.ProjectManager_ProjectChanged);
             this._projectManager.ProjecOpenOrNew += new EventHandler(this.ProjectManager_ProjecOpenOrNew);
 
+
+            // Initial rectent files
+            //TODO: Change Code to work with this application
+            this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
+            this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
+            this._recentFiles.SetFromString(Settings.Default.RecentFiles_FileList);
+            //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
+
             this.Initial_bgwExitApp();
             this.Initial_bgwLoadFile();
             this.Initial_bgwSaveFile();
@@ -111,6 +120,33 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         private void LoadInitialProject(string[] args)
         {
             if (!this._bgwLoadFilesAtStartup.IsBusy) this._bgwLoadFilesAtStartup.RunWorkerAsync(args);
+        }
+
+        /// <summary>
+        /// Open a project from recent file list
+        /// </summary>
+        /// <param name="index">Index of file list to open</param>
+        private void OpenRecentFile(int index)
+        {
+            if (!string.IsNullOrEmpty(this._recentFiles.FileList[index]) && !this._bgwLoadFile.IsBusy)
+            {
+                this._bgwLoadFile.RunWorkerAsync(this._recentFiles.FileList[index]);
+            }
+        }
+
+        /// <summary>
+        /// Add a new item to recent file list and sets the menue item
+        /// </summary>
+        private void SetRecentFilesSettingsAndMenue()
+        {
+            if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
+            {
+                this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
+                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+                Settings.Default.Save();
+            }
+
+            this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
         #region Form Events
@@ -237,6 +273,26 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             {
                 this._bgwSaveFile.RunWorkerAsync(new SaveProjectsArguments(SaveProjectsArguments.SaveMode.SaveAs, null, false));
             }
+        }
+
+        private void mnuMain_File_RecentFiles_File0_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(0);
+        }
+
+        private void mnuMain_File_RecentFiles_File1_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(1);
+        }
+
+        private void mnuMain_File_RecentFiles_File2_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(2);
+        }
+
+        private void mnuMain_File_RecentFiles_File3_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(3);
         }
 
         private void mnuMain_File_Exit_Click(object sender, EventArgs e)

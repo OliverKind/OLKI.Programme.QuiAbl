@@ -292,5 +292,43 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["ScanDefaultColorMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string RecentFiles_FileList {
+            get {
+                return ((string)(this["RecentFiles_FileList"]));
+            }
+            set {
+                this["RecentFiles_FileList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int RecentFiles_MaxLength {
+            get {
+                return ((int)(this["RecentFiles_MaxLength"]));
+            }
+            set {
+                this["RecentFiles_MaxLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("|")]
+        public string RecentFiles_Seperator {
+            get {
+                return ((string)(this["RecentFiles_Seperator"]));
+            }
+            set {
+                this["RecentFiles_Seperator"] = value;
+            }
+        }
     }
 }

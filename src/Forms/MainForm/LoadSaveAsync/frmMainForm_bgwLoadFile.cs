@@ -56,7 +56,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             BackgroundWorker Worker = (BackgroundWorker)sender;
 
             this._progressForm = new ProgressForm();
-            this._projectManager.Project_Open("", Worker);
+            if (e.Argument != null)
+            {
+                this._projectManager.Project_Open(e.Argument.ToString(), Worker);
+            }
+            else
+            {
+                this._projectManager.Project_Open("", Worker);
+            }
         }
 
         private void _bgwLoadFile_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -88,6 +95,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this._progressForm.Close();
                 this._progressForm.Dispose();
             }
+            this.SetRecentFilesSettingsAndMenue();
         }
         #endregion
         #endregion

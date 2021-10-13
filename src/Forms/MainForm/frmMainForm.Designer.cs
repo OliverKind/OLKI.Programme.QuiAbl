@@ -38,7 +38,7 @@
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain_File_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_SaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuMain_File_SepRecentFiles = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain_File_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_Extras = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_Extras_Options = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +60,12 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tolMain_Basedata_Company = new System.Windows.Forms.ToolStripButton();
             this.tolMain_Basedata_BillClass = new System.Windows.Forms.ToolStripButton();
+            this.mnuMain_File_RecentFiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_File_RecentFiles_File0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_File_RecentFiles_File1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_File_RecentFiles_File2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_File_RecentFiles_File3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMainForm.SuspendLayout();
             this.tolMain.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +101,9 @@
             this.toolStripSeparator,
             this.mnuMain_File_Save,
             this.mnuMain_File_SaveAs,
-            this.toolStripSeparator1,
+            this.mnuMain_File_SepRecentFiles,
+            this.mnuMain_File_RecentFiles,
+            this.toolStripSeparator3,
             this.mnuMain_File_Exit});
             this.mnuMain_File.Name = "mnuMain_File";
             this.mnuMain_File.Size = new System.Drawing.Size(46, 20);
@@ -153,10 +161,10 @@
             this.mnuMain_File_SaveAs.Text = "Speichern &unter";
             this.mnuMain_File_SaveAs.Click += new System.EventHandler(this.mnuMain_File_SaveAs_Click);
             // 
-            // toolStripSeparator1
+            // mnuMain_File_SepRecentFiles
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(279, 6);
+            this.mnuMain_File_SepRecentFiles.Name = "mnuMain_File_SepRecentFiles";
+            this.mnuMain_File_SepRecentFiles.Size = new System.Drawing.Size(279, 6);
             // 
             // mnuMain_File_Exit
             // 
@@ -201,7 +209,7 @@
             // 
             this.mnuMain_Window_Cascade.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Cascade.Image")));
             this.mnuMain_Window_Cascade.Name = "mnuMain_Window_Cascade";
-            this.mnuMain_Window_Cascade.Size = new System.Drawing.Size(155, 22);
+            this.mnuMain_Window_Cascade.Size = new System.Drawing.Size(180, 22);
             this.mnuMain_Window_Cascade.Text = "Ü&berlappend";
             this.mnuMain_Window_Cascade.Click += new System.EventHandler(this.mnuMain_Window_Cascade_Click);
             // 
@@ -209,7 +217,7 @@
             // 
             this.mnuMain_Window_Horizontal.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Horizontal.Image")));
             this.mnuMain_Window_Horizontal.Name = "mnuMain_Window_Horizontal";
-            this.mnuMain_Window_Horizontal.Size = new System.Drawing.Size(155, 22);
+            this.mnuMain_Window_Horizontal.Size = new System.Drawing.Size(180, 22);
             this.mnuMain_Window_Horizontal.Text = "&Untereinander";
             this.mnuMain_Window_Horizontal.Click += new System.EventHandler(this.mnuMain_Window_Horizontal_Click);
             // 
@@ -217,14 +225,14 @@
             // 
             this.mnuMain_Window_Vertical.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Vertical.Image")));
             this.mnuMain_Window_Vertical.Name = "mnuMain_Window_Vertical";
-            this.mnuMain_Window_Vertical.Size = new System.Drawing.Size(155, 22);
+            this.mnuMain_Window_Vertical.Size = new System.Drawing.Size(180, 22);
             this.mnuMain_Window_Vertical.Text = "&Nebeneinander";
             this.mnuMain_Window_Vertical.Click += new System.EventHandler(this.mnuMain_Window_Vertical_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuMain_Window_Statusbar
             // 
@@ -232,14 +240,14 @@
             this.mnuMain_Window_Statusbar.CheckOnClick = true;
             this.mnuMain_Window_Statusbar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuMain_Window_Statusbar.Name = "mnuMain_Window_Statusbar";
-            this.mnuMain_Window_Statusbar.Size = new System.Drawing.Size(155, 22);
+            this.mnuMain_Window_Statusbar.Size = new System.Drawing.Size(180, 22);
             this.mnuMain_Window_Statusbar.Text = "Status&leiste";
             this.mnuMain_Window_Statusbar.Click += new System.EventHandler(this.mnuMain_Window_Statusbar_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuMain_File_Help
             // 
@@ -343,6 +351,50 @@
             this.tolMain_Basedata_BillClass.Text = "Verwalte Kategorien";
             this.tolMain_Basedata_BillClass.Click += new System.EventHandler(this.tolMain_Basedata_BillClass_Click);
             // 
+            // mnuMain_File_RecentFiles
+            // 
+            this.mnuMain_File_RecentFiles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMain_File_RecentFiles_File0,
+            this.mnuMain_File_RecentFiles_File1,
+            this.mnuMain_File_RecentFiles_File2,
+            this.mnuMain_File_RecentFiles_File3});
+            this.mnuMain_File_RecentFiles.Name = "mnuMain_File_RecentFiles";
+            this.mnuMain_File_RecentFiles.Size = new System.Drawing.Size(282, 22);
+            this.mnuMain_File_RecentFiles.Text = "&Zuletzt geöffnete Dateien";
+            // 
+            // mnuMain_File_RecentFiles_File0
+            // 
+            this.mnuMain_File_RecentFiles_File0.Name = "mnuMain_File_RecentFiles_File0";
+            this.mnuMain_File_RecentFiles_File0.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File0.Text = "Datei 0";
+            this.mnuMain_File_RecentFiles_File0.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File0_Click);
+            // 
+            // mnuMain_File_RecentFiles_File1
+            // 
+            this.mnuMain_File_RecentFiles_File1.Name = "mnuMain_File_RecentFiles_File1";
+            this.mnuMain_File_RecentFiles_File1.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File1.Text = "Datei 1";
+            this.mnuMain_File_RecentFiles_File1.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File1_Click);
+            // 
+            // mnuMain_File_RecentFiles_File2
+            // 
+            this.mnuMain_File_RecentFiles_File2.Name = "mnuMain_File_RecentFiles_File2";
+            this.mnuMain_File_RecentFiles_File2.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File2.Text = "Datei 2";
+            this.mnuMain_File_RecentFiles_File2.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File2_Click);
+            // 
+            // mnuMain_File_RecentFiles_File3
+            // 
+            this.mnuMain_File_RecentFiles_File3.Name = "mnuMain_File_RecentFiles_File3";
+            this.mnuMain_File_RecentFiles_File3.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File3.Text = "Datei 3";
+            this.mnuMain_File_RecentFiles_File3.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File3_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(279, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,7 +431,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Save;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_SaveAs;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator mnuMain_File_SepRecentFiles;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Exit;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Help;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Help_Info;
@@ -402,5 +454,11 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMain_Extras_Options;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_Help_CheckUpdate;
         private System.Windows.Forms.ToolStripSeparator mnuMain_Help_SepAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File0;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File1;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File2;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

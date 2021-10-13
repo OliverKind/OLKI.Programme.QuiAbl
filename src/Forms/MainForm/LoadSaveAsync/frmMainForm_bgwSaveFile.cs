@@ -103,6 +103,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this._progressForm.Close();
                 this._progressForm.Dispose();
             }
+            this.SetRecentFilesSettingsAndMenue();
         }
         #endregion
         #endregion

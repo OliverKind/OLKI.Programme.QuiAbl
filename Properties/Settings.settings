@@ -74,5 +74,14 @@
     <Setting Name="ScanDefaultColorMode" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="RecentFiles_FileList" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RecentFiles_Seperator" Type="System.String" Scope="User">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
