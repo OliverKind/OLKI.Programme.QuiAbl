@@ -852,6 +852,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
         }
 
+        private void btnInvoiceItemImport_Click(object sender, EventArgs e)
+        {
+            //TODO: Add Code to Import CSV-Files
+        }
+
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count == 1;

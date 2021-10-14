@@ -89,6 +89,7 @@
             this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
+            this.btnInvoiceItemImport = new System.Windows.Forms.Button();
             this.prbInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
             this.btnInvoiceItemRemove = new System.Windows.Forms.Button();
             this.btnInvoiceItemAdd = new System.Windows.Forms.Button();
@@ -815,6 +816,7 @@
             // 
             // tbpInformationInvoiceItems
             // 
+            this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemImport);
             this.tbpInformationInvoiceItems.Controls.Add(this.prbInvoiceItemProperty);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemRemove);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemAdd);
@@ -827,12 +829,26 @@
             this.tbpInformationInvoiceItems.TabIndex = 2;
             this.tbpInformationInvoiceItems.Text = "Positionen";
             // 
+            // btnInvoiceItemImport
+            // 
+            this.btnInvoiceItemImport.Enabled = false;
+            this.btnInvoiceItemImport.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Import;
+            this.btnInvoiceItemImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInvoiceItemImport.Location = new System.Drawing.Point(112, 6);
+            this.btnInvoiceItemImport.Name = "btnInvoiceItemImport";
+            this.btnInvoiceItemImport.Size = new System.Drawing.Size(100, 24);
+            this.btnInvoiceItemImport.TabIndex = 2;
+            this.btnInvoiceItemImport.Text = "Importieren";
+            this.btnInvoiceItemImport.UseVisualStyleBackColor = true;
+            this.btnInvoiceItemImport.Visible = false;
+            this.btnInvoiceItemImport.Click += new System.EventHandler(this.btnInvoiceItemImport_Click);
+            // 
             // prbInvoiceItemProperty
             // 
             this.prbInvoiceItemProperty.Location = new System.Drawing.Point(651, 9);
             this.prbInvoiceItemProperty.Name = "prbInvoiceItemProperty";
             this.prbInvoiceItemProperty.Size = new System.Drawing.Size(206, 471);
-            this.prbInvoiceItemProperty.TabIndex = 3;
+            this.prbInvoiceItemProperty.TabIndex = 4;
             this.prbInvoiceItemProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.prbInvoiceItemProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prbInvoiceItemProperty_PropertyValueChanged);
             // 
@@ -842,7 +858,7 @@
             this.btnInvoiceItemRemove.Location = new System.Drawing.Point(542, 6);
             this.btnInvoiceItemRemove.Name = "btnInvoiceItemRemove";
             this.btnInvoiceItemRemove.Size = new System.Drawing.Size(100, 24);
-            this.btnInvoiceItemRemove.TabIndex = 2;
+            this.btnInvoiceItemRemove.TabIndex = 3;
             this.btnInvoiceItemRemove.Text = "Löschen";
             this.btnInvoiceItemRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInvoiceItemRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1186,5 +1202,6 @@
         private System.Windows.Forms.Label lblFileLinkPath;
         private System.Windows.Forms.Label lblFileLinkNote;
         private System.Windows.Forms.Label lblOriginalFileName;
+        private System.Windows.Forms.Button btnInvoiceItemImport;
     }
 }
