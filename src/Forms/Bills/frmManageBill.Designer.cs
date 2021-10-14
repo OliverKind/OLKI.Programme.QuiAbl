@@ -67,6 +67,7 @@
             this.lblFileTitle = new System.Windows.Forms.Label();
             this.tabFileSource = new System.Windows.Forms.TabControl();
             this.tbpFileSourceFile = new System.Windows.Forms.TabPage();
+            this.lblOriginalFileName = new System.Windows.Forms.Label();
             this.btnFileAttech = new System.Windows.Forms.Button();
             this.btnFileBrowse = new System.Windows.Forms.Button();
             this.txtFilePath = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
-            this.lblOriginalFileName = new System.Windows.Forms.Label();
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -577,6 +577,14 @@
             this.tbpFileSourceFile.TabIndex = 0;
             this.tbpFileSourceFile.Text = "Von Datei";
             // 
+            // lblOriginalFileName
+            // 
+            this.lblOriginalFileName.Location = new System.Drawing.Point(6, 32);
+            this.lblOriginalFileName.Name = "lblOriginalFileName";
+            this.lblOriginalFileName.Size = new System.Drawing.Size(323, 13);
+            this.lblOriginalFileName.TabIndex = 4;
+            this.lblOriginalFileName.Text = "lblOriginalFileName";
+            // 
             // btnFileAttech
             // 
             this.btnFileAttech.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FileOpen;
@@ -868,7 +876,6 @@
             this.lsvInvoiceItems.GridLines = true;
             this.lsvInvoiceItems.HideSelection = false;
             this.lsvInvoiceItems.Location = new System.Drawing.Point(6, 36);
-            this.lsvInvoiceItems.MultiSelect = false;
             this.lsvInvoiceItems.Name = "lsvInvoiceItems";
             this.lsvInvoiceItems.ShowItemToolTips = true;
             this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 441);
@@ -1035,14 +1042,6 @@
             this.btnManageCompanies.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
-            // 
-            // lblOriginalFileName
-            // 
-            this.lblOriginalFileName.Location = new System.Drawing.Point(6, 32);
-            this.lblOriginalFileName.Name = "lblOriginalFileName";
-            this.lblOriginalFileName.Size = new System.Drawing.Size(323, 13);
-            this.lblOriginalFileName.TabIndex = 4;
-            this.lblOriginalFileName.Text = "lblOriginalFileName";
             // 
             // ManageBill
             // 

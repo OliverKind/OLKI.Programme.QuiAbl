@@ -845,16 +845,24 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnInvoiceItemRemove_Click(object sender, EventArgs e)
         {
-            if (this.lsvFiles.SelectedItems.Count != 1) return;
-            this.lsvInvoiceItems.SelectedItems[0].Remove();
+            if (this.lsvInvoiceItems.SelectedItems.Count < 1) return;
+            foreach (ListViewItem InvoiceItem in this.lsvInvoiceItems.SelectedItems)
+            {
+                InvoiceItem.Remove();
+            }
         }
 
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count == 1;
-            if (this.lsvInvoiceItems.SelectedItems.Count == 1)
+            if (this.lsvInvoiceItems.SelectedItems.Count > 0)
             {
-                this.prbInvoiceItemProperty.SelectedObject = (InvoiceItem)this.lsvInvoiceItems.SelectedItems[0].Tag;
+                List<InvoiceItem> SelectedItems = new List<InvoiceItem> { };
+                foreach(ListViewItem ListViewItem in this.lsvInvoiceItems.SelectedItems)
+                {
+                    SelectedItems.Add((InvoiceItem)ListViewItem.Tag);
+                }
+                this.prbInvoiceItemProperty.SelectedObjects = SelectedItems.ToArray();
             }
             else
             {
@@ -866,8 +874,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this.prbInvoiceItemProperty.Refresh();
 
-            InvoiceItem InvoiceItem = ((InvoiceItem)this.prbInvoiceItemProperty.SelectedObject);
-            this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(InvoiceItem.Id), InvoiceItem);
+            InvoiceItem InvoiceItem;
+            foreach (object ChangedInvoiceItem in this.prbInvoiceItemProperty.SelectedObjects)
+            {
+                this.lsvInvoiceItems.BeginUpdate();
+                InvoiceItem = (InvoiceItem)ChangedInvoiceItem;
+                this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(InvoiceItem.Id), InvoiceItem);
+                this.lsvInvoiceItems.EndUpdate();
+            }
         }
         #endregion
         #endregion
