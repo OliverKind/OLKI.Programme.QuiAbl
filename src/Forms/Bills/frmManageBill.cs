@@ -490,7 +490,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     this.Bill.FilesLastInsertedId++;
                     NewFile = new File(this.Bill.FilesLastInsertedId)
                     {
-                        LinkPath="",
+                        LinkPath = "",
                         Source = File.FileSource.File,
                         Title = string.Format(MULTI_FILENAME_FORMAT, new object[] { this.lsvFiles.Items[OrgSelectedIndex].Text, (i + 1) })
                     };
@@ -574,6 +574,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
+            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
             if (FileItem.Source == File.FileSource.Link)
             {
                 FileItem.OpenFileFromLink(this);
@@ -588,7 +589,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            
+
             if (FileItem.Source == File.FileSource.Link) return;
             FileItem.OpenFileFromPath(this);
         }
@@ -659,6 +660,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
                 if (GetImageModification) this.GetImageModification();
                 this.SetSelectedFileToPicturebox();
+                if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64))
+                {
+                    this.btnFileSave.Enabled = false;
+                    this.btnFileOpen.Enabled = false;
+                }
+                else
+                {
+                    this.btnFileSave.Enabled = true;
+                    this.btnFileOpen.Enabled = true;
+                }
             }
             else
             {
@@ -863,7 +874,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvInvoiceItems.SelectedItems.Count > 0)
             {
                 List<InvoiceItem> SelectedItems = new List<InvoiceItem> { };
-                foreach(ListViewItem ListViewItem in this.lsvInvoiceItems.SelectedItems)
+                foreach (ListViewItem ListViewItem in this.lsvInvoiceItems.SelectedItems)
                 {
                     SelectedItems.Add((InvoiceItem)ListViewItem.Tag);
                 }
