@@ -590,6 +590,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
+            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
             if (FileItem.Source == File.FileSource.Link) return;
             FileItem.OpenFileFromPath(this);
         }
