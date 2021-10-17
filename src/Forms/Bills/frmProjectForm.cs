@@ -186,8 +186,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
                 FileItem.SetToPictureBox(this.picBilFilePreview);
 
-                this.btnBillFileOpen.Enabled = true;
-                this.btnBillFileSave.Enabled = FileItem.Source != File.FileSource.Link;
+                if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64))
+                {
+                    this.btnBillFileOpen.Enabled = false;
+                    this.btnBillFileSave.Enabled = false;
+                }
+                else
+                {
+                    this.btnBillFileOpen.Enabled = true;
+                    this.btnBillFileSave.Enabled = FileItem.Source != File.FileSource.Link;
+                }
             }
             else
             {
@@ -258,7 +266,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewItem.Tag = this._manageBill.Bill;
 
                 this.lsvBills.Items.Add(NewItem);
-                
+
                 int NewBillIndex = this.GetListViewItemIndex(this._manageBill.Bill.Id);
                 if (NewBillIndex > -1)
                 {
@@ -342,6 +350,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
+            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
             if (FileItem.Source == File.FileSource.Link)
             {
                 FileItem.OpenFileFromLink(this);
@@ -357,6 +366,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
+            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
             if (FileItem.Source == File.FileSource.Link) return;
             FileItem.OpenFileFromPath(this);
         }
