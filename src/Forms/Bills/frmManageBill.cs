@@ -190,12 +190,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     Tag = InvoiceItem.Value,
                     Text = InvoiceItem.Value.TitleNoText
                 };
-                NewPItem.SubItems.Add("");
-                NewPItem.SubItems.Add("");
-                NewPItem.SubItems.Add("");
-                NewPItem.SubItems.Add("");
-                NewPItem.SubItems.Add("");
-
+                this.lsvInvoiceItems.FillUpSubItems(NewPItem);
                 this.lsvInvoiceItems.Items.Add(NewPItem);
                 this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(InvoiceItem.Value.Id), InvoiceItem.Value);
             }
@@ -842,11 +837,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 Tag = NewInvoiceItem,
                 Text = NewInvoiceItem.TitleNoText
             };
-            NewItem.SubItems.Add("");
-            NewItem.SubItems.Add("");
-            NewItem.SubItems.Add("");
-            NewItem.SubItems.Add("");
-            NewItem.SubItems.Add("");
+            this.lsvInvoiceItems.FillUpSubItems(NewItem);
             this.lsvInvoiceItems.Items.Add(NewItem);
             int i = 0;
             foreach (ListViewItem Item in this.lsvInvoiceItems.Items)
@@ -902,11 +893,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                             Tag = NewInvoiceItem,
                             Text = NewInvoiceItem.TitleNoText
                         };
-                        NewItem.SubItems.Add("");
-                        NewItem.SubItems.Add("");
-                        NewItem.SubItems.Add("");
-                        NewItem.SubItems.Add("");
-                        NewItem.SubItems.Add("");
+                        this.lsvInvoiceItems.FillUpSubItems(NewItem);
                         this.lsvInvoiceItems.Items.Add(NewItem);
 
                         this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(NewInvoiceItem.Id), NewInvoiceItem);

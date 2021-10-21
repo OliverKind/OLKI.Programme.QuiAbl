@@ -148,15 +148,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 if (filter == null || filter.Contains(BillItem.Value.Id))
                 {
                     //Create empty item and fill up by update procedure
-                    ListViewItem NewItem = new ListViewItem();
-                    NewItem.SubItems.Add("");
-                    NewItem.SubItems.Add("");
-                    NewItem.SubItems.Add("");
-                    NewItem.SubItems.Add("");
-                    NewItem.SubItems.Add("");
-
+                    ListViewItem NewItem = new ListViewItem
+                    {
+                        Tag = BillItem.Value,
+                        Text = BillItem.Value.TitleNoText
+                    };
+                    this.lsvBills.FillUpSubItems(NewItem);
                     this.lsvBills.Items.Add(NewItem);
-                    this.UpdateListviewItem(this.lsvBills.Items.Count - 1, BillItem.Value);
+                    this.UpdateListviewItem(this.GetListViewItemIndex(BillItem.Value.Id), BillItem.Value);
                 }
             }
             this.lsvBills.EndUpdate();
@@ -257,14 +256,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._manageBill.CompaniesManageRequest += new EventHandler(this._manageBill_CompaniesManageRequest);
             if (this._manageBill.ShowDialog(this) == DialogResult.OK)
             {
-                ListViewItem NewItem = new ListViewItem();
-                NewItem.SubItems.Add("");
-                NewItem.SubItems.Add("");
-                NewItem.SubItems.Add("");
-                NewItem.SubItems.Add("");
-                NewItem.SubItems.Add("");
-                NewItem.Tag = this._manageBill.Bill;
-
+                ListViewItem NewItem = new ListViewItem
+                {
+                    Tag = this._manageBill.Bill,
+                    Text = this._manageBill.Bill.TitleNoText
+                };
+                this.lsvBills.FillUpSubItems(NewItem);
                 this.lsvBills.Items.Add(NewItem);
 
                 int NewBillIndex = this.GetListViewItemIndex(this._manageBill.Bill.Id);
