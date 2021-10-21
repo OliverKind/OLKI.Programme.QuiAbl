@@ -279,6 +279,9 @@
     <Content Include="licenses\LGPL-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="licenses\MIT-License %28CroweMan%3b 22.06.2010%29.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Program_Symbol.ico" />
     <Content Include="Resources\Icons\Bill.ico" />
     <Content Include="Resources\Icons\Bill.png" />
