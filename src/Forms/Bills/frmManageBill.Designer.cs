@@ -831,7 +831,6 @@
             // 
             // btnInvoiceItemImport
             // 
-            this.btnInvoiceItemImport.Enabled = false;
             this.btnInvoiceItemImport.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Import;
             this.btnInvoiceItemImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInvoiceItemImport.Location = new System.Drawing.Point(112, 6);
@@ -840,7 +839,6 @@
             this.btnInvoiceItemImport.TabIndex = 2;
             this.btnInvoiceItemImport.Text = "Importieren";
             this.btnInvoiceItemImport.UseVisualStyleBackColor = true;
-            this.btnInvoiceItemImport.Visible = false;
             this.btnInvoiceItemImport.Click += new System.EventHandler(this.btnInvoiceItemImport_Click);
             // 
             // prbInvoiceItemProperty

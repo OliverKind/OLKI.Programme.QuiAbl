@@ -249,4 +249,15 @@ Ihre Änderungen gehen verloren, wenn Sie diese nicht speichern.</value>
   <data name="0x0019m" xml:space="preserve">
     <value>Bitte wählen Sie zuerst einen Bereich zum Zuschneiden aus.</value>
   </data>
+  <data name="0x001Ac" xml:space="preserve">
+    <value>Fehler beim Import von CSV-Daten.</value>
+  </data>
+  <data name="0x001Am" xml:space="preserve">
+    <value>Die CSV-Daten konnten nicht oder nur teilweise importiert werden.
+Bitte überprüfen Sie ob die Datei existiert und ob sie dem richtigen Format entspricht.
+
+{0}
+
+Bitte überprüfen Sie welche Daten importiert wurden.</value>
+  </data>
 </root>

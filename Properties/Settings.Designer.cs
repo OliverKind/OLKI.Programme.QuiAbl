@@ -330,5 +330,32 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["RecentFiles_Seperator"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CSV-Datei (*.csv)|*.csv|Alle Dateien (*.*)|*.*")]
+        public string CSVfile_FilterList {
+            get {
+                return ((string)(this["CSVfile_FilterList"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int CSVfile_FilterIndex {
+            get {
+                return ((int)(this["CSVfile_FilterIndex"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("csv")]
+        public string CSVfile_DefaultExtension {
+            get {
+                return ((string)(this["CSVfile_DefaultExtension"]));
+            }
+        }
     }
 }

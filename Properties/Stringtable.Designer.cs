@@ -419,5 +419,28 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x0019m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Import von CSV-Daten. ähnelt.
+        /// </summary>
+        internal static string _0x001Ac {
+            get {
+                return ResourceManager.GetString("0x001Ac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die CSV-Daten konnten nicht oder nur teilweise importiert werden.
+        ///Bitte überprüfen Sie ob die Datei existiert und ob sie dem richtigen Format entspricht.
+        ///
+        ///{0}
+        ///
+        ///Bitte überprüfen Sie welche Daten importiert wurden. ähnelt.
+        /// </summary>
+        internal static string _0x001Am {
+            get {
+                return ResourceManager.GetString("0x001Am", resourceCulture);
+            }
+        }
     }
 }

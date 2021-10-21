@@ -26,6 +26,7 @@ using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Project;
 using OLKI.Programme.QuiAbl.src.Project.Bill;
 using OLKI.Toolbox.ColorAndPicture.Picture.Scan;
+using OLKI.Toolbox.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -184,7 +185,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             foreach (KeyValuePair<int, InvoiceItem> InvoiceItem in this.Bill.InvoiceItems)
             {
                 // Create empty item and fill up by update procedure
-                NewPItem = new ListViewItem();
+                NewPItem = new ListViewItem
+                {
+                    Tag = InvoiceItem.Value,
+                    Text = InvoiceItem.Value.TitleNoText
+                };
                 NewPItem.SubItems.Add("");
                 NewPItem.SubItems.Add("");
                 NewPItem.SubItems.Add("");
@@ -192,7 +197,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 NewPItem.SubItems.Add("");
 
                 this.lsvInvoiceItems.Items.Add(NewPItem);
-                this.UpdateInvoiceItemListview(this.lsvInvoiceItems.Items.Count - 1, InvoiceItem.Value);
+                this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(InvoiceItem.Value.Id), InvoiceItem.Value);
             }
             this.lsvInvoiceItems_SelectedIndexChanged(this, new EventArgs());
             this.lsvInvoiceItems.EndUpdate();
@@ -866,7 +871,57 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnInvoiceItemImport_Click(object sender, EventArgs e)
         {
-            //TODO: Add Code to Import CSV-Files
+            OpenFileDialog OpenFileDialog = new OpenFileDialog
+            {
+                DefaultExt = Settings.Default.CSVfile_DefaultExtension,
+                Filter = Settings.Default.CSVfile_FilterList,
+                FilterIndex = Settings.Default.CSVfile_FilterIndex
+            };
+
+            if (OpenFileDialog.ShowDialog(this) != DialogResult.OK) return;
+
+            CSVreader CSVread = new CSVreader();
+            Exception ImportException;
+            if (CSVread.ReadCSVfromFile(OpenFileDialog.FileName, out ImportException))
+            {
+                foreach (CSVreader.CSVrow CSVrow in CSVread.CSVrows)
+                {
+                    try
+                    {
+                        this.Bill.InvoiceItemLastInsertedId++;
+                        InvoiceItem NewInvoiceItem = new InvoiceItem(this.Bill.InvoiceItemLastInsertedId);
+                        NewInvoiceItem.Title = CSVrow.Columns[0];
+                        NewInvoiceItem.ArticleNumber = CSVrow.Columns[1];
+                        NewInvoiceItem.Price = decimal.Parse(CSVrow.Columns[2]);
+                        NewInvoiceItem.Quantity = int.Parse(CSVrow.Columns[3]);
+                        NewInvoiceItem.Comment = CSVrow.Columns[4];
+
+                        this.Bill.InvoiceItems.Add(this.Bill.InvoiceItemLastInsertedId, NewInvoiceItem);
+                        ListViewItem NewItem = new ListViewItem
+                        {
+                            Tag = NewInvoiceItem,
+                            Text = NewInvoiceItem.TitleNoText
+                        };
+                        NewItem.SubItems.Add("");
+                        NewItem.SubItems.Add("");
+                        NewItem.SubItems.Add("");
+                        NewItem.SubItems.Add("");
+                        NewItem.SubItems.Add("");
+                        this.lsvInvoiceItems.Items.Add(NewItem);
+
+                        this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(NewInvoiceItem.Id), NewInvoiceItem);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, string.Format(Stringtable._0x001Am, new object[] { ex.Message }), Stringtable._0x001Ac, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Bill.InvoiceItemLastInsertedId--;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, string.Format(Stringtable._0x001Am, new object[] { ImportException.Message }), Stringtable._0x001Ac, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
