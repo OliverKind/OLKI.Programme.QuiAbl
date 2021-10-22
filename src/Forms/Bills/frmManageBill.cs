@@ -862,6 +862,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnInvoiceItemImport_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(this, Stringtable._0x001Bm, Stringtable._0x001Bc, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Cancel) return;
+
             OpenFileDialog OpenFileDialog = new OpenFileDialog
             {
                 DefaultExt = Settings.Default.CSVfile_DefaultExtension,

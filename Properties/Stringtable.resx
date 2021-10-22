@@ -260,4 +260,20 @@ Bitte überprüfen Sie ob die Datei existiert und ob sie dem richtigen Format en
 
 Bitte überprüfen Sie welche Daten importiert wurden.</value>
   </data>
+  <data name="0x001Bc" xml:space="preserve">
+    <value>Hinweis zur Formatierung von CSV-Dateien.</value>
+  </data>
+  <data name="0x001Bm" xml:space="preserve">
+    <value>Die CSV-Datei muss folgendermaßen formatiert sein:
+- Kopfzeile: Nicht erlaubt. Erste Zeile wir das Datenzeile interpretiert.
+- Trennzeichen: Semikolon oder Tabulator
+- Reihenfolge der Spalten:
+    1. Artikelbenennung
+    2. Artikelnummer
+    3. Preis
+    4. Anzahl
+    5. Kommentar
+
+Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglicherweise nicht oder nur unvollständig importiert.</value>
+  </data>
 </root>

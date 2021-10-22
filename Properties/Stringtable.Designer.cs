@@ -442,5 +442,33 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x001Am", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hinweis zur Formatierung von CSV-Dateien. ähnelt.
+        /// </summary>
+        internal static string _0x001Bc {
+            get {
+                return ResourceManager.GetString("0x001Bc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die CSV-Datei muss folgendermaßen formatiert sein:
+        ///- Kopfzeile: Nicht erlaubt. Erste Zeile wir das Datenzeile interpretiert.
+        ///- Trennzeichen: Semikolon oder Tabulator
+        ///- Reihenfolge der Spalten:
+        ///    1. Artikelbenennung
+        ///    2. Artikelnummer
+        ///    3. Preis
+        ///    4. Anzahl
+        ///    5. Kommentar
+        ///
+        ///Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglicherweise nicht oder nur unvollständig importiert. ähnelt.
+        /// </summary>
+        internal static string _0x001Bm {
+            get {
+                return ResourceManager.GetString("0x001Bm", resourceCulture);
+            }
+        }
     }
 }
