@@ -872,20 +872,21 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (OpenFileDialog.ShowDialog(this) != DialogResult.OK) return;
 
             CSVreader CSVread = new CSVreader();
-            Exception ImportException;
-            if (CSVread.ReadCSVfromFile(OpenFileDialog.FileName, out ImportException))
+            if (CSVread.ReadCSVfromFile(OpenFileDialog.FileName, out Exception ImportException))
             {
                 foreach (CSVreader.CSVrow CSVrow in CSVread.CSVrows)
                 {
                     try
                     {
                         this.Bill.InvoiceItemLastInsertedId++;
-                        InvoiceItem NewInvoiceItem = new InvoiceItem(this.Bill.InvoiceItemLastInsertedId);
-                        NewInvoiceItem.Title = CSVrow.Columns[0];
-                        NewInvoiceItem.ArticleNumber = CSVrow.Columns[1];
-                        NewInvoiceItem.Price = decimal.Parse(CSVrow.Columns[2]);
-                        NewInvoiceItem.Quantity = int.Parse(CSVrow.Columns[3]);
-                        NewInvoiceItem.Comment = CSVrow.Columns[4];
+                        InvoiceItem NewInvoiceItem = new InvoiceItem(this.Bill.InvoiceItemLastInsertedId)
+                        {
+                            Title = CSVrow.Columns[0],
+                            ArticleNumber = CSVrow.Columns[1],
+                            Price = decimal.Parse(CSVrow.Columns[2]),
+                            Quantity = int.Parse(CSVrow.Columns[3]),
+                            Comment = CSVrow.Columns[4]
+                        };
 
                         this.Bill.InvoiceItems.Add(this.Bill.InvoiceItemLastInsertedId, NewInvoiceItem);
                         ListViewItem NewItem = new ListViewItem
