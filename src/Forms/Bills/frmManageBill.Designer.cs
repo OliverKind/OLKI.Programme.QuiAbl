@@ -90,7 +90,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
             this.btnInvoiceItemImport = new System.Windows.Forms.Button();
-            this.prbInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
+            this.prgInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
             this.btnInvoiceItemRemove = new System.Windows.Forms.Button();
             this.btnInvoiceItemAdd = new System.Windows.Forms.Button();
             this.lsvInvoiceItems = new OLKI.Toolbox.Widgets.SortListView();
@@ -817,7 +817,7 @@
             // tbpInformationInvoiceItems
             // 
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemImport);
-            this.tbpInformationInvoiceItems.Controls.Add(this.prbInvoiceItemProperty);
+            this.tbpInformationInvoiceItems.Controls.Add(this.prgInvoiceItemProperty);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemRemove);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemAdd);
             this.tbpInformationInvoiceItems.Controls.Add(this.lsvInvoiceItems);
@@ -841,14 +841,14 @@
             this.btnInvoiceItemImport.UseVisualStyleBackColor = true;
             this.btnInvoiceItemImport.Click += new System.EventHandler(this.btnInvoiceItemImport_Click);
             // 
-            // prbInvoiceItemProperty
+            // prgInvoiceItemProperty
             // 
-            this.prbInvoiceItemProperty.Location = new System.Drawing.Point(651, 9);
-            this.prbInvoiceItemProperty.Name = "prbInvoiceItemProperty";
-            this.prbInvoiceItemProperty.Size = new System.Drawing.Size(206, 471);
-            this.prbInvoiceItemProperty.TabIndex = 4;
-            this.prbInvoiceItemProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.prbInvoiceItemProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prbInvoiceItemProperty_PropertyValueChanged);
+            this.prgInvoiceItemProperty.Location = new System.Drawing.Point(651, 9);
+            this.prgInvoiceItemProperty.Name = "prgInvoiceItemProperty";
+            this.prgInvoiceItemProperty.Size = new System.Drawing.Size(206, 471);
+            this.prgInvoiceItemProperty.TabIndex = 4;
+            this.prgInvoiceItemProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.prgInvoiceItemProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prgInvoiceItemProperty_PropertyValueChanged);
             // 
             // btnInvoiceItemRemove
             // 
@@ -1166,7 +1166,7 @@
         private System.Windows.Forms.Button btnInvoiceItemAdd;
         private System.Windows.Forms.TabPage tbpInformationDocument;
         private System.Windows.Forms.GroupBox grbFileData;
-        private System.Windows.Forms.PropertyGrid prbInvoiceItemProperty;
+        private System.Windows.Forms.PropertyGrid prgInvoiceItemProperty;
         private System.Windows.Forms.ImageList imlTabIcons;
         private System.Windows.Forms.TextBox txtFileComment;
         private System.Windows.Forms.Button btnFileScan;

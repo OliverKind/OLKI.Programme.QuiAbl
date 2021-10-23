@@ -298,7 +298,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[4].Text = invoiceItem.PriceSum.ToString();
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[5].Text = invoiceItem.Comment;
 
-            this.prbInvoiceItemProperty.Refresh();
+            this.prgInvoiceItemProperty.Refresh();
         }
 
         #region Controle Events
@@ -924,20 +924,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     SelectedItems.Add((InvoiceItem)ListViewItem.Tag);
                 }
-                this.prbInvoiceItemProperty.SelectedObjects = SelectedItems.ToArray();
+                this.prgInvoiceItemProperty.SelectedObjects = SelectedItems.ToArray();
             }
             else
             {
-                this.prbInvoiceItemProperty.SelectedObject = null;
+                this.prgInvoiceItemProperty.SelectedObject = null;
             }
         }
 
-        private void prbInvoiceItemProperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        private void prgInvoiceItemProperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
-            this.prbInvoiceItemProperty.Refresh();
+            this.prgInvoiceItemProperty.Refresh();
 
             InvoiceItem InvoiceItem;
-            foreach (object ChangedInvoiceItem in this.prbInvoiceItemProperty.SelectedObjects)
+            foreach (object ChangedInvoiceItem in this.prgInvoiceItemProperty.SelectedObjects)
             {
                 this.lsvInvoiceItems.BeginUpdate();
                 InvoiceItem = (InvoiceItem)ChangedInvoiceItem;
