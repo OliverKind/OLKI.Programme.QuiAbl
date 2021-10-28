@@ -497,7 +497,26 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="pictureBox">PictureBox to set the file to</param>
         public void SetToPictureBox(PictureBox pictureBox)
         {
-            if (this.Image == null && string.IsNullOrEmpty(this._fileBase64))
+            if (this.Source == File.FileSource.Link && new System.IO.FileInfo(this.LinkPath).Exists)
+            {
+                try
+                {
+                    pictureBox.Image = Image.FromFile(this.LinkPath);
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+                catch (Exception ex)
+                {
+                    _ = ex;
+                    pictureBox.Image = Resources.GenericDocument;
+                    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                }
+            }
+            else if (this.Source == File.FileSource.Link && new System.IO.FileInfo(this.LinkPath).Exists)
+            {
+                pictureBox.Image = Resources.NoDocument;
+                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+            else if (this.Image == null && string.IsNullOrEmpty(this.FileBase64))
             {
                 pictureBox.Image = Resources.NoDocument;
                 pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;

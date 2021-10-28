@@ -574,12 +574,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
-            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
-            if (FileItem.Source == File.FileSource.Link)
+            if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
             {
                 FileItem.OpenFileFromLink(this);
             }
-            else
+            else if (FileItem.Image != null || !string.IsNullOrEmpty(FileItem.FileBase64))
             {
                 FileItem.OpenFileFromTemp(this);
             }
@@ -654,22 +653,25 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
+                this.txtFileLinkPath.Text = FileItem.LinkPath;
                 this.txtFilePath.Text = "";
-
-                this.btnFileOpen.Enabled = true;
-                this.btnFileSave.Enabled = FileItem.Source != File.FileSource.Link;
 
                 if (GetImageModification) this.GetImageModification();
                 this.SetSelectedFileToPicturebox();
-                if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64))
+                if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
                 {
                     this.btnFileSave.Enabled = false;
-                    this.btnFileOpen.Enabled = false;
+                    this.btnFileOpen.Enabled = true;
                 }
-                else
+                else if (FileItem.Image != null || !string.IsNullOrEmpty(FileItem.FileBase64))
                 {
                     this.btnFileSave.Enabled = true;
                     this.btnFileOpen.Enabled = true;
+                }
+                else
+                {
+                    this.btnFileSave.Enabled = false;
+                    this.btnFileOpen.Enabled = false;
                 }
             }
             else
@@ -680,6 +682,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";
                 this.txtFileTitle.Text = "";
+                this.txtFileLinkPath.Text = "";
                 this.txtFilePath.Text = "";
             }
         }

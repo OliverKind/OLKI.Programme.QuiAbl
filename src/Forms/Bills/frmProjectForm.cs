@@ -187,17 +187,22 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
                 FileItem.SetToPictureBox(this.picBilFilePreview);
                 this.lblBillFileOriginalFileName.Text = FileItem.OriginalFileName;
-                this.lblBillFileTitle.Text = FileItem.TitleNoText;
+                this.lblBillFileTitle.Text = FileItem.Source != File.FileSource.Link ? FileItem.TitleNoText : FileItem.LinkPath;
 
-                if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64))
+                if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
                 {
-                    this.btnBillFileOpen.Enabled = false;
+                    this.btnBillFileOpen.Enabled = true;
                     this.btnBillFileSave.Enabled = false;
+                }
+                else if (FileItem.Image != null || !string.IsNullOrEmpty(FileItem.FileBase64))
+                {
+                    this.btnBillFileOpen.Enabled = true;
+                    this.btnBillFileSave.Enabled = true;
                 }
                 else
                 {
-                    this.btnBillFileOpen.Enabled = true;
-                    this.btnBillFileSave.Enabled = FileItem.Source != File.FileSource.Link;
+                    this.btnBillFileOpen.Enabled = false;
+                    this.btnBillFileSave.Enabled = false;
                 }
             }
             else
@@ -351,12 +356,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
-            if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;
-            if (FileItem.Source == File.FileSource.Link)
+            if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
             {
                 FileItem.OpenFileFromLink(this);
             }
-            else
+            else if (FileItem.Image != null || !string.IsNullOrEmpty(FileItem.FileBase64))
             {
                 FileItem.OpenFileFromTemp(this);
             }
