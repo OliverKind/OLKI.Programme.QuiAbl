@@ -98,7 +98,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             InitializeComponent();
             this._lblBillFileNumber_OrgText = this.lblBillFileNumber.Text;
-            this.lsvBills_SelectedIndexChanged(this, new EventArgs());
+            this.lsvBills_SelectedIndexChanged(this, new EventArgs());  //Used to initial some Controles
 
             //Load Bills
             this.Project = project;
@@ -170,6 +170,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.picBilFilePreview.Image = null;
                 this.lblBillFileNumber.Text = string.Format(this._lblBillFileNumber_OrgText, new object[] { 0, 0 });
+                this.lblBillFileOriginalFileName.Text = "";
+                this.lblBillFileTitle.Text = "";
                 return;
             }
 
@@ -184,6 +186,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
                 FileItem.SetToPictureBox(this.picBilFilePreview);
+                this.lblBillFileOriginalFileName.Text = FileItem.OriginalFileName;
+                this.lblBillFileTitle.Text = FileItem.TitleNoText;
 
                 if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64))
                 {
