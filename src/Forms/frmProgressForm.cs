@@ -150,6 +150,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
         public new void Close()
         {
             this._repressClose = false;
+            this.FormClosing -= new FormClosingEventHandler(this.ProgressForm_FormClosing);  //Try to avoid possible RacingCondition
             base.Close();
         }
 
