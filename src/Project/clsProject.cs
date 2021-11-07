@@ -236,6 +236,8 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     //behind file name, that indikates the file has unsaved changes
                     this.Changed = false;
                     this.ToggleProjectChanged(this, new EventArgs());
+                    State.ProgressDescirption = Stringtable._0x001C;
+                    if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
                     return true;
                 }
                 return false;  // Nothing to do, beccause no file was specified to save to

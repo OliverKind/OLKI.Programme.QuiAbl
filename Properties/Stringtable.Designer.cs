@@ -470,5 +470,14 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x001Bm", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das Projekt wurde erfolgreich gespeichert. ähnelt.
+        /// </summary>
+        internal static string _0x001C {
+            get {
+                return ResourceManager.GetString("0x001C", resourceCulture);
+            }
+        }
     }
 }
