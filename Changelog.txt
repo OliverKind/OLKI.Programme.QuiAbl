@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+## [1.5.0.12] - 2021-11-07
+### Added
+- Image rotation
+- Message if project was saved sucessfull
+
+### Fixed
+- Application freeze after project was saved successfully
+
 ## [1.4.0.11] - 2021-10-29
 ### Added
 - Show File Title and original Filename at Project Form
