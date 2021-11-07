@@ -51,6 +51,8 @@
             this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.btnFileSave = new System.Windows.Forms.Button();
             this.grbFileModify = new System.Windows.Forms.GroupBox();
+            this.btnFileModifyRotateRight = new System.Windows.Forms.Button();
+            this.btnFileModifyRotateLeft = new System.Windows.Forms.Button();
             this.btnFileModifyCropUndo = new System.Windows.Forms.Button();
             this.lblFileModifyThreshold = new System.Windows.Forms.Label();
             this.lblFileModifyContrast = new System.Windows.Forms.Label();
@@ -377,6 +379,8 @@
             // 
             // grbFileModify
             // 
+            this.grbFileModify.Controls.Add(this.btnFileModifyRotateRight);
+            this.grbFileModify.Controls.Add(this.btnFileModifyRotateLeft);
             this.grbFileModify.Controls.Add(this.btnFileModifyCropUndo);
             this.grbFileModify.Controls.Add(this.lblFileModifyThreshold);
             this.grbFileModify.Controls.Add(this.lblFileModifyContrast);
@@ -393,6 +397,28 @@
             this.grbFileModify.TabIndex = 3;
             this.grbFileModify.TabStop = false;
             this.grbFileModify.Text = "Bild bearbeiten";
+            // 
+            // btnFileModifyRotateRight
+            // 
+            this.btnFileModifyRotateRight.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.RotateRight;
+            this.btnFileModifyRotateRight.Location = new System.Drawing.Point(45, 199);
+            this.btnFileModifyRotateRight.Name = "btnFileModifyRotateRight";
+            this.btnFileModifyRotateRight.Size = new System.Drawing.Size(35, 24);
+            this.btnFileModifyRotateRight.TabIndex = 11;
+            this.btnFileModifyRotateRight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileModifyRotateRight.UseVisualStyleBackColor = true;
+            this.btnFileModifyRotateRight.Click += new System.EventHandler(this.btnFileModifyRotateRight_Click);
+            // 
+            // btnFileModifyRotateLeft
+            // 
+            this.btnFileModifyRotateLeft.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.RotateLeft;
+            this.btnFileModifyRotateLeft.Location = new System.Drawing.Point(4, 199);
+            this.btnFileModifyRotateLeft.Name = "btnFileModifyRotateLeft";
+            this.btnFileModifyRotateLeft.Size = new System.Drawing.Size(35, 24);
+            this.btnFileModifyRotateLeft.TabIndex = 10;
+            this.btnFileModifyRotateLeft.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileModifyRotateLeft.UseVisualStyleBackColor = true;
+            this.btnFileModifyRotateLeft.Click += new System.EventHandler(this.btnFileModifyRotateLeft_Click);
             // 
             // btnFileModifyCropUndo
             // 
@@ -1201,5 +1227,7 @@
         private System.Windows.Forms.Label lblFileLinkNote;
         private System.Windows.Forms.Label lblOriginalFileName;
         private System.Windows.Forms.Button btnInvoiceItemImport;
+        private System.Windows.Forms.Button btnFileModifyRotateRight;
+        private System.Windows.Forms.Button btnFileModifyRotateLeft;
     }
 }

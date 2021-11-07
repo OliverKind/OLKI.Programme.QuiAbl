@@ -488,6 +488,11 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 default:
                     break;
             }
+
+            // Proced rotate modifications
+            for (int i = 0; i < this.Modification.RotateLeft; i++) ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Rotate90Left(ProcedetImage);
+            for (int i = 0; i < this.Modification.RotateRight; i++) ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Rotate90Right(ProcedetImage);
+
             return ProcedetImage;
         }
 
@@ -583,6 +588,16 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// Get or set ow the Palette should been changed
             /// </summary>
             public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
+
+            /// <summary>
+            /// Get or set the number of times to turn the image to the left
+            /// </summary>
+            public int RotateLeft { get; set; } = 0;
+
+            /// <summary>
+            /// Get or set the number of times to turn the image to the right
+            /// </summary>
+            public int RotateRight { get; set; } = 0;
 
             /// <summary>
             /// Get or set the Threshold if an image shold been converted to an Black and White Palette
