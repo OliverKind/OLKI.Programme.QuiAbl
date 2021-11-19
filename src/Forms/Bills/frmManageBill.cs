@@ -869,11 +869,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems.FillUpSubItems(NewItem);
             this.lsvInvoiceItems.Items.Add(NewItem);
             int i = 0;
+            this.lsvInvoiceItems.MultiSelect = false;
             foreach (ListViewItem Item in this.lsvInvoiceItems.Items)
             {
                 if (((InvoiceItem)Item.Tag).Id == this.Bill.InvoiceItemLastInsertedId)
                 {
                     this.lsvInvoiceItems.Items[i].Selected = true;
+                    this.lsvInvoiceItems.MultiSelect = true;
                     return;
                 }
                 i++;
