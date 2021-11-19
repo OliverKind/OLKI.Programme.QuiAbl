@@ -465,14 +465,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this._manageBillClass = new ManageBillClass(this.Project);
             this._manageBillClass.ShowDialog((IWin32Window)sender);
-            this._manageBill.AddBillClassesToTreeViewRecursive();
+            this._manageBill.AddBillClassesToTreeViewRecursive(this._manageBillClass.DialogResult == DialogResult.OK);
         }
 
         private void _manageBill_CompaniesManageRequest(object sender, EventArgs e)
         {
             this._manageCompany = new ManageCompany(this.Project);
             this._manageCompany.ShowDialog((IWin32Window)sender);
-            this._manageBill.AddCompaniesToComboBox();
+            this._manageBill.AddCompaniesToComboBox(this._manageCompany.DialogResult == DialogResult.OK);
         }
 
         private void _project_ProjectChanged(object sender, EventArgs e)

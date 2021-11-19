@@ -137,13 +137,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             // Set Controles
             this.txtTitle.Text = this.Bill.Title;
             this.txtTitle_TextChanged(this, new EventArgs());
-            this.AddCompaniesToComboBox();
+            this.AddCompaniesToComboBox(false);
             this.mtbDate.Text = this.Bill.Date.ToString();
             this.txtOrgFileLocation.Text = this.Bill.OrgFileLocation;
             this.txtBillNumber.Text = this.Bill.BillNumber;
             this.txtCustomNumber.Text = this.Bill.CustomNumber;
             this.mtbExpidation.Text = this.Bill.Expiration.ToString();
-            this.AddBillClassesToTreeViewRecursive();
+            this.AddBillClassesToTreeViewRecursive(false);
             this.txtComment.Text = this.Bill.Comment;
 
             // Fill file list
@@ -201,10 +201,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// <summary>
         /// Add Nodes to TreeView with BillClasses
         /// </summary>
-        public void AddBillClassesToTreeViewRecursive()
+        /// <param name="selectLastInsertedBillClass">Select the BillClass last attet to the BillClass list, if no BillClass is slected</param>
+        public void AddBillClassesToTreeViewRecursive(bool selectLastInsertedBillClass)
         {
             this.trvBillClasses.Nodes.Clear();
-            this.AddBillClassesToTreeViewRecursive(null);
+            this.AddBillClassesToTreeViewRecursive(null, selectLastInsertedBillClass);
             this.trvBillClasses.ShowPlusMinus = Settings.Default.TreeView_BillClasses_AllowCollaps;
             if (Settings.Default.TreeView_BillClasses_ExpandAllDefault || !Settings.Default.TreeView_BillClasses_AllowCollaps) this.trvBillClasses.ExpandAll();
         }
@@ -212,8 +213,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// <summary>
         /// Add Nodes to TreeView with BillClasses
         /// </summary>
-        /// <param name="parentNode">ParentNode to add new Nodes to</param>
-        private void AddBillClassesToTreeViewRecursive(TreeNode parentNode)
+        /// <param name="selectLastInsertedBillClass">Select the BillClass last attet to the BillClass list, if no BillClass is slected</param>
+        private void AddBillClassesToTreeViewRecursive(TreeNode parentNode, bool selectLastInsertedBillClass)
         {
             int rootNodeId = 0;
             if (parentNode != null) rootNodeId = ((BillClass)parentNode.Tag).Id;
@@ -229,6 +230,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     Text = billClassItem.Value.TitleNoText
                 };
 
+                //Add Root Nodes or Sub Nodes
                 if (parentNode != null)
                 {
                     parentNode.Nodes.Add(NewNode);
@@ -237,16 +239,25 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     this.trvBillClasses.Nodes.Add(NewNode);
                 }
-                if (this.Bill.BillClassId > 0 && billClassItem.Value.Id == this.Bill.BillClassId) this.trvBillClasses.SelectedNode = NewNode;
 
-                this.AddBillClassesToTreeViewRecursive(NewNode);
+                //Select BillClasses
+                if (selectLastInsertedBillClass && this.Bill.BillClassId == 0 && billClassItem.Value.Id == this._project.BillClassLastInsertedId)
+                {
+                    this.trvBillClasses.SelectedNode = NewNode;
+                }
+                else if (                 this.Bill.BillClassId > 0 && billClassItem.Value.Id == this.Bill.BillClassId) {
+                        this.trvBillClasses.SelectedNode = NewNode;
+                    }
+
+                this.AddBillClassesToTreeViewRecursive(NewNode, selectLastInsertedBillClass);
             }
         }
 
         /// <summary>
         /// Add Comapnies to the CompanyComboBox
         /// </summary>
-        public void AddCompaniesToComboBox()
+        /// <param name="selectLastInsertedCompany">Select the Company last attet to the Company List, if no Company is slected</param>
+        public void AddCompaniesToComboBox(bool selectLastInsertedCompany)
         {
             this.cboCompany.Items.Clear();
             this._comboToCompanyId = new Dictionary<int, int>();
@@ -262,7 +273,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 i++;
                 this.cboCompany.Items.Add(companyItem.Value.TitleNoText);
                 this._comboToCompanyId.Add(i, companyItem.Value.Id);
-                if (this.Bill.CompanyId > 0 && companyItem.Value.Id == this.Bill.CompanyId) this.cboCompany.SelectedIndex = i;
+                if (selectLastInsertedCompany && this.Bill.CompanyId==0 && companyItem.Value.Id == this._project.CompanyLastInsertedId)
+                {
+                    this.cboCompany.SelectedIndex = i;
+                }
+                else if (this.Bill.CompanyId > 0 && companyItem.Value.Id == this.Bill.CompanyId)
+                {
+                    this.cboCompany.SelectedIndex = i;
+                }
             }
         }
 
@@ -423,7 +441,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void trvBillClasses_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.trvBillClasses.SelectedNode != null) this.trvBillClasses.SelectedNode = null;
+            if (this.trvBillClasses.SelectedNode != null)
+            {
+                this.trvBillClasses.SelectedNode = null;
+                this.trvBillClasses_AfterSelect(sender, new TreeViewEventArgs(null));
+            }
         }
 
         private void txtBillNumber_TextChanged(object sender, EventArgs e)
