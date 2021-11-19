@@ -1,4 +1,11 @@
 # QuiAbl - Quittungsablage
+## [1.5.1.13] - 2021-11-20
+### Added
+- Select last inserted BillClass and Copany if it is not slected at BillEditor
+
+### Fixed
+- Sometimes Multiple InvoiceItems selected if a new one is created
+
 ## [1.5.0.12] - 2021-11-07
 ### Added
 - Image rotation
