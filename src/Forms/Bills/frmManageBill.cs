@@ -465,7 +465,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void txtTitle_TextChanged(object sender, EventArgs e)
         {
-            this.Bill.Title = this.txtTitle.Text;
+            this.Bill.Title = this.txtTitle.Text.Trim();
             this.Text = this.Bill.TitleNoText;
         }
 
@@ -657,7 +657,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
 
-            ((File)this.lsvFiles.SelectedItems[0].Tag).Title = this.txtFileTitle.Text;
+            ((File)this.lsvFiles.SelectedItems[0].Tag).Title = this.txtFileTitle.Text.Trim();
             this.lsvFiles.SelectedItems[0].Text = ((File)this.lsvFiles.SelectedItems[0].Tag).TitleNoText;
         }
 
