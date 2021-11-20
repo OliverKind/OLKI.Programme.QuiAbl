@@ -91,7 +91,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
 
             // Initial rectent files
-            //TODO: Change Code to work with this application
             this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
             this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
             this._recentFiles.SetFromString(Settings.Default.RecentFiles_FileList);

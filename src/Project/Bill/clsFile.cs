@@ -520,6 +520,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             if (this.Source == File.FileSource.Link && new System.IO.FileInfo(this.LinkPath).Exists)
             {
+                //File is an linkes file
                 try
                 {
                     pictureBox.Image = Image.FromFile(this.LinkPath);
@@ -532,23 +533,21 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                     pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
                 }
             }
-            else if (this.Source == File.FileSource.Link && new System.IO.FileInfo(this.LinkPath).Exists)
-            {
-                pictureBox.Image = Resources.NoDocument;
-                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            }
             else if (this.Image == null && string.IsNullOrEmpty(this.FileBase64))
             {
+                //No data attached to file
                 pictureBox.Image = Resources.NoDocument;
                 pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             }
             else if (this.Image != null)
             {
+                //File is an image
                 pictureBox.Image = this.ImageProcedet;
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {
+                //File is an generic document
                 pictureBox.Image = Resources.GenericDocument;
                 pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             }
