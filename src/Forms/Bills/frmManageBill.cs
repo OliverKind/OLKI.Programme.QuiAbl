@@ -542,6 +542,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.lblOriginalFileName.Text = ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).OriginalFileName;
                 ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
             }
+            this.SetSelectedFileToControles(false);
         }
 
         private void btnFileScan_Click(object sender, EventArgs e)
