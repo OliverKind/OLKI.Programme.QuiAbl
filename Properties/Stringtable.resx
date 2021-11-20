@@ -279,4 +279,7 @@ Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglich
   <data name="0x001C" xml:space="preserve">
     <value>Das Projekt wurde erfolgreich gespeichert.</value>
   </data>
+  <data name="0x001D" xml:space="preserve">
+    <value>Geschätzte Größe: {0}</value>
+  </data>
 </root>

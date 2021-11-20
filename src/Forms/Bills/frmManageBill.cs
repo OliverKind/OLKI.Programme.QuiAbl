@@ -679,6 +679,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
+                this.lblRoughlyFileSize.Visible = true;
+                this.lblRoughlyFileSize.Text = string.Format(Stringtable._0x001D, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.Length, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
                 this.txtFileLinkPath.Text = FileItem.LinkPath;
@@ -706,6 +708,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
+                this.lblRoughlyFileSize.Visible = false;
                 this.picFilePreview.Image = null;
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";

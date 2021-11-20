@@ -479,5 +479,14 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x001C", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geschätzte Größe: {0} ähnelt.
+        /// </summary>
+        internal static string _0x001D {
+            get {
+                return ResourceManager.GetString("0x001D", resourceCulture);
+            }
+        }
     }
 }

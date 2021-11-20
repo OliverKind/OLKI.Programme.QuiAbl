@@ -190,6 +190,22 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Roughly Size of attached Files
+        /// </summary>
+        [Category("Allgemein")]
+        [Description("Geschätzte Größe der Datei in Byte.")]
+        [DisplayName("Dateigröße")]
+        [ReadOnly(true)]
+        public long Length
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this._fileBase64)) return 0;
+                return this._fileBase64.Length;
+            }
+        }
+
+        /// <summary>
         /// The path where the file is located, if the source is a linkes file
         /// </summary>
         [Category("Allgemein")]

@@ -35,6 +35,8 @@
             this.prgBillProperty = new System.Windows.Forms.PropertyGrid();
             this.tabpBillDocs = new System.Windows.Forms.TabPage();
             this.pnlBillFiles = new System.Windows.Forms.Panel();
+            this.lblBillFileTitle = new System.Windows.Forms.Label();
+            this.lblBillFileOriginalFileName = new System.Windows.Forms.Label();
             this.btnBillFileSave = new System.Windows.Forms.Button();
             this.btnBillFileOpen = new System.Windows.Forms.Button();
             this.btnBillFileNext = new System.Windows.Forms.Button();
@@ -59,8 +61,7 @@
             this.mnuBillsForm_Basedata_BillClass = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblBillFileOriginalFileName = new System.Windows.Forms.Label();
-            this.lblBillFileTitle = new System.Windows.Forms.Label();
+            this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -138,6 +139,26 @@
             this.pnlBillFiles.Name = "pnlBillFiles";
             this.pnlBillFiles.Size = new System.Drawing.Size(333, 523);
             this.pnlBillFiles.TabIndex = 0;
+            // 
+            // lblBillFileTitle
+            // 
+            this.lblBillFileTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBillFileTitle.Location = new System.Drawing.Point(3, 441);
+            this.lblBillFileTitle.Name = "lblBillFileTitle";
+            this.lblBillFileTitle.Size = new System.Drawing.Size(327, 13);
+            this.lblBillFileTitle.TabIndex = 21;
+            this.lblBillFileTitle.Text = "lblBillFileTitle";
+            // 
+            // lblBillFileOriginalFileName
+            // 
+            this.lblBillFileOriginalFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBillFileOriginalFileName.Location = new System.Drawing.Point(3, 454);
+            this.lblBillFileOriginalFileName.Name = "lblBillFileOriginalFileName";
+            this.lblBillFileOriginalFileName.Size = new System.Drawing.Size(327, 13);
+            this.lblBillFileOriginalFileName.TabIndex = 20;
+            this.lblBillFileOriginalFileName.Text = "lblBillFileOriginalFileName";
             // 
             // btnBillFileSave
             // 
@@ -232,7 +253,8 @@
             this.cohBillsDocuments,
             this.cohBillsCategory,
             this.cohBillsComapny,
-            this.cohBillsComment});
+            this.cohBillsComment,
+            this.cohBillsLength});
             this.lsvBills.FullRowSelect = true;
             this.lsvBills.GridLines = true;
             this.lsvBills.HideSelection = false;
@@ -396,25 +418,9 @@
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
             // 
-            // lblBillFileOriginalFileName
+            // cohBillsLength
             // 
-            this.lblBillFileOriginalFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBillFileOriginalFileName.Location = new System.Drawing.Point(3, 454);
-            this.lblBillFileOriginalFileName.Name = "lblBillFileOriginalFileName";
-            this.lblBillFileOriginalFileName.Size = new System.Drawing.Size(327, 13);
-            this.lblBillFileOriginalFileName.TabIndex = 20;
-            this.lblBillFileOriginalFileName.Text = "lblBillFileOriginalFileName";
-            // 
-            // lblBillFileTitle
-            // 
-            this.lblBillFileTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBillFileTitle.Location = new System.Drawing.Point(3, 441);
-            this.lblBillFileTitle.Name = "lblBillFileTitle";
-            this.lblBillFileTitle.Size = new System.Drawing.Size(327, 13);
-            this.lblBillFileTitle.TabIndex = 21;
-            this.lblBillFileTitle.Text = "lblBillFileTitle";
+            this.cohBillsLength.Text = "Dokumentgröße";
             // 
             // ProjectForm
             // 
@@ -481,5 +487,6 @@
         private System.Windows.Forms.ColumnHeader cohBillsComapny;
         private System.Windows.Forms.Label lblBillFileTitle;
         private System.Windows.Forms.Label lblBillFileOriginalFileName;
+        private System.Windows.Forms.ColumnHeader cohBillsLength;
     }
 }

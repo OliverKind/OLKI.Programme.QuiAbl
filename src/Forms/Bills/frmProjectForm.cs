@@ -248,6 +248,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvBills.Items[ItemIndex].SubItems[3].Text = billItem.BillClassName;
             this.lsvBills.Items[ItemIndex].SubItems[4].Text = billItem.CompanyName;
             this.lsvBills.Items[ItemIndex].SubItems[5].Text = billItem.Comment;
+            this.lsvBills.Items[ItemIndex].SubItems[6].Tag = billItem.FilesLength;
+            this.lsvBills.Items[ItemIndex].SubItems[6].Text = Toolbox.DirectoryAndFile.FileSize.Convert(billItem.FilesLength, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI);
 
             this.prgBillProperty.Refresh();
         }

@@ -115,6 +115,7 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
+            this.lblRoughlyFileSize = new System.Windows.Forms.Label();
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -304,6 +305,7 @@
             // 
             // grbFileData
             // 
+            this.grbFileData.Controls.Add(this.lblRoughlyFileSize);
             this.grbFileData.Controls.Add(this.spcFilePreview);
             this.grbFileData.Controls.Add(this.btnFileSave);
             this.grbFileData.Controls.Add(this.grbFileModify);
@@ -335,7 +337,7 @@
             // 
             this.spcFilePreview.Panel2.Controls.Add(this.prgFilePreview);
             this.spcFilePreview.Panel2MinSize = 0;
-            this.spcFilePreview.Size = new System.Drawing.Size(275, 416);
+            this.spcFilePreview.Size = new System.Drawing.Size(275, 403);
             this.spcFilePreview.SplitterDistance = 272;
             this.spcFilePreview.TabIndex = 11;
             // 
@@ -359,7 +361,7 @@
             this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
             this.prgFilePreview.Name = "prgFilePreview";
             this.prgFilePreview.ReadOnly = true;
-            this.prgFilePreview.Size = new System.Drawing.Size(275, 140);
+            this.prgFilePreview.Size = new System.Drawing.Size(275, 127);
             this.prgFilePreview.TabIndex = 11;
             this.prgFilePreview.ToolbarVisible = false;
             this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1083,6 +1085,14 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
+            // lblRoughlyFileSize
+            // 
+            this.lblRoughlyFileSize.Location = new System.Drawing.Point(355, 425);
+            this.lblRoughlyFileSize.Name = "lblRoughlyFileSize";
+            this.lblRoughlyFileSize.Size = new System.Drawing.Size(275, 13);
+            this.lblRoughlyFileSize.TabIndex = 12;
+            this.lblRoughlyFileSize.Text = "lblRoughlyFileSize";
+            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1229,5 +1239,6 @@
         private System.Windows.Forms.Button btnInvoiceItemImport;
         private System.Windows.Forms.Button btnFileModifyRotateRight;
         private System.Windows.Forms.Button btnFileModifyRotateLeft;
+        private System.Windows.Forms.Label lblRoughlyFileSize;
     }
 }

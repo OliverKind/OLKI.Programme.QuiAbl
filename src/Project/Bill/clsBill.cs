@@ -355,6 +355,26 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public int FileCount => this._files.Count;
 
         /// <summary>
+        /// Roughly Size of attached Files
+        /// </summary>
+        [Category("Zusatzinformationen")]
+        [Description("Geschätzte Größe der Dateianhänge in Byte.")]
+        [DisplayName("Dateianhänge - Größe")]
+        [ReadOnly(true)]
+        public long FilesLength
+        {
+            get
+            {
+                long TotalLength = 0;
+                foreach( KeyValuePair<int, File> FileItem in this._files)
+                {
+                    TotalLength += FileItem.Value.Length;
+                }
+                return TotalLength;
+            }
+        }
+
+        /// <summary>
         /// Get or set the Id of the last added File
         /// </summary>
 #if !DEBUG
