@@ -51,6 +51,7 @@
             this.cohBillsCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsComapny = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnBillAdd = new System.Windows.Forms.Button();
             this.btnBillRemove = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.mnuBillsForm_Basedata_BillClass = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
-            this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -297,6 +297,11 @@
             this.cohBillsComment.Text = "Kommentar";
             this.cohBillsComment.Width = 90;
             // 
+            // cohBillsLength
+            // 
+            this.cohBillsLength.Text = "Dokumentgröße";
+            this.cohBillsLength.Width = 90;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -417,10 +422,6 @@
             this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(147, 22);
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
-            // 
-            // cohBillsLength
-            // 
-            this.cohBillsLength.Text = "Dokumentgröße";
             // 
             // ProjectForm
             // 
