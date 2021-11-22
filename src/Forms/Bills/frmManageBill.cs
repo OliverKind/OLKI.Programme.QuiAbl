@@ -681,7 +681,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
                 this.lblRoughlyFileSize.Visible = true;
-                this.lblRoughlyFileSize.Text = string.Format(Stringtable._0x001D, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.Length, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
+                this.nudFileModifyResize.Value = 100;
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
                 this.txtFileLinkPath.Text = FileItem.LinkPath;
@@ -710,6 +710,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
                 this.lblRoughlyFileSize.Visible = false;
+                this.nudFileModifyResize.Value = 100;
                 this.picFilePreview.Image = null;
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";
@@ -735,9 +736,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             File.ImageModification Modification = FileItem.Modification ?? new File.ImageModification();
 
+            this.cboFileModifyColor.SelectedIndex = (int)Modification.Palette;
+            this.nudFileModifyResize.Value = Modification.ResizeFactor;
             this.tbaFileModifyBrightnes.Value = Modification.Brightness;
             this.tbaFileModifyContrast.Value = Modification.Contrast;
-            this.cboFileModifyColor.SelectedIndex = (int)Modification.Palette;
             this.tbaFileModifyThreshold.Value = Modification.Threshold;
         }
 
@@ -755,6 +757,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 Brightness = this.tbaFileModifyBrightnes.Value,
                 Contrast = this.tbaFileModifyContrast.Value,
                 Palette = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex,
+                ResizeFactor = this.nudFileModifyResize.Value,
                 RotateLeft = (int)this.btnFileModifyRotateLeft.Tag,
                 RotateRight = (int)this.btnFileModifyRotateRight.Tag,
                 Threshold = this.tbaFileModifyThreshold.Value
@@ -766,14 +769,35 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// </summary>
         private void SetSelectedFileToPicturebox()
         {
-            if (this.lsvFiles.SelectedItems.Count != 1)
+            try
             {
-                this.picFilePreview.Image = null;
-                return;
+                if (this.lsvFiles.SelectedItems.Count != 1)
+                {
+                    this.picFilePreview.Image = null;
+                    return;
+                }
+                Cursor = Cursors.WaitCursor;
+
+                File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+                FileItem.SetToPictureBox(this.picFilePreview);
+                this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
+                this.lblRoughlyFileSize.Text = string.Format(Stringtable._0x001D, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.LengthProcedet, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
+
+                Cursor = Cursors.Default;
+
+                //TODO: REMOVE
+                //if (FileItem.Image != null)
+                //{
+                //    Size NewSize = OLKI.Toolbox.ColorAndPicture.Picture.Modify.GetSizeByDPI(FileItem.Image, 200);
+                //    int Factor = Convert.ToInt32((float)NewSize.Width / (float)FileItem.Image.Width * 100);
+                //    System.Diagnostics.Debug.Print(NewSize.ToString() + "        " + Factor);
+                //}
             }
-            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            FileItem.SetToPictureBox(this.picFilePreview);
-            this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
+            catch (Exception ex)
+            {
+                _ = ex;
+                this.picFilePreview.Image = this.picFilePreview.ErrorImage;
+            }
         }
 
         private void btnFileModifyCrop_Click(object sender, EventArgs e)
@@ -835,6 +859,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     this.tbaFileModifyThreshold.Enabled = false;
                     break;
             }
+        }
+
+        private void nudFileModifyResize_ValueChanged(object sender, EventArgs e)
+        {
+            this.SetImageModification();
+            this.SetSelectedFileToPicturebox();
         }
 
         private void tbaFileModifyBrightnes_MouseDown(object sender, MouseEventArgs e)

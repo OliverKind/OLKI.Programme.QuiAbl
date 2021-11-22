@@ -206,6 +206,24 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Roughly Size of attached Files, after procedet or as saved if no modification is set
+        /// </summary>
+        [Category("Allgemein")]
+        [Description("Geschätzte Größe der Datei in Byte, nachdem sie bearbeitet wurde oder wie sie gespeichet ist wenn keine Modifikation vorgesehen ist.")]
+        [DisplayName("Dateigröße")]
+        [ReadOnly(true)]
+        public long LengthProcedet
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this._fileBase64)) return 0;
+                if (this.ImageProcedet == null) return this._fileBase64.Length;
+                if (this.Modification==null || !this.Modification.IsModified()) return this._fileBase64.Length;
+                return Convert.ToBase64String((byte[])new ImageConverter().ConvertTo(this.ImageProcedet, typeof(byte[]))).Length;
+            }
+        }
+
+        /// <summary>
         /// The path where the file is located, if the source is a linkes file
         /// </summary>
         [Category("Allgemein")]
@@ -487,6 +505,9 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
             Image ProcedetImage = (Image)this.Image.Clone();
 
+            // Procede resizing
+            ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Resize(ProcedetImage, this.Modification.ResizeFactor, true);
+
             // Proced brightness and contrast modifications
             ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.BrightnessAndContrast(ProcedetImage, this.Modification.Brightness, this.Modification.Contrast);
 
@@ -605,6 +626,11 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
 
             /// <summary>
+            /// Get or set the factor to resiza the image
+            /// </summary>
+            public decimal ResizeFactor { get; set; } = 100;
+
+            /// <summary>
             /// Get or set the number of times to turn the image to the left
             /// </summary>
             public int RotateLeft { get; set; } = 0;
@@ -618,6 +644,20 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// Get or set the Threshold if an image shold been converted to an Black and White Palette
             /// </summary>
             public int Threshold { get; set; } = 127;
+
+            public bool IsModified()
+            {
+                ImageModification Ref = new ImageModification();
+                if (this.Brightness != Ref.Brightness) return true;
+                if (this.Contrast != Ref.Contrast) return true;
+                if (this.Palette != Ref.Palette) return true;
+                if (this.ResizeFactor != Ref.ResizeFactor) return true;
+                if (this.RotateLeft != Ref.RotateLeft) return true;
+                if (this.RotateRight != Ref.RotateRight) return true;
+                if (this.Threshold != Ref.Threshold) return true;
+
+                return false;
+            }
         }
         #endregion
     }
