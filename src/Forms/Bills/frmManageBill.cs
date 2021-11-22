@@ -784,14 +784,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.lblRoughlyFileSize.Text = string.Format(Stringtable._0x001D, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.LengthProcedet, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
 
                 Cursor = Cursors.Default;
-
-                //TODO: REMOVE
-                //if (FileItem.Image != null)
-                //{
-                //    Size NewSize = OLKI.Toolbox.ColorAndPicture.Picture.Modify.GetSizeByDPI(FileItem.Image, 200);
-                //    int Factor = Convert.ToInt32((float)NewSize.Width / (float)FileItem.Image.Width * 100);
-                //    System.Diagnostics.Debug.Print(NewSize.ToString() + "        " + Factor);
-                //}
             }
             catch (Exception ex)
             {
