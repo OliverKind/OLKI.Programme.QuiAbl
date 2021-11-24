@@ -98,7 +98,7 @@
     <Setting Name="MainFormState" Roaming="true" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="MainFormSizeX" Roaming="true" Type="System.Drawing.Size" Scope="User">
+    <Setting Name="MainFormSize" Roaming="true" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
   </Settings>

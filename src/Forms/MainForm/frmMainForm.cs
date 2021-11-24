@@ -83,7 +83,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
             // Set startup State and Location/Size from last Session.
             if (Settings.Default.MainFormState != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings.Default.MainFormState;
-            if (Settings.Default.MainFormState == FormWindowState.Normal) this.Size = Settings.Default.MainFormSizeX;
+            if (Settings.Default.MainFormState == FormWindowState.Normal) this.Size = Settings.Default.MainFormSize;
 
             this.MainForm_MdiChildActivate(this, new EventArgs());
             this._args = args;
@@ -158,7 +158,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         {
             if (this._appClose)
             {
-                if (this.WindowState == FormWindowState.Normal) Settings.Default.MainFormSizeX = this.Size;
+                if (this.WindowState == FormWindowState.Normal) Settings.Default.MainFormSize = this.Size;
                 Settings.Default.MainFormState = this.WindowState;
                 Settings.Default.Save();
 

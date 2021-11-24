@@ -388,12 +388,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public global::System.Drawing.Size MainFormSizeX {
+        public global::System.Drawing.Size MainFormSize {
             get {
-                return ((global::System.Drawing.Size)(this["MainFormSizeX"]));
+                return ((global::System.Drawing.Size)(this["MainFormSize"]));
             }
             set {
-                this["MainFormSizeX"] = value;
+                this["MainFormSize"] = value;
             }
         }
     }
