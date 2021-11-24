@@ -253,7 +253,7 @@
             // 
             this.mnuMain_Window_Cascade.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Cascade.Image")));
             this.mnuMain_Window_Cascade.Name = "mnuMain_Window_Cascade";
-            this.mnuMain_Window_Cascade.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_Window_Cascade.Size = new System.Drawing.Size(155, 22);
             this.mnuMain_Window_Cascade.Text = "Ü&berlappend";
             this.mnuMain_Window_Cascade.Click += new System.EventHandler(this.mnuMain_Window_Cascade_Click);
             // 
@@ -261,7 +261,7 @@
             // 
             this.mnuMain_Window_Horizontal.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Horizontal.Image")));
             this.mnuMain_Window_Horizontal.Name = "mnuMain_Window_Horizontal";
-            this.mnuMain_Window_Horizontal.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_Window_Horizontal.Size = new System.Drawing.Size(155, 22);
             this.mnuMain_Window_Horizontal.Text = "&Untereinander";
             this.mnuMain_Window_Horizontal.Click += new System.EventHandler(this.mnuMain_Window_Horizontal_Click);
             // 
@@ -269,14 +269,14 @@
             // 
             this.mnuMain_Window_Vertical.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_Window_Vertical.Image")));
             this.mnuMain_Window_Vertical.Name = "mnuMain_Window_Vertical";
-            this.mnuMain_Window_Vertical.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_Window_Vertical.Size = new System.Drawing.Size(155, 22);
             this.mnuMain_Window_Vertical.Text = "&Nebeneinander";
             this.mnuMain_Window_Vertical.Click += new System.EventHandler(this.mnuMain_Window_Vertical_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(152, 6);
             // 
             // mnuMain_Window_Statusbar
             // 
@@ -284,14 +284,14 @@
             this.mnuMain_Window_Statusbar.CheckOnClick = true;
             this.mnuMain_Window_Statusbar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuMain_Window_Statusbar.Name = "mnuMain_Window_Statusbar";
-            this.mnuMain_Window_Statusbar.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_Window_Statusbar.Size = new System.Drawing.Size(155, 22);
             this.mnuMain_Window_Statusbar.Text = "Status&leiste";
             this.mnuMain_Window_Statusbar.Click += new System.EventHandler(this.mnuMain_Window_Statusbar_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(152, 6);
             // 
             // mnuMain_File_Help
             // 

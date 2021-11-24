@@ -80,6 +80,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         internal MainForm(string[] args)
         {
             InitializeComponent();
+
+            // Set startup State and Location/Size from last Session.
+            if (Settings.Default.MainFormState != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings.Default.MainFormState;
+            if (Settings.Default.MainFormState == FormWindowState.Normal) this.Size = Settings.Default.MainFormSizeX;
+
             this.MainForm_MdiChildActivate(this, new EventArgs());
             this._args = args;
             this.Text = string.Format(this.Text, new object[] { ProductName });
@@ -153,6 +158,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         {
             if (this._appClose)
             {
+                if (this.WindowState == FormWindowState.Normal) Settings.Default.MainFormSizeX = this.Size;
+                Settings.Default.MainFormState = this.WindowState;
+                Settings.Default.Save();
+
                 e.Cancel = false;
                 Application.Exit();
             }

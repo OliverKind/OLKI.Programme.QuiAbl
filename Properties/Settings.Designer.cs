@@ -370,5 +370,31 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["SearchAutoOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public global::System.Windows.Forms.FormWindowState MainFormState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["MainFormState"]));
+            }
+            set {
+                this["MainFormState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public global::System.Drawing.Size MainFormSizeX {
+            get {
+                return ((global::System.Drawing.Size)(this["MainFormSizeX"]));
+            }
+            set {
+                this["MainFormSizeX"] = value;
+            }
+        }
     }
 }
