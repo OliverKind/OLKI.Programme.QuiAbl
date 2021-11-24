@@ -48,6 +48,8 @@
             this.grbFileData = new System.Windows.Forms.GroupBox();
             this.lblRoughlyFileSize = new System.Windows.Forms.Label();
             this.spcFilePreview = new System.Windows.Forms.SplitContainer();
+            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
+            this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.btnFileSave = new System.Windows.Forms.Button();
             this.grbFileModify = new System.Windows.Forms.GroupBox();
             this.lblFileModifyReize = new System.Windows.Forms.Label();
@@ -89,11 +91,20 @@
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.lblFileComment = new System.Windows.Forms.Label();
             this.btnFileAdd = new System.Windows.Forms.Button();
+            this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
             this.btnInvoiceItemImport = new System.Windows.Forms.Button();
             this.prgInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
             this.btnInvoiceItemRemove = new System.Windows.Forms.Button();
             this.btnInvoiceItemAdd = new System.Windows.Forms.Button();
+            this.lsvInvoiceItems = new OLKI.Toolbox.Widgets.SortListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOrgFileLocation = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -107,17 +118,6 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
-            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
-            this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
-            this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lsvInvoiceItems = new OLKI.Toolbox.Widgets.SortListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -126,6 +126,7 @@
             this.spcFilePreview.Panel1.SuspendLayout();
             this.spcFilePreview.Panel2.SuspendLayout();
             this.spcFilePreview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).BeginInit();
             this.grbFileModify.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFileModifyResize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbaFileModifyThreshold)).BeginInit();
@@ -138,7 +139,6 @@
             this.tbpFileSourceLink.SuspendLayout();
             this.tbpInformationInvoiceItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).BeginInit();
             this.SuspendLayout();
             // 
             // tabInformation
@@ -223,7 +223,7 @@
             this.lblExpidation.Name = "lblExpidation";
             this.lblExpidation.Size = new System.Drawing.Size(114, 23);
             this.lblExpidation.TabIndex = 4;
-            this.lblExpidation.Text = "Gültig bis:";
+            this.lblExpidation.Text = "Relevant bis:";
             // 
             // lblBillClasses
             // 
@@ -351,6 +351,31 @@
             this.spcFilePreview.Size = new System.Drawing.Size(275, 403);
             this.spcFilePreview.SplitterDistance = 260;
             this.spcFilePreview.TabIndex = 11;
+            // 
+            // picFilePreview
+            // 
+            this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picFilePreview.CropMode = true;
+            this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.picFilePreview.Name = "picFilePreview";
+            this.picFilePreview.Size = new System.Drawing.Size(275, 260);
+            this.picFilePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFilePreview.TabIndex = 3;
+            this.picFilePreview.TabStop = false;
+            this.picFilePreview.DoubleClick += new System.EventHandler(this.picFilePreview_DoubleClick);
+            // 
+            // prgFilePreview
+            // 
+            this.prgFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prgFilePreview.HelpVisible = false;
+            this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
+            this.prgFilePreview.Name = "prgFilePreview";
+            this.prgFilePreview.ReadOnly = true;
+            this.prgFilePreview.Size = new System.Drawing.Size(275, 139);
+            this.prgFilePreview.TabIndex = 11;
+            this.prgFilePreview.ToolbarVisible = false;
+            this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
             // btnFileSave
             // 
@@ -831,6 +856,29 @@
             this.btnFileAdd.UseVisualStyleBackColor = true;
             this.btnFileAdd.Click += new System.EventHandler(this.btnFileAdd_Click);
             // 
+            // lsvFiles
+            // 
+            this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lsvFiles.GridLines = true;
+            this.lsvFiles.HideSelection = false;
+            this.lsvFiles.Location = new System.Drawing.Point(6, 36);
+            this.lsvFiles.MultiSelect = false;
+            this.lsvFiles.Name = "lsvFiles";
+            this.lsvFiles.ShowItemToolTips = true;
+            this.lsvFiles.Size = new System.Drawing.Size(206, 441);
+            this.lsvFiles.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lsvFiles.TabIndex = 2;
+            this.lsvFiles.UseCompatibleStateImageBehavior = false;
+            this.lsvFiles.View = System.Windows.Forms.View.Details;
+            this.lsvFiles.SelectedIndexChanged += new System.EventHandler(this.lsvFiles_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Datei";
+            this.columnHeader1.Width = 165;
+            // 
             // tbpInformationInvoiceItems
             // 
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemImport);
@@ -892,6 +940,54 @@
             this.btnInvoiceItemAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInvoiceItemAdd.UseVisualStyleBackColor = true;
             this.btnInvoiceItemAdd.Click += new System.EventHandler(this.btnInvoiceItemAdd_Click);
+            // 
+            // lsvInvoiceItems
+            // 
+            this.lsvInvoiceItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvInvoiceItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lsvInvoiceItems.FullRowSelect = true;
+            this.lsvInvoiceItems.GridLines = true;
+            this.lsvInvoiceItems.HideSelection = false;
+            this.lsvInvoiceItems.Location = new System.Drawing.Point(6, 36);
+            this.lsvInvoiceItems.Name = "lsvInvoiceItems";
+            this.lsvInvoiceItems.ShowItemToolTips = true;
+            this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 441);
+            this.lsvInvoiceItems.TabIndex = 1;
+            this.lsvInvoiceItems.UseCompatibleStateImageBehavior = false;
+            this.lsvInvoiceItems.View = System.Windows.Forms.View.Details;
+            this.lsvInvoiceItems.SelectedIndexChanged += new System.EventHandler(this.lsvInvoiceItems_SelectedIndexChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Artikel";
+            this.columnHeader2.Width = 240;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Artikelnummer";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Preis";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Anzahl";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Gesamtpreis";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Kommentar";
+            this.columnHeader7.Width = 120;
             // 
             // lblOrgFileLocation
             // 
@@ -1026,102 +1122,6 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
-            // picFilePreview
-            // 
-            this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picFilePreview.CropMode = true;
-            this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picFilePreview.Location = new System.Drawing.Point(0, 0);
-            this.picFilePreview.Name = "picFilePreview";
-            this.picFilePreview.Size = new System.Drawing.Size(275, 260);
-            this.picFilePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picFilePreview.TabIndex = 3;
-            this.picFilePreview.TabStop = false;
-            this.picFilePreview.DoubleClick += new System.EventHandler(this.picFilePreview_DoubleClick);
-            // 
-            // prgFilePreview
-            // 
-            this.prgFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prgFilePreview.HelpVisible = false;
-            this.prgFilePreview.Location = new System.Drawing.Point(0, 0);
-            this.prgFilePreview.Name = "prgFilePreview";
-            this.prgFilePreview.ReadOnly = true;
-            this.prgFilePreview.Size = new System.Drawing.Size(275, 139);
-            this.prgFilePreview.TabIndex = 11;
-            this.prgFilePreview.ToolbarVisible = false;
-            this.prgFilePreview.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            // 
-            // lsvFiles
-            // 
-            this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.lsvFiles.GridLines = true;
-            this.lsvFiles.HideSelection = false;
-            this.lsvFiles.Location = new System.Drawing.Point(6, 36);
-            this.lsvFiles.MultiSelect = false;
-            this.lsvFiles.Name = "lsvFiles";
-            this.lsvFiles.ShowItemToolTips = true;
-            this.lsvFiles.Size = new System.Drawing.Size(206, 441);
-            this.lsvFiles.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lsvFiles.TabIndex = 2;
-            this.lsvFiles.UseCompatibleStateImageBehavior = false;
-            this.lsvFiles.View = System.Windows.Forms.View.Details;
-            this.lsvFiles.SelectedIndexChanged += new System.EventHandler(this.lsvFiles_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Datei";
-            this.columnHeader1.Width = 165;
-            // 
-            // lsvInvoiceItems
-            // 
-            this.lsvInvoiceItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lsvInvoiceItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lsvInvoiceItems.FullRowSelect = true;
-            this.lsvInvoiceItems.GridLines = true;
-            this.lsvInvoiceItems.HideSelection = false;
-            this.lsvInvoiceItems.Location = new System.Drawing.Point(6, 36);
-            this.lsvInvoiceItems.Name = "lsvInvoiceItems";
-            this.lsvInvoiceItems.ShowItemToolTips = true;
-            this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 441);
-            this.lsvInvoiceItems.TabIndex = 1;
-            this.lsvInvoiceItems.UseCompatibleStateImageBehavior = false;
-            this.lsvInvoiceItems.View = System.Windows.Forms.View.Details;
-            this.lsvInvoiceItems.SelectedIndexChanged += new System.EventHandler(this.lsvInvoiceItems_SelectedIndexChanged);
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Artikel";
-            this.columnHeader2.Width = 240;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Artikelnummer";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Preis";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Anzahl";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Gesamtpreis";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Kommentar";
-            this.columnHeader7.Width = 120;
-            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1160,6 +1160,7 @@
             this.spcFilePreview.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcFilePreview)).EndInit();
             this.spcFilePreview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).EndInit();
             this.grbFileModify.ResumeLayout(false);
             this.grbFileModify.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFileModifyResize)).EndInit();
@@ -1176,7 +1177,6 @@
             this.tbpFileSourceLink.PerformLayout();
             this.tbpInformationInvoiceItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilePreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

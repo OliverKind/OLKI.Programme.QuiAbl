@@ -204,7 +204,7 @@
             this.lblExpidation.Name = "lblExpidation";
             this.lblExpidation.Size = new System.Drawing.Size(100, 23);
             this.lblExpidation.TabIndex = 6;
-            this.lblExpidation.Text = "Gültig bis:";
+            this.lblExpidation.Text = "Relevant bis:";
             // 
             // Search
             // 
