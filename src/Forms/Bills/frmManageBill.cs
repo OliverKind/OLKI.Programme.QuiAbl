@@ -245,9 +245,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     this.trvBillClasses.SelectedNode = NewNode;
                 }
-                else if (                 this.Bill.BillClassId > 0 && billClassItem.Value.Id == this.Bill.BillClassId) {
-                        this.trvBillClasses.SelectedNode = NewNode;
-                    }
+                else if (this.Bill.BillClassId > 0 && billClassItem.Value.Id == this.Bill.BillClassId)
+                {
+                    this.trvBillClasses.SelectedNode = NewNode;
+                }
 
                 this.AddBillClassesToTreeViewRecursive(NewNode, selectLastInsertedBillClass);
             }
@@ -273,7 +274,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 i++;
                 this.cboCompany.Items.Add(companyItem.Value.TitleNoText);
                 this._comboToCompanyId.Add(i, companyItem.Value.Id);
-                if (selectLastInsertedCompany && this.Bill.CompanyId==0 && companyItem.Value.Id == this._project.CompanyLastInsertedId)
+                if (selectLastInsertedCompany && this.Bill.CompanyId == 0 && companyItem.Value.Id == this._project.CompanyLastInsertedId)
                 {
                     this.cboCompany.SelectedIndex = i;
                 }
@@ -789,6 +790,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 _ = ex;
                 this.picFilePreview.Image = this.picFilePreview.ErrorImage;
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
 
