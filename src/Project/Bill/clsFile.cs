@@ -433,6 +433,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 SaveFileDialog SaveFileDialog = new SaveFileDialog
                 {
                     DefaultExt = Extension,
+                    FileName = string.IsNullOrEmpty(this.OriginalFileName) ? "" : this.OriginalFileName,
                     Filter = string.Format("(*{0}) | *{0}", new object[] { Extension })
                 };
                 if (SaveFileDialog.ShowDialog(owner) != DialogResult.OK) return;
