@@ -173,15 +173,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms
                 this.BillsFound.Add(Billtem.Value.Id);
             }
             RequestListResults?.Invoke(sender, e);
-            /*this.mtbDateMax.Text = "";
-            this.mtbDateMin.Text = "";
-            this.mtbExpidationMax.Text = "";
-            this.mtbExpidationMin.Text = "";
-            this.txtSearchtext.Text = "";
-            this.nudPrice.Value = 0;
-            this.trvBillClasses.SelectedNode = null;
-
-            this.btnSearch_Click(sender, new EventArgs());*/
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
