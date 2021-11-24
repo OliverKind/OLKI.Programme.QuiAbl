@@ -82,8 +82,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             InitializeComponent();
 
             // Set startup State and Location/Size from last Session.
-            if (Settings.Default.MainFormState != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings.Default.MainFormState;
-            if (Settings.Default.MainFormState == FormWindowState.Normal) this.Size = Settings.Default.MainFormSize;
+            if ( Settings_AppVar.Default.MainForm_State != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings_AppVar.Default.MainForm_State;
+            if (Settings_AppVar.Default.MainForm_State == FormWindowState.Normal) this.Size = Settings_AppVar.Default.MainForm_Size;
 
             this.MainForm_MdiChildActivate(this, new EventArgs());
             this._args = args;
@@ -94,11 +94,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this._projectManager.ActiveProjecChanged += new EventHandler(this.ProjectManager_ProjectChanged);
             this._projectManager.ProjecOpenOrNew += new EventHandler(this.ProjectManager_ProjecOpenOrNew);
 
-
             // Initial rectent files
-            this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
-            this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
-            this._recentFiles.SetFromString(Settings.Default.RecentFiles_FileList);
+            this._recentFiles.MaxLength = Settings_AppConst.Default.RecentFiles_MaxLength;
+            this._recentFiles.Seperator = Settings_AppConst.Default.RecentFiles_Seperator;
+            this._recentFiles.SetFromString(Settings_AppVar.Default.RecentFiles_FileList);
             //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
 
             this.Initial_bgwExitApp();
@@ -146,8 +145,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
             {
                 this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
-                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
-                Settings.Default.Save();
+                Settings_AppVar.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+                Settings_AppVar.Default.Save();
             }
 
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
@@ -158,9 +157,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         {
             if (this._appClose)
             {
-                if (this.WindowState == FormWindowState.Normal) Settings.Default.MainFormSize = this.Size;
-                Settings.Default.MainFormState = this.WindowState;
-                Settings.Default.Save();
+                if (this.WindowState == FormWindowState.Normal) Settings_AppVar.Default.MainForm_Size = this.Size;
+                Settings_AppVar.Default.MainForm_State = this.WindowState;
+                Settings_AppVar.Default.Save();
 
                 e.Cancel = false;
                 Application.Exit();

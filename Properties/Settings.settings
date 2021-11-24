@@ -2,26 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QuiAbl.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ProjectFile_DefaultExtension" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">QuiAblDb</Value>
-    </Setting>
-    <Setting Name="ProjectFile_FilterList" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Quittungsdatenbank (*.QuiAblDb)|*.QuiAblDb|QuiAbl (*.xml)|*.xml|Alle Dateien (*.*)|*.*</Value>
-    </Setting>
-    <Setting Name="ProjectFile_FilterIndex" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
     <Setting Name="ProjectFile_DefaultPath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1;2</Value>
-    </Setting>
-    <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="Internal_SettingsUpgradet" Roaming="true" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -32,20 +14,8 @@
     <Setting Name="DateFormat" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">dd.MM.yyyy</Value>
     </Setting>
-    <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2</Value>
-    </Setting>
     <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="FileAssociation_ExtensionDescription" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">QuiAbl Database</Value>
-    </Setting>
-    <Setting Name="FileAssociation_ExtensionFile" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">QuiAbl.Database</Value>
-    </Setting>
-    <Setting Name="FileAssociation_ExtensionIconFile" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Project_Symbol.ico</Value>
     </Setting>
     <Setting Name="ScanDefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">300</Value>
@@ -56,50 +26,14 @@
     <Setting Name="TreeView_BillClasses_AllowCollaps" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AppUpdate_SetupSearchPattern" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">QuiAbl__v{0}__Setup.exe</Value>
-    </Setting>
     <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="AppUpdate_Owner" Type="System.String" Scope="User">
-      <Value Profile="(Default)">OliverKind</Value>
-    </Setting>
-    <Setting Name="AppUpdate_Name" Type="System.String" Scope="User">
-      <Value Profile="(Default)">OLKI.Programme.QuiAbl</Value>
-    </Setting>
-    <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Changelog.txt</Value>
     </Setting>
     <Setting Name="ScanDefaultColorMode" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="RecentFiles_FileList" Roaming="true" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
-    </Setting>
-    <Setting Name="RecentFiles_Seperator" Type="System.String" Scope="User">
-      <Value Profile="(Default)">|</Value>
-    </Setting>
-    <Setting Name="CSVfile_FilterList" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">CSV-Datei (*.csv)|*.csv|Alle Dateien (*.*)|*.*</Value>
-    </Setting>
-    <Setting Name="CSVfile_FilterIndex" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
-    <Setting Name="CSVfile_DefaultExtension" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">csv</Value>
-    </Setting>
     <Setting Name="SearchAutoOpen" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="MainFormState" Roaming="true" Type="System.Windows.Forms.FormWindowState" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
-    </Setting>
-    <Setting Name="MainFormSize" Roaming="true" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

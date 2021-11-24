@@ -23,34 +23,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuiAblDb")]
-        public string ProjectFile_DefaultExtension {
-            get {
-                return ((string)(this["ProjectFile_DefaultExtension"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Quittungsdatenbank (*.QuiAblDb)|*.QuiAblDb|QuiAbl (*.xml)|*.xml|Alle Dateien (*.*" +
-            ")|*.*")]
-        public string ProjectFile_FilterList {
-            get {
-                return ((string)(this["ProjectFile_FilterList"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int ProjectFile_FilterIndex {
-            get {
-                return ((int)(this["ProjectFile_FilterIndex"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -61,37 +33,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["ProjectFile_DefaultPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1;2")]
-        public string ProjectFile_VersionCompatibleNative {
-            get {
-                return ((string)(this["ProjectFile_VersionCompatibleNative"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ProjectFile_VersionCompatibleConvert {
-            get {
-                return ((string)(this["ProjectFile_VersionCompatibleConvert"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool Internal_SettingsUpgradet {
-            get {
-                return ((bool)(this["Internal_SettingsUpgradet"]));
-            }
-            set {
-                this["Internal_SettingsUpgradet"] = value;
             }
         }
         
@@ -134,15 +75,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public string ProjectFile_Version_Actual {
-            get {
-                return ((string)(this["ProjectFile_Version_Actual"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -153,33 +85,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["FileAssociation_CheckOnStartup"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuiAbl Database")]
-        public string FileAssociation_ExtensionDescription {
-            get {
-                return ((string)(this["FileAssociation_ExtensionDescription"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuiAbl.Database")]
-        public string FileAssociation_ExtensionFile {
-            get {
-                return ((string)(this["FileAssociation_ExtensionFile"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Project_Symbol.ico")]
-        public string FileAssociation_ExtensionIconFile {
-            get {
-                return ((string)(this["FileAssociation_ExtensionIconFile"]));
             }
         }
         
@@ -222,15 +127,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuiAbl__v{0}__Setup.exe")]
-        public string AppUpdate_SetupSearchPattern {
-            get {
-                return ((string)(this["AppUpdate_SetupSearchPattern"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -241,42 +137,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["AppUpdate_CheckAtStartUp"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OliverKind")]
-        public string AppUpdate_Owner {
-            get {
-                return ((string)(this["AppUpdate_Owner"]));
-            }
-            set {
-                this["AppUpdate_Owner"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OLKI.Programme.QuiAbl")]
-        public string AppUpdate_Name {
-            get {
-                return ((string)(this["AppUpdate_Name"]));
-            }
-            set {
-                this["AppUpdate_Name"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Changelog.txt")]
-        public string AppUpdate_ChangeLog {
-            get {
-                return ((string)(this["AppUpdate_ChangeLog"]));
-            }
-            set {
-                this["AppUpdate_ChangeLog"] = value;
             }
         }
         
@@ -295,71 +155,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string RecentFiles_FileList {
-            get {
-                return ((string)(this["RecentFiles_FileList"]));
-            }
-            set {
-                this["RecentFiles_FileList"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int RecentFiles_MaxLength {
-            get {
-                return ((int)(this["RecentFiles_MaxLength"]));
-            }
-            set {
-                this["RecentFiles_MaxLength"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("|")]
-        public string RecentFiles_Seperator {
-            get {
-                return ((string)(this["RecentFiles_Seperator"]));
-            }
-            set {
-                this["RecentFiles_Seperator"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("CSV-Datei (*.csv)|*.csv|Alle Dateien (*.*)|*.*")]
-        public string CSVfile_FilterList {
-            get {
-                return ((string)(this["CSVfile_FilterList"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int CSVfile_FilterIndex {
-            get {
-                return ((int)(this["CSVfile_FilterIndex"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("csv")]
-        public string CSVfile_DefaultExtension {
-            get {
-                return ((string)(this["CSVfile_DefaultExtension"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public bool SearchAutoOpen {
@@ -368,32 +163,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["SearchAutoOpen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public global::System.Windows.Forms.FormWindowState MainFormState {
-            get {
-                return ((global::System.Windows.Forms.FormWindowState)(this["MainFormState"]));
-            }
-            set {
-                this["MainFormState"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public global::System.Drawing.Size MainFormSize {
-            get {
-                return ((global::System.Drawing.Size)(this["MainFormSize"]));
-            }
-            set {
-                this["MainFormSize"] = value;
             }
         }
     }

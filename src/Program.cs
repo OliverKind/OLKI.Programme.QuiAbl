@@ -76,11 +76,14 @@ namespace OLKI.Programme.QuiAbl.src
             Microsoft.Win32.Registry.SetValue(RegistryPath, REGISTRY_SETTINGS_DIRECTORY_KEY, ConigFilePathRootDir);
 
             // Upgrade Settings
-            if (!Settings.Default.Internal_SettingsUpgradet)
+            if (!Settings_AppVar.Default.SettingsUpgradet)
             {
                 Settings.Default.Upgrade();
-                Settings.Default.Internal_SettingsUpgradet = true;
-                Settings.Default.Save();
+                Settings_AppVar.Default.Upgrade();
+                Settings_AppConst.Default.Upgrade();
+
+                Settings_AppVar.Default.SettingsUpgradet = true;
+                Settings_AppVar.Default.Save();
             }
             Application.Run(new Forms.MainForm.MainForm(args));
         }
@@ -94,15 +97,15 @@ namespace OLKI.Programme.QuiAbl.src
             // Get Path to Icon
             string IconPath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             IconPath += @"\";
-            IconPath += Settings.Default.FileAssociation_ExtensionIconFile;
+            IconPath += Settings_AppConst.Default.FileAssociation_ExtensionIconFile;
 
             // Check File Association
             FileAssociation.CheckMatchWithApplicationAndSet(
                 Application.ExecutablePath,
-                "." + Settings.Default.ProjectFile_DefaultExtension,
-                Settings.Default.ProjectFile_DefaultExtension,
-                Settings.Default.FileAssociation_ExtensionFile,
-                Settings.Default.FileAssociation_ExtensionDescription,
+                "." + Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                Settings_AppConst.Default.FileAssociation_ExtensionFile,
+                Settings_AppConst.Default.FileAssociation_ExtensionDescription,
                 IconPath,
                 showMessageIfAssociated);
         }
@@ -116,10 +119,10 @@ namespace OLKI.Programme.QuiAbl.src
         {
             UpdateApp AppUpdater = new UpdateApp();
             ReleaseData LastReleaseData = AppUpdater.GetLastReleaseData(
-                Settings.Default.AppUpdate_Owner,
-                Settings.Default.AppUpdate_Name,
-                Settings.Default.AppUpdate_ChangeLog,
-                Settings.Default.AppUpdate_SetupSearchPattern,
+                Settings_AppConst.Default.AppUpdate_Owner,
+                Settings_AppConst.Default.AppUpdate_Name,
+                Settings_AppConst.Default.AppUpdate_ChangeLog,
+                Settings_AppConst.Default.AppUpdate_SetupSearchPattern,
                 out Exception GetDataEx);
             ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
 

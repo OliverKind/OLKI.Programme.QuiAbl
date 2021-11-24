@@ -950,9 +950,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             OpenFileDialog OpenFileDialog = new OpenFileDialog
             {
-                DefaultExt = Settings.Default.CSVfile_DefaultExtension,
-                Filter = Settings.Default.CSVfile_FilterList,
-                FilterIndex = Settings.Default.CSVfile_FilterIndex
+                DefaultExt = Settings_AppConst.Default.CSVfile_DefaultExtension,
+                Filter = Settings_AppConst.Default.CSVfile_FilterList,
+                FilterIndex = Settings_AppConst.Default.CSVfile_FilterIndex
             };
 
             if (OpenFileDialog.ShowDialog(this) != DialogResult.OK) return;

@@ -264,9 +264,9 @@ namespace OLKI.Programme.QuiAbl.src.Project
             {
                 SaveFileDialog SaveFileDialog = new SaveFileDialog()
                 {
-                    DefaultExt = Settings.Default.ProjectFile_DefaultExtension,
-                    Filter = Settings.Default.ProjectFile_FilterList,
-                    FilterIndex = Settings.Default.ProjectFile_FilterIndex,
+                    DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                    Filter = Settings_AppConst.Default.ProjectFile_FilterList,
+                    FilterIndex = Settings_AppConst.Default.ProjectFile_FilterIndex,
                     InitialDirectory = Settings.Default.ProjectFile_DefaultPath
                 };
                 DialogResult DialogResult = (DialogResult)mainForm.Invoke((Func<DialogResult>)(() => SaveFileDialog.ShowDialog()));
@@ -310,7 +310,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
         internal XElement ToXElement()
         {
             XElement ProjectRoot = new XElement("QuiAbl_ProjectData");
-            ProjectRoot.Add(new XAttribute("Version", Settings.Default.ProjectFile_Version_Actual));
+            ProjectRoot.Add(new XAttribute("Version", Settings_AppConst.Default.ProjectFile_Version_Actual));
 
             //Create BillList
             XElement BillList = new XElement("BillList");
@@ -355,14 +355,14 @@ namespace OLKI.Programme.QuiAbl.src.Project
             List<string> FileVersionList = FileVersion.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             // Full Compatible fileversions
-            List<string> FullCompatibleVersionList = Settings.Default.ProjectFile_VersionCompatibleNative.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> FullCompatibleVersionList = Settings_AppConst.Default.ProjectFile_VersionCompatibleNative.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             if (FileVersionList.Intersect(FullCompatibleVersionList).Count() > 0)
             {
                 return true;    // Full Compatible Return true
             }
 
             // Fileversions they are compatible if the file would been converted
-            List<string> ConvCompatibleVersionList = Settings.Default.ProjectFile_VersionCompatibleConvert.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> ConvCompatibleVersionList = Settings_AppConst.Default.ProjectFile_VersionCompatibleConvert.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             if (FileVersionList.Intersect(ConvCompatibleVersionList).Count() > 0)
             {
                 //TODO: ADD CODE --> in future version to convert if necessary 
