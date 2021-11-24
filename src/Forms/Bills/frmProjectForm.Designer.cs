@@ -62,6 +62,7 @@
             this.mnuBillsForm_Basedata_BillClass = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Search_AutoOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -407,7 +408,8 @@
             // mnuBillForm_Search
             // 
             this.mnuBillForm_Search.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuBillForm_Search_Bill});
+            this.mnuBillForm_Search_Bill,
+            this.mnuBillForm_Search_AutoOpen});
             this.mnuBillForm_Search.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mnuBillForm_Search.MergeIndex = 2;
             this.mnuBillForm_Search.Name = "mnuBillForm_Search";
@@ -419,9 +421,18 @@
             this.mnuBillForm_Search_Bill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
             this.mnuBillForm_Search_Bill.Name = "mnuBillForm_Search_Bill";
             this.mnuBillForm_Search_Bill.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(180, 22);
+            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(345, 22);
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
+            // 
+            // mnuBillForm_Search_AutoOpen
+            // 
+            this.mnuBillForm_Search_AutoOpen.Name = "mnuBillForm_Search_AutoOpen";
+            this.mnuBillForm_Search_AutoOpen.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F3)));
+            this.mnuBillForm_Search_AutoOpen.Size = new System.Drawing.Size(345, 22);
+            this.mnuBillForm_Search_AutoOpen.Text = "Suche beim Starten öffnen";
+            this.mnuBillForm_Search_AutoOpen.Click += new System.EventHandler(this.mnuBillForm_Search_AutoOpen_Click);
             // 
             // ProjectForm
             // 
@@ -491,5 +502,6 @@
         private System.Windows.Forms.Label lblBillFileTitle;
         private System.Windows.Forms.Label lblBillFileOriginalFileName;
         private System.Windows.Forms.ColumnHeader cohBillsLength;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Search_AutoOpen;
     }
 }

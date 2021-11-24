@@ -407,6 +407,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this._searchBill.Visible = true;
             }
+            this.mnuBillForm_Search_AutoOpen.Checked = Settings.Default.SearchAutoOpen;
         }
 
         private void ProjectForm_Deactivate(object sender, EventArgs e)
@@ -444,6 +445,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Maximized;
+            if (Settings.Default.SearchAutoOpen) this.mnuBillForm_Search_Bill_Click(this, new EventArgs());
         }
         #endregion
 
@@ -463,6 +465,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this._manageCompany = new ManageCompany(this.Project);
             this._manageCompany.ShowDialog(this);
+        }
+
+        private void mnuBillForm_Search_AutoOpen_Click(object sender, EventArgs e)
+        {
+            this.mnuBillForm_Search_AutoOpen.Checked = !this.mnuBillForm_Search_AutoOpen.Checked;
+            Settings.Default.SearchAutoOpen = this.mnuBillForm_Search_AutoOpen.Checked;
+            Settings.Default.Save();
         }
 
         private void mnuBillForm_Search_Bill_Click(object sender, EventArgs e)
