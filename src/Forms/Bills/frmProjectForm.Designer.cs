@@ -419,7 +419,7 @@
             this.mnuBillForm_Search_Bill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
             this.mnuBillForm_Search_Bill.Name = "mnuBillForm_Search_Bill";
             this.mnuBillForm_Search_Bill.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(147, 22);
+            this.mnuBillForm_Search_Bill.Size = new System.Drawing.Size(180, 22);
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
             // 
@@ -436,10 +436,12 @@
             this.Name = "ProjectForm";
             this.ShowInTaskbar = false;
             this.Text = "frmBills";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bills_FormClosing);
-            this.Load += new System.EventHandler(this.Bills_Load);
-            this.Shown += new System.EventHandler(this.Bills_Shown);
-            this.Resize += new System.EventHandler(this.Bills_Resize);
+            this.Activated += new System.EventHandler(this.ProjectForm_Activated);
+            this.Deactivate += new System.EventHandler(this.ProjectForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProjectForm_FormClosing);
+            this.Load += new System.EventHandler(this.ProjectForm_Load);
+            this.Shown += new System.EventHandler(this.ProjectForm_Shown);
+            this.Resize += new System.EventHandler(this.ProjectForm_Resize);
             this.tabBill.ResumeLayout(false);
             this.tabpBillData.ResumeLayout(false);
             this.tabpBillDocs.ResumeLayout(false);

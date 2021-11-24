@@ -401,7 +401,23 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #endregion
 
         #region Form Events
-        private void Bills_FormClosing(object sender, FormClosingEventArgs e)
+        private void ProjectForm_Activated(object sender, EventArgs e)
+        {
+            if (this._searchBill != null && !this._searchBill.IsDisposed && !this._searchBill.Visible)
+            {
+                this._searchBill.Visible = true;
+            }
+        }
+
+        private void ProjectForm_Deactivate(object sender, EventArgs e)
+        {
+            if (this._searchBill != null && !this._searchBill.IsDisposed)
+            {
+                this._searchBill.Visible = false;
+            }
+        }
+
+        private void ProjectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if ((e.CloseReason == CloseReason.ApplicationExitCall ||
                  e.CloseReason == CloseReason.MdiFormClosing ||
@@ -414,17 +430,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
         }
 
-        private void Bills_Load(object sender, EventArgs e)
+        private void ProjectForm_Load(object sender, EventArgs e)
         {
-            this.Bills_Resize(sender, e);
+            this.ProjectForm_Resize(sender, e);
         }
 
-        private void Bills_Resize(object sender, EventArgs e)
+        private void ProjectForm_Resize(object sender, EventArgs e)
         {
             this.SizeGripStyle = this.WindowState == FormWindowState.Maximized ? SizeGripStyle.Hide : SizeGripStyle.Show;
         }
 
-        private void Bills_Shown(object sender, EventArgs e)
+        private void ProjectForm_Shown(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Maximized;
@@ -451,9 +467,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void mnuBillForm_Search_Bill_Click(object sender, EventArgs e)
         {
-            this._searchBill = new Search(this.Project);
-            this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
-            this._searchBill.Show(this);
+            if (this._searchBill != null && !this._searchBill.IsDisposed && !this._searchBill.Visible)
+            {
+                this._searchBill.Visible = true;
+            }
+            else
+            {
+                this._searchBill = new Search(this.Project);
+                this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
+                this._searchBill.Show(this);
+            }
         }
         #endregion
 
