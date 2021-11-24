@@ -115,6 +115,15 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// </summary>
         public void Close(bool appOrProjectClose)
         {
+
+            if (this._searchBill != null && !this._searchBill.IsDisposed)
+            {
+                //Avoid Exception on application close
+                this._searchBill.Close();
+                this._searchBill.Dispose();
+                this._searchBill = null;
+            }
+
             this._appOrProjectClose = appOrProjectClose;
             this.Close();
         }
@@ -391,7 +400,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #endregion
         #endregion
 
-        #region From Events
+        #region Form Events
         private void Bills_FormClosing(object sender, FormClosingEventArgs e)
         {
             if ((e.CloseReason == CloseReason.ApplicationExitCall ||
