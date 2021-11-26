@@ -791,10 +791,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 _ = ex;
                 this.picFilePreview.Image = this.picFilePreview.ErrorImage;
             }
-            finally
-            {
-                GC.Collect();
-            }
         }
 
         private void btnFileModifyCrop_Click(object sender, EventArgs e)

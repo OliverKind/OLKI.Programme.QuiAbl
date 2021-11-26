@@ -178,13 +178,26 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             get
             {
-                if (this.Modification == null || this.Image == null)
+                try
                 {
-                    return this.Image;
+
+                    if (this.Modification == null || this.Image == null)
+                    {
+                        return this.Image;
+                    }
+                    else
+                    {
+                        return this.ProceedModifications();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return this.ProceedModifications();
+                    _ = ex;
+                    return null;
+                }
+                finally
+                {
+                    GC.Collect();
                 }
             }
         }
