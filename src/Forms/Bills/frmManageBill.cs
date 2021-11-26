@@ -716,6 +716,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else
             {
+                this.tbaFileModifyThreshold.Value = Settings.Default.ScanDefaultThreshold;
                 this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
@@ -728,6 +729,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.txtFileLinkPath.Text = "";
                 this.txtFilePath.Text = "";
             }
+            this.tbaFileModifyThreshold_Scroll(this, new EventArgs());
         }
 
         #region Image modification

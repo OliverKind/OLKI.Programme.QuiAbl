@@ -165,5 +165,18 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["SearchAutoOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ScanDefaultThreshold {
+            get {
+                return ((int)(this["ScanDefaultThreshold"]));
+            }
+            set {
+                this["ScanDefaultThreshold"] = value;
+            }
+        }
     }
 }

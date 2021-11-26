@@ -58,7 +58,9 @@
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grbScanDefault = new System.Windows.Forms.GroupBox();
+            this.lblScanDefaultThreshold = new System.Windows.Forms.Label();
             this.cboScanDefaultColorMode = new System.Windows.Forms.ComboBox();
+            this.tbaScanDefaultThreshold = new System.Windows.Forms.TrackBar();
             this.lblFileModifyVolor = new System.Windows.Forms.Label();
             this.lblScanDefaultResolution = new System.Windows.Forms.Label();
             this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
@@ -69,13 +71,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).BeginInit();
             this.grbBillClassesTreeView.SuspendLayout();
             this.grbScanDefault.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaScanDefaultThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudScanDefaultResolution)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOk
             // 
             this.btnOk.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Ok;
-            this.btnOk.Location = new System.Drawing.Point(12, 339);
+            this.btnOk.Location = new System.Drawing.Point(12, 349);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 24);
             this.btnOk.TabIndex = 9;
@@ -181,7 +184,7 @@
             this.grbRecentFiles.Controls.Add(this.btnRecentFilesClear);
             this.grbRecentFiles.Controls.Add(this.nudNumRecentFiles);
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
-            this.grbRecentFiles.Location = new System.Drawing.Point(12, 233);
+            this.grbRecentFiles.Location = new System.Drawing.Point(12, 243);
             this.grbRecentFiles.Name = "grbRecentFiles";
             this.grbRecentFiles.Size = new System.Drawing.Size(705, 48);
             this.grbRecentFiles.TabIndex = 4;
@@ -222,7 +225,7 @@
             // 
             // btnCheckFileAssociation
             // 
-            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 287);
+            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 297);
             this.btnCheckFileAssociation.Name = "btnCheckFileAssociation";
             this.btnCheckFileAssociation.Size = new System.Drawing.Size(134, 23);
             this.btnCheckFileAssociation.TabIndex = 5;
@@ -232,7 +235,7 @@
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(511, 288);
+            this.btnSetDefaults.Location = new System.Drawing.Point(511, 298);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
             this.btnSetDefaults.TabIndex = 7;
@@ -282,7 +285,7 @@
             // chkAutoCheckFileAssociation
             // 
             this.chkAutoCheckFileAssociation.AutoSize = true;
-            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 292);
+            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 302);
             this.chkAutoCheckFileAssociation.Name = "chkAutoCheckFileAssociation";
             this.chkAutoCheckFileAssociation.Size = new System.Drawing.Size(229, 17);
             this.chkAutoCheckFileAssociation.TabIndex = 6;
@@ -328,7 +331,7 @@
             // chkCheckForUpdates
             // 
             this.chkCheckForUpdates.AutoSize = true;
-            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 316);
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 326);
             this.chkCheckForUpdates.Name = "chkCheckForUpdates";
             this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
             this.chkCheckForUpdates.TabIndex = 8;
@@ -339,7 +342,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(607, 339);
+            this.btnCancel.Location = new System.Drawing.Point(607, 349);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 24);
             this.btnCancel.TabIndex = 10;
@@ -351,16 +354,27 @@
             // 
             // grbScanDefault
             // 
+            this.grbScanDefault.Controls.Add(this.lblScanDefaultThreshold);
             this.grbScanDefault.Controls.Add(this.cboScanDefaultColorMode);
+            this.grbScanDefault.Controls.Add(this.tbaScanDefaultThreshold);
             this.grbScanDefault.Controls.Add(this.lblFileModifyVolor);
             this.grbScanDefault.Controls.Add(this.lblScanDefaultResolution);
             this.grbScanDefault.Controls.Add(this.nudScanDefaultResolution);
             this.grbScanDefault.Location = new System.Drawing.Point(203, 140);
             this.grbScanDefault.Name = "grbScanDefault";
-            this.grbScanDefault.Size = new System.Drawing.Size(508, 65);
+            this.grbScanDefault.Size = new System.Drawing.Size(508, 97);
             this.grbScanDefault.TabIndex = 3;
             this.grbScanDefault.TabStop = false;
             this.grbScanDefault.Text = "Standard Scaneinstellungen";
+            // 
+            // lblScanDefaultThreshold
+            // 
+            this.lblScanDefaultThreshold.AutoSize = true;
+            this.lblScanDefaultThreshold.Location = new System.Drawing.Point(175, 46);
+            this.lblScanDefaultThreshold.Name = "lblScanDefaultThreshold";
+            this.lblScanDefaultThreshold.Size = new System.Drawing.Size(84, 13);
+            this.lblScanDefaultThreshold.TabIndex = 11;
+            this.lblScanDefaultThreshold.Text = "Schwellwert: {0}";
             // 
             // cboScanDefaultColorMode
             // 
@@ -371,15 +385,28 @@
             "Farbe",
             "Graustufen",
             "Schwarz Weiiß"});
-            this.cboScanDefaultColorMode.Location = new System.Drawing.Point(184, 18);
+            this.cboScanDefaultColorMode.Location = new System.Drawing.Point(285, 19);
             this.cboScanDefaultColorMode.Name = "cboScanDefaultColorMode";
             this.cboScanDefaultColorMode.Size = new System.Drawing.Size(217, 21);
             this.cboScanDefaultColorMode.TabIndex = 3;
+            this.cboScanDefaultColorMode.SelectedIndexChanged += new System.EventHandler(this.cboScanDefaultColorMode_SelectedIndexChanged);
+            // 
+            // tbaScanDefaultThreshold
+            // 
+            this.tbaScanDefaultThreshold.LargeChange = 10;
+            this.tbaScanDefaultThreshold.Location = new System.Drawing.Point(285, 46);
+            this.tbaScanDefaultThreshold.Maximum = 255;
+            this.tbaScanDefaultThreshold.Name = "tbaScanDefaultThreshold";
+            this.tbaScanDefaultThreshold.Size = new System.Drawing.Size(217, 45);
+            this.tbaScanDefaultThreshold.TabIndex = 12;
+            this.tbaScanDefaultThreshold.TickFrequency = 85;
+            this.tbaScanDefaultThreshold.Value = 127;
+            this.tbaScanDefaultThreshold.Scroll += new System.EventHandler(this.tbaScanDefaultThreshold_Scroll);
             // 
             // lblFileModifyVolor
             // 
             this.lblFileModifyVolor.AutoSize = true;
-            this.lblFileModifyVolor.Location = new System.Drawing.Point(141, 21);
+            this.lblFileModifyVolor.Location = new System.Drawing.Point(175, 22);
             this.lblFileModifyVolor.Name = "lblFileModifyVolor";
             this.lblFileModifyVolor.Size = new System.Drawing.Size(37, 13);
             this.lblFileModifyVolor.TabIndex = 2;
@@ -419,7 +446,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 375);
+            this.ClientSize = new System.Drawing.Size(729, 385);
             this.Controls.Add(this.grbScanDefault);
             this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.grbBillClassesTreeView);
@@ -451,6 +478,7 @@
             this.grbBillClassesTreeView.PerformLayout();
             this.grbScanDefault.ResumeLayout(false);
             this.grbScanDefault.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbaScanDefaultThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudScanDefaultResolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -490,5 +518,7 @@
         private System.Windows.Forms.NumericUpDown nudScanDefaultResolution;
         private System.Windows.Forms.ComboBox cboScanDefaultColorMode;
         private System.Windows.Forms.Label lblFileModifyVolor;
+        private System.Windows.Forms.Label lblScanDefaultThreshold;
+        private System.Windows.Forms.TrackBar tbaScanDefaultThreshold;
     }
 }
