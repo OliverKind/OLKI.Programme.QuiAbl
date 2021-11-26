@@ -41,7 +41,6 @@
             this.txtDefaultPath = new System.Windows.Forms.TextBox();
             this.lblDefaultPath = new System.Windows.Forms.Label();
             this.grbRecentFiles = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.btnRecentFilesClear = new System.Windows.Forms.Button();
             this.nudNumRecentFiles = new System.Windows.Forms.NumericUpDown();
             this.lblNumRecentFiles = new System.Windows.Forms.Label();
@@ -179,7 +178,6 @@
             // 
             // grbRecentFiles
             // 
-            this.grbRecentFiles.Controls.Add(this.label20);
             this.grbRecentFiles.Controls.Add(this.btnRecentFilesClear);
             this.grbRecentFiles.Controls.Add(this.nudNumRecentFiles);
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
@@ -189,18 +187,6 @@
             this.grbRecentFiles.TabIndex = 4;
             this.grbRecentFiles.TabStop = false;
             this.grbRecentFiles.Text = "Zuletzt geöffnete Dateien";
-            this.grbRecentFiles.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(104, 17);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(469, 25);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "In future versions    GroupBox.Visible=false";
             // 
             // btnRecentFilesClear
             // 
@@ -493,7 +479,6 @@
         private System.Windows.Forms.TextBox txtDateFormat;
         private System.Windows.Forms.CheckBox chkAutoCheckFileAssociation;
         private System.Windows.Forms.ErrorProvider erpDateFormat;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblDateFormatPreview;
         private System.Windows.Forms.GroupBox grbBillClassesTreeView;
         private System.Windows.Forms.CheckBox chkTreeViewBillClassesExpandAllDefault;
