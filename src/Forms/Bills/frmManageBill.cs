@@ -25,6 +25,7 @@
 using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Project;
 using OLKI.Programme.QuiAbl.src.Project.Bill;
+using OLKI.Toolbox.ColorAndPicture.Picture;
 using OLKI.Toolbox.ColorAndPicture.Picture.Scan;
 using OLKI.Toolbox.Common;
 using System;
@@ -685,6 +686,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
+                this.cboFileModifyColor.SelectedIndex = (int)FileItem.ColorPalette;
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
                 this.lblRoughlyFileSize.Visible = true;
@@ -714,6 +716,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else
             {
+                this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
                 this.lblRoughlyFileSize.Visible = false;
@@ -741,7 +744,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 return;
             }
 
-            File.ImageModification Modification = FileItem.Modification ?? new File.ImageModification();
+            File.ImageModification Modification = FileItem.Modification ?? new File.ImageModification(FileItem.ColorPalette);
 
             this.cboFileModifyColor.SelectedIndex = (int)Modification.Palette;
             this.nudFileModifyResize.Value = Modification.ResizeFactor;
@@ -759,11 +762,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
             if (FileItem.Image == null) return;
 
-            FileItem.Modification = new File.ImageModification
+            FileItem.Modification = new File.ImageModification((Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex)
             {
                 Brightness = this.tbaFileModifyBrightnes.Value,
                 Contrast = this.tbaFileModifyContrast.Value,
-                Palette = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex,
                 ResizeFactor = this.nudFileModifyResize.Value,
                 RotateLeft = (int)this.btnFileModifyRotateLeft.Tag,
                 RotateRight = (int)this.btnFileModifyRotateRight.Tag,
@@ -841,6 +843,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void cboFileModifyColor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.lsvFiles.SelectedItems.Count != 1) return;
+
+            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+            FileItem.ColorPalette =(Modify.Palette.ColorPalette) this.cboFileModifyColor.SelectedIndex;
+
             this.SetImageModification();
             this.SetSelectedFileToPicturebox();
             switch (this.cboFileModifyColor.SelectedIndex)

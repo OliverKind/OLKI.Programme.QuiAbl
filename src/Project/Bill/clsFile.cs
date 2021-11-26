@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Programme.QuiAbl.Properties;
+using OLKI.Toolbox.ColorAndPicture.Picture;
 using OLKI.Toolbox.Common;
 using System;
 using System.ComponentModel;
@@ -84,6 +85,26 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 this._changed = value;
                 this.ToggleFileChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Color Palette of the file (if it is an Image)
+        /// </summary>
+        private Modify.Palette.ColorPalette _colorPalette = Modify.Palette.ColorPalette.Color;
+        /// <summary>
+        /// Get or set the Color Palette of the file (if it is an Image)
+        /// </summary>
+        public Modify.Palette.ColorPalette ColorPalette
+        {
+            get
+            {
+                return this._colorPalette;
+            }
+            set
+            {
+                this._colorPalette = value;
+                this.Changed = true;
             }
         }
 
@@ -231,7 +252,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 if (string.IsNullOrEmpty(this._fileBase64)) return 0;
                 if (this.ImageProcedet == null) return this._fileBase64.Length;
-                if (this.Modification==null || !this.Modification.IsModified()) return this._fileBase64.Length;
+                if (this.Modification == null || !this.Modification.IsModified()) return this._fileBase64.Length;
                 return Convert.ToBase64String((byte[])new ImageConverter().ConvertTo(this.ImageProcedet, typeof(byte[]))).Length;
             }
         }
@@ -387,6 +408,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public void FromFromXElement(XElement inputFile)
         {
             this.Id = Serialize.GetFromXElement(inputFile, "Id", 0);
+            this._colorPalette = (Modify.Palette.ColorPalette)Serialize.GetFromXElement(inputFile, "ColorPalette", Settings.Default.ScanDefaultColorMode);
             this._comment = Serialize.GetFromXElement(inputFile, "Comment", "");
             this._fileBase64 = Serialize.GetFromXElement(inputFile, "StreamBase64", "");
             this.LinkPath = Serialize.GetFromXElement(inputFile, "LinkPath", "");
@@ -520,29 +542,29 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             Image ProcedetImage = (Image)this.Image.Clone();
 
             // Procede resizing
-            ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Resize(ProcedetImage, this.Modification.ResizeFactor, true);
+            ProcedetImage = Modify.Resize(ProcedetImage, this.Modification.ResizeFactor, true);
 
             // Proced brightness and contrast modifications
-            ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.BrightnessAndContrast(ProcedetImage, this.Modification.Brightness, this.Modification.Contrast);
+            ProcedetImage = Modify.BrightnessAndContrast(ProcedetImage, this.Modification.Brightness, this.Modification.Contrast);
 
             // Proced palette modifications
             switch (this.Modification.Palette)
             {
-                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Color:
+                case Modify.Palette.ColorPalette.Color:
                     break;
-                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.Grayscale:
-                    ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Palette.ToGrayscale(ProcedetImage);
+                case Modify.Palette.ColorPalette.Grayscale:
+                    ProcedetImage = Modify.Palette.ToGrayscale(ProcedetImage);
                     break;
-                case Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette.BlackWhite:
-                    ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Palette.ToBlackWhite(ProcedetImage, this.Modification.Threshold);
+                case Modify.Palette.ColorPalette.BlackWhite:
+                    ProcedetImage = Modify.Palette.ToBlackWhite(ProcedetImage, this.Modification.Threshold);
                     break;
                 default:
                     break;
             }
 
             // Proced rotate modifications
-            for (int i = 0; i < this.Modification.RotateLeft; i++) ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Rotate90Left(ProcedetImage);
-            for (int i = 0; i < this.Modification.RotateRight; i++) ProcedetImage = Toolbox.ColorAndPicture.Picture.Modify.Rotate90Right(ProcedetImage);
+            for (int i = 0; i < this.Modification.RotateLeft; i++) ProcedetImage = Modify.Rotate90Left(ProcedetImage);
+            for (int i = 0; i < this.Modification.RotateRight; i++) ProcedetImage = Modify.Rotate90Right(ProcedetImage);
 
             return ProcedetImage;
         }
@@ -607,6 +629,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             XElement FileRoot = new XElement("FileItem");
 
             FileRoot.Add(new XElement("Id", this.Id));
+            FileRoot.Add(new XElement("ColorPalette", (int)this._colorPalette));
             FileRoot.Add(new XElement("Comment", this._comment));
             FileRoot.Add(new XElement("LinkPath", this.LinkPath));
             FileRoot.Add(new XElement("OriginalFileName", this.OriginalFileName));
@@ -635,9 +658,9 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             public int Contrast { get; set; } = 0;
 
             /// <summary>
-            /// Get or set ow the Palette should been changed
+            /// Get or set if the Palette should been changed
             /// </summary>
-            public Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette Palette { get; set; } = (Toolbox.ColorAndPicture.Picture.Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
+            public Modify.Palette.ColorPalette Palette { get; set; } = (Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
 
             /// <summary>
             /// Get or set the factor to resiza the image
@@ -659,9 +682,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// </summary>
             public int Threshold { get; set; } = 127;
 
+            public ImageModification(Modify.Palette.ColorPalette initialPalette)
+            {
+                this.Palette = initialPalette;
+            }
+
             public bool IsModified()
             {
-                ImageModification Ref = new ImageModification();
+                ImageModification Ref = new ImageModification((Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode);
                 if (this.Brightness != Ref.Brightness) return true;
                 if (this.Contrast != Ref.Contrast) return true;
                 if (this.Palette != Ref.Palette) return true;
