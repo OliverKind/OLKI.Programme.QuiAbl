@@ -33,6 +33,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
     /// </summary>
     internal partial class ApplicationSettingsForm : Form
     {
+        #region Fields
+        /// <summary>
+        /// Original text of Label FileModifyThreshold
+        /// </summary>
+        private readonly string _lblScanDefaultThreshold_OrgText;
+        #endregion
+
         #region Properties
         /// <summary>
         /// True if clearing of the recent file list was requested
@@ -58,6 +65,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         {
             InitializeComponent();
             this.lblDateFormatPreview.Text = "";
+            this._lblScanDefaultThreshold_OrgText = this.lblScanDefaultThreshold.Text;
             this.SetControlesFromSettings();
         }
 
@@ -72,9 +80,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
             this.nudScanDefaultResolution.Value = Settings.Default.ScanDefaultResolution;
+            this.tbaScanDefaultThreshold.Value = Settings.Default.ScanDefaultThreshold;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
+
+            this.tbaScanDefaultThreshold_Scroll(this, new EventArgs());
         }
 
         /// <summary>
@@ -158,6 +169,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
             Settings.Default.ScanDefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
             Settings.Default.ScanDefaultResolution = (int)this.nudScanDefaultResolution.Value;
+            Settings.Default.ScanDefaultThreshold = this.tbaScanDefaultThreshold.Value;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
             Settings.Default.TreeView_BillClasses_AllowCollaps = this.chkTreeViewBillClassesAllowCollaps.Checked;
             Settings.Default.TreeView_BillClasses_ExpandAllDefault = this.chkTreeViewBillClassesExpandAllDefault.Checked;
@@ -177,6 +189,30 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         {
             Settings.Default.Reset();
             this.SetControlesFromSettings();
+        }
+
+        private void cboScanDefaultColorMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cboScanDefaultColorMode.SelectedIndex)
+            {
+                case 0: //Color
+                    this.tbaScanDefaultThreshold.Enabled = false;
+                    break;
+                case 1: //Grayscale
+                    this.tbaScanDefaultThreshold.Enabled = false;
+                    break;
+                case 2: //BW
+                    this.tbaScanDefaultThreshold.Enabled = true;
+                    break;
+                default:
+                    this.tbaScanDefaultThreshold.Enabled = false;
+                    break;
+            }
+        }
+
+        private void tbaScanDefaultThreshold_Scroll(object sender, EventArgs e)
+        {
+            this.lblScanDefaultThreshold.Text = string.Format(this._lblScanDefaultThreshold_OrgText, this.tbaScanDefaultThreshold.Value);
         }
 
         private void txtDateFormat_TextChanged(object sender, EventArgs e)
