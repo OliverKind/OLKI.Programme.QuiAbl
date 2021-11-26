@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBill));
             this.tabInformation = new System.Windows.Forms.TabControl();
             this.tbpInformationGenerel = new System.Windows.Forms.TabPage();
+            this.chkBillDisposed = new System.Windows.Forms.CheckBox();
             this.btnManageBillClasses = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
             this.txtComment = new System.Windows.Forms.TextBox();
@@ -155,6 +156,7 @@
             // 
             // tbpInformationGenerel
             // 
+            this.tbpInformationGenerel.Controls.Add(this.chkBillDisposed);
             this.tbpInformationGenerel.Controls.Add(this.btnManageBillClasses);
             this.tbpInformationGenerel.Controls.Add(this.lblComment);
             this.tbpInformationGenerel.Controls.Add(this.txtComment);
@@ -173,6 +175,17 @@
             this.tbpInformationGenerel.Size = new System.Drawing.Size(860, 483);
             this.tbpInformationGenerel.TabIndex = 0;
             this.tbpInformationGenerel.Text = "Allgemeines";
+            // 
+            // chkBillDisposed
+            // 
+            this.chkBillDisposed.AutoSize = true;
+            this.chkBillDisposed.Location = new System.Drawing.Point(342, 60);
+            this.chkBillDisposed.Name = "chkBillDisposed";
+            this.chkBillDisposed.Size = new System.Drawing.Size(117, 17);
+            this.chkBillDisposed.TabIndex = 11;
+            this.chkBillDisposed.Text = "Rechnung entsorgt";
+            this.chkBillDisposed.UseVisualStyleBackColor = true;
+            this.chkBillDisposed.CheckedChanged += new System.EventHandler(this.chkBillDisposed_CheckedChanged);
             // 
             // btnManageBillClasses
             // 
@@ -1272,5 +1285,6 @@
         private System.Windows.Forms.Label lblRoughlyFileSize;
         private System.Windows.Forms.Label lblFileModifyReize;
         private System.Windows.Forms.NumericUpDown nudFileModifyResize;
+        private System.Windows.Forms.CheckBox chkBillDisposed;
     }
 }

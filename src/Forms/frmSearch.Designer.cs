@@ -45,6 +45,7 @@
             this.mtbExpidationMin = new System.Windows.Forms.MaskedTextBox();
             this.lblExpidation2 = new System.Windows.Forms.Label();
             this.lblExpidation = new System.Windows.Forms.Label();
+            this.chkBillDisposed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             this.nudPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudPrice.DecimalPlaces = 2;
-            this.nudPrice.Location = new System.Drawing.Point(117, 117);
+            this.nudPrice.Location = new System.Drawing.Point(111, 117);
             this.nudPrice.Name = "nudPrice";
             this.nudPrice.Size = new System.Drawing.Size(120, 20);
             this.nudPrice.TabIndex = 13;
@@ -61,7 +62,7 @@
             // 
             this.lblPrice.Location = new System.Drawing.Point(12, 119);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(99, 23);
+            this.lblPrice.Size = new System.Drawing.Size(93, 23);
             this.lblPrice.TabIndex = 12;
             this.lblPrice.Text = "Betrag:";
             // 
@@ -71,7 +72,7 @@
             this.btnSearch.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
             this.btnSearch.Location = new System.Drawing.Point(12, 525);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(385, 24);
+            this.btnSearch.Size = new System.Drawing.Size(419, 24);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "&Suchen";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -81,7 +82,7 @@
             // 
             // lblDate2
             // 
-            this.lblDate2.Location = new System.Drawing.Point(203, 42);
+            this.lblDate2.Location = new System.Drawing.Point(197, 42);
             this.lblDate2.Name = "lblDate2";
             this.lblDate2.Size = new System.Drawing.Size(25, 23);
             this.lblDate2.TabIndex = 4;
@@ -90,16 +91,16 @@
             // txtSearchtext
             // 
             this.txtSearchtext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtSearchtext.Location = new System.Drawing.Point(117, 91);
+            this.txtSearchtext.Location = new System.Drawing.Point(111, 91);
             this.txtSearchtext.Name = "txtSearchtext";
-            this.txtSearchtext.Size = new System.Drawing.Size(279, 20);
+            this.txtSearchtext.Size = new System.Drawing.Size(320, 20);
             this.txtSearchtext.TabIndex = 11;
             // 
             // lblSearchtext
             // 
             this.lblSearchtext.Location = new System.Drawing.Point(12, 94);
             this.lblSearchtext.Name = "lblSearchtext";
-            this.lblSearchtext.Size = new System.Drawing.Size(100, 23);
+            this.lblSearchtext.Size = new System.Drawing.Size(93, 23);
             this.lblSearchtext.TabIndex = 10;
             this.lblSearchtext.Text = "Suchtext:";
             // 
@@ -115,7 +116,7 @@
             // 
             this.lblDate.Location = new System.Drawing.Point(12, 42);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(100, 23);
+            this.lblDate.Size = new System.Drawing.Size(93, 23);
             this.lblDate.TabIndex = 2;
             this.lblDate.Text = "Belegdatum:";
             // 
@@ -123,7 +124,7 @@
             // 
             this.lblCompany.Location = new System.Drawing.Point(12, 15);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(100, 23);
+            this.lblCompany.Size = new System.Drawing.Size(93, 23);
             this.lblCompany.TabIndex = 0;
             this.lblCompany.Text = "Firma:";
             // 
@@ -132,9 +133,9 @@
             this.cboCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cboCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCompany.FormattingEnabled = true;
-            this.cboCompany.Location = new System.Drawing.Point(117, 12);
+            this.cboCompany.Location = new System.Drawing.Point(111, 12);
             this.cboCompany.Name = "cboCompany";
-            this.cboCompany.Size = new System.Drawing.Size(279, 21);
+            this.cboCompany.Size = new System.Drawing.Size(320, 21);
             this.cboCompany.TabIndex = 1;
             // 
             // trvBillClasses
@@ -145,7 +146,7 @@
             this.trvBillClasses.HideSelection = false;
             this.trvBillClasses.Location = new System.Drawing.Point(15, 166);
             this.trvBillClasses.Name = "trvBillClasses";
-            this.trvBillClasses.Size = new System.Drawing.Size(385, 353);
+            this.trvBillClasses.Size = new System.Drawing.Size(416, 353);
             this.trvBillClasses.TabIndex = 15;
             this.trvBillClasses.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.trvBillClasses_BeforeCollapse);
             this.trvBillClasses.MouseDown += new System.Windows.Forms.MouseEventHandler(this.trvBillClasses_MouseDown);
@@ -153,7 +154,7 @@
             // mtbDateMin
             // 
             this.mtbDateMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.mtbDateMin.Location = new System.Drawing.Point(117, 39);
+            this.mtbDateMin.Location = new System.Drawing.Point(111, 39);
             this.mtbDateMin.Mask = "00/00/0000";
             this.mtbDateMin.Name = "mtbDateMin";
             this.mtbDateMin.Size = new System.Drawing.Size(80, 20);
@@ -163,7 +164,7 @@
             // mtbDateMax
             // 
             this.mtbDateMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.mtbDateMax.Location = new System.Drawing.Point(234, 39);
+            this.mtbDateMax.Location = new System.Drawing.Point(228, 39);
             this.mtbDateMax.Mask = "00/00/0000";
             this.mtbDateMax.Name = "mtbDateMax";
             this.mtbDateMax.Size = new System.Drawing.Size(80, 20);
@@ -173,7 +174,7 @@
             // mtbExpidationMax
             // 
             this.mtbExpidationMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.mtbExpidationMax.Location = new System.Drawing.Point(234, 65);
+            this.mtbExpidationMax.Location = new System.Drawing.Point(228, 65);
             this.mtbExpidationMax.Mask = "00/00/0000";
             this.mtbExpidationMax.Name = "mtbExpidationMax";
             this.mtbExpidationMax.Size = new System.Drawing.Size(80, 20);
@@ -183,7 +184,7 @@
             // mtbExpidationMin
             // 
             this.mtbExpidationMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.mtbExpidationMin.Location = new System.Drawing.Point(117, 65);
+            this.mtbExpidationMin.Location = new System.Drawing.Point(111, 65);
             this.mtbExpidationMin.Mask = "00/00/0000";
             this.mtbExpidationMin.Name = "mtbExpidationMin";
             this.mtbExpidationMin.Size = new System.Drawing.Size(80, 20);
@@ -192,7 +193,7 @@
             // 
             // lblExpidation2
             // 
-            this.lblExpidation2.Location = new System.Drawing.Point(203, 68);
+            this.lblExpidation2.Location = new System.Drawing.Point(197, 68);
             this.lblExpidation2.Name = "lblExpidation2";
             this.lblExpidation2.Size = new System.Drawing.Size(25, 23);
             this.lblExpidation2.TabIndex = 8;
@@ -202,15 +203,29 @@
             // 
             this.lblExpidation.Location = new System.Drawing.Point(12, 68);
             this.lblExpidation.Name = "lblExpidation";
-            this.lblExpidation.Size = new System.Drawing.Size(100, 23);
+            this.lblExpidation.Size = new System.Drawing.Size(93, 23);
             this.lblExpidation.TabIndex = 6;
             this.lblExpidation.Text = "Relevant bis:";
+            // 
+            // chkBillDisposed
+            // 
+            this.chkBillDisposed.AutoSize = true;
+            this.chkBillDisposed.Checked = true;
+            this.chkBillDisposed.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkBillDisposed.Location = new System.Drawing.Point(314, 67);
+            this.chkBillDisposed.Name = "chkBillDisposed";
+            this.chkBillDisposed.Size = new System.Drawing.Size(117, 17);
+            this.chkBillDisposed.TabIndex = 18;
+            this.chkBillDisposed.Text = "Rechnung entsorgt";
+            this.chkBillDisposed.ThreeState = true;
+            this.chkBillDisposed.UseVisualStyleBackColor = true;
             // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 561);
+            this.ClientSize = new System.Drawing.Size(443, 561);
+            this.Controls.Add(this.chkBillDisposed);
             this.Controls.Add(this.mtbExpidationMax);
             this.Controls.Add(this.mtbExpidationMin);
             this.Controls.Add(this.lblExpidation2);
@@ -258,5 +273,6 @@
         private System.Windows.Forms.MaskedTextBox mtbExpidationMin;
         private System.Windows.Forms.Label lblExpidation2;
         private System.Windows.Forms.Label lblExpidation;
+        private System.Windows.Forms.CheckBox chkBillDisposed;
     }
 }

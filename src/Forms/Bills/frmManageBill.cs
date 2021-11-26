@@ -135,6 +135,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.btnAccept.Enabled = this.Bill.Id > 0;
 
             // Set Controles
+            this.chkBillDisposed.Checked = this.Bill.BillDisposed;
             this.txtTitle.Text = this.Bill.Title;
             this.txtTitle_TextChanged(this, new EventArgs());
             this.AddCompaniesToComboBox(false);
@@ -380,6 +381,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         }
 
         #region Bill Data
+        private void chkBillDisposed_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Bill.BillDisposed = this.chkBillDisposed.Checked;
+        }
+
         private void btnManageBillClasses_Click(object sender, EventArgs e)
         {
             this.BillClassesManageRequest?.Invoke(this, new EventArgs());

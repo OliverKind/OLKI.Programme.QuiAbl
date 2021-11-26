@@ -68,6 +68,27 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
         #region Properties
         /// <summary>
+        /// The Bill is Disposed
+        /// </summary>
+        private bool _billDisposed = false;
+        /// <summary>
+        /// Get or set if the Bill is Disposed
+        /// </summary>
+        [Browsable(true)]
+        [Category("Zusatzinformationen")]
+        [Description("Die Rechnung wurde entsorgt.")]
+        [DisplayName("Entsorgt")]
+        public bool BillDisposed
+        {
+            get => _billDisposed;
+            set
+            {
+                this._billDisposed = value;
+                this.Changed = true;
+            }
+        }
+
+        /// <summary>
         /// The BillNumber
         /// </summary>
         private string _billNumber;
@@ -366,7 +387,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             get
             {
                 long TotalLength = 0;
-                foreach( KeyValuePair<int, File> FileItem in this._files)
+                foreach (KeyValuePair<int, File> FileItem in this._files)
                 {
                     TotalLength += FileItem.Value.Length;
                 }
@@ -557,6 +578,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             DateTime DateTimeTemp = DateTime.Now;
 
             this.Id = Serialize.GetFromXElement(inputBill, "Id", 0);
+            this._billDisposed = Serialize.GetFromXElement(inputBill, "BillDisposed", false);
             this._billNumber = Serialize.GetFromXElement(inputBill, "BillNumber", "");
             this._billClassId = Serialize.GetFromXElement(inputBill, "BillClassId", 0);
             this._comment = Serialize.GetFromXElement(inputBill, "Comment", "");
@@ -640,6 +662,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             XElement BillRoot = new XElement("BillItem");
 
             BillRoot.Add(new XElement("Id", this.Id));
+            BillRoot.Add(new XElement("BillDisposed", this._billDisposed));
             BillRoot.Add(new XElement("BillNumber", this._billNumber));
             BillRoot.Add(new XElement("BillClassId", this._billClassId));
             BillRoot.Add(new XElement("Comment", this._comment));

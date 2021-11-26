@@ -183,6 +183,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
 
             FilterBill FilterBill = new FilterBill
             {
+                Disposed = this.chkBillDisposed.CheckState,
                 CompanyId = this._comboToCompanyId[this.cboCompany.SelectedIndex],
                 DateMax = this.GetDate(this.mtbDateMax.Text),
                 DateMin = this.GetDate(this.mtbDateMin.Text),
@@ -237,6 +238,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             public DateTime? DateMin { private get; set; }
 
             /// <summary>
+            /// Is the Bill disposed
+            /// </summary>
+            public CheckState Disposed { private get; set; }
+
+            /// <summary>
             /// Maximum expidation date to search for. Set NULL to not search for.
             /// </summary>
             public DateTime? ExpidationMax { private get; set; }
@@ -272,6 +278,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             {
                 if (!this.InFilterCompany(bill)) return false;
                 if (!this.InFilterDate(bill)) return false;
+                if (!this.InFilterDisposed(bill)) return false;
                 if (!this.InFilterExpidation(bill)) return false;
                 if (!this.InFilterText(bill)) return false;
                 if (!this.InFilterPrice(bill)) return false;
@@ -289,6 +296,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             {
                 if (this.CompanyId == 0) return true;
                 if (this.CompanyId == bill.CompanyId) return true;
+
+                return false;
+            }
+
+            /// <summary>
+            /// Check if is bill hast the right Disposed state
+            /// </summary>
+            /// <param name="bill">Bill to check</param>
+            /// <returns>True if the bill has the same disposed state or TRUE if the reference state is Indeterminate</returns>
+            public bool InFilterDisposed(Bill bill)
+            {
+                if (this.Disposed == CheckState.Indeterminate) return true;
+                if (this.Disposed == CheckState.Checked && bill.BillDisposed) return true;
+                if (this.Disposed == CheckState.Unchecked && !bill.BillDisposed) return true;
 
                 return false;
             }
@@ -330,7 +351,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             {
                 if (string.IsNullOrEmpty(this.Searchtext)) return true;
 
-                if ( !string.IsNullOrEmpty(bill.Comment)  && bill.Comment.ToLower().Contains(this.Searchtext.ToLower())) return true;
+                if (!string.IsNullOrEmpty(bill.Comment) && bill.Comment.ToLower().Contains(this.Searchtext.ToLower())) return true;
                 if (!string.IsNullOrEmpty(bill.Title) && bill.Title.ToLower().Contains(this.Searchtext.ToLower())) return true;
 
                 foreach (KeyValuePair<int, File> FileItem in bill.Files)
