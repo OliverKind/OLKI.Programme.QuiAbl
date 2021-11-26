@@ -432,7 +432,7 @@
             this.lblFileModifyReize.Location = new System.Drawing.Point(88, 205);
             this.lblFileModifyReize.Name = "lblFileModifyReize";
             this.lblFileModifyReize.Size = new System.Drawing.Size(56, 13);
-            this.lblFileModifyReize.TabIndex = 14;
+            this.lblFileModifyReize.TabIndex = 10;
             this.lblFileModifyReize.Text = "Größe (%):";
             // 
             // nudFileModifyResize
@@ -441,7 +441,7 @@
             this.nudFileModifyResize.Location = new System.Drawing.Point(150, 203);
             this.nudFileModifyResize.Name = "nudFileModifyResize";
             this.nudFileModifyResize.Size = new System.Drawing.Size(43, 20);
-            this.nudFileModifyResize.TabIndex = 13;
+            this.nudFileModifyResize.TabIndex = 11;
             this.nudFileModifyResize.ThousandsSeparator = true;
             this.nudFileModifyResize.Value = new decimal(new int[] {
             100,
@@ -456,7 +456,7 @@
             this.btnFileModifyRotateRight.Location = new System.Drawing.Point(47, 199);
             this.btnFileModifyRotateRight.Name = "btnFileModifyRotateRight";
             this.btnFileModifyRotateRight.Size = new System.Drawing.Size(35, 24);
-            this.btnFileModifyRotateRight.TabIndex = 11;
+            this.btnFileModifyRotateRight.TabIndex = 9;
             this.btnFileModifyRotateRight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileModifyRotateRight.UseVisualStyleBackColor = true;
             this.btnFileModifyRotateRight.Click += new System.EventHandler(this.btnFileModifyRotateRight_Click);
@@ -467,7 +467,7 @@
             this.btnFileModifyRotateLeft.Location = new System.Drawing.Point(6, 199);
             this.btnFileModifyRotateLeft.Name = "btnFileModifyRotateLeft";
             this.btnFileModifyRotateLeft.Size = new System.Drawing.Size(35, 24);
-            this.btnFileModifyRotateLeft.TabIndex = 10;
+            this.btnFileModifyRotateLeft.TabIndex = 8;
             this.btnFileModifyRotateLeft.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileModifyRotateLeft.UseVisualStyleBackColor = true;
             this.btnFileModifyRotateLeft.Click += new System.EventHandler(this.btnFileModifyRotateLeft_Click);
@@ -478,7 +478,7 @@
             this.btnFileModifyCropUndo.Location = new System.Drawing.Point(302, 199);
             this.btnFileModifyCropUndo.Name = "btnFileModifyCropUndo";
             this.btnFileModifyCropUndo.Size = new System.Drawing.Size(35, 24);
-            this.btnFileModifyCropUndo.TabIndex = 9;
+            this.btnFileModifyCropUndo.TabIndex = 13;
             this.btnFileModifyCropUndo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileModifyCropUndo.UseVisualStyleBackColor = true;
             this.btnFileModifyCropUndo.Click += new System.EventHandler(this.btnFileModifyCropUndo_Click);
@@ -517,7 +517,7 @@
             this.btnFileModifyCrop.Location = new System.Drawing.Point(199, 199);
             this.btnFileModifyCrop.Name = "btnFileModifyCrop";
             this.btnFileModifyCrop.Size = new System.Drawing.Size(97, 24);
-            this.btnFileModifyCrop.TabIndex = 8;
+            this.btnFileModifyCrop.TabIndex = 12;
             this.btnFileModifyCrop.Text = "Zuschneiden";
             this.btnFileModifyCrop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileModifyCrop.UseVisualStyleBackColor = true;
