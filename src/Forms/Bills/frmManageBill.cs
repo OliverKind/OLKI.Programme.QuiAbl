@@ -846,7 +846,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
 
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            FileItem.ColorPalette =(Modify.Palette.ColorPalette) this.cboFileModifyColor.SelectedIndex;
+            FileItem.ColorPalette = (Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex;
 
             this.SetImageModification();
             this.SetSelectedFileToPicturebox();
