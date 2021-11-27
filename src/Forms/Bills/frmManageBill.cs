@@ -852,15 +852,15 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             this.SetImageModification();
             this.SetSelectedFileToPicturebox();
-            switch (this.cboFileModifyColor.SelectedIndex)
+            switch ((Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex)
             {
-                case 0: //Color
+                case Modify.Palette.ColorPalette.Color:
                     this.tbaFileModifyThreshold.Enabled = false;
                     break;
-                case 1: //Grayscale
+                case Modify.Palette.ColorPalette.Grayscale:
                     this.tbaFileModifyThreshold.Enabled = false;
                     break;
-                case 2: //BW
+                case Modify.Palette.ColorPalette.BlackWhite:
                     this.tbaFileModifyThreshold.Enabled = true;
                     break;
                 default:
