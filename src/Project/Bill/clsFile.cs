@@ -408,7 +408,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public void FromFromXElement(XElement inputFile)
         {
             this.Id = Serialize.GetFromXElement(inputFile, "Id", 0);
-            this._colorPalette = (Modify.Palette.ColorPalette)Serialize.GetFromXElement(inputFile, "ColorPalette", Settings.Default.ScanDefaultColorMode);
+            this._colorPalette = (Modify.Palette.ColorPalette)Serialize.GetFromXElement(inputFile, "ColorPalette", Settings.Default.Scan_DefaultColorMode);
             this._comment = Serialize.GetFromXElement(inputFile, "Comment", "");
             this._fileBase64 = Serialize.GetFromXElement(inputFile, "StreamBase64", "");
             this.LinkPath = Serialize.GetFromXElement(inputFile, "LinkPath", "");
@@ -660,7 +660,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// <summary>
             /// Get or set if the Palette should been changed
             /// </summary>
-            public Modify.Palette.ColorPalette Palette { get; set; } = (Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode;
+            public Modify.Palette.ColorPalette Palette { get; set; } = (Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode;
 
             /// <summary>
             /// Get or set the factor to resiza the image
@@ -689,7 +689,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
             public bool IsModified()
             {
-                ImageModification Ref = new ImageModification((Modify.Palette.ColorPalette)Settings.Default.ScanDefaultColorMode);
+                ImageModification Ref = new ImageModification((Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode);
                 if (this.Brightness != Ref.Brightness) return true;
                 if (this.Contrast != Ref.Contrast) return true;
                 if (this.Palette != Ref.Palette) return true;

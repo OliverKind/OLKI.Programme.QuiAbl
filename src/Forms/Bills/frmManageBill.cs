@@ -172,8 +172,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.cboFileScanDevice.Items.Add(_scanDeviceList[i].Properties["Name"].get_Value());
             }
             this.cboFileScanDevice.SelectedIndex = (this.cboFileScanDevice.Items.Count > 0 ? 0 : -1);
-            this.nudFileScanResolution.Value = Settings.Default.ScanDefaultResolution;
-            this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
+            this.nudFileScanResolution.Value = Settings.Default.Scan_DefaultResolution;
+            this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
 
             this.tbaFileModifyBrightnes_Scroll(this, new EventArgs());
             this.tbaFileModifyContrast_Scroll(this, new EventArgs());
@@ -716,8 +716,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else
             {
-                this.tbaFileModifyThreshold.Value = Settings.Default.ScanDefaultThreshold;
-                this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
+                this.tbaFileModifyThreshold.Value = Settings.Default.Scan_DefaultThreshold;
+                this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
                 this.lblRoughlyFileSize.Visible = false;
@@ -742,7 +742,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
             if (FileItem.Image == null)
             {
-                this.cboFileModifyColor.SelectedIndex = Settings.Default.ScanDefaultColorMode;
+                this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
                 return;
             }
 

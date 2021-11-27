@@ -74,13 +74,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         /// </summary>
         private void SetControlesFromSettings()
         {
-            this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.ScanDefaultColorMode;
+            this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
             this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
-            this.nudScanDefaultResolution.Value = Settings.Default.ScanDefaultResolution;
-            this.tbaScanDefaultThreshold.Value = Settings.Default.ScanDefaultThreshold;
+            this.nudScanDefaultResolution.Value = Settings.Default.Scan_DefaultResolution;
+            this.tbaScanDefaultThreshold.Value = Settings.Default.Scan_DefaultThreshold;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
@@ -167,9 +167,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
-            Settings.Default.ScanDefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
-            Settings.Default.ScanDefaultResolution = (int)this.nudScanDefaultResolution.Value;
-            Settings.Default.ScanDefaultThreshold = this.tbaScanDefaultThreshold.Value;
+            Settings.Default.Scan_DefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
+            Settings.Default.Scan_DefaultResolution = (int)this.nudScanDefaultResolution.Value;
+            Settings.Default.Scan_DefaultThreshold = this.tbaScanDefaultThreshold.Value;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
             Settings.Default.TreeView_BillClasses_AllowCollaps = this.chkTreeViewBillClassesAllowCollaps.Checked;
             Settings.Default.TreeView_BillClasses_ExpandAllDefault = this.chkTreeViewBillClassesExpandAllDefault.Checked;

@@ -17,7 +17,7 @@
     <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ScanDefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
+    <Setting Name="Scan_DefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="TreeView_BillClasses_ExpandAllDefault" Roaming="true" Type="System.Boolean" Scope="User">
@@ -29,13 +29,13 @@
     <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ScanDefaultColorMode" Roaming="true" Type="System.Int32" Scope="User">
+    <Setting Name="Scan_DefaultColorMode" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="SearchAutoOpen" Roaming="true" Type="System.Boolean" Scope="User">
+    <Setting Name="Search_AutoOpen" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ScanDefaultThreshold" Roaming="true" Type="System.Int32" Scope="User">
+    <Setting Name="Scan_DefaultThreshold" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">127</Value>
     </Setting>
     <Setting Name="Company_CheckDoubleNaming" Roaming="true" Type="System.Boolean" Scope="User">

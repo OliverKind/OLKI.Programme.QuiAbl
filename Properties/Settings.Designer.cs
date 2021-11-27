@@ -92,12 +92,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("300")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ScanDefaultResolution {
+        public int Scan_DefaultResolution {
             get {
-                return ((int)(this["ScanDefaultResolution"]));
+                return ((int)(this["Scan_DefaultResolution"]));
             }
             set {
-                this["ScanDefaultResolution"] = value;
+                this["Scan_DefaultResolution"] = value;
             }
         }
         
@@ -144,12 +144,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ScanDefaultColorMode {
+        public int Scan_DefaultColorMode {
             get {
-                return ((int)(this["ScanDefaultColorMode"]));
+                return ((int)(this["Scan_DefaultColorMode"]));
             }
             set {
-                this["ScanDefaultColorMode"] = value;
+                this["Scan_DefaultColorMode"] = value;
             }
         }
         
@@ -157,12 +157,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool SearchAutoOpen {
+        public bool Search_AutoOpen {
             get {
-                return ((bool)(this["SearchAutoOpen"]));
+                return ((bool)(this["Search_AutoOpen"]));
             }
             set {
-                this["SearchAutoOpen"] = value;
+                this["Search_AutoOpen"] = value;
             }
         }
         
@@ -170,12 +170,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("127")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ScanDefaultThreshold {
+        public int Scan_DefaultThreshold {
             get {
-                return ((int)(this["ScanDefaultThreshold"]));
+                return ((int)(this["Scan_DefaultThreshold"]));
             }
             set {
-                this["ScanDefaultThreshold"] = value;
+                this["Scan_DefaultThreshold"] = value;
             }
         }
         
