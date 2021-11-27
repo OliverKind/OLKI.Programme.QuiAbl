@@ -22,6 +22,7 @@
  * 
  * */
 
+using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Programme.QuiAbl.src.Project;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #endregion
 
         #region Fields
+        /// <summary>
+        /// Should the Ok-Clicked action abborted
+        /// </summary>
+        bool _abbortOk = false;
+
         /// <summary>
         /// Project to get data from
         /// </summary>
@@ -70,6 +76,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         public ManageCompany(Project.Project project)
         {
             InitializeComponent();
+            this.chkCheckDoubleNaming.Checked = Settings.Default.Company_CheckDoubleNaming;
+
             this._project = project;
             this._companyLastInsertedId = this._project.CompanyLastInsertedId;
             this._companies = new Dictionary<int, Company>();
@@ -108,14 +116,37 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
         }
 
+        /// <summary>
+        /// Check for double Company Tiltes
+        /// </summary>
+        /// <returns>True if two or more Companies with the same title were found, otherwise false</returns>
+        public bool DoubleCompanies()
+        {
+            foreach (KeyValuePair<int, Company> CompanyItem in this._companies)
+            {
+                foreach (KeyValuePair<int, Company> CompanyCheckItem in this._companies)
+                {
+                    if (CompanyCheckItem.Value.Id != CompanyItem.Value.Id && CompanyCheckItem.Value.Title == CompanyItem.Value.Title) return true;
+                }
+            }
+            return false;
+        }
+
         #region Controle Events
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this._project.CompanyLastInsertedId = this._companyLastInsertedId;
-            this._project.Companies.Clear();
-
             this._companies.Clear();
             this.ListViewToCompanyList();
+
+            // Check for Double Companies
+            if (this.DoubleCompanies() && MessageBox.Show(this, Stringtable._0x001Em, Stringtable._0x001Ec, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            {
+                this._abbortOk = true;
+                return;
+            }
+
+            this._project.Companies.Clear();
             this._project.Companies = this._companies;
             foreach (KeyValuePair<int, Company> CompanyItem in this._project.Companies)
             {
@@ -158,9 +189,18 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            this._abbortOk = false;
             this.btnAccept_Click(sender, e);
+
+            if (this._abbortOk) return;
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void chkCheckDoubleNaming_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.Company_CheckDoubleNaming = this.chkCheckDoubleNaming.Checked;
+            Settings.Default.Save();
         }
 
         private void lsvCompanies_SelectedIndexChanged(object sender, EventArgs e)

@@ -41,6 +41,7 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.lsvCompanies = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chkCheckDoubleNaming = new System.Windows.Forms.CheckBox();
             this.grbProperties.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,6 +186,17 @@
             this.columnHeader1.Text = "Datei";
             this.columnHeader1.Width = 165;
             // 
+            // chkCheckDoubleNaming
+            // 
+            this.chkCheckDoubleNaming.AutoSize = true;
+            this.chkCheckDoubleNaming.Location = new System.Drawing.Point(224, 350);
+            this.chkCheckDoubleNaming.Name = "chkCheckDoubleNaming";
+            this.chkCheckDoubleNaming.Size = new System.Drawing.Size(185, 17);
+            this.chkCheckDoubleNaming.TabIndex = 7;
+            this.chkCheckDoubleNaming.Text = "Auf doppelte Firmennamen prüfen";
+            this.chkCheckDoubleNaming.UseVisualStyleBackColor = true;
+            this.chkCheckDoubleNaming.CheckedChanged += new System.EventHandler(this.chkCheckDoubleNaming_CheckedChanged);
+            // 
             // ManageCompany
             // 
             this.AcceptButton = this.btnOk;
@@ -192,6 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(892, 381);
+            this.Controls.Add(this.chkCheckDoubleNaming);
             this.Controls.Add(this.lsvCompanies);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
@@ -210,6 +223,7 @@
             this.grbProperties.ResumeLayout(false);
             this.grbProperties.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,5 +241,6 @@
         private System.Windows.Forms.Button btnOk;
         private OLKI.Toolbox.Widgets.SortListView lsvCompanies;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.CheckBox chkCheckDoubleNaming;
     }
 }

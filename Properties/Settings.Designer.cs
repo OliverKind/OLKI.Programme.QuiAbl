@@ -178,5 +178,18 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["ScanDefaultThreshold"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool Company_CheckDoubleNaming {
+            get {
+                return ((bool)(this["Company_CheckDoubleNaming"]));
+            }
+            set {
+                this["Company_CheckDoubleNaming"] = value;
+            }
+        }
     }
 }

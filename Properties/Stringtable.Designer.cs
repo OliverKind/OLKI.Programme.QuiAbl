@@ -488,5 +488,23 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x001D", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Identische Firmennamen gefunden. ähnelt.
+        /// </summary>
+        internal static string _0x001Ec {
+            get {
+                return ResourceManager.GetString("0x001Ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Es wurden eine oder mehrere Firmen mit demselben Namen gefunden. Möchten Sie mit dem Speichern fortfahren. ähnelt.
+        /// </summary>
+        internal static string _0x001Em {
+            get {
+                return ResourceManager.GetString("0x001Em", resourceCulture);
+            }
+        }
     }
 }

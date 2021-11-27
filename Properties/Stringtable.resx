@@ -282,4 +282,10 @@ Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglich
   <data name="0x001D" xml:space="preserve">
     <value>Geschätzte Größe: {0}</value>
   </data>
+  <data name="0x001Ec" xml:space="preserve">
+    <value>Identische Firmennamen gefunden.</value>
+  </data>
+  <data name="0x001Em" xml:space="preserve">
+    <value>Es wurden eine oder mehrere Firmen mit demselben Namen gefunden. Möchten Sie mit dem Speichern fortfahren.</value>
+  </data>
 </root>
