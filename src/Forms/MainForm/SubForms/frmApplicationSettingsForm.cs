@@ -75,15 +75,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         private void SetControlesFromSettings()
         {
             this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
-            this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
-            this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
+            this.chkAppUpdateCheckAtStartUp.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
+            this.chkFileAssociationCheckAtStartup.Checked = Settings.Default.FileAssociation_CheckAtStartup;
+            this.chkStartupDefaultLoadEmptyProject.Checked = Settings.Default.Startup_DefaultLoadEmptyProject;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
+            this.nudNumRecentFiles.Value = Settings.Default.RecentFiles_MaxLength;
             this.nudScanDefaultResolution.Value = Settings.Default.Scan_DefaultResolution;
             this.tbaScanDefaultThreshold.Value = Settings.Default.Scan_DefaultThreshold;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
-            this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
-            this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
+            this.txtProjectFileDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
+            this.txtStartupDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
 
             this.tbaScanDefaultThreshold_Scroll(this, new EventArgs());
         }
@@ -112,7 +114,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         }
 
         #region Form events
-        private void btnDefaultPath_Browse_Click(object sender, EventArgs e)
+        private void btnProjectFileDefaultPath_Browse_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog FolderBrowserDialog = new FolderBrowserDialog
             {
@@ -121,17 +123,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             };
             if (FolderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
-                this.txtDefaultPath.Text = FolderBrowserDialog.SelectedPath;
+                this.txtProjectFileDefaultPath.Text = FolderBrowserDialog.SelectedPath;
                 Settings.Default.ProjectFile_DefaultPath = FolderBrowserDialog.SelectedPath;
             }
         }
 
-        private void btnDefaultPath_Delete_Click(object sender, EventArgs e)
+        private void btnProjectFileDefaultPath_Delete_Click(object sender, EventArgs e)
         {
-            this.txtDefaultPath.Text = string.Empty;
+            this.txtProjectFileDefaultPath.Text = string.Empty;
         }
 
-        private void btnDefaultFileOpen_Browse_Click(object sender, EventArgs e)
+        private void btnStartupDefaultFileOpen_Browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog OpenFileDialog = new OpenFileDialog
             {
@@ -142,13 +144,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             };
             if (OpenFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                this.txtDefaultFileOpen.Text = OpenFileDialog.FileName;
+                this.txtStartupDefaultFileOpen.Text = OpenFileDialog.FileName;
             }
         }
 
-        private void btnDefaultFileOpen_Delete_Click(object sender, EventArgs e)
+        private void btnStartupDefaultFileOpen_Delete_Click(object sender, EventArgs e)
         {
-            this.txtDefaultFileOpen.Text = string.Empty;
+            this.txtStartupDefaultFileOpen.Text = string.Empty;
         }
 
         private void btnRecentFilesClear_Click(object sender, EventArgs e)
@@ -163,14 +165,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Settings.Default.AppUpdate_CheckAtStartUp = this.chkCheckForUpdates.Checked;
+            Settings.Default.AppUpdate_CheckAtStartUp = this.chkAppUpdateCheckAtStartUp.Checked;
             Settings.Default.DateFormat = this.txtDateFormat.Text;
-            Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
-            Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
+            Settings.Default.FileAssociation_CheckAtStartup = this.chkFileAssociationCheckAtStartup.Checked;
+            Settings.Default.ProjectFile_DefaultPath = this.txtProjectFileDefaultPath.Text;
+            Settings.Default.RecentFiles_MaxLength = (int)this.nudNumRecentFiles.Value;
             Settings.Default.Scan_DefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
             Settings.Default.Scan_DefaultResolution = (int)this.nudScanDefaultResolution.Value;
             Settings.Default.Scan_DefaultThreshold = this.tbaScanDefaultThreshold.Value;
-            Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
+            Settings.Default.Startup_DefaultFileOpen = this.txtStartupDefaultFileOpen.Text;
+            Settings.Default.Startup_DefaultLoadEmptyProject = this.chkStartupDefaultLoadEmptyProject.Checked;
             Settings.Default.TreeView_BillClasses_AllowCollaps = this.chkTreeViewBillClassesAllowCollaps.Checked;
             Settings.Default.TreeView_BillClasses_ExpandAllDefault = this.chkTreeViewBillClassesExpandAllDefault.Checked;
 

@@ -95,7 +95,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this._projectManager.ProjecOpenOrNew += new EventHandler(this.ProjectManager_ProjecOpenOrNew);
 
             // Initial rectent files
-            this._recentFiles.MaxLength = Settings_AppConst.Default.RecentFiles_MaxLength;
+            this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
             this._recentFiles.Seperator = Settings_AppConst.Default.RecentFiles_Seperator;
             this._recentFiles.SetFromString(Settings_AppVar.Default.RecentFiles_FileList);
             //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
@@ -225,7 +225,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this.LoadInitialProject(this._args);
 
             //Check for file association
-            if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
+            if (Settings.Default.FileAssociation_CheckAtStartup) Program.CheckFileAssociationAndSet(false);
 
 
             // Check for Updates for the Apllication
@@ -317,7 +317,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                     ((ProjectForm)MdiChield).UpdateAllListviewItems();
                 }
 
-                if (this._frmApplicationSettings.ClearRecentFiles) this._recentFiles.FileList.Clear();
+                if (this._frmApplicationSettings.ClearRecentFiles)
+                {
+                    this._recentFiles.FileList.Clear();
+                    this.SetRecentFilesSettingsAndMenue();
+                }
             }
         }
 
