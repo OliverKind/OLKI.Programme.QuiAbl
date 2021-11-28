@@ -680,7 +680,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             /// <summary>
             /// Get or set the Threshold if an image shold been converted to an Black and White Palette
             /// </summary>
-            public int Threshold { get; set; } = 127;
+            public int Threshold { get; set; } = Settings.Default.Scan_DefaultThreshold;
 
             public ImageModification(Modify.Palette.ColorPalette initialPalette)
             {

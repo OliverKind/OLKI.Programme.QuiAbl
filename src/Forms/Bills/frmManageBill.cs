@@ -92,7 +92,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// </summary>
         private readonly string _lblFileModifyThreshold_OrgText;
 
-                /// <summary>
+        /// <summary>
         /// OpenFileDialog, to load files 
         /// </summary>
         private readonly OpenFileDialog _openFileDialog = new OpenFileDialog();
@@ -920,7 +920,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void tbaFileModifyThreshold_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Right) return;
-            if (e.Button == MouseButtons.Right) this.tbaFileModifyThreshold.Value = 127;
+            if (e.Button == MouseButtons.Right) this.tbaFileModifyThreshold.Value = Settings.Default.Scan_DefaultThreshold;
             this.tbaFileModifyThreshold_Scroll(sender, new EventArgs());
         }
 
