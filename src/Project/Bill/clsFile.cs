@@ -91,7 +91,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// Color Palette of the file (if it is an Image)
         /// </summary>
-        private Modify.Palette.ColorPalette _colorPalette = Modify.Palette.ColorPalette.Color;
+        private Modify.Palette.ColorPalette _colorPalette = (Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode;
         /// <summary>
         /// Get or set the Color Palette of the file (if it is an Image)
         /// </summary>

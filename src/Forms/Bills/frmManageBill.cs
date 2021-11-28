@@ -73,19 +73,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         #region Fields
         /// <summary>
-        /// List with WIA-Scan devices
+        /// Ignore if values of Controls for image modifications where changed
         /// </summary>
-        private readonly List<WIA.DeviceInfo> _scanDeviceList;
-
-        /// <summary>
-        /// OpenFileDialog, to load files 
-        /// </summary>
-        private readonly OpenFileDialog _openFileDialog = new OpenFileDialog();
-
-        /// <summary>
-        /// Project to get data from
-        /// </summary>
-        private readonly Project.Project _project;
+        private bool _ignoreImageModifyControleValueChange;
 
         /// <summary>
         /// Original text of Label FileModifyBrightnes
@@ -101,6 +91,21 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// Original text of Label FileModifyThreshold
         /// </summary>
         private readonly string _lblFileModifyThreshold_OrgText;
+
+                /// <summary>
+        /// OpenFileDialog, to load files 
+        /// </summary>
+        private readonly OpenFileDialog _openFileDialog = new OpenFileDialog();
+
+        /// <summary>
+        /// Project to get data from
+        /// </summary>
+        private readonly Project.Project _project;
+
+        /// <summary>
+        /// List with WIA-Scan devices
+        /// </summary>
+        private readonly List<WIA.DeviceInfo> _scanDeviceList;
         #endregion
 
         #region Properties
@@ -550,7 +555,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.lblOriginalFileName.Text = ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).OriginalFileName;
                 ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
             }
-            this.SetSelectedFileToControles(false);
+            this.SetSelectedFileToControles();
         }
 
         private void btnFileScan_Click(object sender, EventArgs e)
@@ -573,7 +578,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
 
             this.cboFileModifyColor_SelectedIndexChanged(sender, e);
-            this.SetSelectedFileToControles(false);
+            this.SetSelectedFileToControles();
         }
 
         private void btnFileBrowse_Click(object sender, EventArgs e)
@@ -596,7 +601,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LinkPath = this._openFileDialog.FileName;
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Link;
 
-                this.SetSelectedFileToControles(false);
+                this.SetSelectedFileToControles();
             }
         }
 
@@ -642,7 +647,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.btnFileModifyRotateLeft.Tag = 0;
                 this.btnFileModifyRotateRight.Tag = 0;
             }
-            this.SetSelectedFileToControles(true);
+            this.SetSelectedFileToControles();
             this.txtFilePath_TextChanged(sender, e);
         }
 
@@ -680,24 +685,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             return string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).FileBase64) && string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).LinkPath) || MessageBox.Show(this, Stringtable._0x0006m, Stringtable._0x0006c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
         }
 
-        private void SetSelectedFileToControles(bool GetImageModification)
+        private void SetSelectedFileToControles()
         {
             if (this.lsvFiles.SelectedItems.Count == 1)
             {
                 File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
-                this.cboFileModifyColor.SelectedIndex = (int)FileItem.ColorPalette;
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
                 this.lblRoughlyFileSize.Visible = true;
-                this.nudFileModifyResize.Value = 100;
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
                 this.txtFileLinkPath.Text = FileItem.LinkPath;
                 this.txtFilePath.Text = "";
 
-                if (GetImageModification) this.GetImageModification();
-                this.SetSelectedFileToPicturebox();
                 if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
                 {
                     this.btnFileSave.Enabled = false;
@@ -713,54 +714,67 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     this.btnFileSave.Enabled = false;
                     this.btnFileOpen.Enabled = false;
                 }
+
+                this.SetSelectedFileToPicturebox();
+                this.SetImageModificationToControles(FileItem);
             }
             else
             {
-                this.tbaFileModifyThreshold.Value = Settings.Default.Scan_DefaultThreshold;
-                this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
                 this.lblRoughlyFileSize.Visible = false;
-                this.nudFileModifyResize.Value = 100;
                 this.picFilePreview.Image = null;
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";
                 this.txtFileTitle.Text = "";
                 this.txtFileLinkPath.Text = "";
                 this.txtFilePath.Text = "";
+
+                this.SetImageModificationToControles(null);
             }
-            this.tbaFileModifyThreshold_Scroll(this, new EventArgs());
         }
 
         #region Image modification
         /// <summary>
         /// Get the image modifications from an selected file, if file is an Image and set the controles
         /// </summary>
-        private void GetImageModification()
+        private void SetImageModificationToControles(File FileItem)
         {
-            if (this.lsvFiles.SelectedItems.Count != 1) return;
-            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            if (FileItem.Image == null)
-            {
-                this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
-                return;
-            }
+            this._ignoreImageModifyControleValueChange = true;
 
-            File.ImageModification Modification = FileItem.Modification ?? new File.ImageModification(FileItem.ColorPalette);
+            File.ImageModification Modification;
+            if (FileItem == null)
+            {
+                Modification = new File.ImageModification((Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode);
+            }
+            else if (FileItem.Modification == null)
+            {
+                Modification = new File.ImageModification(FileItem.ColorPalette);
+            }
+            else
+            {
+                Modification = FileItem.Modification;
+            }
 
             this.cboFileModifyColor.SelectedIndex = (int)Modification.Palette;
             this.nudFileModifyResize.Value = Modification.ResizeFactor;
             this.tbaFileModifyBrightnes.Value = Modification.Brightness;
             this.tbaFileModifyContrast.Value = Modification.Contrast;
             this.tbaFileModifyThreshold.Value = Modification.Threshold;
+
+            this.tbaFileModifyBrightnes_Scroll(this, new EventArgs());
+            this.tbaFileModifyContrast_Scroll(this, new EventArgs());
+            this.tbaFileModifyThreshold_Scroll(this, new EventArgs());
+
+            this._ignoreImageModifyControleValueChange = false;
         }
 
         /// <summary>
         /// Set the selcted image modifications to the image
         /// </summary>
-        private void SetImageModification()
+        private void SetImageModificationToSettings()
         {
-            if (this.lsvFiles.SelectedItems.Count != 1) return;
+            if (this.lsvFiles.SelectedItems.Count != 1 || this._ignoreImageModifyControleValueChange) return;
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
             if (FileItem.Image == null) return;
 
@@ -830,7 +844,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             if (this.btnFileModifyRotateLeft.Tag == null) this.btnFileModifyRotateLeft.Tag = 0;
             this.btnFileModifyRotateLeft.Tag = (int)this.btnFileModifyRotateLeft.Tag + 1;
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
 
@@ -839,7 +853,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             if (this.btnFileModifyRotateRight.Tag == null) this.btnFileModifyRotateRight.Tag = 0;
             this.btnFileModifyRotateRight.Tag = (int)this.btnFileModifyRotateRight.Tag + 1;
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
 
@@ -850,7 +864,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
             FileItem.ColorPalette = (Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex;
 
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
             switch ((Modify.Palette.ColorPalette)this.cboFileModifyColor.SelectedIndex)
             {
@@ -871,7 +885,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void nudFileModifyResize_ValueChanged(object sender, EventArgs e)
         {
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
 
@@ -885,7 +899,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void tbaFileModifyBrightnes_Scroll(object sender, EventArgs e)
         {
             this.lblFileModifyBrightnes.Text = string.Format(this._lblFileModifyBrightnes_OrgText, this.tbaFileModifyBrightnes.Value);
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
 
@@ -899,7 +913,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void tbaFileModifyContrast_Scroll(object sender, EventArgs e)
         {
             this.lblFileModifyContrast.Text = string.Format(this._lblFileModifyContrast_OrgText, this.tbaFileModifyContrast.Value);
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
 
@@ -913,7 +927,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void tbaFileModifyThreshold_Scroll(object sender, EventArgs e)
         {
             this.lblFileModifyThreshold.Text = string.Format(this._lblFileModifyThreshold_OrgText, this.tbaFileModifyThreshold.Value);
-            this.SetImageModification();
+            this.SetImageModificationToSettings();
             this.SetSelectedFileToPicturebox();
         }
         #endregion
