@@ -74,5 +74,96 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["MainForm_Size"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsTitle_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsTitle_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsTitle_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsDate_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsDate_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsDate_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsDocuments_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsDocuments_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsDocuments_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsCategory_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsCategory_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsCategory_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsComapny_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsComapny_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsComapny_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsComment_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsComment_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsComment_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ColHeadSet_cohBillsLength_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsLength_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsLength_Width"] = value;
+            }
+        }
     }
 }
