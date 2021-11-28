@@ -1,4 +1,23 @@
 # QuiAbl - Quittungsablage
+## [2.0.0.15] - 2021-11-28
+### Added
+- Bill Disposed option
+- Check for double Company entrys
+- Roughly Size of attached Files
+- Open search Form if project will be open, if required
+- Option Show Search on start up
+- Save Windows Size and Sate on ApplicationExit
+- Set default Threshold for BlackWhite convert
+- Settings for Recent Files
+
+### Changed
+- Hide search form if project form is not in focus
+- Trim Names of Bills, BillClasses and Companys etc.
+- Use Original file name, if set, to save a File from attached files
+
+### Fixed
+- Crash while exit application, if search form is open
+
 ## [1.5.1.13] - 2021-11-20
 ### Added
 - Select last inserted BillClass and Copany if it is not slected at BillEditor
