@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+
+## [2.1.0.16] - 2021-11-28
+### Added
+- Save Column with on Bill overview
+
+### Changed
+- Select new Bill Item in ListView
+
 ## [2.0.1.15] - 2021-11-28
 ### Fixed
 - Several issues with image modify settings on BillManage Form
