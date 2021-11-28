@@ -1,5 +1,5 @@
 # QuiAbl - Quittungsablage
-## [2.0.0.15] - 2021-11-28
+## [2.0.0.14] - 2021-11-28
 ### Added
 - Bill Disposed option
 - Check for double Company entrys
