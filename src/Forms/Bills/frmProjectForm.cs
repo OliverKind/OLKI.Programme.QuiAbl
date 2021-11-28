@@ -308,6 +308,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     this.lsvBills_SelectedIndexChanged(sender, e);
                 }
                 this._manageBill.Bill.BillChanged += new EventHandler(this.Project.ToggleSubItemChanged);
+                
+                foreach (ListViewItem ListViewItem in this.lsvBills.Items)
+                {
+                    ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
+                }
+
                 this.Project.Changed = true;
             }
         }
