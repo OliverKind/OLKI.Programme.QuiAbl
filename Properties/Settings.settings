@@ -14,7 +14,7 @@
     <Setting Name="DateFormat" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">dd.MM.yyyy</Value>
     </Setting>
-    <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
+    <Setting Name="FileAssociation_CheckAtStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Scan_DefaultResolution" Roaming="true" Type="System.Int32" Scope="User">
@@ -40,6 +40,9 @@
     </Setting>
     <Setting Name="Company_CheckDoubleNaming" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

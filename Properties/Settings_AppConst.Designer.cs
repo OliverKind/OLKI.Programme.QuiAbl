@@ -170,15 +170,6 @@ namespace OLKI.Programme.QuiAbl.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int RecentFiles_MaxLength {
-            get {
-                return ((int)(this["RecentFiles_MaxLength"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("|")]
         public string RecentFiles_Seperator {
             get {

@@ -79,12 +79,12 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool FileAssociation_CheckOnStartup {
+        public bool FileAssociation_CheckAtStartup {
             get {
-                return ((bool)(this["FileAssociation_CheckOnStartup"]));
+                return ((bool)(this["FileAssociation_CheckAtStartup"]));
             }
             set {
-                this["FileAssociation_CheckOnStartup"] = value;
+                this["FileAssociation_CheckAtStartup"] = value;
             }
         }
         
@@ -189,6 +189,19 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["Company_CheckDoubleNaming"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int RecentFiles_MaxLength {
+            get {
+                return ((int)(this["RecentFiles_MaxLength"]));
+            }
+            set {
+                this["RecentFiles_MaxLength"] = value;
             }
         }
     }
