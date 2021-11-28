@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.0.1.15] - 2021-11-28
+### Fixed
+- Several issues with image modify settings on BillManage Form
+
 ## [2.0.0.14] - 2021-11-28
 ### Added
 - Bill Disposed option
