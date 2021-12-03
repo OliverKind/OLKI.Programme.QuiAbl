@@ -153,6 +153,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         }
 
         #region Form Events
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            this.LoadInitialProject(Files);
+        }
+
+        private void MainForm_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this._appClose)

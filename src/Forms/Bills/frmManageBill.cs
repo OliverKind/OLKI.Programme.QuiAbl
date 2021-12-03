@@ -293,6 +293,22 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         }
 
         /// <summary>
+        /// Get the ListViewItemIndex for an Bill to search by his Id
+        /// </summary>
+        /// <param name="itemId">Id of the bill to search for</param>
+        /// <returns>The Index of the bill to search by Id or -1 for no match</returns> 
+        private int GetFileItemListViewItemIndex(int itemId)
+        {
+            File FileItem;
+            for (int i = 0; i < this.lsvFiles.Items.Count; i++)
+            {
+                FileItem = (File)this.lsvFiles.Items[i].Tag;
+                if (FileItem.Id == itemId) return i;
+            }
+            return -1;
+        }
+
+        /// <summary>
         /// Get the InvoiceListViewItemIndex for an InvoiceItem to search by his Id
         /// </summary>
         /// <param name="itemId">Id of the InvoiceItem to search for</param>
@@ -551,10 +567,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     MessageBox.Show(this, string.Format(Stringtable._0x0007m, new object[] { Files[i], ex.Message }), Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                this.txtFilePath.Text = "";
                 this.lblOriginalFileName.Text = ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).OriginalFileName;
                 ((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).SetToPictureBox(this.picFilePreview);
             }
+            this.txtFilePath.Text = "";
             this.SetSelectedFileToControles();
         }
 
@@ -634,6 +650,60 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
             this.lsvFiles.SelectedItems[0].Remove();
+        }
+
+        private void lsvFiles_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            if (this.lsvFiles.SelectedItems.Count == 1)
+            {
+                //MessageBox.Show(Stringtable._0x001Fm, Stringtable._0x001Fc, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //return;
+                this.txtFilePath.Text = string.Join(FILE_SEPERATOR.ToString(), Files);
+                this.btnFileAttech_Click(sender, e);
+            }
+            else
+            {
+                System.IO.FileInfo FileInfo;
+                File NewFile;
+                ListViewItem NewLsvFileItem;
+
+                for (int i = 0; i < Files.Length; i++)
+                {
+                    try
+                    {
+                        // Add file to list
+                        FileInfo = new System.IO.FileInfo(Files[i]);
+                        this.Bill.FilesLastInsertedId++;
+                        NewFile = new File(this.Bill.FilesLastInsertedId)
+                        {
+                            LinkPath = "",
+                            Source = File.FileSource.File,
+                            Title = FileInfo.Name
+                        };
+                        NewFile.LoadFile(Files[i]);
+                        this.Bill.Files.Add(this.Bill.FilesLastInsertedId, NewFile);
+
+                        // Add item to list view
+                        NewLsvFileItem = new ListViewItem
+                        {
+                            Tag = NewFile,
+                            Text = NewFile.TitleNoText
+                        };
+                        this.lsvFiles.Items.Add(NewLsvFileItem);
+                        int NewFileIndex = this.GetFileItemListViewItemIndex(NewFile.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, string.Format(Stringtable._0x0007m, new object[] { Files[i], ex.Message }), Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void lsvFiles_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
         }
 
         private void lsvFiles_SelectedIndexChanged(object sender, EventArgs e)
