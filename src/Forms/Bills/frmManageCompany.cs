@@ -73,7 +73,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// Initial a new ManageCompany Form
         /// </summary>
         /// <param name="project">Project to get data from</param>
-        public ManageCompany(Project.Project project)
+        /// <param name="preselectComapnyId">Id of an Company to preselect, if Form will open. Set 0 for no preselection.</param>
+        public ManageCompany(Project.Project project, int preselectComapnyId)
         {
             InitializeComponent();
             this.chkCheckDoubleNaming.Checked = Settings.Default.Company_CheckDoubleNaming;
@@ -99,6 +100,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 };
                 this.lsvCompanies.Items.Add(NewItem);
             }
+
+            //Preselect Comapny
+            if (preselectComapnyId > 0)
+            {
+                for (int i = 0; i < this.lsvCompanies.Items.Count; i++)
+                {
+                    if (((Company)this.lsvCompanies.Items[i].Tag).Id == preselectComapnyId) this.lsvCompanies.Items[i].Selected = true;
+                }
+            }
+
             this.lsvCompanies.EndUpdate();
             this.lsvCompanies_SelectedIndexChanged(this, new EventArgs());
         }
