@@ -68,7 +68,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// Initial a new ManageBillClass Form
         /// </summary>
         /// <param name="project">Project to get data from</param>
-        public ManageBillClass(Project.Project project)
+        /// <param name="preselectBillClassId">Id of an BillClass to preselect, if Form will open. Set 0 for no preselection.</param>
+        public ManageBillClass(Project.Project project, int preselectBillClassId)
         {
             InitializeComponent();
             this._project = project;
@@ -80,7 +81,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this._billClasses[ClassItem.Key].BillClassChanged -= new EventHandler(this._project.ToggleSubItemChanged);
             }
 
-            this.AddTreeViewNodesRecursive(null);
+            this.AddTreeViewNodesRecursive(null, preselectBillClassId);
             this.trvBillClasses_AfterSelect(this, new TreeViewEventArgs(null));
             this.trvBillClasses.ShowPlusMinus = Properties.Settings.Default.TreeView_BillClasses_AllowCollaps;
             if (Properties.Settings.Default.TreeView_BillClasses_ExpandAllDefault || !Properties.Settings.Default.TreeView_BillClasses_AllowCollaps) this.trvBillClasses.ExpandAll();
@@ -90,7 +91,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// Add Nodes to TreeView with BillClasses
         /// </summary>
         /// <param name="parentNode">ParentNode to add new Nodes to</param>
-        private void AddTreeViewNodesRecursive(TreeNode parentNode)
+        /// <param name="preselectBillClassId">Id of an Company to preselect, if Form will open. Set 0 for no preselection.</param>
+        private void AddTreeViewNodesRecursive(TreeNode parentNode, int preselectBillClassId)
         {
             int rootNodeId = 0;
             if (parentNode != null) rootNodeId = ((BillClass)parentNode.Tag).Id;
@@ -109,12 +111,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 if (parentNode != null)
                 {
                     parentNode.Nodes.Add(NewNode);
+                    if (preselectBillClassId > 0 && billClassItem.Value.Id == preselectBillClassId) this.trvBillClasses.SelectedNode = NewNode;
                 }
                 else
                 {
                     this.trvBillClasses.Nodes.Add(NewNode);
+                    if (preselectBillClassId > 0 && billClassItem.Value.Id == preselectBillClassId) this.trvBillClasses.SelectedNode = NewNode;
                 }
-                this.AddTreeViewNodesRecursive(NewNode);
+                this.AddTreeViewNodesRecursive(NewNode, preselectBillClassId);
             }
         }
 
