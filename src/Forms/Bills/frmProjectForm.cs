@@ -308,7 +308,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     this.lsvBills_SelectedIndexChanged(sender, e);
                 }
                 this._manageBill.Bill.BillChanged += new EventHandler(this.Project.ToggleSubItemChanged);
-                
+
                 foreach (ListViewItem ListViewItem in this.lsvBills.Items)
                 {
                     ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
@@ -487,7 +487,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #region Menue Events
         internal void mnuBillsForm_Basedata_BillClass_Click(object sender, EventArgs e)
         {
-            this._manageBillClass = new ManageBillClass(this.Project);
+            this._manageBillClass = new ManageBillClass(this.Project, 0);
             this._manageBillClass.ShowDialog(this);
 
             for (int i = 0; i < this.lsvBills.Items.Count; i++)
@@ -498,7 +498,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         internal void mnuBillsForm_Basedata_Company_Click(object sender, EventArgs e)
         {
-            this._manageCompany = new ManageCompany(this.Project);
+            this._manageCompany = new ManageCompany(this.Project, 0);
             this._manageCompany.ShowDialog(this);
         }
 
@@ -541,14 +541,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void _manageBill_BillClassesManageRequest(object sender, EventArgs e)
         {
-            this._manageBillClass = new ManageBillClass(this.Project);
+            this._manageBillClass = new ManageBillClass(this.Project, this._manageBill.Bill.BillClassId);
             this._manageBillClass.ShowDialog((IWin32Window)sender);
             this._manageBill.AddBillClassesToTreeViewRecursive(this._manageBillClass.DialogResult == DialogResult.OK);
         }
 
         private void _manageBill_CompaniesManageRequest(object sender, EventArgs e)
         {
-            this._manageCompany = new ManageCompany(this.Project);
+            this._manageCompany = new ManageCompany(this.Project, this._manageBill.Bill.CompanyId);
             this._manageCompany.ShowDialog((IWin32Window)sender);
             this._manageBill.AddCompaniesToComboBox(this._manageCompany.DialogResult == DialogResult.OK);
         }
