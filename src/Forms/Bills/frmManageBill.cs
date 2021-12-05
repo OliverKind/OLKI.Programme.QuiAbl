@@ -588,6 +588,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else if (NewImage != null)
             {
+                NewImage = Modify.Rotate90Left(NewImage);   //To Reduce image Size
+                NewImage = Modify.Rotate90Right(NewImage);  //To Reduce image Size
+
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LinkPath = "";
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LoadFile(NewImage);
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
