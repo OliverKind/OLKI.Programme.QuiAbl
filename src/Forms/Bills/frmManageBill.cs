@@ -588,16 +588,22 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             else if (NewImage != null)
             {
-                NewImage = Modify.Rotate90Left(NewImage);   //To Reduce image Size
-                NewImage = Modify.Rotate90Right(NewImage);  //To Reduce image Size
-
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LinkPath = "";
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LoadFile(NewImage);
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
-            }
 
-            this.cboFileModifyColor_SelectedIndexChanged(sender, e);
-            this.SetSelectedFileToControles();
+                //Reduce file size
+                this.cboFileModifyColor_SelectedIndexChanged(sender, e);
+                this.btnFileModifyRotateRight.Tag = 1;
+                this.btnFileModifyRotateLeft.Tag = 1;
+                this.SetImageModificationToSettings();
+                this.SetSelectedFileToPicturebox();
+
+                //Reset settings (Rotation)
+                this.btnFileModifyRotateRight.Tag = 0;
+                this.btnFileModifyRotateLeft.Tag = 0;
+                this.SetSelectedFileToPicturebox();
+            }
         }
 
         private void btnFileBrowse_Click(object sender, EventArgs e)
