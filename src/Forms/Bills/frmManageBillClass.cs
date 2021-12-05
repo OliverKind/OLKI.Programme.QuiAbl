@@ -239,7 +239,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.trvBillClasses.SelectedNode == null) return;
 
-            ((BillClass)this.trvBillClasses.SelectedNode.Tag).Title = this.txtTitle.Text.Trim();
+            ((BillClass)this.trvBillClasses.SelectedNode.Tag).Title = this.txtTitle.Text;
             this.trvBillClasses.SelectedNode.Text = ((BillClass)this.trvBillClasses.SelectedNode.Tag).TitleNoText;
         }
 

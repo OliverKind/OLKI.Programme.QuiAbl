@@ -241,7 +241,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvCompanies.SelectedItems.Count != 1) return;
 
-            ((Company)this.lsvCompanies.SelectedItems[0].Tag).Title = this.txtTitle.Text.Trim();
+            ((Company)this.lsvCompanies.SelectedItems[0].Tag).Title = this.txtTitle.Text;
             this.lsvCompanies.SelectedItems[0].Text = ((Company)this.lsvCompanies.SelectedItems[0].Tag).TitleNoText;
         }
         #endregion

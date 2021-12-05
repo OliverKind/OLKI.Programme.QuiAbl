@@ -292,7 +292,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             get => _title;
             set
             {
-                this._title = value;
+                this._title = value.Trim();
                 this.Changed = true;
             }
         }
