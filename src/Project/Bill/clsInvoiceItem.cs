@@ -67,7 +67,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             get => _articleNumber;
             set
             {
-                this._articleNumber = value;
+                this._articleNumber = value.Trim();
                 this.Changed = true;
             }
         }
@@ -192,7 +192,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             get => _title;
             set
             {
-                this._title = value.Replace("\r\n", "").Replace("\n", "");
+                this._title = value.Replace("\r\n", "").Replace("\n", "").Trim();
                 this.Changed = true;
             }
         }
