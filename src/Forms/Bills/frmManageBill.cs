@@ -593,14 +593,15 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
 
                 //Reduce file size
-                this.btnFileModifyRotateRight.Tag = 1;
-                this.btnFileModifyRotateLeft.Tag = 1;
-                this.cboFileModifyColor_SelectedIndexChanged(sender, e);
+                File.ImageModification Modification = new File.ImageModification(Modify.Palette.ColorPalette.Color)
+                {
+                    RotateLeft = 1,
+                    RotateRight = 1
+                };
+                ((File)this.lsvFiles.SelectedItems[0].Tag).Modification = Modification;
                 ((File)this.lsvFiles.SelectedItems[0].Tag).LoadFile(((File)this.lsvFiles.SelectedItems[0].Tag).ImageProcedet);
 
                 //Reset settings (Rotation)
-                this.btnFileModifyRotateRight.Tag = 0;
-                this.btnFileModifyRotateLeft.Tag = 0;
                 this.SetImageModificationToSettings();
             }
             this.SetSelectedFileToControles();
