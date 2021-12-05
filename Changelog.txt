@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.2.1.18] - 2021-12-05
+### Changed
+- Improfed compression while scaning images
+
 ## [2.2.0.17] - 2021-12-05
 ### Added
 - Drag&Drop feature
