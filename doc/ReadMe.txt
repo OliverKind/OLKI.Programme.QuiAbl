@@ -1,4 +1,4 @@
-'QuiAbl - 2.2.2.19' - Quittungsablage
+'QuiAbl - 2.2.3.20' - Quittungsablage
 ************************************
 
 Copyright © 2021 OLKI - Oliver Kind

@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+## [2.2.3.20] - 2021-12-05
+### Changed
+- Tab-Order at Bill Manager
+- Improved Image compression while scanning Images
+
+### Fixed
+- Project changed will shown if Bill Edit form will be closed, using cancel button
+
 ## [2.2.2.19] - 2021-12-05
 ### Changed
 - Speed up image compression while scanning images
