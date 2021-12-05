@@ -593,17 +593,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 ((File)this.lsvFiles.SelectedItems[0].Tag).Source = File.FileSource.Scan;
 
                 //Reduce file size
-                this.cboFileModifyColor_SelectedIndexChanged(sender, e);
                 this.btnFileModifyRotateRight.Tag = 1;
                 this.btnFileModifyRotateLeft.Tag = 1;
-                this.SetImageModificationToSettings();
-                this.SetSelectedFileToPicturebox();
+                this.cboFileModifyColor_SelectedIndexChanged(sender, e);
+                ((File)this.lsvFiles.SelectedItems[0].Tag).LoadFile(((File)this.lsvFiles.SelectedItems[0].Tag).ImageProcedet);
 
                 //Reset settings (Rotation)
                 this.btnFileModifyRotateRight.Tag = 0;
                 this.btnFileModifyRotateLeft.Tag = 0;
-                this.SetSelectedFileToPicturebox();
+                this.SetImageModificationToSettings();
             }
+            this.SetSelectedFileToControles();
         }
 
         private void btnFileBrowse_Click(object sender, EventArgs e)
@@ -666,8 +666,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             if (this.lsvFiles.SelectedItems.Count == 1)
             {
-                //MessageBox.Show(Stringtable._0x001Fm, Stringtable._0x001Fc, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //return;
                 this.txtFilePath.Text = string.Join(FILE_SEPERATOR.ToString(), Files);
                 this.btnFileAttech_Click(sender, e);
             }
