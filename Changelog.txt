@@ -1,4 +1,13 @@
 # QuiAbl - Quittungsablage
+## [2.2.0.17] - 2021-12-05
+### Added
+- Drag&Drop feature
+- Trim Articlenumber and Tilte of InvoiceItems
+
+### Changed
+- Rotate Scaned image by +/-90° to reduce image size
+- Select BillClass at edit Form, if BillCLass is selectet at Bill
+- Select Comapny at edit Form, if company is selectet at Bill
 
 ## [2.1.0.16] - 2021-11-28
 ### Added
