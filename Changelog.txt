@@ -1,4 +1,11 @@
 # QuiAbl - Quittungsablage
+## [2.2.2.19] - 2021-12-05
+### Changed
+- Speed up image compression while scanning images
+
+### Fixed
+- Image modify not available after scanning a file
+
 ## [2.2.1.18] - 2021-12-05
 ### Changed
 - Improfed compression while scaning images
