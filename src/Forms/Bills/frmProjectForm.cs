@@ -326,11 +326,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._manageBill.BillSaveRequest += new EventHandler(this._manageBill_BillSaveRequest);
             this._manageBill.BillClassesManageRequest += new EventHandler(this._manageBill_BillClassesManageRequest);
             this._manageBill.CompaniesManageRequest += new EventHandler(this._manageBill_CompaniesManageRequest);
-            this._manageBill.ShowDialog(this);
+            if (this._manageBill.ShowDialog(this) != DialogResult.Cancel) this.Project.Changed = true;
 
             this.UpdateListviewItem(this.lsvBills.SelectedIndices[0], (Bill)this.lsvBills.SelectedItems[0].Tag);
             this.lsvBills_SelectedIndexChanged(sender, e);
-            this.Project.Changed = true;
         }
 
         private void btnBillRemove_Click(object sender, EventArgs e)
