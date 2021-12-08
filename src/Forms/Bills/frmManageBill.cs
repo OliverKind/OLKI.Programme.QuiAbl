@@ -974,8 +974,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void tbaFileModifyBrightnes_Scroll(object sender, EventArgs e)
         {
-            if (this._ignoreImageModifyControleValueChange) return;
             this.lblFileModifyBrightnes.Text = string.Format(this._lblFileModifyBrightnes_OrgText, this.tbaFileModifyBrightnes.Value);
+            if (this._ignoreImageModifyControleValueChange) return;
             this.SetSettingControlesToImageModification();
             this.SetSelectedFileToPicturebox();
         }
@@ -989,8 +989,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void tbaFileModifyContrast_Scroll(object sender, EventArgs e)
         {
-            if (this._ignoreImageModifyControleValueChange) return;
             this.lblFileModifyContrast.Text = string.Format(this._lblFileModifyContrast_OrgText, this.tbaFileModifyContrast.Value);
+            if (this._ignoreImageModifyControleValueChange) return;
             this.SetSettingControlesToImageModification();
             this.SetSelectedFileToPicturebox();
         }
@@ -1004,8 +1004,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void tbaFileModifyThreshold_Scroll(object sender, EventArgs e)
         {
-            if (this._ignoreImageModifyControleValueChange) return;
             this.lblFileModifyThreshold.Text = string.Format(this._lblFileModifyThreshold_OrgText, this.tbaFileModifyThreshold.Value);
+            if (this._ignoreImageModifyControleValueChange) return;
             this.SetSettingControlesToImageModification();
             this.SetSelectedFileToPicturebox();
         }
