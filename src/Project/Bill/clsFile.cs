@@ -224,6 +224,15 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Get or set if the File is an new scaned image, need for LengthProcedet calculation
+        /// </summary>
+#if !DEBUG
+        [Browsable(false)]
+#endif
+        [ReadOnly(false)]
+        public bool IsNewScan { get; set; } = false;
+
+        /// <summary>
         /// Roughly Size of attached Files
         /// </summary>
         [Category("Allgemein")]
@@ -252,7 +261,11 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 if (string.IsNullOrEmpty(this._fileBase64)) return 0;
                 if (this.ImageProcedet == null) return this._fileBase64.Length;
-                if (this.Modification == null || !this.Modification.IsModified()) return this._fileBase64.Length;
+                if (this.Modification == null) return this._fileBase64.Length;
+
+                bool IsModified = this.IsNewScan ? this.Modification.IsModified(Modify.Palette.ColorPalette.Color) : this.Modification.IsModified(null);
+                if (!IsModified) return this._fileBase64.Length;
+
                 return Convert.ToBase64String((byte[])new ImageConverter().ConvertTo(this.ImageProcedet, typeof(byte[]))).Length;
             }
         }
@@ -367,7 +380,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 if (this.Image == null || !cropArea.HasValue) return;
                 if (this._imageBeforeCrop == null) this._imageBeforeCrop = this.Image;
 
-                this.Image = Toolbox.ColorAndPicture.Picture.Modify.Crop(this.Image, cropArea);
+                this.Image = Modify.Crop(this.Image, cropArea);
             }
             catch (Exception ex)
             {
@@ -570,6 +583,23 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Try to reduce the length, if an image is attached
+        /// </summary>
+        public void ReduceImageLength()
+        {
+            if (this.Image == null) return;
+            //Reduce image length (Best results to do it this way. Looks a little strange.)
+            File.ImageModification TempModification = new File.ImageModification(Modify.Palette.ColorPalette.Color)
+            {
+                RotateLeft = 1,
+                RotateRight = 1
+            };
+            this.Modification = TempModification;
+            this.LoadFile(this.ImageProcedet);
+            this.Modification = null;
+        }
+
+        /// <summary>
         /// The the file to an picture box, if it is an image, set the image. If not, set an default image.
         /// </summary>
         /// <param name="pictureBox">PictureBox to set the file to</param>
@@ -687,16 +717,23 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 this.Palette = initialPalette;
             }
 
-            public bool IsModified()
+            /// <summary>
+            /// Check if an attached image is modified or if no modification is set
+            /// </summary>
+            /// <param name="originalImagePalette">The original palette of the image</param>
+            /// <returns>True, if a modification is set for the image</returns>
+            public bool IsModified(Modify.Palette.ColorPalette? originalImagePalette)
             {
-                ImageModification Ref = new ImageModification((Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode);
+                if (originalImagePalette == null) originalImagePalette = (Modify.Palette.ColorPalette)Settings.Default.Scan_DefaultColorMode;
+
+                ImageModification Ref = new ImageModification((Modify.Palette.ColorPalette)originalImagePalette);
                 if (this.Brightness != Ref.Brightness) return true;
                 if (this.Contrast != Ref.Contrast) return true;
                 if (this.Palette != Ref.Palette) return true;
                 if (this.ResizeFactor != Ref.ResizeFactor) return true;
                 if (this.RotateLeft != Ref.RotateLeft) return true;
                 if (this.RotateRight != Ref.RotateRight) return true;
-                if (this.Threshold != Ref.Threshold) return true;
+                if (this.Threshold != Ref.Threshold && this.Palette == Modify.Palette.ColorPalette.BlackWhite) return true;
 
                 return false;
             }
