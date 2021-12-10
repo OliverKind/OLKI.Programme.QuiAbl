@@ -233,7 +233,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public bool IsNewScan { get; set; } = false;
 
         /// <summary>
-        /// Roughly Size of attached Files
+        /// Length of the attached file, in Byte.
         /// </summary>
         [Category("Allgemein")]
         [Description("Geschätzte Größe der Datei in Byte.")]
@@ -249,7 +249,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
-        /// Roughly Size of attached Files, after procedet or as saved if no modification is set
+        /// Size of attached Files, in Bytes, after procedet or as saved if no modification is set
         /// </summary>
         [Category("Allgemein")]
         [Description("Geschätzte Größe der Datei in Byte, nachdem sie bearbeitet wurde oder wie sie gespeichet ist wenn keine Modifikation vorgesehen ist.")]
@@ -263,7 +263,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 if (this.ImageProcedet == null) return this._fileBase64.Length;
                 if (this.Modification == null) return this._fileBase64.Length;
 
-                bool IsModified = this.IsNewScan ? this.Modification.IsModified(Modify.Palette.ColorPalette.Color) : this.Modification.IsModified(null);
+                bool IsModified = this.IsNewScan ? this.Modification.IsModified(Modify.Palette.ColorPalette.Color) : this.Modification.IsModified(this.Modification.Palette);
                 if (!IsModified) return this._fileBase64.Length;
 
                 return Convert.ToBase64String((byte[])new ImageConverter().ConvertTo(this.ImageProcedet, typeof(byte[]))).Length;
