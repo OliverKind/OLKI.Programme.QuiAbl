@@ -280,7 +280,8 @@ Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglich
     <value>Das Projekt wurde erfolgreich gespeichert.</value>
   </data>
   <data name="0x001D" xml:space="preserve">
-    <value>Geschätzte Größe: {0}</value>
+    <value />
+    <comment>Deleted</comment>
   </data>
   <data name="0x001Ec" xml:space="preserve">
     <value>Identische Firmennamen gefunden.</value>

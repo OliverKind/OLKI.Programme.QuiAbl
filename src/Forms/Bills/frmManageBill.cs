@@ -94,6 +94,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private readonly string _lblFileModifyThreshold_OrgText;
 
         /// <summary>
+        /// Original text of Label RoughlyFileSize
+        /// </summary>
+        private readonly string _lblFileSize_OrgText;
+
+        /// <summary>
         /// OpenFileDialog, to load files 
         /// </summary>
         private readonly OpenFileDialog _openFileDialog = new OpenFileDialog();
@@ -134,6 +139,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._lblFileModifyBrightnes_OrgText = this.lblFileModifyBrightnes.Text;
             this._lblFileModifyContrast_OrgText = this.lblFileModifyContrast.Text;
             this._lblFileModifyThreshold_OrgText = this.lblFileModifyThreshold.Text;
+            this._lblFileSize_OrgText = this.lblFileSize.Text;
 
             this._project = project;
             this.Bill = bill.Clone();
@@ -768,7 +774,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
                 this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
-                this.lblRoughlyFileSize.Visible = true;
+                this.lblFileSize.Visible = true;
                 this.txtFileComment.Text = FileItem.Comment;
                 this.txtFileTitle.Text = FileItem.Title;
                 this.txtFileLinkPath.Text = FileItem.LinkPath;
@@ -797,7 +803,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.grbFileModify.Enabled = false;
                 this.lblOriginalFileName.Text = "";
-                this.lblRoughlyFileSize.Visible = false;
+                this.lblFileSize.Visible = false;
                 this.picFilePreview.Image = null;
                 this.prgFilePreview.SelectedObject = null;
                 this.txtFileComment.Text = "";
@@ -881,7 +887,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
                 FileItem.SetToPictureBox(this.picFilePreview);
                 this.prgFilePreview.SelectedObject = FileItem.ImageProcedet;
-                this.lblRoughlyFileSize.Text = string.Format(Stringtable._0x001D, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.LengthProcedet, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
+                this.lblFileSize.Text = string.Format(this._lblFileSize_OrgText, Toolbox.DirectoryAndFile.FileSize.Convert(FileItem.LengthProcedet, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI));
 
                 Cursor = Cursors.Default;
             }

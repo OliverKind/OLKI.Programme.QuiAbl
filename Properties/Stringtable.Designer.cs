@@ -481,7 +481,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Geschätzte Größe: {0} ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
         internal static string _0x001D {
             get {

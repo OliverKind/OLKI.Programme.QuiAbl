@@ -47,7 +47,7 @@
             this.tbpInformationDocument = new System.Windows.Forms.TabPage();
             this.btnFileRemove = new System.Windows.Forms.Button();
             this.grbFileData = new System.Windows.Forms.GroupBox();
-            this.lblRoughlyFileSize = new System.Windows.Forms.Label();
+            this.lblFileSize = new System.Windows.Forms.Label();
             this.spcFilePreview = new System.Windows.Forms.SplitContainer();
             this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
             this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
@@ -321,7 +321,7 @@
             // 
             // grbFileData
             // 
-            this.grbFileData.Controls.Add(this.lblRoughlyFileSize);
+            this.grbFileData.Controls.Add(this.lblFileSize);
             this.grbFileData.Controls.Add(this.spcFilePreview);
             this.grbFileData.Controls.Add(this.btnFileSave);
             this.grbFileData.Controls.Add(this.grbFileModify);
@@ -340,11 +340,11 @@
             // 
             // lblRoughlyFileSize
             // 
-            this.lblRoughlyFileSize.Location = new System.Drawing.Point(355, 425);
-            this.lblRoughlyFileSize.Name = "lblRoughlyFileSize";
-            this.lblRoughlyFileSize.Size = new System.Drawing.Size(275, 13);
-            this.lblRoughlyFileSize.TabIndex = 12;
-            this.lblRoughlyFileSize.Text = "lblRoughlyFileSize";
+            this.lblFileSize.Location = new System.Drawing.Point(355, 425);
+            this.lblFileSize.Name = "lblRoughlyFileSize";
+            this.lblFileSize.Size = new System.Drawing.Size(275, 13);
+            this.lblFileSize.TabIndex = 12;
+            this.lblFileSize.Text = "Größe: {0}";
             // 
             // spcFilePreview
             // 
@@ -1285,7 +1285,7 @@
         private System.Windows.Forms.Button btnInvoiceItemImport;
         private System.Windows.Forms.Button btnFileModifyRotateRight;
         private System.Windows.Forms.Button btnFileModifyRotateLeft;
-        private System.Windows.Forms.Label lblRoughlyFileSize;
+        private System.Windows.Forms.Label lblFileSize;
         private System.Windows.Forms.Label lblFileModifyReize;
         private System.Windows.Forms.NumericUpDown nudFileModifyResize;
         private System.Windows.Forms.CheckBox chkBillDisposed;
