@@ -363,6 +363,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     //Save procedes image to listview
                     FilteItem.Image = FilteItem.ImageProcedet;
+                    FilteItem.IsNewScan = false;
                     FilteItem.Modification = null;
                     this.Bill.Files[FilteItem.Id] = FilteItem;
                     this.lsvFiles.Items[i].Tag = FilteItem;
@@ -607,7 +608,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.SetSettingControlesToImageModification();
             }
             this.SetSelectedFileToControles();
-            ((File)this.lsvFiles.SelectedItems[0].Tag).IsNewScan = false;
         }
 
         private void btnFileBrowse_Click(object sender, EventArgs e)
