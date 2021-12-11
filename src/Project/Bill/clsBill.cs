@@ -362,7 +362,12 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             get
             {
-                return new List<int>(this._files.Keys); ;
+                List<int> KeyList = new List<int>();
+                foreach (KeyValuePair<int, File> FileItem in this._files.OrderBy(o1 => o1.Value.Title).ThenBy(o2 => o2.Value.Id))
+                {
+                    KeyList.Add(FileItem.Key);
+                }
+                return KeyList;
             }
         }
 

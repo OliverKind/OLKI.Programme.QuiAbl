@@ -163,7 +163,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             // Fill file list
             this.lsvFiles.BeginUpdate();
             ListViewItem NewLsvFileItem;
-            foreach (KeyValuePair<int, File> FileItem in this.Bill.Files.OrderBy(o => o.Value.Title))
+            foreach (KeyValuePair<int, File> FileItem in this.Bill.Files.OrderBy(o => o.Value.Title).ThenBy(o2 => o2.Value.Id))
             {
                 FileItem.Value.Modification = null;
                 NewLsvFileItem = new ListViewItem
