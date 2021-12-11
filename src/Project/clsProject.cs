@@ -230,13 +230,15 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     //Move temp file to destination file
                     if (this.File.Exists) this.File.Delete();
                     System.IO.File.Move(TempFileName, this.File.FullName);
+                    State.ProgressDescirption = Stringtable._0x001C;
+                    if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
 
                     //Remove change state, because of changes where saved.
                     //Raise Change Event to rewrite Form to show possibly new file name and remove star
                     //behind file name, that indikates the file has unsaved changes
                     this.Changed = false;
                     this.ToggleProjectChanged(this, new EventArgs());
-                    State.ProgressDescirption = Stringtable._0x001C;
+                    State.ProgressDescirption = Stringtable._0x001D;
                     if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
                     return true;
                 }
