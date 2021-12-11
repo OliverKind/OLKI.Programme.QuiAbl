@@ -177,6 +177,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 }
             }
             this.lsvBills.EndUpdate();
+            this.lsvBills_SelectedIndexChanged(this, new EventArgs());
         }
 
         /// <summary>
@@ -392,12 +393,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #region Bill File
         private void btnBillFileNext_Click(object sender, EventArgs e)
         {
+            if (this.lsvBills.SelectedItems.Count != 1) return;
             this._selectedFileIndex += 1;
             this.SetFilePreview();
         }
 
         private void btnBillFileOpen_Click(object sender, EventArgs e)
         {
+            if (this.lsvBills.SelectedItems.Count != 1) return;
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
@@ -413,6 +416,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnBillFileSave_Click(object sender, EventArgs e)
         {
+            if (this.lsvBills.SelectedItems.Count != 1) return;
             Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
@@ -423,6 +427,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnBillFilePrev_Click(object sender, EventArgs e)
         {
+            if (this.lsvBills.SelectedItems.Count != 1) return;
             this._selectedFileIndex -= 1;
             this.SetFilePreview();
         }
