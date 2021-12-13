@@ -472,7 +472,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Daten erfolgreich in DAtei geschrieben. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Daten erfolgreich in Datei geschrieben. ähnelt.
         /// </summary>
         internal static string _0x001C {
             get {

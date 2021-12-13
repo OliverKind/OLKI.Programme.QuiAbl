@@ -277,7 +277,7 @@ Bitte überprüfen Sie welche Daten importiert wurden.</value>
 Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglicherweise nicht oder nur unvollständig importiert.</value>
   </data>
   <data name="0x001C" xml:space="preserve">
-    <value>Daten erfolgreich in DAtei geschrieben.</value>
+    <value>Daten erfolgreich in Datei geschrieben.</value>
   </data>
   <data name="0x001D" xml:space="preserve">
     <value>Das Projekt wurde erfolgreich gespeichert.</value>
