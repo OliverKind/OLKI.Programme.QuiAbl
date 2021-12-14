@@ -1,4 +1,14 @@
 # QuiAbl - Quittungsablage
+## [2.2.4.21] - 2021-12-14
+### Changed
+- Improved Image compression while scanning Images
+- Improved pre processing while scanning Images
+- Order attached Files at Bill overview by title and internal Id
+
+### Fixed
+- Application freeze after project was saved successfully
+- Wrong File Length after cropping image
+
 ## [2.2.3.20] - 2021-12-05
 ### Changed
 - Tab-Order at Bill Manager
@@ -69,9 +79,6 @@
 ### Added
 - Image rotation
 - Message if project was saved sucessfull
-
-### Fixed
-- Application freeze after project was saved successfully
 
 ## [1.4.0.11] - 2021-10-29
 ### Added
