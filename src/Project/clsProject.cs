@@ -233,13 +233,6 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     State.ProgressDescirption = Stringtable._0x001C;
                     if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
 
-                    //Remove change state, because of changes where saved.
-                    //Raise Change Event to rewrite Form to show possibly new file name and remove star
-                    //behind file name, that indikates the file has unsaved changes
-                    this.Changed = false;
-                    this.ToggleProjectChanged(this, new EventArgs());
-                    State.ProgressDescirption = Stringtable._0x001D;
-                    if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
                     return true;
                 }
                 return false;  // Nothing to do, beccause no file was specified to save to

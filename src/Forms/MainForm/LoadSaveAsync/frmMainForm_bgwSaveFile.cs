@@ -79,6 +79,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void _bgwSaveFile_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            if (this._progressForm == null || this._progressForm.IsDisposed) return;
             if (!this._progressForm.Visible) this._progressForm.Show(this);
 
             SaveProjectsState State = (SaveProjectsState)e.UserState;
@@ -92,13 +93,24 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             if (!e.Cancelled)
             {
                 SaveProjectsState State = (SaveProjectsState)e.Result;
-                if (State.SaveSucess && State.CloseFormAfterSave && State.ProjectForm != null)
+
+                //Remove change state, because of changes where saved.
+                if (State.SaveSucess) this._projectManager.ActiveProject.Changed = false;
+
+                //Write final State to Progress Form
+                this._progressForm.ProgressBarValue = -1;
+                this._progressForm.ProgessDescription = Properties.Stringtable._0x001C;
+                this._progressForm.ProgessFile = State.ProjectFile;
+
+                //Close Project form if required
+                if (State.SaveSucess && State.CloseFormAfterSave && State.ProjectForm != null && !State.ProjectForm.IsDisposed)
                 {
                     State.ProjectForm.Close(true);
                 }
             }
 
-            if (this._progressForm != null)
+            //Close Progress Form
+            if (this._progressForm != null && !this._progressForm.IsDisposed)
             {
                 this._progressForm.Close();
                 this._progressForm.Dispose();
