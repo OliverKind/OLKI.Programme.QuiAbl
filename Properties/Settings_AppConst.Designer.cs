@@ -53,7 +53,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1;2;3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1;2;3;4")]
         public string ProjectFile_VersionCompatibleNative {
             get {
                 return ((string)(this["ProjectFile_VersionCompatibleNative"]));
@@ -71,7 +71,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public string ProjectFile_Version_Actual {
             get {
                 return ((string)(this["ProjectFile_Version_Actual"]));

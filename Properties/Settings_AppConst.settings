@@ -12,13 +12,13 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1;2;3</Value>
+      <Value Profile="(Default)">1;2;3;4</Value>
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="FileAssociation_ExtensionDescription" Type="System.String" Scope="Application">
       <Value Profile="(Default)">QuiAbl Database</Value>

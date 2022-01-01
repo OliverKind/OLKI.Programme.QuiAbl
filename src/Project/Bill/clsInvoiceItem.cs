@@ -104,7 +104,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// Get or set the comment to the InvoiceItem
         /// </summary>
         [Category("Allgemein")]
-        [Description("Kommentar zur Datei.")]
+        [Description("Kommentar zum Artikels.")]
         [DisplayName("Kommentar")]
         [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public string Comment
@@ -246,11 +246,11 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             this.Id = Serialize.GetFromXElement(inputInvoiceItem, "Id", 0);
             this._articleNumber = Serialize.GetFromXElement(inputInvoiceItem, "ArticleNumber", "");
+            this._comment = Serialize.GetFromXElement(inputInvoiceItem, "Comment", "");
             this._price = Serialize.GetFromXElement(inputInvoiceItem, "Price", (decimal)0);
             this._quantity = Serialize.GetFromXElement(inputInvoiceItem, "Quantity", 0);
             this._title = Serialize.GetFromXElement(inputInvoiceItem, "Title", "");
         }
-
 
         /// <summary>
         /// Toggle InvoiceItemChanged event
@@ -272,6 +272,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
             FileRoot.Add(new XElement("Id", this.Id));
             FileRoot.Add(new XElement("ArticleNumber", this._articleNumber));
+            FileRoot.Add(new XElement("Comment", this._comment));
             FileRoot.Add(new XElement("Price", this._price.ToString(new System.Globalization.CultureInfo("en-US"))));
             FileRoot.Add(new XElement("Quantity", this._quantity));
             FileRoot.Add(new XElement("Title", this._title));
