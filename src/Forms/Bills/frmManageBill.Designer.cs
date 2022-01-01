@@ -49,7 +49,7 @@
             this.grbFileData = new System.Windows.Forms.GroupBox();
             this.lblFileSize = new System.Windows.Forms.Label();
             this.spcFilePreview = new System.Windows.Forms.SplitContainer();
-            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCropSimple();
+            this.picFilePreview = new OLKI.Toolbox.Widgets.PictrueBoxCrop();
             this.prgFilePreview = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.btnFileSave = new System.Windows.Forms.Button();
             this.grbFileModify = new System.Windows.Forms.GroupBox();
@@ -338,10 +338,10 @@
             this.grbFileData.TabStop = false;
             this.grbFileData.Text = "Dokument";
             // 
-            // lblRoughlyFileSize
+            // lblFileSize
             // 
             this.lblFileSize.Location = new System.Drawing.Point(355, 425);
-            this.lblFileSize.Name = "lblRoughlyFileSize";
+            this.lblFileSize.Name = "lblFileSize";
             this.lblFileSize.Size = new System.Drawing.Size(275, 13);
             this.lblFileSize.TabIndex = 12;
             this.lblFileSize.Text = "Größe: {0}";
@@ -368,8 +368,8 @@
             // picFilePreview
             // 
             this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picFilePreview.CropMode = true;
             this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFilePreview.InitialCropSize = new System.Drawing.Size(100, 100);
             this.picFilePreview.Location = new System.Drawing.Point(0, 0);
             this.picFilePreview.Name = "picFilePreview";
             this.picFilePreview.Size = new System.Drawing.Size(275, 260);
@@ -1238,7 +1238,7 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblTitle;
-        private OLKI.Toolbox.Widgets.PictrueBoxCropSimple picFilePreview;
+        private OLKI.Toolbox.Widgets.PictrueBoxCrop picFilePreview;
         private System.Windows.Forms.ComboBox cboCompany;
         private System.Windows.Forms.TextBox txtOrgFileLocation;
         private System.Windows.Forms.Label lblDate;
