@@ -347,6 +347,15 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[4].Text = invoiceItem.PriceSum.ToString();
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[5].Text = invoiceItem.Comment;
 
+            if (invoiceItem.Disposed)
+            {
+                this.lsvInvoiceItems.Items[ItemIndex].Font = new Font(this.lsvInvoiceItems.Items[ItemIndex].Font, System.Drawing.FontStyle.Strikeout);
+            }
+            else
+            {
+                this.lsvInvoiceItems.Items[ItemIndex].Font = new Font(this.lsvInvoiceItems.Items[ItemIndex].Font, System.Drawing.FontStyle.Regular);
+            }
+
             this.prgInvoiceItemProperty.Refresh();
         }
 
@@ -1081,7 +1090,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                             ArticleNumber = CSVrow.Columns[1],
                             Price = decimal.Parse(CSVrow.Columns[2]),
                             Quantity = int.Parse(CSVrow.Columns[3]),
-                            Comment = CSVrow.Columns[4]
+                            Comment = CSVrow.Columns[4],
+                            Disposed = false
                         };
 
                         this.Bill.InvoiceItems.Add(this.Bill.InvoiceItemLastInsertedId, NewInvoiceItem);

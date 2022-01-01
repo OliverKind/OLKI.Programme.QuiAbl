@@ -118,6 +118,26 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
+        /// Doesn't the InvoiceItem exist anymore
+        /// </summary>
+        public bool _disposed = false;
+        /// <summary>
+        /// Get or set if the InvoiceItem deoesn't exist anymore
+        /// </summary>
+        [Category("Allgemein")]
+        [Description("Gibt an ob der Artikel nicht mehr existiert.")]
+        [DisplayName("Entsorgt")]
+        public bool Disposed
+        {
+            get => _disposed;
+            set
+            {
+                this._disposed = value;
+                this.Changed = true;
+            }
+        }
+
+        /// <summary>
         /// Get the internal InvoiceItem Id
         /// </summary>
 #if !DEBUG
@@ -247,6 +267,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             this.Id = Serialize.GetFromXElement(inputInvoiceItem, "Id", 0);
             this._articleNumber = Serialize.GetFromXElement(inputInvoiceItem, "ArticleNumber", "");
             this._comment = Serialize.GetFromXElement(inputInvoiceItem, "Comment", "");
+            this._disposed = Serialize.GetFromXElement(inputInvoiceItem, "Disposed", false);
             this._price = Serialize.GetFromXElement(inputInvoiceItem, "Price", (decimal)0);
             this._quantity = Serialize.GetFromXElement(inputInvoiceItem, "Quantity", 0);
             this._title = Serialize.GetFromXElement(inputInvoiceItem, "Title", "");
@@ -273,6 +294,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             FileRoot.Add(new XElement("Id", this.Id));
             FileRoot.Add(new XElement("ArticleNumber", this._articleNumber));
             FileRoot.Add(new XElement("Comment", this._comment));
+            FileRoot.Add(new XElement("Disposed", this._disposed));
             FileRoot.Add(new XElement("Price", this._price.ToString(new System.Globalization.CultureInfo("en-US"))));
             FileRoot.Add(new XElement("Quantity", this._quantity));
             FileRoot.Add(new XElement("Title", this._title));
