@@ -1,4 +1,14 @@
 # QuiAbl - Quittungsablage
+## [2.3.0.22] - 2022-01-01
+### Added
+- Invoice Item: Tag as deleted
+
+### Changed
+- Improved Selection for cropping images
+
+### Fixed
+- Invoice Item: Comment not working
+
 ## [2.2.4.21] - 2021-12-14
 ### Changed
 - Improved Image compression while scanning Images
