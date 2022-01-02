@@ -149,6 +149,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             // Set Controles
             this.chkBillDisposed.Checked = this.Bill.BillDisposed;
+            this.picFilePreview.AddRemoveCropAreaWithMouseClick = Settings.Default.AddRemoveCropAreaWithMouseClick;
             this.txtTitle.Text = this.Bill.Title;
             this.txtTitle_TextChanged(this, new EventArgs());
             this.AddCompaniesToComboBox(false);
@@ -909,17 +910,24 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void btnFileModifyCrop_Click(object sender, EventArgs e)
         {
-            if (!this.picFilePreview.CropAreaFitToImage.HasValue)
+            if (this.lsvFiles.SelectedItems.Count != 1) return;
+
+            if (Settings.Default.AddRemoveCropAreaWithMouseClick && !this.picFilePreview.CropAreaFitToImage.HasValue)
             {
                 MessageBox.Show(this, Stringtable._0x0019m, Stringtable._0x0019c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (this.lsvFiles.SelectedItems.Count != 1) return;
-            File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
-            FileItem.Crop(this.picFilePreview.CropAreaFitToImage.Value);
-            this.SetSelectedFileToPicturebox();
-            this.picFilePreview.CropMode = false;
+            if (!Settings.Default.AddRemoveCropAreaWithMouseClick && (!this.picFilePreview.CropAreaFitToImage.HasValue || !this.picFilePreview.CropMode))
+            {
+                this.picFilePreview.CropMode = true;
+            }
+            else if (this.picFilePreview.CropAreaFitToImage.HasValue && this.picFilePreview.CropMode)
+            {
+                File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
+                FileItem.Crop(this.picFilePreview.CropAreaFitToImage.Value);
+                this.SetSelectedFileToPicturebox();
+                this.picFilePreview.CropMode = false;
+            }
         }
 
         private void btnFileModifyCropUndo_Click(object sender, EventArgs e)

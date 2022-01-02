@@ -367,8 +367,10 @@
             // 
             // picFilePreview
             // 
+            this.picFilePreview.AddRemoveCropAreaWithMouseClick = false;
             this.picFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picFilePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFilePreview.Image = null;
             this.picFilePreview.InitialCropSize = new System.Drawing.Size(100, 100);
             this.picFilePreview.Location = new System.Drawing.Point(0, 0);
             this.picFilePreview.Name = "picFilePreview";

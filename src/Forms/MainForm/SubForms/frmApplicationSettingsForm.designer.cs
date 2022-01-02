@@ -65,6 +65,7 @@
             this.lblFileModifyVolor = new System.Windows.Forms.Label();
             this.lblScanDefaultResolution = new System.Windows.Forms.Label();
             this.nudScanDefaultResolution = new System.Windows.Forms.NumericUpDown();
+            this.chkAddRemoveCropAreaWithMouseClick = new System.Windows.Forms.CheckBox();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -79,7 +80,7 @@
             // btnOk
             // 
             this.btnOk.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Ok;
-            this.btnOk.Location = new System.Drawing.Point(12, 372);
+            this.btnOk.Location = new System.Drawing.Point(12, 395);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 24);
             this.btnOk.TabIndex = 9;
@@ -196,7 +197,7 @@
             this.grbRecentFiles.Controls.Add(this.btnRecentFilesClear);
             this.grbRecentFiles.Controls.Add(this.nudNumRecentFiles);
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
-            this.grbRecentFiles.Location = new System.Drawing.Point(12, 266);
+            this.grbRecentFiles.Location = new System.Drawing.Point(12, 289);
             this.grbRecentFiles.Name = "grbRecentFiles";
             this.grbRecentFiles.Size = new System.Drawing.Size(705, 48);
             this.grbRecentFiles.TabIndex = 4;
@@ -237,7 +238,7 @@
             // 
             // btnCheckFileAssociation
             // 
-            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 320);
+            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 343);
             this.btnCheckFileAssociation.Name = "btnCheckFileAssociation";
             this.btnCheckFileAssociation.Size = new System.Drawing.Size(134, 23);
             this.btnCheckFileAssociation.TabIndex = 5;
@@ -247,7 +248,7 @@
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(511, 321);
+            this.btnSetDefaults.Location = new System.Drawing.Point(511, 344);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
             this.btnSetDefaults.TabIndex = 7;
@@ -297,7 +298,7 @@
             // chkFileAssociationCheckAtStartup
             // 
             this.chkFileAssociationCheckAtStartup.AutoSize = true;
-            this.chkFileAssociationCheckAtStartup.Location = new System.Drawing.Point(152, 325);
+            this.chkFileAssociationCheckAtStartup.Location = new System.Drawing.Point(152, 348);
             this.chkFileAssociationCheckAtStartup.Name = "chkFileAssociationCheckAtStartup";
             this.chkFileAssociationCheckAtStartup.Size = new System.Drawing.Size(229, 17);
             this.chkFileAssociationCheckAtStartup.TabIndex = 6;
@@ -343,7 +344,7 @@
             // chkAppUpdateCheckAtStartUp
             // 
             this.chkAppUpdateCheckAtStartUp.AutoSize = true;
-            this.chkAppUpdateCheckAtStartUp.Location = new System.Drawing.Point(12, 349);
+            this.chkAppUpdateCheckAtStartUp.Location = new System.Drawing.Point(12, 372);
             this.chkAppUpdateCheckAtStartUp.Name = "chkAppUpdateCheckAtStartUp";
             this.chkAppUpdateCheckAtStartUp.Size = new System.Drawing.Size(245, 17);
             this.chkAppUpdateCheckAtStartUp.TabIndex = 8;
@@ -354,7 +355,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(607, 372);
+            this.btnCancel.Location = new System.Drawing.Point(607, 395);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 24);
             this.btnCancel.TabIndex = 10;
@@ -452,13 +453,24 @@
             0,
             0});
             // 
+            // chkAddRemoveCropAreaWithMouseClick
+            // 
+            this.chkAddRemoveCropAreaWithMouseClick.AutoSize = true;
+            this.chkAddRemoveCropAreaWithMouseClick.Location = new System.Drawing.Point(203, 266);
+            this.chkAddRemoveCropAreaWithMouseClick.Name = "chkAddRemoveCropAreaWithMouseClick";
+            this.chkAddRemoveCropAreaWithMouseClick.Size = new System.Drawing.Size(222, 17);
+            this.chkAddRemoveCropAreaWithMouseClick.TabIndex = 11;
+            this.chkAddRemoveCropAreaWithMouseClick.Text = "Bild zuschneiden mit Mausklick aktivieren";
+            this.chkAddRemoveCropAreaWithMouseClick.UseVisualStyleBackColor = true;
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 408);
+            this.ClientSize = new System.Drawing.Size(729, 431);
+            this.Controls.Add(this.chkAddRemoveCropAreaWithMouseClick);
             this.Controls.Add(this.grbScanDefault);
             this.Controls.Add(this.chkAppUpdateCheckAtStartUp);
             this.Controls.Add(this.grbBillClassesTreeView);
@@ -533,5 +545,6 @@
         private System.Windows.Forms.Label lblScanDefaultThreshold;
         private System.Windows.Forms.TrackBar tbaScanDefaultThreshold;
         private System.Windows.Forms.CheckBox chkStartupDefaultLoadEmptyProject;
+        private System.Windows.Forms.CheckBox chkAddRemoveCropAreaWithMouseClick;
     }
 }

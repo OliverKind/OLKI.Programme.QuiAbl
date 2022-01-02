@@ -75,6 +75,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         private void SetControlesFromSettings()
         {
             this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
+            this.chkAddRemoveCropAreaWithMouseClick.Checked = Settings.Default.AddRemoveCropAreaWithMouseClick;
             this.chkAppUpdateCheckAtStartUp.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkFileAssociationCheckAtStartup.Checked = Settings.Default.FileAssociation_CheckAtStartup;
             this.chkStartupDefaultLoadEmptyProject.Checked = Settings.Default.Startup_DefaultLoadEmptyProject;
@@ -165,6 +166,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Settings.Default.AddRemoveCropAreaWithMouseClick = this.chkAddRemoveCropAreaWithMouseClick.Checked;
             Settings.Default.AppUpdate_CheckAtStartUp = this.chkAppUpdateCheckAtStartUp.Checked;
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckAtStartup = this.chkFileAssociationCheckAtStartup.Checked;

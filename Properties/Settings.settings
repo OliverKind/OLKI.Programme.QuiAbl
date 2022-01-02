@@ -44,5 +44,8 @@
     <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
+    <Setting Name="AddRemoveCropAreaWithMouseClick" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
