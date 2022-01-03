@@ -209,12 +209,25 @@ namespace OLKI.Programme.QuiAbl.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool AddRemoveCropAreaWithMouseClick {
+        public bool CropArea_AddRemoveWithMouseClick {
             get {
-                return ((bool)(this["AddRemoveCropAreaWithMouseClick"]));
+                return ((bool)(this["CropArea_AddRemoveWithMouseClick"]));
             }
             set {
-                this["AddRemoveCropAreaWithMouseClick"] = value;
+                this["CropArea_AddRemoveWithMouseClick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int CropArea_SelectionWidth {
+            get {
+                return ((int)(this["CropArea_SelectionWidth"]));
+            }
+            set {
+                this["CropArea_SelectionWidth"] = value;
             }
         }
     }

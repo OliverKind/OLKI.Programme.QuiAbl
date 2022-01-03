@@ -1,7 +1,7 @@
 ﻿/*
  * QuiAbl - Quittungsablage
  * 
- * Copyright:   Oliver Kind - 2021
+ * Copyright:   Oliver Kind - 2022
  * License:     LGPL
  * 
  * Desctiption:
@@ -149,7 +149,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             // Set Controles
             this.chkBillDisposed.Checked = this.Bill.BillDisposed;
-            this.picFilePreview.AddRemoveCropAreaWithMouseClick = Settings.Default.AddRemoveCropAreaWithMouseClick;
+            this.picFilePreview.AddRemoveCropAreaWithMouseClick = Settings.Default.CropArea_AddRemoveWithMouseClick;
+            this.picFilePreview.CropAreaSelectionFrame.SelectionWidth = Settings.Default.CropArea_SelectionWidth;
             this.txtTitle.Text = this.Bill.Title;
             this.txtTitle_TextChanged(this, new EventArgs());
             this.AddCompaniesToComboBox(false);
@@ -912,12 +913,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
 
-            if (Settings.Default.AddRemoveCropAreaWithMouseClick && !this.picFilePreview.CropAreaFitToImage.HasValue)
+            if (Settings.Default.CropArea_AddRemoveWithMouseClick && !this.picFilePreview.CropAreaFitToImage.HasValue)
             {
                 MessageBox.Show(this, Stringtable._0x0019m, Stringtable._0x0019c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Settings.Default.AddRemoveCropAreaWithMouseClick && (!this.picFilePreview.CropAreaFitToImage.HasValue || !this.picFilePreview.CropMode))
+            if (!Settings.Default.CropArea_AddRemoveWithMouseClick && (!this.picFilePreview.CropAreaFitToImage.HasValue || !this.picFilePreview.CropMode))
             {
                 this.picFilePreview.CropMode = true;
             }

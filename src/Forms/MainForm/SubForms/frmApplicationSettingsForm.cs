@@ -1,7 +1,7 @@
 ﻿/*
  * QuiAbl - Quittungsablage
  * 
- * Copyright:   Oliver Kind - 2021
+ * Copyright:   Oliver Kind - 2022
  * License:     LGPL
  * 
  * Desctiption:
@@ -75,13 +75,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
         private void SetControlesFromSettings()
         {
             this.cboScanDefaultColorMode.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
-            this.chkAddRemoveCropAreaWithMouseClick.Checked = Settings.Default.AddRemoveCropAreaWithMouseClick;
+            this.chkCropAreaAddRemoveWithMouseClick.Checked = Settings.Default.CropArea_AddRemoveWithMouseClick;
             this.chkAppUpdateCheckAtStartUp.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkFileAssociationCheckAtStartup.Checked = Settings.Default.FileAssociation_CheckAtStartup;
             this.chkStartupDefaultLoadEmptyProject.Checked = Settings.Default.Startup_DefaultLoadEmptyProject;
             this.chkTreeViewBillClassesAllowCollaps.Checked = Settings.Default.TreeView_BillClasses_AllowCollaps;
             this.chkTreeViewBillClassesExpandAllDefault.Checked = Settings.Default.TreeView_BillClasses_ExpandAllDefault;
             this.nudNumRecentFiles.Value = Settings.Default.RecentFiles_MaxLength;
+            this.nudCropAreaSelectionWidth.Value = Settings.Default.CropArea_SelectionWidth;
             this.nudScanDefaultResolution.Value = Settings.Default.Scan_DefaultResolution;
             this.tbaScanDefaultThreshold.Value = Settings.Default.Scan_DefaultThreshold;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
@@ -166,8 +167,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Settings.Default.AddRemoveCropAreaWithMouseClick = this.chkAddRemoveCropAreaWithMouseClick.Checked;
             Settings.Default.AppUpdate_CheckAtStartUp = this.chkAppUpdateCheckAtStartUp.Checked;
+            Settings.Default.CropArea_AddRemoveWithMouseClick = this.chkCropAreaAddRemoveWithMouseClick.Checked;
+            Settings.Default.CropArea_SelectionWidth = (int)this.nudCropAreaSelectionWidth.Value;
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckAtStartup = this.chkFileAssociationCheckAtStartup.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtProjectFileDefaultPath.Text;
