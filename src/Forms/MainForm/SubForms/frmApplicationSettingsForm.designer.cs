@@ -370,7 +370,10 @@
             // 
             // grbScanDefault
             // 
+            this.grbScanDefault.Controls.Add(this.lblCropAreaSelectionWidth);
             this.grbScanDefault.Controls.Add(this.lblScanDefaultThreshold);
+            this.grbScanDefault.Controls.Add(this.nudCropAreaSelectionWidth);
+            this.grbScanDefault.Controls.Add(this.chkCropAreaAddRemoveWithMouseClick);
             this.grbScanDefault.Controls.Add(this.cboScanDefaultColorMode);
             this.grbScanDefault.Controls.Add(this.tbaScanDefaultThreshold);
             this.grbScanDefault.Controls.Add(this.lblFileModifyVolor);
@@ -378,10 +381,10 @@
             this.grbScanDefault.Controls.Add(this.nudScanDefaultResolution);
             this.grbScanDefault.Location = new System.Drawing.Point(203, 163);
             this.grbScanDefault.Name = "grbScanDefault";
-            this.grbScanDefault.Size = new System.Drawing.Size(508, 97);
+            this.grbScanDefault.Size = new System.Drawing.Size(508, 123);
             this.grbScanDefault.TabIndex = 3;
             this.grbScanDefault.TabStop = false;
-            this.grbScanDefault.Text = "Standard Scaneinstellungen";
+            this.grbScanDefault.Text = "Standard Scaneinstellungen / Bildzuschneiden";
             // 
             // lblScanDefaultThreshold
             // 
@@ -389,7 +392,7 @@
             this.lblScanDefaultThreshold.Location = new System.Drawing.Point(175, 46);
             this.lblScanDefaultThreshold.Name = "lblScanDefaultThreshold";
             this.lblScanDefaultThreshold.Size = new System.Drawing.Size(84, 13);
-            this.lblScanDefaultThreshold.TabIndex = 11;
+            this.lblScanDefaultThreshold.TabIndex = 4;
             this.lblScanDefaultThreshold.Text = "Schwellwert: {0}";
             // 
             // cboScanDefaultColorMode
@@ -414,7 +417,7 @@
             this.tbaScanDefaultThreshold.Maximum = 255;
             this.tbaScanDefaultThreshold.Name = "tbaScanDefaultThreshold";
             this.tbaScanDefaultThreshold.Size = new System.Drawing.Size(217, 45);
-            this.tbaScanDefaultThreshold.TabIndex = 12;
+            this.tbaScanDefaultThreshold.TabIndex = 5;
             this.tbaScanDefaultThreshold.TickFrequency = 85;
             this.tbaScanDefaultThreshold.Value = 127;
             this.tbaScanDefaultThreshold.Scroll += new System.EventHandler(this.tbaScanDefaultThreshold_Scroll);
@@ -459,17 +462,17 @@
             // chkCropAreaAddRemoveWithMouseClick
             // 
             this.chkCropAreaAddRemoveWithMouseClick.AutoSize = true;
-            this.chkCropAreaAddRemoveWithMouseClick.Location = new System.Drawing.Point(203, 266);
+            this.chkCropAreaAddRemoveWithMouseClick.Location = new System.Drawing.Point(6, 97);
             this.chkCropAreaAddRemoveWithMouseClick.Name = "chkCropAreaAddRemoveWithMouseClick";
             this.chkCropAreaAddRemoveWithMouseClick.Size = new System.Drawing.Size(222, 17);
-            this.chkCropAreaAddRemoveWithMouseClick.TabIndex = 11;
+            this.chkCropAreaAddRemoveWithMouseClick.TabIndex = 6;
             this.chkCropAreaAddRemoveWithMouseClick.Text = "Bild zuschneiden mit Mausklick aktivieren";
             this.chkCropAreaAddRemoveWithMouseClick.UseVisualStyleBackColor = true;
             // 
             // nudCropAreaSelectionWidth
             // 
             this.nudCropAreaSelectionWidth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.nudCropAreaSelectionWidth.Location = new System.Drawing.Point(682, 266);
+            this.nudCropAreaSelectionWidth.Location = new System.Drawing.Point(467, 97);
             this.nudCropAreaSelectionWidth.Maximum = new decimal(new int[] {
             20,
             0,
@@ -482,7 +485,7 @@
             0});
             this.nudCropAreaSelectionWidth.Name = "nudCropAreaSelectionWidth";
             this.nudCropAreaSelectionWidth.Size = new System.Drawing.Size(35, 20);
-            this.nudCropAreaSelectionWidth.TabIndex = 12;
+            this.nudCropAreaSelectionWidth.TabIndex = 8;
             this.nudCropAreaSelectionWidth.Value = new decimal(new int[] {
             10,
             0,
@@ -492,10 +495,10 @@
             // lblCropAreaSelectionWidth
             // 
             this.lblCropAreaSelectionWidth.AutoSize = true;
-            this.lblCropAreaSelectionWidth.Location = new System.Drawing.Point(491, 270);
+            this.lblCropAreaSelectionWidth.Location = new System.Drawing.Point(276, 99);
             this.lblCropAreaSelectionWidth.Name = "lblCropAreaSelectionWidth";
             this.lblCropAreaSelectionWidth.Size = new System.Drawing.Size(185, 13);
-            this.lblCropAreaSelectionWidth.TabIndex = 13;
+            this.lblCropAreaSelectionWidth.TabIndex = 7;
             this.lblCropAreaSelectionWidth.Text = "Auswahlbreite für Zuschneiderahmen:";
             // 
             // ApplicationSettingsForm
@@ -505,9 +508,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(729, 434);
-            this.Controls.Add(this.lblCropAreaSelectionWidth);
-            this.Controls.Add(this.nudCropAreaSelectionWidth);
-            this.Controls.Add(this.chkCropAreaAddRemoveWithMouseClick);
             this.Controls.Add(this.grbScanDefault);
             this.Controls.Add(this.chkAppUpdateCheckAtStartUp);
             this.Controls.Add(this.grbBillClassesTreeView);
