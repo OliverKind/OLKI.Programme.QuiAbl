@@ -142,7 +142,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
         /// </summary>
         /// <param name="sender">Sender of changed event</param>
         /// <param name="e">EventArgs of changed event</param>
-        private void ToggleProjectChanged(object sender, EventArgs e)
+        public void ToggleProjectChanged(object sender, EventArgs e)
         {
             if (this.ProjectChanged != null) ProjectChanged(sender, e);
         }
