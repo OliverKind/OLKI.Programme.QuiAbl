@@ -107,6 +107,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 {
                     State.ProjectForm.Close(true);
                 }
+                this.SetStatusstripLabels(this.ActiveMdiChild);
             }
 
             //Close Progress Form

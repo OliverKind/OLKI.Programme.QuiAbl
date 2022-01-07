@@ -84,6 +84,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         #region Properteis
         /// <summary>
+        /// Get the number of listed Bills
+        /// </summary>
+        public int BillsInList => this.lsvBills.Items.Count;
+
+        /// <summary>
         /// Get the Project to show the bills of
         /// </summary>
         public Project.Project Project { get; }
@@ -565,6 +570,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void _search_RequestListResults(object sender, EventArgs e)
         {
             this.FillListView(this._searchBill.BillsFound);
+            this.Project.ToggleProjectChanged(this, new EventArgs());
         }
         #endregion
         #endregion

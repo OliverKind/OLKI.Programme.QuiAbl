@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.stsStatus = new System.Windows.Forms.StatusStrip();
+            this.tslBills = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslFiles = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslCompa = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslBillC = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuMainForm = new System.Windows.Forms.MenuStrip();
             this.mnuMain_File = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_New = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,17 +70,49 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tolMain_Basedata_Company = new System.Windows.Forms.ToolStripButton();
             this.tolMain_Basedata_BillClass = new System.Windows.Forms.ToolStripButton();
+            this.tslProFi = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stsStatus.SuspendLayout();
             this.mnuMainForm.SuspendLayout();
             this.tolMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // stsStatus
             // 
+            this.stsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslBills,
+            this.tslFiles,
+            this.tslCompa,
+            this.tslBillC,
+            this.tslProFi});
             this.stsStatus.Location = new System.Drawing.Point(0, 599);
             this.stsStatus.Name = "stsStatus";
             this.stsStatus.Size = new System.Drawing.Size(990, 22);
             this.stsStatus.TabIndex = 3;
             this.stsStatus.Text = "stsStatus";
+            // 
+            // tslBills
+            // 
+            this.tslBills.Name = "tslBills";
+            this.tslBills.Size = new System.Drawing.Size(87, 17);
+            this.tslBills.Text = "Belege: {0} / {1}";
+            // 
+            // tslFiles
+            // 
+            this.tslFiles.Name = "tslFiles";
+            this.tslFiles.Size = new System.Drawing.Size(125, 17);
+            this.tslFiles.Text = "Dateianhänge: {0} ({1})";
+            // 
+            // tslCompa
+            // 
+            this.tslCompa.Name = "tslCompa";
+            this.tslCompa.Size = new System.Drawing.Size(64, 17);
+            this.tslCompa.Text = "Firmen: {0}";
+            // 
+            // tslBillC
+            // 
+            this.tslBillC.Name = "tslBillC";
+            this.tslBillC.Size = new System.Drawing.Size(84, 17);
+            this.tslBillC.Text = "Kategorien: {0}";
             // 
             // mnuMainForm
             // 
@@ -395,6 +431,13 @@
             this.tolMain_Basedata_BillClass.Text = "Verwalte Kategorien";
             this.tolMain_Basedata_BillClass.Click += new System.EventHandler(this.tolMain_Basedata_BillClass_Click);
             // 
+            // tslProFi
+            // 
+            this.tslProFi.Name = "tslProFi";
+            this.tslProFi.Size = new System.Drawing.Size(46, 17);
+            this.tslProFi.Text = "{0} ({1})";
+            this.tslProFi.Click += new System.EventHandler(this.tslProFi_Click);
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -415,6 +458,8 @@
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
+            this.stsStatus.ResumeLayout(false);
+            this.stsStatus.PerformLayout();
             this.mnuMainForm.ResumeLayout(false);
             this.mnuMainForm.PerformLayout();
             this.tolMain.ResumeLayout(false);
@@ -463,5 +508,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File2;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_RecentFiles_File3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripStatusLabel tslBills;
+        private System.Windows.Forms.ToolStripStatusLabel tslFiles;
+        private System.Windows.Forms.ToolStripStatusLabel tslCompa;
+        private System.Windows.Forms.ToolStripStatusLabel tslBillC;
+        private System.Windows.Forms.ToolStripStatusLabel tslProFi;
     }
 }

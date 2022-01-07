@@ -70,6 +70,31 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         /// Specifies the recent files object
         /// </summary>
         private readonly RecentFiles _recentFiles = new RecentFiles();
+
+        /// <summary>
+        /// Original design text for the Statusstrip BillClasses Label
+        /// </summary>
+        private readonly string _tslBillC_OrgText;
+
+        /// <summary>
+        /// Original design text for the Statusstrip Bills Label
+        /// </summary>
+        private readonly string _tslBills_OrgText;
+
+        /// <summary>
+        /// Original design text for the Statusstrip Companies Label
+        /// </summary>        
+        private readonly string _tslCompa_OrgText;
+
+        /// <summary>
+        /// Original design text for the Statusstrip Files Label
+        /// </summary>
+        private readonly string _tslFiles_OrgText;
+
+        /// <summary>
+        /// Original design text for the Statusstrip ProjectFile Label
+        /// </summary>
+        private readonly string _tslProFi_OrgText;
         #endregion
 
         #region Methodes
@@ -80,9 +105,15 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         internal MainForm(string[] args)
         {
             InitializeComponent();
+            this._tslBillC_OrgText = this.tslBillC.Text;
+            this._tslBills_OrgText = this.tslBills.Text;
+            this._tslCompa_OrgText = this.tslCompa.Text;
+            this._tslFiles_OrgText = this.tslFiles.Text;
+            this._tslProFi_OrgText = this.tslProFi.Text;
 
-            // Set startup State and Location/Size from last Session.
-            if ( Settings_AppVar.Default.MainForm_State != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings_AppVar.Default.MainForm_State;
+            this.SetStatusstripLabels(this.ActiveMdiChild);
+
+            if (Settings_AppVar.Default.MainForm_State != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings_AppVar.Default.MainForm_State;
             if (Settings_AppVar.Default.MainForm_State == FormWindowState.Normal) this.Size = Settings_AppVar.Default.MainForm_Size;
 
             this.MainForm_MdiChildActivate(this, new EventArgs());
@@ -152,6 +183,49 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
+        private void SetStatusstripLabels(Form ActiveMdiChild)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ProjectForm ProjectForm = (ProjectForm)ActiveMdiChild;
+                long FileSum = 0;
+                long FileLengthSum = 0;
+
+                foreach (KeyValuePair<int, Project.Bill.Bill> BillImten in ProjectForm.Project.Bills)
+                {
+                    FileSum += BillImten.Value.FileCount;
+                    FileLengthSum += BillImten.Value.FilesLength;
+                }
+
+                this.tslBillC.Text = string.Format(this._tslBillC_OrgText, new object[] { ProjectForm.Project.BillClasses.Count });
+                this.tslBills.Text = string.Format(this._tslBills_OrgText, new object[] { ProjectForm.BillsInList, ProjectForm.Project.Bills.Count });
+                this.tslCompa.Text = string.Format(this._tslCompa_OrgText, new object[] { ProjectForm.Project.Companies.Count });
+                this.tslFiles.Text = string.Format(this._tslFiles_OrgText, new object[] { FileSum, Toolbox.DirectoryAndFile.FileSize.Convert(FileLengthSum, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI) });
+                if (ProjectForm.Project.File != null)
+                {
+                    FileInfo FileInfo = new FileInfo(ProjectForm.Project.File.FullName);
+                    this.tslProFi.Text = string.Format(this._tslProFi_OrgText, new object[] { FileInfo.FullName, Toolbox.DirectoryAndFile.FileSize.Convert(FileInfo.Length, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI) });
+                    this.tslProFi.IsLink = true;
+                }
+                else
+                {
+                    this.tslFiles.Text = string.Format(this._tslProFi_OrgText, new object[] { "-", "-" });
+                    this.tslProFi.IsLink = false;
+                }
+            }
+            else
+            {
+                this.tslBillC.Text = string.Format(this._tslBillC_OrgText, new object[] { "-" });
+                this.tslBills.Text = string.Format(this._tslBills_OrgText, new object[] { "-", "-" });
+                this.tslCompa.Text = string.Format(this._tslCompa_OrgText, new object[] { "-" });
+                this.tslFiles.Text = string.Format(this._tslFiles_OrgText, new object[] { "-", "-" });
+                this.tslProFi.Text = string.Format(this._tslProFi_OrgText, new object[] { "-", "-" });
+                this.tslProFi.IsLink = false;
+            }
+
+            //TODO: ADD CODE
+        }
+
         #region Form Events
         private void MainForm_DragDrop(object sender, DragEventArgs e)
         {
@@ -184,7 +258,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void MainForm_MdiChildActivate(object sender, EventArgs e)
         {
-            Form ActiveMdiChild = this.ActiveMdiChild;
+            ProjectForm ActiveMdiChild = (ProjectForm)this.ActiveMdiChild;
             if (ActiveMdiChild != null)
             {
                 this.mnuMain_File_Close.Enabled = true;
@@ -203,6 +277,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this.tolMain_Basedata_Company.Enabled = false;
                 this.tolMain_File_Save.Enabled = false;
             }
+
+            this.SetStatusstripLabels(this.ActiveMdiChild);
         }
 
         public void MainForm_MdiChildRequestClose(object sender, EventArgs e)
@@ -398,11 +474,18 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
         {
             this.mnuMain_File_Save_Click(sender, e);
         }
+
+        private void tslProFi_Click(object sender, EventArgs e)
+        {
+            if (!this.tslProFi.IsLink) return;
+            System.Diagnostics.Process.Start("explorer.exe", "/e,/select,\"" + ((ProjectForm)this.ActiveMdiChild).Project.File.FullName + "\"");
+        }
         #endregion
 
         #region Projec Events
         private void ProjectManager_ProjectChanged(object sender, EventArgs e)
         {
+            this.SetStatusstripLabels(this.ActiveMdiChild);
             this.ProjectManager_ProjectFileChanged(sender, e);
         }
 
