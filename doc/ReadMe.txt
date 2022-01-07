@@ -1,7 +1,7 @@
-'QuiAbl - 2.3.0.22' - Quittungsablage
-************************************
+QuiAbl - Quittungsablage
+************************
 
-Copyright © 2021 OLKI - Oliver Kind
+Copyright © 2022 OLKI - Oliver Kind
 Alle Rechte vorbehalten.
 
 

@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+## [2.4.0.23] - 2022-01-07
+### Added
+- Option to active or deactive crop Mode with mouse click
+- Option to change selection border width of crop frame
+
+### Changed
+-  Add several Informations to the StatusStrip
+
 ## [2.3.0.22] - 2022-01-01
 ### Added
 - Invoice Item: Tag as deleted
