@@ -372,7 +372,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 File FilteItem = (File)this.lsvFiles.Items[i].Tag;
                 if (FilteItem.Image != null && FilteItem.Modification != null)
                 {
-                    //Save procedes image to listview
+                    //Save procedet image to listview
                     FilteItem.Image = FilteItem.ImageProcedet;
                     FilteItem.IsNewScan = false;
                     FilteItem.Modification = null;
@@ -447,7 +447,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this.mtbDates_TextChanged(sender, e);
             DateTime.TryParse(this.mtbDate.Text, out DateTime BillDate);
-            this.Bill.Date = BillDate;
+            this.Bill.Date = string.IsNullOrEmpty(this.mtbDate.Text.Replace(" ", "").Replace(".", "")) ? null : (DateTime?)BillDate;
         }
 
         private void mtbDates_TextChanged(object sender, EventArgs e)
@@ -467,7 +467,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this.mtbDates_TextChanged(sender, e);
             DateTime.TryParse(this.mtbExpidation.Text, out DateTime BillExpidationDate);
-            this.Bill.Expiration = BillExpidationDate;
+            this.Bill.Expiration = string.IsNullOrEmpty(this.mtbExpidation.Text.Replace(" ", "").Replace(".", "")) ? null : (DateTime?)BillExpidationDate;
         }
 
         private void trvBillClasses_AfterSelect(object sender, TreeViewEventArgs e)
