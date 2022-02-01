@@ -130,7 +130,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// The BillClass by Id, belonging to the Bill
         /// </summary>
-        private int _billClassId;
+        private int _billClassId = 0;
         /// <summary>
         /// Get or set the BillClass by Id, belonging to the Bill
         /// </summary>
@@ -221,7 +221,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// The Company by Id, belonging to the Bill
         /// </summary>
-        public int _companyId;
+        public int _companyId = 0;
         /// <summary>
         /// Get or set the Company by Id, belonging to the Bill
         /// </summary>
@@ -410,7 +410,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int FilesLastInsertedId { get; set; }
+        public int FilesLastInsertedId { get; set; } = 0;
 
         /// <summary>
         /// Get the internal Bill Id
@@ -422,7 +422,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
 
         /// <summary>
         /// The location where the original files are located
@@ -486,7 +486,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int InvoiceItemLastInsertedId { get; set; }
+        public int InvoiceItemLastInsertedId { get; set; } = 0;
 
         /// <summary>
         /// The Name of the Bill
@@ -582,20 +582,20 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             DateTime DateTimeTemp = DateTime.Now;
 
-            this.Id = Serialize.GetFromXElement(inputBill, "Id", 0);
-            this._billDisposed = Serialize.GetFromXElement(inputBill, "BillDisposed", false);
-            this._billNumber = Serialize.GetFromXElement(inputBill, "BillNumber", "");
-            this._billClassId = Serialize.GetFromXElement(inputBill, "BillClassId", 0);
-            this._comment = Serialize.GetFromXElement(inputBill, "Comment", "");
-            this._companyId = Serialize.GetFromXElement(inputBill, "CompanyId", 0);
-            this._customNumber = Serialize.GetFromXElement(inputBill, "CustomNumber", "");
+            this.Id = Serialize.GetFromXElement(inputBill, "Id", this.Id);
+            this._billDisposed = Serialize.GetFromXElement(inputBill, "BillDisposed", this._billDisposed);
+            this._billNumber = Serialize.GetFromXElement(inputBill, "BillNumber", this._billNumber);
+            this._billClassId = Serialize.GetFromXElement(inputBill, "BillClassId", this._billClassId);
+            this._comment = Serialize.GetFromXElement(inputBill, "Comment", this._comment);
+            this._companyId = Serialize.GetFromXElement(inputBill, "CompanyId", this._companyId);
+            this._customNumber = Serialize.GetFromXElement(inputBill, "CustomNumber", this._customNumber);
             this._date = DateTime.TryParse(Serialize.GetFromXElement(inputBill, "Date", ""), out DateTimeTemp) ? (DateTime?)DateTimeTemp : null;
             this._expiration = DateTime.TryParse(Serialize.GetFromXElement(inputBill, "Expiration", ""), out DateTimeTemp) ? (DateTime?)DateTimeTemp : null;
-            this._orgFileLocation = Serialize.GetFromXElement(inputBill, "OrgFileLocation", "");
-            this._title = Serialize.GetFromXElement(inputBill, "Title", "");
+            this._orgFileLocation = Serialize.GetFromXElement(inputBill, "OrgFileLocation", this._orgFileLocation);
+            this._title = Serialize.GetFromXElement(inputBill, "Title", this._title);
 
             this._files.Clear();
-            this.FilesLastInsertedId = Serialize.GetFromXElementAttribute(inputBill, "FileList", "LastInsertedId", 0);
+            this.FilesLastInsertedId = Serialize.GetFromXElementAttribute(inputBill, "FileList", "LastInsertedId", this.FilesLastInsertedId);
             XElement FileList = Serialize.GetFromXElement(inputBill, "FileList", new XElement("FileList"));
             if (FileList != null)
             {
@@ -609,7 +609,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             }
 
             this._invoiceItems.Clear();
-            this.InvoiceItemLastInsertedId = Serialize.GetFromXElementAttribute(inputBill, "InvoiceItemList", "LastInsertedId", 0);
+            this.InvoiceItemLastInsertedId = Serialize.GetFromXElementAttribute(inputBill, "InvoiceItemList", "LastInsertedId", this.InvoiceItemLastInsertedId);
             XElement InvoiceItemList = Serialize.GetFromXElement(inputBill, "InvoiceItemList", new XElement("InvoiceItemList"));
             if (InvoiceItemList != null)
             {

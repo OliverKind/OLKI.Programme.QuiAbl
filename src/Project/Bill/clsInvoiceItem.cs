@@ -145,12 +145,12 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int Id { get; private set; }
+        public int Id { get; private set; } = 0;
 
         /// <summary>
         /// The single Price of an InvoiceItem
         /// </summary>
-        public decimal _price;
+        public decimal _price = 0;
         /// <summary>
         /// Get or set the single Price of an InvoiceItem
         /// </summary>
@@ -179,7 +179,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// The Quantity of the InvoiceItem
         /// </summary>
-        public int _quantity;
+        public int _quantity = 0;
         /// <summary>
         /// Get or set the Quantity of the InvoiceItem
         /// </summary>
@@ -264,13 +264,13 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="inputInvoiceItem">XElement to read InvoiceItem data from</param>
         public void FromXElement(XElement inputInvoiceItem)
         {
-            this.Id = Serialize.GetFromXElement(inputInvoiceItem, "Id", 0);
-            this._articleNumber = Serialize.GetFromXElement(inputInvoiceItem, "ArticleNumber", "");
-            this._comment = Serialize.GetFromXElement(inputInvoiceItem, "Comment", "");
-            this._disposed = Serialize.GetFromXElement(inputInvoiceItem, "Disposed", false);
-            this._price = Serialize.GetFromXElement(inputInvoiceItem, "Price", (decimal)0);
-            this._quantity = Serialize.GetFromXElement(inputInvoiceItem, "Quantity", 0);
-            this._title = Serialize.GetFromXElement(inputInvoiceItem, "Title", "");
+            this.Id = Serialize.GetFromXElement(inputInvoiceItem, "Id", this.Id);
+            this._articleNumber = Serialize.GetFromXElement(inputInvoiceItem, "ArticleNumber", this._articleNumber);
+            this._comment = Serialize.GetFromXElement(inputInvoiceItem, "Comment", this._comment);
+            this._disposed = Serialize.GetFromXElement(inputInvoiceItem, "Disposed", this._disposed);
+            this._price = Serialize.GetFromXElement(inputInvoiceItem, "Price", this._price);
+            this._quantity = Serialize.GetFromXElement(inputInvoiceItem, "Quantity", this._quantity);
+            this._title = Serialize.GetFromXElement(inputInvoiceItem, "Title", this._title);
         }
 
         /// <summary>

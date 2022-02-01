@@ -394,7 +394,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                 state.ProgressDescirption = Stringtable._0x000D;
                 worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, state.Clone());
                 this.Bills.Clear();
-                this.BillsLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "BillList", "LastInsertedId", 0);
+                this.BillsLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "BillList", "LastInsertedId", this.BillsLastInsertedId);
                 XElement BillList = Serialize.GetFromXElement(inputProject, "BillList", new XElement("BillList"));
                 if (BillList != null)
                 {
@@ -410,11 +410,11 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     }
                 }
 
-                //Read Categories
+                //Read Bill Classes
                 state.ProgressDescirption = Stringtable._0x000F;
                 worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, state.Clone());
                 this.BillClasses.Clear();
-                this.BillClassLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "BillClassList", "LastInsertedId", 0);
+                this.BillClassLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "BillClassList", "LastInsertedId", this.BillClassLastInsertedId);
                 XElement BillClassList = Serialize.GetFromXElement(inputProject, "BillClassList", new XElement("BillClassList"));
                 if (BillClassList != null)
                 {
@@ -430,7 +430,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                 state.ProgressDescirption = Stringtable._0x0010;
                 worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, state.Clone());
                 this.Companies.Clear();
-                this.CompanyLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "CompanyList", "LastInsertedId", 0);
+                this.CompanyLastInsertedId = Serialize.GetFromXElementAttribute(inputProject, "CompanyList", "LastInsertedId", this.CompanyLastInsertedId);
                 XElement CompanyList = Serialize.GetFromXElement(inputProject, "CompanyList", new XElement("CompanyList"));
                 if (CompanyList != null)
                 {

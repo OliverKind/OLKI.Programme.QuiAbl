@@ -137,7 +137,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         [Browsable(false)]
 #endif
         [ReadOnly(true)]
-        public int Id { get; private set; }
+        public int Id { get; private set; } = 0;
 
         /// <summary>
         /// The File data as Base64 encoded string
@@ -420,14 +420,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="inputCompany">XElement to read File data from</param>
         public void FromFromXElement(XElement inputFile)
         {
-            this.Id = Serialize.GetFromXElement(inputFile, "Id", 0);
-            this._colorPalette = (Modify.Palette.ColorPalette)Serialize.GetFromXElement(inputFile, "ColorPalette", Settings.Default.Scan_DefaultColorMode);
-            this._comment = Serialize.GetFromXElement(inputFile, "Comment", "");
-            this._fileBase64 = Serialize.GetFromXElement(inputFile, "StreamBase64", "");
-            this.LinkPath = Serialize.GetFromXElement(inputFile, "LinkPath", "");
-            this.OriginalFileName = Serialize.GetFromXElement(inputFile, "OriginalFileName", "");
-            this.Source = (FileSource)Serialize.GetFromXElement(inputFile, "Source", (int)FileSource.Unknown);
-            this._title = Serialize.GetFromXElement(inputFile, "Title", "");
+            this.Id = Serialize.GetFromXElement(inputFile, "Id", this.Id);
+            this._colorPalette = (Modify.Palette.ColorPalette)Serialize.GetFromXElement(inputFile, "ColorPalette", (int)this._colorPalette);
+            this._comment = Serialize.GetFromXElement(inputFile, "Comment", this._comment);
+            this._fileBase64 = Serialize.GetFromXElement(inputFile, "StreamBase64", this._fileBase64);
+            this.LinkPath = Serialize.GetFromXElement(inputFile, "LinkPath", this.LinkPath);
+            this.OriginalFileName = Serialize.GetFromXElement(inputFile, "OriginalFileName", this.OriginalFileName);
+            this.Source = (FileSource)Serialize.GetFromXElement(inputFile, "Source", (int)this.Source);
+            this._title = Serialize.GetFromXElement(inputFile, "Title", this._title);
         }
 
         /// <summary>

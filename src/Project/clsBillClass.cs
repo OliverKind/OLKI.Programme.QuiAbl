@@ -98,7 +98,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int Id { get; private set; }
+        public int Id { get; private set; } = 0;
 
         /// <summary>
         /// Get or set th internal RootId of the BillClass
@@ -108,7 +108,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int RootId { get; set; }
+        public int RootId { get; set; } = 0;
 
         /// <summary>
         /// The Name of the BillClass
@@ -178,10 +178,10 @@ namespace OLKI.Programme.QuiAbl.src.Project
         /// <param name="inputBillClass">XElement to read BillClass data from</param>
         public void FromXElement(XElement inputBillClass)
         {
-            this.Id = Serialize.GetFromXElement(inputBillClass, "Id", 0);
-            this._comment = Serialize.GetFromXElement(inputBillClass, "Comment", "");
-            this.RootId = Serialize.GetFromXElement(inputBillClass, "RootId", 0);
-            this._title = Serialize.GetFromXElement(inputBillClass, "Title", "");
+            this.Id = Serialize.GetFromXElement(inputBillClass, "Id", this.Id);
+            this._comment = Serialize.GetFromXElement(inputBillClass, "Comment", this._comment);
+            this.RootId = Serialize.GetFromXElement(inputBillClass, "RootId", this.RootId);
+            this._title = Serialize.GetFromXElement(inputBillClass, "Title", this._title);
         }
 
         /// <summary>

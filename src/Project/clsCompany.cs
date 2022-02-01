@@ -98,7 +98,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
 #endif
         [Category("*Debug")]
         [ReadOnly(true)]
-        public int Id { get; private set; }
+        public int Id { get; private set; } = 0;
 
         /// <summary>
         /// The Name of the Company
@@ -165,9 +165,9 @@ namespace OLKI.Programme.QuiAbl.src.Project
         /// <param name="inputCompany">XElement to read Comapny data from</param>
         public void FromXElement(XElement inputCompany)
         {
-            this.Id = Serialize.GetFromXElement(inputCompany, "Id", 0);
-            this._comment = Serialize.GetFromXElement(inputCompany, "Comment", "");
-            this._title = Serialize.GetFromXElement(inputCompany, "Title", "");
+            this.Id = Serialize.GetFromXElement(inputCompany, "Id", this.Id);
+            this._comment = Serialize.GetFromXElement(inputCompany, "Comment", this._comment);
+            this._title = Serialize.GetFromXElement(inputCompany, "Title", this._title);
         }
 
         /// <summary>
