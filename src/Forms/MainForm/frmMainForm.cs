@@ -222,8 +222,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this.tslProFi.Text = string.Format(this._tslProFi_OrgText, new object[] { "-", "-" });
                 this.tslProFi.IsLink = false;
             }
-
-            //TODO: ADD CODE
         }
 
         #region Form Events
