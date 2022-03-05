@@ -111,7 +111,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// <summary>
         /// List with WIA-Scan devices
         /// </summary>
-        private readonly List<WIA.DeviceInfo> _scanDeviceList;
+        private List<WIA.DeviceInfo> _scanDeviceList;
+
+        /// <summary>
+        /// Timer to scan for scan devices
+        /// </summary>
+        private readonly Timer tmrScannerScan = new Timer();
         #endregion
 
         #region Properties
@@ -179,13 +184,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvFiles.EndUpdate();
 
             // Initial scan devices
-            this.cboFileScanDevice.Items.Clear();
-            this._scanDeviceList = WIAscan.GetDevices();
-            for (int i = 0; i < _scanDeviceList.Count; i++)
-            {
-                this.cboFileScanDevice.Items.Add(_scanDeviceList[i].Properties["Name"].get_Value());
-            }
-            this.cboFileScanDevice.SelectedIndex = (this.cboFileScanDevice.Items.Count > 0 ? 0 : -1);
+            this.tmrScannerScan.Enabled = true;
+            this.tmrScannerScan.Interval = 1000;
+            this.tmrScannerScan.Tick += new EventHandler(this.tmrScannerScan_Tick);
+            this.tmrScannerScan.Start();
+            this.tmrScannerScan_Tick(this, new EventArgs());
+
             this.nudFileScanResolution.Value = Settings.Default.Scan_DefaultResolution;
             this.cboFileModifyColor.SelectedIndex = Settings.Default.Scan_DefaultColorMode;
 
@@ -421,6 +425,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.Close();
         }
 
+        private void ManageBill_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.tmrScannerScan.Stop();
+            this.tmrScannerScan.Dispose();
+        }
+
         #region Bill Data
         private void chkBillDisposed_CheckedChanged(object sender, EventArgs e)
         {
@@ -597,9 +607,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             if (this.cboFileScanDevice.SelectedIndex == -1) return;
             if (!this.OverwriteExistingFileDate(this.lsvFiles.SelectedIndices[0])) return;
-            string ScanDeviceId = this._scanDeviceList[this.cboFileScanDevice.SelectedIndex].DeviceID;
+            if ((this.cboFileScanDevice.SelectedIndex + 1) > this._scanDeviceList.Count) return;
 
+            this.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+
+            string ScanDeviceId = this._scanDeviceList[this.cboFileScanDevice.SelectedIndex].DeviceID;
             Image NewImage = WIAscan.Scan(ScanDeviceId, (uint)this.nudFileScanResolution.Value, out Exception ScanExteption);
+
+            Cursor.Current = Cursors.Default;
+            this.Enabled = true;
 
             if (ScanExteption != null)
             {
@@ -748,6 +765,35 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.btnFileOpen_Click(sender, e);
         }
 
+        private void tmrScannerScan_Tick(object sender, EventArgs e)
+        {
+            int SelectComboboxIndex = -1;
+            string SelectedScanDeviceId = "";
+
+            if (this._scanDeviceList != null && this._scanDeviceList.Count > (this.cboFileScanDevice.SelectedIndex + 1))
+            {
+                SelectedScanDeviceId = this._scanDeviceList[this.cboFileScanDevice.SelectedIndex].DeviceID;
+            }
+
+            this.cboFileScanDevice.Items.Clear();
+            this._scanDeviceList = WIAscan.GetDevices();
+
+            for (int i = 0; i < _scanDeviceList.Count; i++)
+            {
+                this.cboFileScanDevice.Items.Add(_scanDeviceList[i].Properties["Name"].get_Value());
+                if (string.IsNullOrEmpty(SelectedScanDeviceId) && this._scanDeviceList[i].DeviceID == SelectedScanDeviceId) SelectComboboxIndex = i;
+            }
+            // Select ScanDevice or to first item
+            if (SelectComboboxIndex > -1)
+            {
+                this.cboFileScanDevice.SelectedIndex = SelectComboboxIndex;
+            }
+            else
+            {
+                Toolbox.Widgets.Tools.ComboBox.SetToFirstIndex(this.cboFileScanDevice);
+            }
+        }
+
         private void txtFileComment_TextChanged(object sender, EventArgs e)
         {
             if (this.lsvFiles.SelectedItems.Count != 1) return;
@@ -777,6 +823,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             return string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).FileBase64) && string.IsNullOrEmpty(((File)this.lsvFiles.Items[OrgSelectedIndex].Tag).LinkPath) || MessageBox.Show(this, Stringtable._0x0006m, Stringtable._0x0006c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
         }
 
+        /// <summary>
+        /// Set the selected File to all user controles
+        /// </summary>
         private void SetSelectedFileToControles()
         {
             if (this.lsvFiles.SelectedItems.Count == 1)
