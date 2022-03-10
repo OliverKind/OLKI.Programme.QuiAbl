@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.4.3.26] - 2022-03-10
+### Changed
+- Add periodic scan for scanning devices
+
 ## [2.4.2.25] - 2022-02-07
 ### Changed
 - Internal Code optimisation
