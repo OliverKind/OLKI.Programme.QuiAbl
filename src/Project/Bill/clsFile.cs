@@ -440,6 +440,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public void LoadFile(Image image)
         {
             this._fileBase64 = Convert.ToBase64String((byte[])new ImageConverter().ConvertTo(image, typeof(byte[])));
+            if (this.Source == FileSource.File || this.Source == FileSource.Unknown) return;
             this.OriginalFileName = "";
         }
 
