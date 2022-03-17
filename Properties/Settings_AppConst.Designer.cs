@@ -176,5 +176,23 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ((string)(this["RecentFiles_Seperator"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".jpg")]
+        public string ScanedImages_DefaultExtension {
+            get {
+                return ((string)(this["ScanedImages_DefaultExtension"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Jpeg")]
+        public global::System.Drawing.Imaging.ImageFormat ScanedImages_DefaultFormat {
+            get {
+                return ((global::System.Drawing.Imaging.ImageFormat)(this["ScanedImages_DefaultFormat"]));
+            }
+        }
     }
 }

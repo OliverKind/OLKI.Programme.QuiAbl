@@ -40,13 +40,6 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
     /// </summary>
     public class File
     {
-        #region Constants
-        /// <summary>
-        /// Default file extension for scaned fieles. Require if the scaned file shold peen saved to an directory
-        /// </summary>
-        private const string DEFAULT_EXTENSION_FOR_SCANED_FILES = ".jpg";
-        #endregion
-
         #region Events
         /// <summary>
         /// Raised if the File data was changed
@@ -477,7 +470,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             try
             {
-                string Extension = string.IsNullOrEmpty(this.OriginalFileName) ? DEFAULT_EXTENSION_FOR_SCANED_FILES : new System.IO.FileInfo(this.OriginalFileName).Extension;
+                string Extension = string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension;
                 SaveFileDialog SaveFileDialog = new SaveFileDialog
                 {
                     DefaultExt = Extension,
@@ -488,7 +481,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
                 string FileToOpen = SaveFileDialog.FileName;
                 System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
-
+                if (this.Image == null)
+                {
+                    System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
+                }
+                else
+                {
+                    this.ImageProcedet.Save(FileToOpen, Settings_AppConst.Default.ScanedImages_DefaultFormat);
+                }
 
                 if (MessageBox.Show(owner, Stringtable._0x0018m, Stringtable._0x0018c, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
@@ -516,7 +516,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 string FileToOpen = TempFile;
                 if (string.IsNullOrEmpty(this.OriginalFileName))
                 {
-                    FileToOpen += DEFAULT_EXTENSION_FOR_SCANED_FILES;
+                    FileToOpen += Settings_AppConst.Default.ScanedImages_DefaultExtension;
                 }
                 else
                 {
@@ -529,7 +529,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 }
                 else
                 {
-                    this.ImageProcedet.Save(FileToOpen);
+                    this.ImageProcedet.Save(FileToOpen, Settings_AppConst.Default.ScanedImages_DefaultFormat);
                 }
 
                 System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
