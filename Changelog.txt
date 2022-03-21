@@ -1,4 +1,9 @@
 # QuiAbl - Quittungsablage
+## [2.4.4.27] - 2022-03-21
+### Fixed
+- Original FilePath lost, if image was modified
+- Wrong FileFormat saved for scaned images, while image is saved to File
+
 ## [2.4.3.26] - 2022-03-10
 ### Changed
 - Add periodic scan for scanning devices
