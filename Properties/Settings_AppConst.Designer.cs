@@ -194,5 +194,14 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ((global::System.Drawing.Imaging.ImageFormat)(this["ScanedImages_DefaultFormat"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gescantes Bild")]
+        public string ScanedImages_DefaultFileName {
+            get {
+                return ((string)(this["ScanedImages_DefaultFileName"]));
+            }
+        }
     }
 }

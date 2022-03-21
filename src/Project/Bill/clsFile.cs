@@ -424,7 +424,88 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         }
 
         /// <summary>
-        /// Load the defined file from fined path to the file object
+        /// Get the corresponding extension for a ImageFormat, given by an Image object or default ImageFormat
+        /// </summary>
+        /// <param name="image">Image object the get the Extension, for the ImageFormat or the default ImageFormat</param>
+        /// <returns></returns>
+        private System.Drawing.Imaging.ImageFormat GetImageFormat(Image image)
+        {
+            try
+            {
+                if (image == null) return Settings_AppConst.Default.ScanedImages_DefaultFormat;
+
+                switch (image.RawFormat.Guid.ToString().ToUpper())
+                {
+                    case "B96B3CAB-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Bmp;
+                    case "B96B3CAC-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Emf;
+                    case "B96B3CB0-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Gif;
+                    case "B96B3CB5-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Icon;
+                    case "B96B3CAE-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Jpeg;
+                    case "B96B3CAF-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Png;
+                    case "B96B3CB1-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Tiff;
+                    case "B96B3CAD-0728-11D3-9D7B-0000F81EF32E":
+                        return System.Drawing.Imaging.ImageFormat.Wmf;
+                    default:
+                        return Settings_AppConst.Default.ScanedImages_DefaultFormat;
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex;
+                return Settings_AppConst.Default.ScanedImages_DefaultFormat;
+            }
+
+        }
+
+        /// <summary>
+        /// Get the ImageFormat, given by an Image object or default ImageFormat
+        /// </summary>
+        /// <param name="image">Image object the get the ImageFormat or default ImageFormat</param>
+        /// <returns></returns>
+        private string GetImageFormatExtension(Image image)
+        {
+            try
+            {
+                if (image == null) return Settings_AppConst.Default.ScanedImages_DefaultExtension;
+
+                switch (image.RawFormat.Guid.ToString().ToUpper())
+                {
+                    case "B96B3CAB-0728-11D3-9D7B-0000F81EF32E":
+                        return ".bmp";
+                    case "B96B3CAC-0728-11D3-9D7B-0000F81EF32E":
+                        return ".emf";
+                    case "B96B3CB0-0728-11D3-9D7B-0000F81EF32E":
+                        return ".gif";
+                    case "B96B3CB5-0728-11D3-9D7B-0000F81EF32E":
+                        return ".ico";
+                    case "B96B3CAE-0728-11D3-9D7B-0000F81EF32E":
+                        return ".jpg";
+                    case "B96B3CAF-0728-11D3-9D7B-0000F81EF32E":
+                        return ".png";
+                    case "B96B3CB1-0728-11D3-9D7B-0000F81EF32E":
+                        return ".tif";
+                    case "B96B3CAD-0728-11D3-9D7B-0000F81EF32E":
+                        return ".wmf";
+                    default:
+                        return Settings_AppConst.Default.ScanedImages_DefaultExtension;
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex;
+                return Settings_AppConst.Default.ScanedImages_DefaultExtension;
+            }
+        }
+
+        /// <summary>
+        /// Load the defined file from fined path to the file object or default ImageFormat
         /// </summary>
         /// <param name="path">Path to load the file from</param>
         public void LoadFile(string path)
@@ -471,24 +552,40 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         {
             try
             {
-                string Extension = string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension;
+                string Extension = "";
+                if (this.ImageProcedet == null)
+                {
+                    Extension = string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension;
+                }
+                else
+                {
+                    Extension = this.GetImageFormatExtension(this.ImageProcedet);
+                }
+
+                string FileNameForDialog = this.OriginalFileName;
+                // Check for correct Extension
+                    if (!string.IsNullOrEmpty(FileNameForDialog) && new System.IO.FileInfo(@"c:\"+ FileNameForDialog).Extension != Extension) FileNameForDialog += Extension;
+
                 SaveFileDialog SaveFileDialog = new SaveFileDialog
                 {
                     DefaultExt = Extension,
-                    FileName = string.IsNullOrEmpty(this.OriginalFileName) ? "" : this.OriginalFileName,
-                    Filter = string.Format("(*{0}) | *{0}", new object[] { Extension })
+                    FileName = string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultFileName : FileNameForDialog,
+                    Filter = string.Format("... (*{0}) | *{0}", new object[] { Extension })
                 };
                 if (SaveFileDialog.ShowDialog(owner) != DialogResult.OK) return;
 
                 string FileToOpen = SaveFileDialog.FileName;
+                // Check for correct Extension
+                if (new System.IO.FileInfo(FileToOpen).Extension != Extension) FileToOpen += Extension;                
+
                 System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
-                if (this.Image == null)
+                if (this.ImageProcedet == null)
                 {
                     System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
                 }
                 else
                 {
-                    this.ImageProcedet.Save(FileToOpen, Settings_AppConst.Default.ScanedImages_DefaultFormat);
+                    this.ImageProcedet.Save(FileToOpen, this.GetImageFormat(this.ImageProcedet));
                 }
 
                 if (MessageBox.Show(owner, Stringtable._0x0018m, Stringtable._0x0018c, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -515,22 +612,23 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 string TempFile = System.IO.Path.GetTempFileName();
                 string FileToOpen = TempFile;
-                if (string.IsNullOrEmpty(this.OriginalFileName))
+                if (this.ImageProcedet == null)
                 {
-                    FileToOpen += Settings_AppConst.Default.ScanedImages_DefaultExtension;
+                    FileToOpen += string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension;
                 }
                 else
                 {
-                    FileToOpen += new System.IO.FileInfo(this.OriginalFileName).Extension;
+                    FileToOpen += this.GetImageFormatExtension(this.ImageProcedet);
                 }
+                //FileToOpen += string.IsNullOrEmpty(this.OriginalFileName) ? this.GetImageFormatReducedExtension(this.ImageProcedet) : new System.IO.FileInfo(this.OriginalFileName).Extension;
                 System.IO.File.Move(TempFile, FileToOpen);
-                if (this.Image == null)
+                if (this.ImageProcedet == null)
                 {
                     System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
                 }
                 else
                 {
-                    this.ImageProcedet.Save(FileToOpen, Settings_AppConst.Default.ScanedImages_DefaultFormat);
+                    this.ImageProcedet.Save(FileToOpen, this.GetImageFormat(this.ImageProcedet));
                 }
 
                 System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
