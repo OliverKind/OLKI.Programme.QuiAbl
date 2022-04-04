@@ -145,7 +145,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
         private DateTime? GetDate(string inputString)
         {
             if (string.IsNullOrEmpty(System.Text.RegularExpressions.Regex.Replace(inputString, @"[^0-9]", ""))) return null;
-            DateTime.TryParse(this.mtbDateMax.Text, out DateTime TempDate);
+            if (DateTime.TryParse(inputString, out DateTime TempDate) == false) return null;
             return TempDate;
         }
 
@@ -225,47 +225,47 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             /// <summary>
             /// Id of the company that has to be associated to the bill. Set 0 to not search for.
             /// </summary>
-            public int CompanyId { private get; set; }
+            public int CompanyId { get; set; }
 
             /// <summary>
             /// Maximum bill date to search for. Set NULL to not search for.
             /// </summary>
-            public DateTime? DateMax { private get; set; }
+            public DateTime? DateMax { get; set; }
 
             /// <summary>
             /// Minimum bill date to search for. Set NULL to not search for.
             /// </summary>
-            public DateTime? DateMin { private get; set; }
+            public DateTime? DateMin { get; set; }
 
             /// <summary>
             /// Is the Bill disposed
             /// </summary>
-            public CheckState Disposed { private get; set; }
+            public CheckState Disposed { get; set; }
 
             /// <summary>
             /// Maximum expidation date to search for. Set NULL to not search for.
             /// </summary>
-            public DateTime? ExpidationMax { private get; set; }
+            public DateTime? ExpidationMax { get; set; }
 
             /// <summary>
             /// Minimum expidation date to search for. Set NULL to not search for.
             /// </summary>
-            public DateTime? ExpidationMin { private get; set; }
+            public DateTime? ExpidationMin { get; set; }
 
             /// <summary>
             /// Text to search as any free text in bill or sub items. Set EMPTY to not seach for.
             /// </summary>
-            public string Searchtext { private get; set; }
+            public string Searchtext { get; set; }
 
             /// <summary>
             /// Price that any invoice item in bill has to be. Set 0 to not seach for.
             /// </summary>
-            public decimal Price { private get; set; }
+            public decimal Price { get; set; }
 
             /// <summary>
             /// Bill classes the company has to be associated to. Set an empty list if to not seach for.
             /// </summary>
-            public List<int> BillClasses { private get; set; }
+            public List<int> BillClasses { get; set; }
             #endregion
 
             #region Methodes
