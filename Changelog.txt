@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.4.5.28] - 2022-04-04
+### Fixed
+- Search for Date not working
+
 ## [2.4.4.27] - 2022-03-21
 ### Fixed
 - Original FilePath lost, if image was modified
