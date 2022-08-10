@@ -37,7 +37,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms
     /// </summary>
     public partial class Search : Form
     {
+        #region Constants
+        /// <summary>
+        /// Reset filter results if form will be closed
+        /// </summary>
+        private const bool RESET_FILTER_RESULTS_ON_CLOSE = false;
+        #endregion
+
         #region Events
+        /// <summary>
+        /// Raised if the results List should been requested
+        /// </summary>
         public event EventHandler RequestListResults;
         #endregion
 
@@ -167,6 +177,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
         #region Form Events
         private void Search_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (!RESET_FILTER_RESULTS_ON_CLOSE) return;
             this.BillsFound = new List<int>();
             foreach (KeyValuePair<int, Bill> Billtem in this._project.Bills)
             {

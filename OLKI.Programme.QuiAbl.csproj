@@ -307,6 +307,7 @@
     <Content Include="Resources\Icons\Bill.ico" />
     <Content Include="Resources\Icons\Bill.png" />
     <Content Include="Resources\Icons\Crop.png" />
+    <Content Include="Resources\Icons\FilterReset.png" />
     <Content Include="Resources\Icons\Help.ico" />
     <Content Include="Resources\Icons\Help.png" />
     <None Include="Resources\Icons\NoDocument.png" />

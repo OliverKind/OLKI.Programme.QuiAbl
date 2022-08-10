@@ -351,6 +351,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.Project.Changed = true;
         }
 
+        private void btnSearchBill_Click(object sender, EventArgs e)
+        {
+            this.mnuBillForm_Search_Bill_Click(sender, e);
+        }
+
+        private void btnSearchReset_Click(object sender, EventArgs e)
+        {
+            this.mnuBillForm_Search_Reset_Click(sender, e);
+        }
+
         private void lsvBills_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
             Settings_AppVar.Default.ColHeadSet_cohBillsTitle_Width = this.cohBillsTitle.Width;
@@ -530,6 +540,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
                 this._searchBill.Show(this);
             }
+        }
+
+        private void mnuBillForm_Search_Reset_Click(object sender, EventArgs e)
+        {
+            this.FillListView(null);
         }
         #endregion
 

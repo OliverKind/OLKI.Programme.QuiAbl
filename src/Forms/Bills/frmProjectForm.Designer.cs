@@ -45,6 +45,14 @@
             this.lblBillFileNumber = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lsvBills = new OLKI.Toolbox.Widgets.SortListView();
+            this.cohBillsTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsDocuments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsComapny = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnBillAdd = new System.Windows.Forms.Button();
             this.btnBillRemove = new System.Windows.Forms.Button();
             this.btnBillEdit = new System.Windows.Forms.Button();
@@ -54,15 +62,10 @@
             this.mnuBillsForm_Basedata_BillClass = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Search_Reset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_AutoOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.lsvBills = new OLKI.Toolbox.Widgets.SortListView();
-            this.cohBillsTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsDocuments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsComapny = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSearchBill = new System.Windows.Forms.Button();
+            this.btnSearchReset = new System.Windows.Forms.Button();
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -250,6 +253,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSearchReset);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSearchBill);
             this.splitContainer1.Panel1.Controls.Add(this.lsvBills);
             this.splitContainer1.Panel1.Controls.Add(this.btnBillAdd);
             this.splitContainer1.Panel1.Controls.Add(this.btnBillRemove);
@@ -263,6 +268,69 @@
             this.splitContainer1.Size = new System.Drawing.Size(785, 561);
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // lsvBills
+            // 
+            this.lsvBills.AllowColumnReorder = true;
+            this.lsvBills.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvBills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvBills.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cohBillsTitle,
+            this.cohBillsDate,
+            this.cohBillsDocuments,
+            this.cohBillsCategory,
+            this.cohBillsComapny,
+            this.cohBillsComment,
+            this.cohBillsLength});
+            this.lsvBills.FullRowSelect = true;
+            this.lsvBills.GridLines = true;
+            this.lsvBills.HideSelection = false;
+            this.lsvBills.Location = new System.Drawing.Point(12, 42);
+            this.lsvBills.Name = "lsvBills";
+            this.lsvBills.ShowItemToolTips = true;
+            this.lsvBills.Size = new System.Drawing.Size(385, 507);
+            this.lsvBills.TabIndex = 3;
+            this.lsvBills.UseCompatibleStateImageBehavior = false;
+            this.lsvBills.View = System.Windows.Forms.View.Details;
+            this.lsvBills.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvBills_ColumnWidthChanged);
+            this.lsvBills.SelectedIndexChanged += new System.EventHandler(this.lsvBills_SelectedIndexChanged);
+            this.lsvBills.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvBills_MouseDoubleClick);
+            // 
+            // cohBillsTitle
+            // 
+            this.cohBillsTitle.Text = "Rechnung";
+            this.cohBillsTitle.Width = 90;
+            // 
+            // cohBillsDate
+            // 
+            this.cohBillsDate.Text = "Datum";
+            this.cohBillsDate.Width = 90;
+            // 
+            // cohBillsDocuments
+            // 
+            this.cohBillsDocuments.Text = "Dokumente";
+            this.cohBillsDocuments.Width = 90;
+            // 
+            // cohBillsCategory
+            // 
+            this.cohBillsCategory.Text = "Kategorie";
+            this.cohBillsCategory.Width = 90;
+            // 
+            // cohBillsComapny
+            // 
+            this.cohBillsComapny.Text = "Firma";
+            // 
+            // cohBillsComment
+            // 
+            this.cohBillsComment.Text = "Kommentar";
+            this.cohBillsComment.Width = 90;
+            // 
+            // cohBillsLength
+            // 
+            this.cohBillsLength.Text = "Dokumentgröße";
+            this.cohBillsLength.Width = 90;
             // 
             // btnBillAdd
             // 
@@ -348,6 +416,7 @@
             // 
             this.mnuBillForm_Search.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuBillForm_Search_Bill,
+            this.mnuBillForm_Search_Reset,
             this.mnuBillForm_Search_AutoOpen});
             this.mnuBillForm_Search.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mnuBillForm_Search.MergeIndex = 2;
@@ -364,6 +433,15 @@
             this.mnuBillForm_Search_Bill.Text = "&Rechnung";
             this.mnuBillForm_Search_Bill.Click += new System.EventHandler(this.mnuBillForm_Search_Bill_Click);
             // 
+            // mnuBillForm_Search_Reset
+            // 
+            this.mnuBillForm_Search_Reset.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FilterReset;
+            this.mnuBillForm_Search_Reset.Name = "mnuBillForm_Search_Reset";
+            this.mnuBillForm_Search_Reset.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
+            this.mnuBillForm_Search_Reset.Size = new System.Drawing.Size(345, 22);
+            this.mnuBillForm_Search_Reset.Text = "Gefilterte Liste zurücksetzen";
+            this.mnuBillForm_Search_Reset.Click += new System.EventHandler(this.mnuBillForm_Search_Reset_Click);
+            // 
             // mnuBillForm_Search_AutoOpen
             // 
             this.mnuBillForm_Search_AutoOpen.Name = "mnuBillForm_Search_AutoOpen";
@@ -373,68 +451,27 @@
             this.mnuBillForm_Search_AutoOpen.Text = "Suche beim Starten öffnen";
             this.mnuBillForm_Search_AutoOpen.Click += new System.EventHandler(this.mnuBillForm_Search_AutoOpen_Click);
             // 
-            // lsvBills
+            // btnSearchBill
             // 
-            this.lsvBills.AllowColumnReorder = true;
-            this.lsvBills.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsvBills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lsvBills.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.cohBillsTitle,
-            this.cohBillsDate,
-            this.cohBillsDocuments,
-            this.cohBillsCategory,
-            this.cohBillsComapny,
-            this.cohBillsComment,
-            this.cohBillsLength});
-            this.lsvBills.FullRowSelect = true;
-            this.lsvBills.GridLines = true;
-            this.lsvBills.HideSelection = false;
-            this.lsvBills.Location = new System.Drawing.Point(12, 42);
-            this.lsvBills.Name = "lsvBills";
-            this.lsvBills.ShowItemToolTips = true;
-            this.lsvBills.Size = new System.Drawing.Size(385, 507);
-            this.lsvBills.TabIndex = 3;
-            this.lsvBills.UseCompatibleStateImageBehavior = false;
-            this.lsvBills.View = System.Windows.Forms.View.Details;
-            this.lsvBills.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvBills_ColumnWidthChanged);
-            this.lsvBills.SelectedIndexChanged += new System.EventHandler(this.lsvBills_SelectedIndexChanged);
-            this.lsvBills.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvBills_MouseDoubleClick);
+            this.btnSearchBill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
+            this.btnSearchBill.Location = new System.Drawing.Point(224, 12);
+            this.btnSearchBill.Name = "btnSearchBill";
+            this.btnSearchBill.Size = new System.Drawing.Size(24, 24);
+            this.btnSearchBill.TabIndex = 4;
+            this.btnSearchBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchBill.UseVisualStyleBackColor = true;
+            this.btnSearchBill.Click += new System.EventHandler(this.btnSearchBill_Click);
             // 
-            // cohBillsTitle
+            // btnSearchReset
             // 
-            this.cohBillsTitle.Text = "Rechnung";
-            this.cohBillsTitle.Width = 90;
-            // 
-            // cohBillsDate
-            // 
-            this.cohBillsDate.Text = "Datum";
-            this.cohBillsDate.Width = 90;
-            // 
-            // cohBillsDocuments
-            // 
-            this.cohBillsDocuments.Text = "Dokumente";
-            this.cohBillsDocuments.Width = 90;
-            // 
-            // cohBillsCategory
-            // 
-            this.cohBillsCategory.Text = "Kategorie";
-            this.cohBillsCategory.Width = 90;
-            // 
-            // cohBillsComapny
-            // 
-            this.cohBillsComapny.Text = "Firma";
-            // 
-            // cohBillsComment
-            // 
-            this.cohBillsComment.Text = "Kommentar";
-            this.cohBillsComment.Width = 90;
-            // 
-            // cohBillsLength
-            // 
-            this.cohBillsLength.Text = "Dokumentgröße";
-            this.cohBillsLength.Width = 90;
+            this.btnSearchReset.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FilterReset;
+            this.btnSearchReset.Location = new System.Drawing.Point(254, 12);
+            this.btnSearchReset.Name = "btnSearchReset";
+            this.btnSearchReset.Size = new System.Drawing.Size(24, 24);
+            this.btnSearchReset.TabIndex = 5;
+            this.btnSearchReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchReset.UseVisualStyleBackColor = true;
+            this.btnSearchReset.Click += new System.EventHandler(this.btnSearchReset_Click);
             // 
             // ProjectForm
             // 
@@ -505,5 +542,8 @@
         private System.Windows.Forms.Label lblBillFileOriginalFileName;
         private System.Windows.Forms.ColumnHeader cohBillsLength;
         private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Search_AutoOpen;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Search_Reset;
+        private System.Windows.Forms.Button btnSearchReset;
+        private System.Windows.Forms.Button btnSearchBill;
     }
 }
