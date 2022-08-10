@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.5.0.29] - 2022-08-10
+### Changed
+- Searchresults not automaticaly resettet if search form will be closed
+
 ## [2.4.5.28] - 2022-04-04
 ### Fixed
 - Search for Date not working
