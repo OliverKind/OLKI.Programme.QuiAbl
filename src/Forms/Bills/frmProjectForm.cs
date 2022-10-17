@@ -534,6 +534,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this._searchBill = new Search(this.Project);
                 this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
+                this._searchBill.Text = string.Format(this._searchBill.Text, new object[] { this.Project.ProjectTitle });
                 this._searchBill.Show(this);
             }
         }
@@ -576,6 +577,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void _project_ProjectChanged(object sender, EventArgs e)
         {
             FormInv.Text(this, this.Project.ProjectTitle + (this.Project.Changed ? "*" : ""));
+            if (this._searchBill != null)
+            {
+                this._searchBill.Text = string.Format(this._searchBill.Text, new object[] { this.Project.ProjectTitle });
+            }
         }
 
         private void _search_RequestListResults(object sender, EventArgs e)

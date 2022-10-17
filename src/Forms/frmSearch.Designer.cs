@@ -246,7 +246,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Search";
             this.ShowInTaskbar = false;
-            this.Text = "Suchen";
+            this.Text = "Suchen in: {0}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Search_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
