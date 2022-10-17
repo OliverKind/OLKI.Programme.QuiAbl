@@ -1,4 +1,4 @@
-;NSIS Installer for QuiAbl 2.5.0.29
+;NSIS Installer for QuiAbl 2.5.1.30
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QuiAbl'
-  !define Version          '2.5.0.29'
+  !define Version          '2.5.1.30'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um Quittungen und Rechnungen zu ordnen'
   !define Copyright        '2021 - Oliver Kind'

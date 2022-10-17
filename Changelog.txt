@@ -1,4 +1,11 @@
 # QuiAbl - Quittungsablage
+## [2.5.1.30] - 2022-10-17
+### Added
+- Show Project Name at Search-Form"
+
+### Fixed
+- Show Search-Form multiple times
+
 ## [2.5.0.29] - 2022-08-10
 ### Changed
 - Searchresults not automaticaly resettet if search form will be closed
