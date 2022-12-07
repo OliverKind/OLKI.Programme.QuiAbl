@@ -83,7 +83,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
                 if (ProjectForm.Project.Changed)
                 {
-                    DialogResult CloseDialogResult = MessageBox.Show(string.Format(Stringtable._0x0015m, new object[] { ProjectFile }), Stringtable._0x0015c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    DialogResult CloseDialogResult = (DialogResult)ProjectForm.Invoke((Func<DialogResult>)(() => MessageBox.Show(ProjectForm, string.Format(Stringtable._0x0015m, new object[] { ProjectFile }), Stringtable._0x0015c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)));
                     switch (CloseDialogResult)
                     {
                         case DialogResult.Yes:
