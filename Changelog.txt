@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [2.5.2.31] - 2022-12-07
+### Fixed
+- "Save changed Files?" Dialog can be in Background
+
 ## [2.5.1.30] - 2022-10-17
 ### Added
 - Show Project Name at Search-Form"
