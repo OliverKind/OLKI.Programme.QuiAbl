@@ -85,6 +85,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             InitializeComponent();
             this._project = project;
             this.FillCompanyComboBox();
+            this.btnClose.Location = new System.Drawing.Point(-this.btnClose.Size.Width - 10, 0);
             this.chkCloseAfterSucessSearch.Checked = Properties.Settings.Default.Search_CloseAfterSucessSearch;
             this.nudPrice.Maximum = decimal.MaxValue;
             this.nudPrice.Minimum = decimal.MinValue;
@@ -185,6 +186,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms
                 this.BillsFound.Add(Billtem.Value.Id);
             }
             RequestListResults?.Invoke(sender, e);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

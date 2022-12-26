@@ -47,6 +47,7 @@
             this.lblExpidation = new System.Windows.Forms.Label();
             this.chkBillDisposed = new System.Windows.Forms.CheckBox();
             this.chkCloseAfterSucessSearch = new System.Windows.Forms.CheckBox();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,11 +234,27 @@
             this.chkCloseAfterSucessSearch.UseVisualStyleBackColor = true;
             this.chkCloseAfterSucessSearch.CheckedChanged += new System.EventHandler(this.chkCloseAfterSucessSearch_CheckedChanged);
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(334, 166);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(97, 24);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.Text = "Schließen";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // Search
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(443, 584);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.chkCloseAfterSucessSearch);
             this.Controls.Add(this.chkBillDisposed);
             this.Controls.Add(this.mtbExpidationMax);
@@ -289,5 +306,6 @@
         private System.Windows.Forms.Label lblExpidation;
         private System.Windows.Forms.CheckBox chkBillDisposed;
         private System.Windows.Forms.CheckBox chkCloseAfterSucessSearch;
+        private System.Windows.Forms.Button btnClose;
     }
 }
