@@ -46,6 +46,7 @@
             this.lblExpidation2 = new System.Windows.Forms.Label();
             this.lblExpidation = new System.Windows.Forms.Label();
             this.chkBillDisposed = new System.Windows.Forms.CheckBox();
+            this.chkCloseAfterSucessSearch = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSearch.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
-            this.btnSearch.Location = new System.Drawing.Point(12, 525);
+            this.btnSearch.Location = new System.Drawing.Point(12, 548);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(419, 24);
             this.btnSearch.TabIndex = 17;
@@ -220,11 +221,24 @@
             this.chkBillDisposed.ThreeState = true;
             this.chkBillDisposed.UseVisualStyleBackColor = true;
             // 
+            // chkCloseAfterSucessSearch
+            // 
+            this.chkCloseAfterSucessSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkCloseAfterSucessSearch.AutoSize = true;
+            this.chkCloseAfterSucessSearch.Location = new System.Drawing.Point(12, 525);
+            this.chkCloseAfterSucessSearch.Name = "chkCloseAfterSucessSearch";
+            this.chkCloseAfterSucessSearch.Size = new System.Drawing.Size(290, 17);
+            this.chkCloseAfterSucessSearch.TabIndex = 20;
+            this.chkCloseAfterSucessSearch.Text = "Bei erfolgreicher Suche, Formular automatisch schließen";
+            this.chkCloseAfterSucessSearch.UseVisualStyleBackColor = true;
+            this.chkCloseAfterSucessSearch.CheckedChanged += new System.EventHandler(this.chkCloseAfterSucessSearch_CheckedChanged);
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 561);
+            this.ClientSize = new System.Drawing.Size(443, 584);
+            this.Controls.Add(this.chkCloseAfterSucessSearch);
             this.Controls.Add(this.chkBillDisposed);
             this.Controls.Add(this.mtbExpidationMax);
             this.Controls.Add(this.mtbExpidationMin);
@@ -274,5 +288,6 @@
         private System.Windows.Forms.Label lblExpidation2;
         private System.Windows.Forms.Label lblExpidation;
         private System.Windows.Forms.CheckBox chkBillDisposed;
+        private System.Windows.Forms.CheckBox chkCloseAfterSucessSearch;
     }
 }

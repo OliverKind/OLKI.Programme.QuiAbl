@@ -85,6 +85,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             InitializeComponent();
             this._project = project;
             this.FillCompanyComboBox();
+            this.chkCloseAfterSucessSearch.Checked = Properties.Settings.Default.Search_CloseAfterSucessSearch;
             this.nudPrice.Maximum = decimal.MaxValue;
             this.nudPrice.Minimum = decimal.MinValue;
             this.FillBillClassTreeView(null);
@@ -212,6 +213,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             }
 
             RequestListResults?.Invoke(sender, e);
+
+            if (this.BillsFound.Count > 0 && this.chkCloseAfterSucessSearch.Checked) this.Close();
+        }
+
+        private void chkCloseAfterSucessSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Search_CloseAfterSucessSearch = this.chkCloseAfterSucessSearch.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void trvBillClasses_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
