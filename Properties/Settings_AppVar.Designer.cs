@@ -12,7 +12,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
     internal sealed partial class Settings_AppVar : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings_AppVar defaultInstance = ((Settings_AppVar)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings_AppVar())));
@@ -163,6 +163,18 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["ColHeadSet_cohBillsLength_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int ColHeadSet_cohBillsId_Width {
+            get {
+                return ((int)(this["ColHeadSet_cohBillsId_Width"]));
+            }
+            set {
+                this["ColHeadSet_cohBillsId_Width"] = value;
             }
         }
     }

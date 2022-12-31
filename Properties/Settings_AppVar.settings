@@ -35,5 +35,8 @@
     <Setting Name="ColHeadSet_cohBillsLength_Width" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">-1</Value>
     </Setting>
+    <Setting Name="ColHeadSet_cohBillsId_Width" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -45,6 +45,8 @@
             this.lblBillFileNumber = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSearchReset = new System.Windows.Forms.Button();
+            this.btnSearchBill = new System.Windows.Forms.Button();
             this.lsvBills = new OLKI.Toolbox.Widgets.SortListView();
             this.cohBillsTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -64,8 +66,7 @@
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Reset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_AutoOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSearchBill = new System.Windows.Forms.Button();
-            this.btnSearchReset = new System.Windows.Forms.Button();
+            this.cohBillsId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -269,6 +270,28 @@
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnSearchReset
+            // 
+            this.btnSearchReset.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FilterReset;
+            this.btnSearchReset.Location = new System.Drawing.Point(254, 12);
+            this.btnSearchReset.Name = "btnSearchReset";
+            this.btnSearchReset.Size = new System.Drawing.Size(24, 24);
+            this.btnSearchReset.TabIndex = 5;
+            this.btnSearchReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchReset.UseVisualStyleBackColor = true;
+            this.btnSearchReset.Click += new System.EventHandler(this.btnSearchReset_Click);
+            // 
+            // btnSearchBill
+            // 
+            this.btnSearchBill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
+            this.btnSearchBill.Location = new System.Drawing.Point(224, 12);
+            this.btnSearchBill.Name = "btnSearchBill";
+            this.btnSearchBill.Size = new System.Drawing.Size(24, 24);
+            this.btnSearchBill.TabIndex = 4;
+            this.btnSearchBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchBill.UseVisualStyleBackColor = true;
+            this.btnSearchBill.Click += new System.EventHandler(this.btnSearchBill_Click);
+            // 
             // lsvBills
             // 
             this.lsvBills.AllowColumnReorder = true;
@@ -283,7 +306,8 @@
             this.cohBillsCategory,
             this.cohBillsComapny,
             this.cohBillsComment,
-            this.cohBillsLength});
+            this.cohBillsLength,
+            this.cohBillsId});
             this.lsvBills.FullRowSelect = true;
             this.lsvBills.GridLines = true;
             this.lsvBills.HideSelection = false;
@@ -451,27 +475,9 @@
             this.mnuBillForm_Search_AutoOpen.Text = "Suche beim Starten öffnen";
             this.mnuBillForm_Search_AutoOpen.Click += new System.EventHandler(this.mnuBillForm_Search_AutoOpen_Click);
             // 
-            // btnSearchBill
+            // cohBillsId
             // 
-            this.btnSearchBill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
-            this.btnSearchBill.Location = new System.Drawing.Point(224, 12);
-            this.btnSearchBill.Name = "btnSearchBill";
-            this.btnSearchBill.Size = new System.Drawing.Size(24, 24);
-            this.btnSearchBill.TabIndex = 4;
-            this.btnSearchBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearchBill.UseVisualStyleBackColor = true;
-            this.btnSearchBill.Click += new System.EventHandler(this.btnSearchBill_Click);
-            // 
-            // btnSearchReset
-            // 
-            this.btnSearchReset.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FilterReset;
-            this.btnSearchReset.Location = new System.Drawing.Point(254, 12);
-            this.btnSearchReset.Name = "btnSearchReset";
-            this.btnSearchReset.Size = new System.Drawing.Size(24, 24);
-            this.btnSearchReset.TabIndex = 5;
-            this.btnSearchReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearchReset.UseVisualStyleBackColor = true;
-            this.btnSearchReset.Click += new System.EventHandler(this.btnSearchReset_Click);
+            this.cohBillsId.Text = "Rechnung Eintrag";
             // 
             // ProjectForm
             // 
@@ -545,5 +551,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Search_Reset;
         private System.Windows.Forms.Button btnSearchReset;
         private System.Windows.Forms.Button btnSearchBill;
+        private System.Windows.Forms.ColumnHeader cohBillsId;
     }
 }

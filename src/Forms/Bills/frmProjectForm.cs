@@ -113,6 +113,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             if (Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width > -1) { this.cohBillsComapny.Width = Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width; }
             if (Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width > -1) { this.cohBillsComment.Width = Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width; }
             if (Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width > -1) { this.cohBillsLength.Width = Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width; }
+            if (Settings_AppVar.Default.ColHeadSet_cohBillsId_Width > -1) { this.cohBillsId.Width = Settings_AppVar.Default.ColHeadSet_cohBillsId_Width; }
+
 
             //Load Bills
             this.Project = project;
@@ -282,6 +284,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvBills.Items[ItemIndex].SubItems[5].Text = billItem.Comment;
             this.lsvBills.Items[ItemIndex].SubItems[6].Tag = billItem.FilesLength;
             this.lsvBills.Items[ItemIndex].SubItems[6].Text = Toolbox.DirectoryAndFile.FileSize.Convert(billItem.FilesLength, 2, Toolbox.DirectoryAndFile.FileSize.ByteBase.SI);
+            this.lsvBills.Items[ItemIndex].SubItems[7].Tag = billItem.Id;
+            this.lsvBills.Items[ItemIndex].SubItems[7].Text = billItem.Id.ToString();
 
             this.prgBillProperty.Refresh();
         }
@@ -370,6 +374,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width = this.cohBillsComapny.Width;
             Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width = this.cohBillsComment.Width;
             Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width = this.cohBillsLength.Width;
+            Settings_AppVar.Default.ColHeadSet_cohBillsId_Width = this.cohBillsId.Width;
             Settings_AppVar.Default.Save();
         }
 
