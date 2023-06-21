@@ -1179,7 +1179,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count == 1;
+            this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count > 0;
             if (this.lsvInvoiceItems.SelectedItems.Count > 0)
             {
                 List<InvoiceItem> SelectedItems = new List<InvoiceItem> { };
