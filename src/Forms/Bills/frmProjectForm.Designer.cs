@@ -55,6 +55,7 @@
             this.cohBillsComapny = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cohBillsLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohBillsId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnBillAdd = new System.Windows.Forms.Button();
             this.btnBillRemove = new System.Windows.Forms.Button();
             this.btnBillEdit = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Reset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_AutoOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.cohBillsId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabBill.SuspendLayout();
             this.tabpBillData.SuspendLayout();
             this.tabpBillDocs.SuspendLayout();
@@ -356,6 +356,10 @@
             this.cohBillsLength.Text = "Dokumentgröße";
             this.cohBillsLength.Width = 90;
             // 
+            // cohBillsId
+            // 
+            this.cohBillsId.Text = "Rechnung Eintrag";
+            // 
             // btnBillAdd
             // 
             this.btnBillAdd.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.New;
@@ -474,10 +478,6 @@
             this.mnuBillForm_Search_AutoOpen.Size = new System.Drawing.Size(345, 22);
             this.mnuBillForm_Search_AutoOpen.Text = "Suche beim Starten öffnen";
             this.mnuBillForm_Search_AutoOpen.Click += new System.EventHandler(this.mnuBillForm_Search_AutoOpen_Click);
-            // 
-            // cohBillsId
-            // 
-            this.cohBillsId.Text = "Rechnung Eintrag";
             // 
             // ProjectForm
             // 

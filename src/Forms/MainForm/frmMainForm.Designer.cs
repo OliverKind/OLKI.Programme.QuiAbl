@@ -34,6 +34,7 @@
             this.tslFiles = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslCompa = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslBillC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslProFi = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuMainForm = new System.Windows.Forms.MenuStrip();
             this.mnuMain_File = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_New = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tolMain_Basedata_Company = new System.Windows.Forms.ToolStripButton();
             this.tolMain_Basedata_BillClass = new System.Windows.Forms.ToolStripButton();
-            this.tslProFi = new System.Windows.Forms.ToolStripStatusLabel();
             this.stsStatus.SuspendLayout();
             this.mnuMainForm.SuspendLayout();
             this.tolMain.SuspendLayout();
@@ -113,6 +113,13 @@
             this.tslBillC.Name = "tslBillC";
             this.tslBillC.Size = new System.Drawing.Size(84, 17);
             this.tslBillC.Text = "Kategorien: {0}";
+            // 
+            // tslProFi
+            // 
+            this.tslProFi.Name = "tslProFi";
+            this.tslProFi.Size = new System.Drawing.Size(46, 17);
+            this.tslProFi.Text = "{0} ({1})";
+            this.tslProFi.Click += new System.EventHandler(this.tslProFi_Click);
             // 
             // mnuMainForm
             // 
@@ -430,13 +437,6 @@
             this.tolMain_Basedata_BillClass.Size = new System.Drawing.Size(23, 22);
             this.tolMain_Basedata_BillClass.Text = "Verwalte Kategorien";
             this.tolMain_Basedata_BillClass.Click += new System.EventHandler(this.tolMain_Basedata_BillClass_Click);
-            // 
-            // tslProFi
-            // 
-            this.tslProFi.Name = "tslProFi";
-            this.tslProFi.Size = new System.Drawing.Size(46, 17);
-            this.tslProFi.Text = "{0} ({1})";
-            this.tslProFi.Click += new System.EventHandler(this.tslProFi_Click);
             // 
             // MainForm
             // 
