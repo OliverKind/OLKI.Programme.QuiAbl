@@ -59,7 +59,7 @@ namespace OLKI.Programme.QuiAbl.src
         /// <summary>
         /// Get the active project
         /// </summary>
-        internal Project.Project ActiveProject { get; private set; } = null;
+        internal Project.Project ActiveProject { get; set; } = null;
         #endregion
 
         #region Methodes
@@ -145,12 +145,12 @@ namespace OLKI.Programme.QuiAbl.src
         /// Open a new specified project with the specified file or shows the file open dialog file file path ist empth
         /// </summary>
         /// <param name="path">A string that specifies the path of the project file to open</param>
-        /// <param name="newProject">Specifies that the project to open is a new project and no file path is specified</param>
-        private bool Project_Open(string path, bool newProject, BackgroundWorker worker)
+        /// <param name="isNewProject">Specifies that the project to open is a new project and no file path is specified</param>
+        private bool Project_Open(string path, bool isNewProject, BackgroundWorker worker)
         {
             try
             {
-                Project.Project NewProject = new Project.Project(path);
+                Project.Project ProjectToLode = new Project.Project(path);
                 LoadProjectState State = new LoadProjectState
                 {
                     ProjectData = null,
@@ -159,7 +159,7 @@ namespace OLKI.Programme.QuiAbl.src
                 };
 
                 // If it ist not an new project that should been loaded, ask for file to open or open the file if path is given
-                if (!newProject)
+                if (!isNewProject)
                 {
                     if (string.IsNullOrEmpty(path))
                     {
@@ -173,15 +173,15 @@ namespace OLKI.Programme.QuiAbl.src
                             return false;
                         }
                         worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
-                        if (!NewProject.FromXElement(File.ReadAllText(path), worker, State, this._mainForm)) return false;
+                        if (!ProjectToLode.FromXElement(File.ReadAllText(path), worker, State, this._mainForm)) return false;
                     }
                 }
 
                 //Final root project to application
-                State.ProjectData = NewProject;
+                State.ProjectData = ProjectToLode;
                 State.ProgressDescirption = Stringtable._0x0011;
                 if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
-                this.ActiveProject = NewProject;
+                this.ActiveProject = ProjectToLode;
                 this.ActiveProject.ProjectChanged += new EventHandler(this.ToggleActiveProjecChanged);
 
                 this.ProjecOpenOrNew?.Invoke(this, new EventArgs());

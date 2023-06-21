@@ -265,6 +265,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this.tolMain_Basedata_BillClass.Enabled = true;
                 this.tolMain_Basedata_Company.Enabled = true;
                 this.tolMain_File_Save.Enabled = true;
+
+                this._projectManager.ActiveProject = ActiveMdiChild.Project;
             }
             else
             {
@@ -274,6 +276,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 this.tolMain_Basedata_BillClass.Enabled = false;
                 this.tolMain_Basedata_Company.Enabled = false;
                 this.tolMain_File_Save.Enabled = false;
+
+                if (this._projectManager != null) this._projectManager.ActiveProject = null;
             }
 
             this.SetStatusstripLabels(this.ActiveMdiChild);
@@ -353,7 +357,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
         private void mnuMain_File_Save_Click(object sender, EventArgs e)
         {
-            if (!this._bgwSaveFile.IsBusy)
+            if (this._projectManager.ActiveProject.File == null || string.IsNullOrEmpty(this._projectManager.ActiveProject.File.FullName) || !this._projectManager.ActiveProject.File.Exists)
+            {
+                //Go to SaveAs if File is not defined or didn't exists
+                this.mnuMain_File_SaveAs_Click(sender, e);
+            }
+            else if (!this._bgwSaveFile.IsBusy)
             {
                 this._bgwSaveFile.RunWorkerAsync(new SaveProjectsArguments(SaveProjectsArguments.SaveMode.Save, null, false));
             }
@@ -497,6 +506,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             //Nothing to do at this application
         }
         #endregion
-        #endregion
+#endregion
     }
 }
