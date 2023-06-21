@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+## [3.0.0.33] - 2023-06-21
+### Changed
+- Enable decimal numbers for Invoice Item Quantity
+
+### Fixed
+- Multiselected Bill Items can't deleted
+- Several save issues, if multiple documents are open
+
 ## [2.6.0.32] - 2022-12-31
 ### Added
 - Show Bill ID
