@@ -179,14 +179,14 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <summary>
         /// The Quantity of the InvoiceItem
         /// </summary>
-        public int _quantity = 0;
+        public decimal _quantity = 0;
         /// <summary>
         /// Get or set the Quantity of the InvoiceItem
         /// </summary>
         [Category("Allgemein")]
         [Description("Die Anzahl des Artikels.")]
         [DisplayName("Menge")]
-        public int Quantity
+        public decimal Quantity
         {
             get => _quantity;
             set
