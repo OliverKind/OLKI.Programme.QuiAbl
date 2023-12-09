@@ -64,6 +64,11 @@
             this.mnuBillForm_Basedata = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillsForm_Basedata_Company = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillsForm_Basedata_BillClass = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Bill = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Bill_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Bill_Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Bill_Copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBillForm_Bill_Remove = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Bill = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBillForm_Search_Reset = new System.Windows.Forms.ToolStripMenuItem();
@@ -414,10 +419,11 @@
             // 
             this.mnuBills.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuBillForm_Basedata,
+            this.mnuBillForm_Bill,
             this.mnuBillForm_Search});
             this.mnuBills.Location = new System.Drawing.Point(0, 0);
             this.mnuBills.Name = "mnuBills";
-            this.mnuBills.Size = new System.Drawing.Size(785, 24);
+            this.mnuBills.Size = new System.Drawing.Size(819, 24);
             this.mnuBills.TabIndex = 1;
             this.mnuBills.Text = "mnuBills";
             this.mnuBills.Visible = false;
@@ -453,6 +459,59 @@
             this.mnuBillsForm_Basedata_BillClass.Text = "&Kategorien";
             this.mnuBillsForm_Basedata_BillClass.Click += new System.EventHandler(this.mnuBillsForm_Basedata_BillClass_Click);
             // 
+            // mnuBillForm_Bill
+            // 
+            this.mnuBillForm_Bill.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuBillForm_Bill_Add,
+            this.mnuBillForm_Bill_Edit,
+            this.mnuBillForm_Bill_Copy,
+            this.mnuBillForm_Bill_Remove});
+            this.mnuBillForm_Bill.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnuBillForm_Bill.MergeIndex = 2;
+            this.mnuBillForm_Bill.Name = "mnuBillForm_Bill";
+            this.mnuBillForm_Bill.Size = new System.Drawing.Size(73, 20);
+            this.mnuBillForm_Bill.Text = "Rechnung";
+            // 
+            // mnuBillForm_Bill_Add
+            // 
+            this.mnuBillForm_Bill_Add.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.New;
+            this.mnuBillForm_Bill_Add.Name = "mnuBillForm_Bill_Add";
+            this.mnuBillForm_Bill_Add.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.mnuBillForm_Bill_Add.Size = new System.Drawing.Size(264, 22);
+            this.mnuBillForm_Bill_Add.Text = "Hinzufügen";
+            this.mnuBillForm_Bill_Add.Click += new System.EventHandler(this.mnuBillForm_Bill_Add_Click);
+            // 
+            // mnuBillForm_Bill_Edit
+            // 
+            this.mnuBillForm_Bill_Edit.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Properties;
+            this.mnuBillForm_Bill_Edit.Name = "mnuBillForm_Bill_Edit";
+            this.mnuBillForm_Bill_Edit.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.E)));
+            this.mnuBillForm_Bill_Edit.Size = new System.Drawing.Size(264, 22);
+            this.mnuBillForm_Bill_Edit.Text = "Bearbeiten";
+            this.mnuBillForm_Bill_Edit.Click += new System.EventHandler(this.mnuBillForm_Bill_Edit_Click);
+            // 
+            // mnuBillForm_Bill_Copy
+            // 
+            this.mnuBillForm_Bill_Copy.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Copy;
+            this.mnuBillForm_Bill_Copy.Name = "mnuBillForm_Bill_Copy";
+            this.mnuBillForm_Bill_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.mnuBillForm_Bill_Copy.Size = new System.Drawing.Size(264, 22);
+            this.mnuBillForm_Bill_Copy.Text = "Kopieren";
+            this.mnuBillForm_Bill_Copy.Click += new System.EventHandler(this.mnuBillForm_Bill_Copy_Click);
+            // 
+            // mnuBillForm_Bill_Remove
+            // 
+            this.mnuBillForm_Bill_Remove.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Delete;
+            this.mnuBillForm_Bill_Remove.Name = "mnuBillForm_Bill_Remove";
+            this.mnuBillForm_Bill_Remove.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Delete)));
+            this.mnuBillForm_Bill_Remove.Size = new System.Drawing.Size(264, 22);
+            this.mnuBillForm_Bill_Remove.Text = "Löschen";
+            this.mnuBillForm_Bill_Remove.Click += new System.EventHandler(this.mnuBillForm_Bill_Remove_Click);
+            // 
             // mnuBillForm_Search
             // 
             this.mnuBillForm_Search.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -460,7 +519,7 @@
             this.mnuBillForm_Search_Reset,
             this.mnuBillForm_Search_AutoOpen});
             this.mnuBillForm_Search.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnuBillForm_Search.MergeIndex = 2;
+            this.mnuBillForm_Search.MergeIndex = 3;
             this.mnuBillForm_Search.Name = "mnuBillForm_Search";
             this.mnuBillForm_Search.Size = new System.Drawing.Size(58, 20);
             this.mnuBillForm_Search.Text = "&Suchen";
@@ -566,5 +625,10 @@
         private System.Windows.Forms.Button btnSearchBill;
         private System.Windows.Forms.ColumnHeader cohBillsId;
         private System.Windows.Forms.Button btnBillCopy;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Bill;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Bill_Add;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Bill_Edit;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Bill_Copy;
+        private System.Windows.Forms.ToolStripMenuItem mnuBillForm_Bill_Remove;
     }
 }

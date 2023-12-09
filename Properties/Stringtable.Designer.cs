@@ -526,5 +526,25 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x001Fm", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ausgewählte Rechnungen löschen? ähnelt.
+        /// </summary>
+        internal static string _0x0020c {
+            get {
+                return ResourceManager.GetString("0x0020c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchten Sie die Ausgewählten Rechnungen tatsächlich löschen?
+        ///
+        ///Dieser Vorgang kann nicht rückgängig gemacht werden. ähnelt.
+        /// </summary>
+        internal static string _0x0020m {
+            get {
+                return ResourceManager.GetString("0x0020m", resourceCulture);
+            }
+        }
     }
 }

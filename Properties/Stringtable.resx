@@ -296,4 +296,12 @@ Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglich
 
 Wenn Sie nein wählen werden lediglich die Einträge zu den Dateien erzeugt, jedoch keine Daten hinterlegt.</value>
   </data>
+  <data name="0x0020c" xml:space="preserve">
+    <value>Ausgewählte Rechnungen löschen?</value>
+  </data>
+  <data name="0x0020m" xml:space="preserve">
+    <value>Möchten Sie die Ausgewählten Rechnungen tatsächlich löschen?
+
+Dieser Vorgang kann nicht rückgängig gemacht werden.</value>
+  </data>
 </root>

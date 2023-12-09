@@ -388,6 +388,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void btnBillRemove_Click(object sender, EventArgs e)
         {
             if (this.lsvBills.SelectedItems.Count < 1) return;
+            if (MessageBox.Show(Stringtable._0x0020m, Stringtable._0x0020m, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button3) != DialogResult.Yes) return;
 
             foreach (ListViewItem BillItem in this.lsvBills.SelectedItems)
             {
@@ -428,10 +429,13 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void lsvBills_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.pnlBillFiles.Enabled = this.lsvBills.SelectedItems.Count == 1;
-            this.btnBillEdit.Enabled = this.lsvBills.SelectedItems.Count == 1;
             this.btnBillCopy.Enabled = this.lsvBills.SelectedItems.Count == 1;
+            this.btnBillEdit.Enabled = this.lsvBills.SelectedItems.Count == 1;
             this.btnBillRemove.Enabled = this.lsvBills.SelectedItems.Count >= 1;
+            this.mnuBillForm_Bill_Copy.Enabled = this.lsvBills.SelectedItems.Count == 1;
+            this.mnuBillForm_Bill_Edit.Enabled = this.lsvBills.SelectedItems.Count == 1;
+            this.mnuBillForm_Bill_Remove.Enabled = this.lsvBills.SelectedItems.Count >= 1;
+            this.pnlBillFiles.Enabled = this.lsvBills.SelectedItems.Count == 1;
 
             List<Bill> BillList = new List<Bill>();
             foreach (ListViewItem Bill in this.lsvBills.SelectedItems)
@@ -568,6 +572,26 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this._manageCompany = new ManageCompany(this.Project, 0);
             this._manageCompany.ShowDialog(this);
+        }
+
+        private void mnuBillForm_Bill_Add_Click(object sender, EventArgs e)
+        {
+            this.btnBillAdd_Click(sender, e);
+        }
+
+        private void mnuBillForm_Bill_Copy_Click(object sender, EventArgs e)
+        {
+            this.btnBillCopy_Click(sender, e);
+        }
+
+        private void mnuBillForm_Bill_Edit_Click(object sender, EventArgs e)
+        {
+            this.btnBillEdit_Click(sender, e);
+        }
+
+        private void mnuBillForm_Bill_Remove_Click(object sender, EventArgs e)
+        {
+            this.btnBillRemove_Click(sender, e);
         }
 
         private void mnuBillForm_Search_AutoOpen_Click(object sender, EventArgs e)
