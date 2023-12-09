@@ -19,7 +19,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Stringtable {
@@ -504,6 +504,26 @@ namespace OLKI.Programme.QuiAbl.Properties {
         internal static string _0x001Em {
             get {
                 return ResourceManager.GetString("0x001Em", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rechnung kopieren. ähnelt.
+        /// </summary>
+        internal static string _0x001Fc {
+            get {
+                return ResourceManager.GetString("0x001Fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Rechnung wird nun kopiert. Sollten die angehängten Dateien mit kopiert werde?
+        ///
+        ///Wenn Sie nein wählen werden lediglich die Einträge zu den Dateien erzeugt, jedoch keine Daten hinterlegt. ähnelt.
+        /// </summary>
+        internal static string _0x001Fm {
+            get {
+                return ResourceManager.GetString("0x001Fm", resourceCulture);
             }
         }
     }

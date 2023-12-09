@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 {
@@ -323,9 +324,51 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 {
                     ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
                 }
-
+                if (this.lsvBills.Items.Count - 1 >= 0) this.lsvBills.Items[this.lsvBills.Items.Count - 1].EnsureVisible();
                 this.Project.Changed = true;
             }
+        }
+
+        private void btnBillCopy_Click(object sender, EventArgs e)
+        {
+            if (this.lsvBills.SelectedItems.Count != 1) return;
+
+            DialogResult MsgBoxResult;
+            MsgBoxResult = MessageBox.Show(Stringtable._0x001Fm, Stringtable._0x001Fc, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (MsgBoxResult == DialogResult.Cancel) return;
+
+            this.Project.BillsLastInsertedId++;
+            Bill BillCopy = ((Bill)this.lsvBills.SelectedItems[0].Tag).Clone();
+            BillCopy.Id = this.Project.BillsLastInsertedId;
+            this.Project.Bills.Add(BillCopy.Id, BillCopy);
+            if (MsgBoxResult == DialogResult.No)
+            {
+                foreach (KeyValuePair<int, File> FileItem in BillCopy.Files)
+                {
+                    BillCopy.Files[FileItem.Key].FileBase64 = string.Empty;
+                }
+            }
+
+            ListViewItem NewItem = new ListViewItem
+            {
+                Tag = BillCopy,
+                Text = BillCopy.TitleNoText
+            };
+            this.lsvBills.FillUpSubItems(NewItem);
+            this.lsvBills.Items.Add(NewItem);
+
+            int NewBillIndex = this.GetListViewItemIndex(BillCopy.Id);
+            if (NewBillIndex > -1)
+            {
+                this.UpdateListviewItem(NewBillIndex, BillCopy);
+                this.lsvBills_SelectedIndexChanged(sender, e);
+            }
+            foreach (ListViewItem ListViewItem in this.lsvBills.Items)
+            {
+                ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
+            }
+            if (this.lsvBills.Items.Count - 1 >= 0) this.lsvBills.Items[this.lsvBills.Items.Count - 1].EnsureVisible();
+            this.Project.Changed = true;
         }
 
         private void btnBillEdit_Click(object sender, EventArgs e)
@@ -387,6 +430,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         {
             this.pnlBillFiles.Enabled = this.lsvBills.SelectedItems.Count == 1;
             this.btnBillEdit.Enabled = this.lsvBills.SelectedItems.Count == 1;
+            this.btnBillCopy.Enabled = this.lsvBills.SelectedItems.Count == 1;
             this.btnBillRemove.Enabled = this.lsvBills.SelectedItems.Count >= 1;
 
             List<Bill> BillList = new List<Bill>();

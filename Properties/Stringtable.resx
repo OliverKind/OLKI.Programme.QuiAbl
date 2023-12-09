@@ -288,4 +288,12 @@ Sofern die Datei nicht diesen Anforderungen entspricht werden die Daten möglich
   <data name="0x001Em" xml:space="preserve">
     <value>Es wurden eine oder mehrere Firmen mit demselben Namen gefunden. Möchten Sie mit dem Speichern fortfahren.</value>
   </data>
+  <data name="0x001Fc" xml:space="preserve">
+    <value>Rechnung kopieren.</value>
+  </data>
+  <data name="0x001Fm" xml:space="preserve">
+    <value>Die Rechnung wird nun kopiert. Sollten die angehängten Dateien mit kopiert werde?
+
+Wenn Sie nein wählen werden lediglich die Einträge zu den Dateien erzeugt, jedoch keine Daten hinterlegt.</value>
+  </data>
 </root>

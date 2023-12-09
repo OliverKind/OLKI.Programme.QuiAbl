@@ -45,6 +45,7 @@
             this.lblBillFileNumber = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnBillCopy = new System.Windows.Forms.Button();
             this.btnSearchReset = new System.Windows.Forms.Button();
             this.btnSearchBill = new System.Windows.Forms.Button();
             this.lsvBills = new OLKI.Toolbox.Widgets.SortListView();
@@ -92,7 +93,7 @@
             this.tabBill.Multiline = true;
             this.tabBill.Name = "tabBill";
             this.tabBill.SelectedIndex = 0;
-            this.tabBill.Size = new System.Drawing.Size(366, 537);
+            this.tabBill.Size = new System.Drawing.Size(383, 537);
             this.tabBill.TabIndex = 0;
             // 
             // tabpBillData
@@ -102,7 +103,7 @@
             this.tabpBillData.Location = new System.Drawing.Point(4, 4);
             this.tabpBillData.Name = "tabpBillData";
             this.tabpBillData.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpBillData.Size = new System.Drawing.Size(339, 529);
+            this.tabpBillData.Size = new System.Drawing.Size(356, 529);
             this.tabpBillData.TabIndex = 1;
             this.tabpBillData.Text = "Daten";
             // 
@@ -113,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.prgBillProperty.Location = new System.Drawing.Point(6, 6);
             this.prgBillProperty.Name = "prgBillProperty";
-            this.prgBillProperty.Size = new System.Drawing.Size(327, 517);
+            this.prgBillProperty.Size = new System.Drawing.Size(344, 517);
             this.prgBillProperty.TabIndex = 0;
             this.prgBillProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.prgBillProperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.prgBillProperty_PropertyValueChanged);
@@ -125,7 +126,7 @@
             this.tabpBillDocs.Location = new System.Drawing.Point(4, 4);
             this.tabpBillDocs.Name = "tabpBillDocs";
             this.tabpBillDocs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpBillDocs.Size = new System.Drawing.Size(339, 529);
+            this.tabpBillDocs.Size = new System.Drawing.Size(356, 529);
             this.tabpBillDocs.TabIndex = 0;
             this.tabpBillDocs.Text = "Dokumente";
             // 
@@ -142,7 +143,7 @@
             this.pnlBillFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBillFiles.Location = new System.Drawing.Point(3, 3);
             this.pnlBillFiles.Name = "pnlBillFiles";
-            this.pnlBillFiles.Size = new System.Drawing.Size(333, 523);
+            this.pnlBillFiles.Size = new System.Drawing.Size(350, 523);
             this.pnlBillFiles.TabIndex = 0;
             // 
             // lblBillFileTitle
@@ -151,7 +152,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBillFileTitle.Location = new System.Drawing.Point(3, 441);
             this.lblBillFileTitle.Name = "lblBillFileTitle";
-            this.lblBillFileTitle.Size = new System.Drawing.Size(327, 13);
+            this.lblBillFileTitle.Size = new System.Drawing.Size(344, 13);
             this.lblBillFileTitle.TabIndex = 21;
             this.lblBillFileTitle.Text = "lblBillFileTitle";
             // 
@@ -161,7 +162,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBillFileOriginalFileName.Location = new System.Drawing.Point(3, 454);
             this.lblBillFileOriginalFileName.Name = "lblBillFileOriginalFileName";
-            this.lblBillFileOriginalFileName.Size = new System.Drawing.Size(327, 13);
+            this.lblBillFileOriginalFileName.Size = new System.Drawing.Size(344, 13);
             this.lblBillFileOriginalFileName.TabIndex = 20;
             this.lblBillFileOriginalFileName.Text = "lblBillFileOriginalFileName";
             // 
@@ -169,7 +170,7 @@
             // 
             this.btnBillFileSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBillFileSave.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Save;
-            this.btnBillFileSave.Location = new System.Drawing.Point(230, 470);
+            this.btnBillFileSave.Location = new System.Drawing.Point(247, 470);
             this.btnBillFileSave.Name = "btnBillFileSave";
             this.btnBillFileSave.Size = new System.Drawing.Size(100, 24);
             this.btnBillFileSave.TabIndex = 1;
@@ -185,7 +186,7 @@
             this.btnBillFileOpen.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FileOpen;
             this.btnBillFileOpen.Location = new System.Drawing.Point(6, 470);
             this.btnBillFileOpen.Name = "btnBillFileOpen";
-            this.btnBillFileOpen.Size = new System.Drawing.Size(218, 24);
+            this.btnBillFileOpen.Size = new System.Drawing.Size(235, 24);
             this.btnBillFileOpen.TabIndex = 0;
             this.btnBillFileOpen.Text = "Dokument öffnen";
             this.btnBillFileOpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -197,7 +198,7 @@
             // 
             this.btnBillFileNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBillFileNext.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FileNext;
-            this.btnBillFileNext.Location = new System.Drawing.Point(258, 500);
+            this.btnBillFileNext.Location = new System.Drawing.Point(275, 500);
             this.btnBillFileNext.Name = "btnBillFileNext";
             this.btnBillFileNext.Size = new System.Drawing.Size(75, 23);
             this.btnBillFileNext.TabIndex = 4;
@@ -212,7 +213,7 @@
             this.picBilFilePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picBilFilePreview.Location = new System.Drawing.Point(6, 6);
             this.picBilFilePreview.Name = "picBilFilePreview";
-            this.picBilFilePreview.Size = new System.Drawing.Size(324, 432);
+            this.picBilFilePreview.Size = new System.Drawing.Size(341, 432);
             this.picBilFilePreview.TabIndex = 19;
             this.picBilFilePreview.TabStop = false;
             this.picBilFilePreview.DoubleClick += new System.EventHandler(this.picBilFilePreview_DoubleClick);
@@ -234,7 +235,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBillFileNumber.Location = new System.Drawing.Point(87, 505);
             this.lblBillFileNumber.Name = "lblBillFileNumber";
-            this.lblBillFileNumber.Size = new System.Drawing.Size(165, 23);
+            this.lblBillFileNumber.Size = new System.Drawing.Size(182, 23);
             this.lblBillFileNumber.TabIndex = 3;
             this.lblBillFileNumber.Text = "{0} von {1}";
             this.lblBillFileNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -254,6 +255,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnBillCopy);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchReset);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchBill);
             this.splitContainer1.Panel1.Controls.Add(this.lsvBills);
@@ -266,17 +268,28 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabBill);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(785, 561);
-            this.splitContainer1.SplitterDistance = 400;
+            this.splitContainer1.Size = new System.Drawing.Size(819, 561);
+            this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnBillCopy
+            // 
+            this.btnBillCopy.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Copy;
+            this.btnBillCopy.Location = new System.Drawing.Point(224, 12);
+            this.btnBillCopy.Name = "btnBillCopy";
+            this.btnBillCopy.Size = new System.Drawing.Size(24, 24);
+            this.btnBillCopy.TabIndex = 2;
+            this.btnBillCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBillCopy.UseVisualStyleBackColor = true;
+            this.btnBillCopy.Click += new System.EventHandler(this.btnBillCopy_Click);
             // 
             // btnSearchReset
             // 
             this.btnSearchReset.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.FilterReset;
-            this.btnSearchReset.Location = new System.Drawing.Point(254, 12);
+            this.btnSearchReset.Location = new System.Drawing.Point(284, 12);
             this.btnSearchReset.Name = "btnSearchReset";
             this.btnSearchReset.Size = new System.Drawing.Size(24, 24);
-            this.btnSearchReset.TabIndex = 5;
+            this.btnSearchReset.TabIndex = 4;
             this.btnSearchReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchReset.UseVisualStyleBackColor = true;
             this.btnSearchReset.Click += new System.EventHandler(this.btnSearchReset_Click);
@@ -284,10 +297,10 @@
             // btnSearchBill
             // 
             this.btnSearchBill.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Search;
-            this.btnSearchBill.Location = new System.Drawing.Point(224, 12);
+            this.btnSearchBill.Location = new System.Drawing.Point(254, 12);
             this.btnSearchBill.Name = "btnSearchBill";
             this.btnSearchBill.Size = new System.Drawing.Size(24, 24);
-            this.btnSearchBill.TabIndex = 4;
+            this.btnSearchBill.TabIndex = 3;
             this.btnSearchBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchBill.UseVisualStyleBackColor = true;
             this.btnSearchBill.Click += new System.EventHandler(this.btnSearchBill_Click);
@@ -314,8 +327,8 @@
             this.lsvBills.Location = new System.Drawing.Point(12, 42);
             this.lsvBills.Name = "lsvBills";
             this.lsvBills.ShowItemToolTips = true;
-            this.lsvBills.Size = new System.Drawing.Size(385, 507);
-            this.lsvBills.TabIndex = 3;
+            this.lsvBills.Size = new System.Drawing.Size(402, 507);
+            this.lsvBills.TabIndex = 6;
             this.lsvBills.UseCompatibleStateImageBehavior = false;
             this.lsvBills.View = System.Windows.Forms.View.Details;
             this.lsvBills.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvBills_ColumnWidthChanged);
@@ -376,10 +389,10 @@
             // 
             this.btnBillRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBillRemove.Image = global::OLKI.Programme.QuiAbl.Properties.Resources.Delete;
-            this.btnBillRemove.Location = new System.Drawing.Point(297, 12);
+            this.btnBillRemove.Location = new System.Drawing.Point(314, 12);
             this.btnBillRemove.Name = "btnBillRemove";
             this.btnBillRemove.Size = new System.Drawing.Size(100, 24);
-            this.btnBillRemove.TabIndex = 2;
+            this.btnBillRemove.TabIndex = 5;
             this.btnBillRemove.Text = "Löschen";
             this.btnBillRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBillRemove.UseVisualStyleBackColor = true;
@@ -483,12 +496,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 561);
+            this.ClientSize = new System.Drawing.Size(819, 561);
             this.Controls.Add(this.mnuBills);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuBills;
-            this.MinimumSize = new System.Drawing.Size(801, 300);
+            this.MinimumSize = new System.Drawing.Size(835, 300);
             this.Name = "ProjectForm";
             this.ShowInTaskbar = false;
             this.Text = "frmBills";
@@ -552,5 +565,6 @@
         private System.Windows.Forms.Button btnSearchReset;
         private System.Windows.Forms.Button btnSearchBill;
         private System.Windows.Forms.ColumnHeader cohBillsId;
+        private System.Windows.Forms.Button btnBillCopy;
     }
 }

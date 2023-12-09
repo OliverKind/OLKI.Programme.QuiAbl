@@ -304,6 +304,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Program_Symbol.ico" />
+    <Content Include="Resources\Icons\Copy.png" />
     <Content Include="Resources\Icons\Bill.ico" />
     <Content Include="Resources\Icons\Bill.png" />
     <Content Include="Resources\Icons\Crop.png" />
