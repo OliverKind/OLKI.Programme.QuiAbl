@@ -387,6 +387,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms
                 }
                 foreach (KeyValuePair<int, InvoiceItem> InvoiceItemItem in bill.InvoiceItems)
                 {
+                    if (!string.IsNullOrEmpty(InvoiceItemItem.Value.ArticleNumber) && InvoiceItemItem.Value.ArticleNumber.ToLower().Contains(this.Searchtext.ToLower())) return true;
                     if (!string.IsNullOrEmpty(InvoiceItemItem.Value.Comment) && InvoiceItemItem.Value.Comment.ToLower().Contains(this.Searchtext.ToLower())) return true;
                     if (!string.IsNullOrEmpty(InvoiceItemItem.Value.Title) && InvoiceItemItem.Value.Title.ToLower().Contains(this.Searchtext.ToLower())) return true;
                 }
