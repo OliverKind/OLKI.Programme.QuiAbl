@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [3.1.1.35] - 2023-12-29
+### Added
+- Search in ArticleNumber
+
 ## [3.1.0.34] - 2023-12-09
 ### Added
 - Copy Bill item
