@@ -14,29 +14,14 @@
     <Setting Name="MainForm_Size" Roaming="true" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
-    <Setting Name="ColHeadSet_cohBillsTitle_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
+    <Setting Name="BillsSortColumn" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="ColHeadSet_cohBillsDate_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
+    <Setting Name="BillsSortOrder" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="ColHeadSet_cohBillsDocuments_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
-    </Setting>
-    <Setting Name="ColHeadSet_cohBillsCategory_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
-    </Setting>
-    <Setting Name="ColHeadSet_cohBillsComapny_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
-    </Setting>
-    <Setting Name="ColHeadSet_cohBillsComment_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
-    </Setting>
-    <Setting Name="ColHeadSet_cohBillsLength_Width" Roaming="true" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
-    </Setting>
-    <Setting Name="ColHeadSet_cohBillsId_Width" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1</Value>
+    <Setting Name="BillsColumnWidth" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-1;-1;-1;-1;-1;-1;-1;-1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

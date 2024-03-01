@@ -336,6 +336,7 @@
             this.lsvBills.TabIndex = 6;
             this.lsvBills.UseCompatibleStateImageBehavior = false;
             this.lsvBills.View = System.Windows.Forms.View.Details;
+            this.lsvBills.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lsvBills_ColumnClick);
             this.lsvBills.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvBills_ColumnWidthChanged);
             this.lsvBills.SelectedIndexChanged += new System.EventHandler(this.lsvBills_SelectedIndexChanged);
             this.lsvBills.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvBills_MouseDoubleClick);

@@ -30,7 +30,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 {
@@ -81,6 +80,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// Index of the actual selected file in file Preview
         /// </summary>
         private int _selectedFileIndex = 0;
+
+        /// <summary>
+        /// Changes are system intern
+        /// </summary>
+        private bool _systemChanged = false;
         #endregion
 
         #region Properteis
@@ -103,26 +107,26 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         public ProjectForm(Project.Project project)
         {
             InitializeComponent();
+            this._systemChanged = true;
             this._lblBillFileNumber_OrgText = this.lblBillFileNumber.Text;
             this.lsvBills_SelectedIndexChanged(this, new EventArgs());  //Used to initial some Controles
 
             // Set Column DisplayIndex and width
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsTitle_Width > -1) { this.cohBillsTitle.Width = Settings_AppVar.Default.ColHeadSet_cohBillsTitle_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsDate_Width > -1) { this.cohBillsDate.Width = Settings_AppVar.Default.ColHeadSet_cohBillsDate_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsDocuments_Width > -1) { this.cohBillsDocuments.Width = Settings_AppVar.Default.ColHeadSet_cohBillsDocuments_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsCategory_Width > -1) { this.cohBillsCategory.Width = Settings_AppVar.Default.ColHeadSet_cohBillsCategory_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width > -1) { this.cohBillsComapny.Width = Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width > -1) { this.cohBillsComment.Width = Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width > -1) { this.cohBillsLength.Width = Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohBillsId_Width > -1) { this.cohBillsId.Width = Settings_AppVar.Default.ColHeadSet_cohBillsId_Width; }
-
+            List<int> ColWidth = Settings_AppVar.Default.BillsColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
+            for (int i = 0; i < this.lsvBills.Columns.Count; i++)
+            {
+                if (ColWidth[i] > -1) this.lsvBills.Columns[i].Width = ColWidth[i];
+            }
 
             //Load Bills
             this.Project = project;
             this.Project.ProjectChanged += new EventHandler(this._project_ProjectChanged);
             this.FillListView(null);
+            //Load Bill sorting
+            this.lsvBills.Sort(Settings_AppVar.Default.BillsSortColumn, (SortOrder)Settings_AppVar.Default.BillsSortOrder);    //Saved sorting
 
             this.tabBill.SelectedTab = this.tabpBillDocs;
+            this._systemChanged = false;
 
             this._project_ProjectChanged(this, new EventArgs());
         }
@@ -409,16 +413,26 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.mnuBillForm_Search_Reset_Click(sender, e);
         }
 
+        private void lsvBills_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (this._systemChanged) return;
+
+            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvBills.Sorter;
+            Settings_AppVar.Default.BillsSortColumn = Sorter.SortColumn;
+            Settings_AppVar.Default.BillsSortOrder = (int)Sorter.Order;
+            Settings_AppVar.Default.Save();
+        }
+
         private void lsvBills_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
-            Settings_AppVar.Default.ColHeadSet_cohBillsTitle_Width = this.cohBillsTitle.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsDate_Width = this.cohBillsDate.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsDocuments_Width = this.cohBillsDocuments.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsCategory_Width = this.cohBillsCategory.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsComapny_Width = this.cohBillsComapny.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsComment_Width = this.cohBillsComment.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsLength_Width = this.cohBillsLength.Width;
-            Settings_AppVar.Default.ColHeadSet_cohBillsId_Width = this.cohBillsId.Width;
+            if (this._systemChanged) return;
+
+            List<int> ColWidth = new List<int>();
+            for (int i = 0; i < this.lsvBills.Columns.Count; i++)
+            {
+                ColWidth.Add(this.lsvBills.Columns[i].Width);
+            }
+            Settings_AppVar.Default.BillsColumnWidth = string.Join(";", ColWidth);
             Settings_AppVar.Default.Save();
         }
 

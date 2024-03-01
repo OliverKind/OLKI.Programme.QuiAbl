@@ -12,7 +12,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings_AppVar : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings_AppVar defaultInstance = ((Settings_AppVar)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings_AppVar())));
@@ -77,104 +77,40 @@ namespace OLKI.Programme.QuiAbl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsTitle_Width {
+        public int BillsSortColumn {
             get {
-                return ((int)(this["ColHeadSet_cohBillsTitle_Width"]));
+                return ((int)(this["BillsSortColumn"]));
             }
             set {
-                this["ColHeadSet_cohBillsTitle_Width"] = value;
+                this["BillsSortColumn"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsDate_Width {
+        public int BillsSortOrder {
             get {
-                return ((int)(this["ColHeadSet_cohBillsDate_Width"]));
+                return ((int)(this["BillsSortOrder"]));
             }
             set {
-                this["ColHeadSet_cohBillsDate_Width"] = value;
+                this["BillsSortOrder"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1;-1;-1;-1;-1;-1;-1;-1")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsDocuments_Width {
+        public string BillsColumnWidth {
             get {
-                return ((int)(this["ColHeadSet_cohBillsDocuments_Width"]));
+                return ((string)(this["BillsColumnWidth"]));
             }
             set {
-                this["ColHeadSet_cohBillsDocuments_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsCategory_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohBillsCategory_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohBillsCategory_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsComapny_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohBillsComapny_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohBillsComapny_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsComment_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohBillsComment_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohBillsComment_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohBillsLength_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohBillsLength_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohBillsLength_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        public int ColHeadSet_cohBillsId_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohBillsId_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohBillsId_Width"] = value;
+                this["BillsColumnWidth"] = value;
             }
         }
     }
