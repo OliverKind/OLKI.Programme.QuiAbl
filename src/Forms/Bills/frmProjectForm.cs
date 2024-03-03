@@ -673,6 +673,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void _search_RequestListResults(object sender, EventArgs e)
         {
             this.FillListView(this._searchBill.BillsFound);
+            this.lsvBills.Sort();
             this.Project.ToggleProjectChanged(this, new EventArgs());
         }
         #endregion
