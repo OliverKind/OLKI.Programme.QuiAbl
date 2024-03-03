@@ -496,7 +496,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         [Description("Die Summe aller Rechnungsbeträge.")]
         [DisplayName("Rechnung Summe")]
         [ReadOnly(true)]
-        public decimal InvoiceItemTotalPrice
+        public decimal InvoiceItemsTotalPrice
         {
             get
             {
