@@ -1,4 +1,12 @@
 # QuiAbl - Quittungsablage
+## [3.3.0.37] - 2024-03-03
+### Added
+- Aplly sorting of Bills, after search
+- Save Column Width for Invoice Items
+- Save Sort Order for Invoice Items List
+- Show Item Id for Invoice Items
+- Total Price for Invoice Items
+
 ## [3.2.0.36] - 2024-03-01
 ### Added
 - Save Sort Order for Bill List
