@@ -32,7 +32,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -205,6 +204,14 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
             // Load Invoice Items
             this._systemChanged = true;
+
+            // Set Column DisplayIndex and width
+            List<int> ColWidth = Settings_AppVar.Default.InvoiceItemsColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
+            for (int i = 0; i < this.lsvInvoiceItems.Columns.Count; i++)
+            {
+                if (ColWidth[i] > -1) this.lsvInvoiceItems.Columns[i].Width = ColWidth[i];
+            }
+
             this.lsvInvoiceItems.BeginUpdate();
             this.lsvInvoiceItems.Items.Clear();
             ListViewItem NewPItem;
@@ -371,7 +378,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.lsvInvoiceItems.Items[ItemIndex].Font = new Font(this.lsvInvoiceItems.Items[ItemIndex].Font, System.Drawing.FontStyle.Regular);
             }
-
             this.prgInvoiceItemProperty.Refresh();
         }
 
@@ -1187,6 +1193,29 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
         }
 
+        private void lsvInvoiceItems_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (this._systemChanged) return;
+
+            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvInvoiceItems.Sorter;
+            Settings_AppVar.Default.InvoiceItemsSortColumn = Sorter.SortColumn;
+            Settings_AppVar.Default.InvoiceItemsSortOrder = (int)Sorter.Order;
+            Settings_AppVar.Default.Save();
+        }
+
+        private void lsvInvoiceItems_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        {
+            if (this._systemChanged) return;
+
+            List<int> ColWidth = new List<int>();
+            for (int i = 0; i < this.lsvInvoiceItems.Columns.Count; i++)
+            {
+                ColWidth.Add(this.lsvInvoiceItems.Columns[i].Width);
+            }
+            Settings_AppVar.Default.InvoiceItemsColumnWidth = string.Join(";", ColWidth);
+            Settings_AppVar.Default.Save();
+        }
+
         private void lsvInvoiceItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnInvoiceItemRemove.Enabled = this.lsvInvoiceItems.SelectedItems.Count > 0;
@@ -1203,16 +1232,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.prgInvoiceItemProperty.SelectedObject = null;
             }
-        }
-
-        private void lsvInvoiceItems_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            if (this._systemChanged) return;
-
-            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvInvoiceItems.Sorter;
-            Settings_AppVar.Default.InvoiceItemsSortColumn= Sorter.SortColumn;
-            Settings_AppVar.Default.InvoiceItemsSortOrder= (int)Sorter.Order;
-            Settings_AppVar.Default.Save();
         }
 
         private void prgInvoiceItemProperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)

@@ -982,6 +982,7 @@
             this.lsvInvoiceItems.UseCompatibleStateImageBehavior = false;
             this.lsvInvoiceItems.View = System.Windows.Forms.View.Details;
             this.lsvInvoiceItems.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lsvInvoiceItems_ColumnClick);
+            this.lsvInvoiceItems.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvInvoiceItems_ColumnWidthChanged);
             this.lsvInvoiceItems.SelectedIndexChanged += new System.EventHandler(this.lsvInvoiceItems_SelectedIndexChanged);
             // 
             // columnHeader2

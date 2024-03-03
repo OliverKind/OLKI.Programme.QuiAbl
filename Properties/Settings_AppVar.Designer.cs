@@ -139,5 +139,17 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 this["InvoiceItemsSortOrder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1;-1;-1;-1;-1;-1;-1")]
+        public string InvoiceItemsColumnWidth {
+            get {
+                return ((string)(this["InvoiceItemsColumnWidth"]));
+            }
+            set {
+                this["InvoiceItemsColumnWidth"] = value;
+            }
+        }
     }
 }
