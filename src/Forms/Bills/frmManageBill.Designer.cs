@@ -119,6 +119,7 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -968,7 +969,8 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8});
             this.lsvInvoiceItems.FullRowSelect = true;
             this.lsvInvoiceItems.GridLines = true;
             this.lsvInvoiceItems.HideSelection = false;
@@ -1140,6 +1142,10 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Position Eintrag";
+            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1292,5 +1298,6 @@
         private System.Windows.Forms.Label lblFileModifyReize;
         private System.Windows.Forms.NumericUpDown nudFileModifyResize;
         private System.Windows.Forms.CheckBox chkBillDisposed;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

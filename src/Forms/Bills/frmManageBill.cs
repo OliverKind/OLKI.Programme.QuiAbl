@@ -352,6 +352,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[3].Text = invoiceItem.Quantity.ToString();
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[4].Text = invoiceItem.PriceSum.ToString();
             this.lsvInvoiceItems.Items[ItemIndex].SubItems[5].Text = invoiceItem.Comment;
+            this.lsvInvoiceItems.Items[ItemIndex].SubItems[6].Text = invoiceItem.Id.ToString();
 
             if (invoiceItem.Disposed)
             {
