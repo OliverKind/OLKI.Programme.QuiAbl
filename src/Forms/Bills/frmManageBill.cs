@@ -114,6 +114,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private List<WIA.DeviceInfo> _scanDeviceList;
 
         /// <summary>
+        /// Changes are system intern
+        /// </summary>
+        private bool _systemChanged = false;
+
+        /// <summary>
         /// Timer to scan for scan devices
         /// </summary>
         private readonly Timer tmrScannerScan = new Timer();
@@ -198,7 +203,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.cboFileModifyColor_SelectedIndexChanged(this, new EventArgs());
             this.tbaFileModifyThreshold_Scroll(this, new EventArgs());
 
-            // Fill InvoiceItem list
+            // Load Invoice Items
+            this._systemChanged = true;
             this.lsvInvoiceItems.BeginUpdate();
             this.lsvInvoiceItems.Items.Clear();
             ListViewItem NewPItem;
@@ -216,6 +222,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             this.lsvInvoiceItems_SelectedIndexChanged(this, new EventArgs());
             this.lsvInvoiceItems.EndUpdate();
+            //Load Invoice Item sorting
+            this.lsvInvoiceItems.Sort(Settings_AppVar.Default.InvoiceItemsSortColumn, (SortOrder)Settings_AppVar.Default.InvoiceItemsSortOrder);    //Saved sorting
+            this._systemChanged = false;
         }
 
         /// <summary>
@@ -1194,6 +1203,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 this.prgInvoiceItemProperty.SelectedObject = null;
             }
+        }
+
+        private void lsvInvoiceItems_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (this._systemChanged) return;
+
+            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvInvoiceItems.Sorter;
+            Settings_AppVar.Default.InvoiceItemsSortColumn= Sorter.SortColumn;
+            Settings_AppVar.Default.InvoiceItemsSortOrder= (int)Sorter.Order;
+            Settings_AppVar.Default.Save();
         }
 
         private void prgInvoiceItemProperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
