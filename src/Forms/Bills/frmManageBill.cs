@@ -231,6 +231,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems.EndUpdate();
             //Load Invoice Item sorting
             this.lsvInvoiceItems.Sort(Settings_AppVar.Default.InvoiceItemsSortColumn, (SortOrder)Settings_AppVar.Default.InvoiceItemsSortOrder);    //Saved sorting
+            this.UpdateInvoiceItemsTotalPrice();
             this._systemChanged = false;
         }
 
@@ -379,6 +380,16 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.lsvInvoiceItems.Items[ItemIndex].Font = new Font(this.lsvInvoiceItems.Items[ItemIndex].Font, System.Drawing.FontStyle.Regular);
             }
             this.prgInvoiceItemProperty.Refresh();
+        }
+
+        private void UpdateInvoiceItemsTotalPrice()
+        {
+            decimal Total = 0;
+            foreach (ListViewItem LsvItem in this.lsvInvoiceItems.Items)
+            {
+                Total += ((InvoiceItem)LsvItem.Tag).PriceSum;
+            }
+            this.txtInvoiceItemsTotalPrice.Text = Total.ToString();
         }
 
         #region Controle Events
@@ -1136,6 +1147,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 InvoiceItem.Remove();
             }
+            this.UpdateInvoiceItemsTotalPrice();
         }
 
         private void btnInvoiceItemImport_Click(object sender, EventArgs e)
@@ -1191,6 +1203,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 MessageBox.Show(this, string.Format(Stringtable._0x001Am, new object[] { ImportException.Message }), Stringtable._0x001Ac, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.UpdateInvoiceItemsTotalPrice();
         }
 
         private void lsvInvoiceItems_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -1246,6 +1259,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this.UpdateInvoiceItemListview(this.GetInvoiceItemListviewItemIndex(InvoiceItem.Id), InvoiceItem);
                 this.lsvInvoiceItems.EndUpdate();
             }
+            this.UpdateInvoiceItemsTotalPrice();
         }
         #endregion
         #endregion

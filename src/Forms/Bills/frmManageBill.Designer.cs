@@ -95,6 +95,8 @@
             this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpInformationInvoiceItems = new System.Windows.Forms.TabPage();
+            this.lblInvoiceItemsTotalPrice = new System.Windows.Forms.Label();
+            this.txtInvoiceItemsTotalPrice = new System.Windows.Forms.TextBox();
             this.btnInvoiceItemImport = new System.Windows.Forms.Button();
             this.prgInvoiceItemProperty = new System.Windows.Forms.PropertyGrid();
             this.btnInvoiceItemRemove = new System.Windows.Forms.Button();
@@ -106,6 +108,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOrgFileLocation = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -119,7 +122,6 @@
             this.mtbDate = new System.Windows.Forms.MaskedTextBox();
             this.erpMannageBill = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageCompanies = new System.Windows.Forms.Button();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabInformation.SuspendLayout();
             this.tbpInformationGenerel.SuspendLayout();
             this.tbpInformationDocument.SuspendLayout();
@@ -900,6 +902,8 @@
             // 
             // tbpInformationInvoiceItems
             // 
+            this.tbpInformationInvoiceItems.Controls.Add(this.lblInvoiceItemsTotalPrice);
+            this.tbpInformationInvoiceItems.Controls.Add(this.txtInvoiceItemsTotalPrice);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemImport);
             this.tbpInformationInvoiceItems.Controls.Add(this.prgInvoiceItemProperty);
             this.tbpInformationInvoiceItems.Controls.Add(this.btnInvoiceItemRemove);
@@ -912,6 +916,23 @@
             this.tbpInformationInvoiceItems.Size = new System.Drawing.Size(860, 483);
             this.tbpInformationInvoiceItems.TabIndex = 2;
             this.tbpInformationInvoiceItems.Text = "Positionen";
+            // 
+            // lblInvoiceItemsTotalPrice
+            // 
+            this.lblInvoiceItemsTotalPrice.AutoSize = true;
+            this.lblInvoiceItemsTotalPrice.Location = new System.Drawing.Point(420, 460);
+            this.lblInvoiceItemsTotalPrice.Name = "lblInvoiceItemsTotalPrice";
+            this.lblInvoiceItemsTotalPrice.Size = new System.Drawing.Size(119, 13);
+            this.lblInvoiceItemsTotalPrice.TabIndex = 6;
+            this.lblInvoiceItemsTotalPrice.Text = "Summe aller Positionen:";
+            // 
+            // txtInvoiceItemsTotalPrice
+            // 
+            this.txtInvoiceItemsTotalPrice.Location = new System.Drawing.Point(545, 457);
+            this.txtInvoiceItemsTotalPrice.Name = "txtInvoiceItemsTotalPrice";
+            this.txtInvoiceItemsTotalPrice.ReadOnly = true;
+            this.txtInvoiceItemsTotalPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtInvoiceItemsTotalPrice.TabIndex = 5;
             // 
             // btnInvoiceItemImport
             // 
@@ -977,7 +998,7 @@
             this.lsvInvoiceItems.Location = new System.Drawing.Point(6, 36);
             this.lsvInvoiceItems.Name = "lsvInvoiceItems";
             this.lsvInvoiceItems.ShowItemToolTips = true;
-            this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 441);
+            this.lsvInvoiceItems.Size = new System.Drawing.Size(636, 415);
             this.lsvInvoiceItems.TabIndex = 1;
             this.lsvInvoiceItems.UseCompatibleStateImageBehavior = false;
             this.lsvInvoiceItems.View = System.Windows.Forms.View.Details;
@@ -1010,6 +1031,10 @@
             // 
             this.columnHeader7.Text = "Kommentar";
             this.columnHeader7.Width = 120;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Position Eintrag";
             // 
             // lblOrgFileLocation
             // 
@@ -1144,10 +1169,6 @@
             this.btnManageCompanies.UseVisualStyleBackColor = true;
             this.btnManageCompanies.Click += new System.EventHandler(this.btnManageCompanies_Click);
             // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Position Eintrag";
-            // 
             // ManageBill
             // 
             this.AcceptButton = this.btnOk;
@@ -1203,6 +1224,7 @@
             this.tbpFileSourceLink.ResumeLayout(false);
             this.tbpFileSourceLink.PerformLayout();
             this.tbpInformationInvoiceItems.ResumeLayout(false);
+            this.tbpInformationInvoiceItems.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpMannageBill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1301,5 +1323,7 @@
         private System.Windows.Forms.NumericUpDown nudFileModifyResize;
         private System.Windows.Forms.CheckBox chkBillDisposed;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.TextBox txtInvoiceItemsTotalPrice;
+        private System.Windows.Forms.Label lblInvoiceItemsTotalPrice;
     }
 }
