@@ -489,6 +489,27 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         public int InvoiceItemLastInsertedId { get; set; } = 0;
 
         /// <summary>
+        /// Get the total price of all Invoice iitems
+        /// </summary>
+        [Browsable(true)]
+        [Category("Zusatzinformationen")]
+        [Description("Die Summe aller Rechnungsbeträge.")]
+        [DisplayName("Rechnung Summe")]
+        [ReadOnly(true)]
+        public decimal InvoiceItemTotalPrice
+        {
+            get
+            {
+                decimal Total = 0;
+                foreach (KeyValuePair<int, InvoiceItem> InvItem in this._invoiceItems)
+                {
+                    Total += InvItem.Value.PriceSum;
+                }
+                return Total;
+            }
+        }
+
+        /// <summary>
         /// The Name of the Bill
         /// </summary>
         private string _title;
