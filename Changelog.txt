@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [3.3.1.38] - 2024-03-12
+### Fixed
+- SCV-File read error if column count dosn't match. Skip missing columns now.
+
 ## [3.3.0.37] - 2024-03-03
 ### Added
 - Aplly sorting of Bills, after search
