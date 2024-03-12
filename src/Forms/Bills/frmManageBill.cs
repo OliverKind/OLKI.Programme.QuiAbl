@@ -1174,12 +1174,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                         InvoiceItem NewInvoiceItem = new InvoiceItem(this.Bill.InvoiceItemLastInsertedId)
                         {
                             Title = CSVrow.Columns[0],
-                            ArticleNumber = CSVrow.Columns[1],
-                            Price = decimal.Parse(CSVrow.Columns[2]),
-                            Quantity = int.Parse(CSVrow.Columns[3]),
-                            Comment = CSVrow.Columns[4],
                             Disposed = false
                         };
+                        if (CSVrow.Columns.Count >= 2) NewInvoiceItem.ArticleNumber = CSVrow.Columns[1];
+                        if (CSVrow.Columns.Count >= 3) NewInvoiceItem.Price = decimal.Parse(CSVrow.Columns[2]);
+                        if (CSVrow.Columns.Count >= 4) NewInvoiceItem.Quantity = decimal.Parse(CSVrow.Columns[3]);
+                        if (CSVrow.Columns.Count >= 5) NewInvoiceItem.Comment = CSVrow.Columns[4];
 
                         this.Bill.InvoiceItems.Add(this.Bill.InvoiceItemLastInsertedId, NewInvoiceItem);
                         ListViewItem NewItem = new ListViewItem
