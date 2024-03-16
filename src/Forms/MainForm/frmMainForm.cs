@@ -183,6 +183,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
+        /// <summary>
+        /// Set the status strip labels
+        /// </summary>
+        /// <param name="ActiveMdiChild">The Active MDI-Child</param>
         private void SetStatusstripLabels(Form ActiveMdiChild)
         {
             if (ActiveMdiChild != null)
@@ -506,6 +510,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             //Nothing to do at this application
         }
         #endregion
-#endregion
+        #endregion
     }
 }
