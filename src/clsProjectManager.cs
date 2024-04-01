@@ -87,22 +87,6 @@ namespace OLKI.Programme.QuiAbl.src
         }
 
         /// <summary>
-        /// Check if there are unsaved changes in active project and ask if the sould been saved.
-        /// </summary>
-        /// <returns>True if the active project should been overwritten</returns>
-        internal bool GetSaveActiveProject()
-        {
-            if (this.ActiveProject.Changed)
-            {
-                if (MessageBox.Show(Stringtable._0x0002m, Stringtable._0x0002c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
         /// Creates a new, empty project
         /// </summary>
         /// <returns>True if a new project was created withoud exceptions</returns>
@@ -180,7 +164,7 @@ namespace OLKI.Programme.QuiAbl.src
                 //Final root project to application
                 State.ProjectData = ProjectToLode;
                 State.ProgressDescirption = Stringtable._0x0011;
-                if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
+                worker?.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
                 this.ActiveProject = ProjectToLode;
                 this.ActiveProject.ProjectChanged += new EventHandler(this.ToggleActiveProjecChanged);
 

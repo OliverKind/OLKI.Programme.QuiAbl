@@ -206,7 +206,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                         ProgressDescirption = Stringtable._0x0013,
                         ProjectFile = this.File.FullName
                     };
-                    if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
+                    worker?.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
 
                     // Write data
                     string Header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
@@ -223,7 +223,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                         {
                             ReadLength = GetValidBufferReadLength(Content.Length, i, WRITE_DATA_BUFFER_LENGTH);
                             sw.Write(Content, i * WRITE_DATA_BUFFER_LENGTH, ReadLength);
-                            if (worker != null) worker.ReportProgress((int)Matehmatics.Percentages(i + 1, Limit), State.Clone());
+                            worker?.ReportProgress((int)Matehmatics.Percentages(i + 1, Limit), State.Clone());
                         }
                     }
 
@@ -231,7 +231,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     if (this.File.Exists) this.File.Delete();
                     System.IO.File.Move(TempFileName, this.File.FullName);
                     State.ProgressDescirption = Stringtable._0x001C;
-                    if (worker != null) worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
+                    worker?.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
 
                     return true;
                 }
