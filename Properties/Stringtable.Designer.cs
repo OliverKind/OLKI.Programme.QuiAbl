@@ -186,9 +186,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Die Datei
-        ///{0}
-        ///konnte nicht angehangen werden.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Datei &quot;{0}&quot; konnte nicht angehangen werden.
         ///
         ///{1} ähnelt.
         /// </summary>

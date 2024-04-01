@@ -165,9 +165,7 @@ Möchten Sie fortfahren?</value>
     <value>Fehler beim Lesen der Datei!</value>
   </data>
   <data name="0x0007m" xml:space="preserve">
-    <value>Die Datei
-{0}
-konnte nicht angehangen werden.
+    <value>Die Datei "{0}" konnte nicht angehangen werden.
 
 {1}</value>
   </data>
