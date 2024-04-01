@@ -134,9 +134,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         /// <summary>
         /// Close the forme
         /// </summary>
-        public void Close(bool appOrProjectClose)
+        public new void Close()
         {
-
             if (this._searchBill != null && !this._searchBill.IsDisposed)
             {
                 //Avoid Exception on application close
@@ -145,8 +144,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 this._searchBill = null;
             }
 
-            this._appOrProjectClose = appOrProjectClose;
-            this.Close();
+            this._appOrProjectClose = true;
+            base.Close();
         }
 
         /// <summary>

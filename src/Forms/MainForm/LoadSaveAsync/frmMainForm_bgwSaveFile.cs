@@ -105,7 +105,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                 //Close Project form if required
                 if (State.SaveSucess && State.CloseFormAfterSave && State.ProjectForm != null && !State.ProjectForm.IsDisposed)
                 {
-                    State.ProjectForm.Close(true);
+                    State.ProjectForm.Close();
                 }
                 this.SetStatusstripLabels(this.ActiveMdiChild);
             }

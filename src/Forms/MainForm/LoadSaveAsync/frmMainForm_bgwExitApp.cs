@@ -130,7 +130,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
             this._bgwSaveFile_ProgressChanged(sender, e);
             SaveProjectsState State = (SaveProjectsState)e.UserState;
-            if (!State.Canceled && State.SaveSucess) State.ProjectForm.Close(true);
+            if (!State.Canceled && State.SaveSucess) State.ProjectForm.Close();
         }
 
         private void _bgwExitApplication_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

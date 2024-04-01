@@ -300,7 +300,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                         if (!this._bgwSaveFile.IsBusy) this._bgwSaveFile.RunWorkerAsync(new SaveProjectsArguments(SaveProjectsArguments.SaveMode.Save, ProjectForm, true));
                         return;
                     case DialogResult.No:
-                        ProjectForm.Close(true);
+                        ProjectForm.Close();
                         return;
                     case DialogResult.Cancel:
                         return;
@@ -308,7 +308,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             }
             else
             {
-                ProjectForm.Close(true);
+                ProjectForm.Close();
             }
         }
 
