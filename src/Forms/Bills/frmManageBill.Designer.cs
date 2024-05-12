@@ -1198,6 +1198,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManageBill";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManageBill_FormClosed);
+            this.Shown += new System.EventHandler(this.ManageBill_Shown);
             this.tabInformation.ResumeLayout(false);
             this.tbpInformationGenerel.ResumeLayout(false);
             this.tbpInformationGenerel.PerformLayout();

@@ -111,23 +111,17 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this._lblBillFileNumber_OrgText = this.lblBillFileNumber.Text;
             this.lsvBills_SelectedIndexChanged(this, new EventArgs());  //Used to initial some Controles
 
-            // Set Column DisplayIndex and width
-            List<int> ColWidth = Settings_AppVar.Default.BillsColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
-            for (int i = 0; i < this.lsvBills.Columns.Count; i++)
-            {
-                if (ColWidth[i] > -1) this.lsvBills.Columns[i].Width = ColWidth[i];
-            }
+            // Set Column Width
+            this.lsvBills.ColumnWidths = Settings_AppVar.Default.BillsColumnWidth.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(s => int.Parse(s)).ToList();
 
             //Load Bills
             this.Project = project;
             this.Project.ProjectChanged += new EventHandler(this._project_ProjectChanged);
             this.FillListView(null);
             //Load Bill sorting
-            this.lsvBills.Sort(Settings_AppVar.Default.BillsSortColumn, (SortOrder)Settings_AppVar.Default.BillsSortOrder);    //Saved sorting
+            this.lsvBills.Sort(Settings_AppVar.Default.BillsSortColumn, Settings_AppVar.Default.BillsSortOrder);    //Saved sorting
 
             this.tabBill.SelectedTab = this.tabpBillDocs;
-            this._systemChanged = false;
-
             this._project_ProjectChanged(this, new EventArgs());
         }
 
@@ -425,13 +419,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvBills_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
             if (this._systemChanged) return;
-
-            List<int> ColWidth = new List<int>();
-            for (int i = 0; i < this.lsvBills.Columns.Count; i++)
-            {
-                ColWidth.Add(this.lsvBills.Columns[i].Width);
-            }
-            Settings_AppVar.Default.BillsColumnWidth = string.Join(";", ColWidth);
+            Settings_AppVar.Default.BillsColumnWidth = string.Join(";", this.lsvBills.ColumnWidths);
             Settings_AppVar.Default.Save();
         }
 
@@ -566,6 +554,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Maximized;
             if (Settings.Default.Search_AutoOpen) this.mnuBillForm_Search_Bill_Click(this, new EventArgs());
+            this._systemChanged = false;
         }
         #endregion
 

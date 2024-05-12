@@ -205,12 +205,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             // Load Invoice Items
             this._systemChanged = true;
 
-            // Set Column DisplayIndex and width
-            List<int> ColWidth = Settings_AppVar.Default.InvoiceItemsColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
-            for (int i = 0; i < this.lsvInvoiceItems.Columns.Count; i++)
-            {
-                if (ColWidth[i] > -1) this.lsvInvoiceItems.Columns[i].Width = ColWidth[i];
-            }
+            // Set Column Width
+            this.lsvInvoiceItems.ColumnWidths = Settings_AppVar.Default.InvoiceItemsColumnWidth.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(s => int.Parse(s)).ToList();
 
             this.lsvInvoiceItems.BeginUpdate();
             this.lsvInvoiceItems.Items.Clear();
@@ -230,7 +226,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.lsvInvoiceItems_SelectedIndexChanged(this, new EventArgs());
             this.lsvInvoiceItems.EndUpdate();
             //Load Invoice Item sorting
-            this.lsvInvoiceItems.Sort(Settings_AppVar.Default.InvoiceItemsSortColumn, (SortOrder)Settings_AppVar.Default.InvoiceItemsSortOrder);    //Saved sorting
+            this.lsvInvoiceItems.Sort(Settings_AppVar.Default.InvoiceItemsSortColumn, Settings_AppVar.Default.InvoiceItemsSortOrder);    //Saved sorting
             this.UpdateInvoiceItemsTotalPrice();
             this._systemChanged = false;
         }
@@ -392,6 +388,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.txtInvoiceItemsTotalPrice.Text = Total.ToString();
         }
 
+        #region Events
         #region Controle Events
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -450,12 +447,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             this.btnAccept_Click(sender, e);
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void ManageBill_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.tmrScannerScan.Stop();
-            this.tmrScannerScan.Dispose();
         }
 
         #region Bill Data
@@ -1113,6 +1104,18 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         #endregion
         #endregion
 
+        #region Form events
+        private void ManageBill_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.tmrScannerScan.Stop();
+            this.tmrScannerScan.Dispose();
+        }
+        private void ManageBill_Shown(object sender, EventArgs e)
+        {
+            this._systemChanged = false;
+        }
+        #endregion
+
         #region InvoiceItems
         private void btnInvoiceItemAdd_Click(object sender, EventArgs e)
         {
@@ -1219,13 +1222,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvInvoiceItems_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
             if (this._systemChanged) return;
-
-            List<int> ColWidth = new List<int>();
-            for (int i = 0; i < this.lsvInvoiceItems.Columns.Count; i++)
-            {
-                ColWidth.Add(this.lsvInvoiceItems.Columns[i].Width);
-            }
-            Settings_AppVar.Default.InvoiceItemsColumnWidth = string.Join(";", ColWidth);
+            Settings_AppVar.Default.InvoiceItemsColumnWidth = string.Join(";", this.lsvInvoiceItems.ColumnWidths);
             Settings_AppVar.Default.Save();
         }
 
@@ -1261,6 +1258,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
             this.UpdateInvoiceItemsTotalPrice();
         }
+        #endregion
         #endregion
         #endregion
         #endregion
