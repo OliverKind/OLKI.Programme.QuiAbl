@@ -409,10 +409,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvBills_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             if (this._systemChanged) return;
-
-            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvBills.Sorter;
-            Settings_AppVar.Default.BillsSortColumn = Sorter.SortColumn;
-            Settings_AppVar.Default.BillsSortOrder = (int)Sorter.Order;
+            Settings_AppVar.Default.BillsSortColumn = this.lsvBills.Sorter.SortColumn;
+            Settings_AppVar.Default.BillsSortOrder = (int)this.lsvBills.Sorter.Order;
             Settings_AppVar.Default.Save();
         }
 

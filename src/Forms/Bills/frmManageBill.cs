@@ -1212,10 +1212,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void lsvInvoiceItems_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             if (this._systemChanged) return;
-
-            OLKI.Toolbox.Widgets.SortListView.ColumnSorter Sorter = this.lsvInvoiceItems.Sorter;
-            Settings_AppVar.Default.InvoiceItemsSortColumn = Sorter.SortColumn;
-            Settings_AppVar.Default.InvoiceItemsSortOrder = (int)Sorter.Order;
+            Settings_AppVar.Default.InvoiceItemsSortColumn = this.lsvInvoiceItems.Sorter.SortColumn;
+            Settings_AppVar.Default.InvoiceItemsSortOrder = (int)this.lsvInvoiceItems.Sorter.Order;
             Settings_AppVar.Default.Save();
         }
 
