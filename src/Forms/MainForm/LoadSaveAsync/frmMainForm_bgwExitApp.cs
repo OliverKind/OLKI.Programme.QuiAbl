@@ -117,6 +117,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
                     Worker.ReportProgress(ProgressForm.PROGRESSBAR_SET_MARQUE, State.Clone());
                 }
             }
+
+            //Delete Temp files
+            foreach (string fileItem in Settings_AppTemp.Default.TempFileList.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                try
+                {
+                    System.IO.File.Delete(fileItem);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+
             Worker.ReportProgress(COMPLETE_FLAG, null);
         }
 

@@ -26,6 +26,7 @@ using OLKI.Programme.QuiAbl.Properties;
 using OLKI.Toolbox.ColorAndPicture.Picture;
 using OLKI.Toolbox.Common;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
@@ -605,6 +606,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// Write the file to temp directory an open it with system default application
         /// </summary>
         /// <param name="owner">Owner form to show messages modal</param>
+        /// <param name="tempFileList">List to save temp files, to delete while application will be closed</param>
         public void OpenFileFromTemp(IWin32Window owner)
         {
             try
@@ -619,7 +621,6 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 {
                     FileToOpen += this.GetImageFormatExtension(this.ImageProcedet);
                 }
-                //FileToOpen += string.IsNullOrEmpty(this.OriginalFileName) ? this.GetImageFormatReducedExtension(this.ImageProcedet) : new System.IO.FileInfo(this.OriginalFileName).Extension;
                 System.IO.File.Move(TempFile, FileToOpen);
                 if (this.ImageProcedet == null)
                 {
@@ -629,6 +630,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 {
                     this.ImageProcedet.Save(FileToOpen, this.GetImageFormat(this.ImageProcedet));
                 }
+                Settings_AppTemp.Default.TempFileList += '|' + FileToOpen;
 
                 System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
                 FileOpener.StartInfo.FileName = "explorer";

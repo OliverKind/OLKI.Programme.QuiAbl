@@ -60,6 +60,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Properties\Settings_AppTemp.Designer.cs">
+      <DependentUpon>Settings_AppTemp.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
     <Compile Include="Properties\Settings_AppVar.Designer.cs">
       <DependentUpon>Settings_AppVar.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -190,6 +195,10 @@
     <None Include="Properties\Settings_AppConst.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings_AppConst.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings_AppTemp.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings_AppTemp.Designer.cs</LastGenOutput>
     </None>
     <None Include="Properties\Settings_AppVar.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
