@@ -665,8 +665,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// <param name="e">EventArgs</param>
         private void SubItemChanged(object sender, EventArgs e)
         {
-            this._changed = true;
-            this.ToggleBillChanged(sender, e);
+            this.Changed = true;
         }
 
         /// <summary>

@@ -119,7 +119,6 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
             {
                 this._comment = value;
                 this.Changed = true;
-                this.ToggleFileChanged(this, new EventArgs());
             }
         }
 
