@@ -29,7 +29,7 @@
     <Setting Name="InvoiceItemsSortOrder" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="InvoiceItemsColumnWidth" Type="System.String" Scope="User">
+    <Setting Name="InvoiceItemsColumnWidth" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">-1;-1;-1;-1;-1;-1;-1</Value>
     </Setting>
   </Settings>
