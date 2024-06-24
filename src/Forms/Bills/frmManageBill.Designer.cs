@@ -880,6 +880,7 @@
             this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
+            this.lsvFiles.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvFiles.ColumnWidths")));
             this.lsvFiles.GridLines = true;
             this.lsvFiles.HideSelection = false;
             this.lsvFiles.Location = new System.Drawing.Point(6, 36);
@@ -992,6 +993,7 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.lsvInvoiceItems.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvInvoiceItems.ColumnWidths")));
             this.lsvInvoiceItems.FullRowSelect = true;
             this.lsvInvoiceItems.GridLines = true;
             this.lsvInvoiceItems.HideSelection = false;

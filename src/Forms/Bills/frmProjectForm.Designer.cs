@@ -325,6 +325,7 @@
             this.cohBillsComment,
             this.cohBillsLength,
             this.cohBillsId});
+            this.lsvBills.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvBills.ColumnWidths")));
             this.lsvBills.FullRowSelect = true;
             this.lsvBills.GridLines = true;
             this.lsvBills.HideSelection = false;
