@@ -168,7 +168,6 @@
             this.lsvCompanies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvCompanies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.lsvCompanies.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvCompanies.ColumnWidths")));
             this.lsvCompanies.GridLines = true;
             this.lsvCompanies.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lsvCompanies.HideSelection = false;
