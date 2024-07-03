@@ -564,7 +564,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
                 string FileNameForDialog = this.OriginalFileName;
                 // Check for correct Extension
-                    if (!string.IsNullOrEmpty(FileNameForDialog) && new System.IO.FileInfo(@"c:\"+ FileNameForDialog).Extension != Extension) FileNameForDialog += Extension;
+                if (!string.IsNullOrEmpty(FileNameForDialog) && new System.IO.FileInfo(@"c:\" + FileNameForDialog).Extension != Extension) FileNameForDialog += Extension;
 
                 SaveFileDialog SaveFileDialog = new SaveFileDialog
                 {
@@ -576,7 +576,7 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
 
                 string FileToOpen = SaveFileDialog.FileName;
                 // Check for correct Extension
-                if (new System.IO.FileInfo(FileToOpen).Extension != Extension) FileToOpen += Extension;                
+                if (new System.IO.FileInfo(FileToOpen).Extension != Extension) FileToOpen += Extension;
 
                 System.IO.File.WriteAllBytes(FileToOpen, Convert.FromBase64String(this._fileBase64));
                 if (this.ImageProcedet == null)
