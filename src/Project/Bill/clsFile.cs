@@ -606,7 +606,6 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
         /// Write the file to temp directory an open it with system default application
         /// </summary>
         /// <param name="owner">Owner form to show messages modal</param>
-        /// <param name="tempFileList">List to save temp files, to delete while application will be closed</param>
         public void OpenFileFromTemp(IWin32Window owner)
         {
             try
