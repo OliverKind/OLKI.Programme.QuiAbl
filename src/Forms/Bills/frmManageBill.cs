@@ -567,8 +567,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             };
             this.lsvFiles.Items.Add(NewLsvFileItem);
 
-            // Select new ListViewItem
-            this.lsvFiles.Items[this.lsvFiles.Items.Count - 1].Selected = true;
+            foreach (ListViewItem ListViewItem in this.lsvFiles.Items) ListViewItem.Selected = ((File)ListViewItem.Tag).Id == this.Bill.FilesLastInsertedId;
+            this.lsvFiles.LastItemVisible();
         }
 
         private void btnFileAttech_Click(object sender, EventArgs e)
@@ -1129,18 +1129,10 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             };
             this.lsvInvoiceItems.FillUpSubItems(NewItem);
             this.lsvInvoiceItems.Items.Add(NewItem);
-            int i = 0;
             this.lsvInvoiceItems.MultiSelect = false;
-            foreach (ListViewItem Item in this.lsvInvoiceItems.Items)
-            {
-                if (((InvoiceItem)Item.Tag).Id == this.Bill.InvoiceItemLastInsertedId)
-                {
-                    this.lsvInvoiceItems.Items[i].Selected = true;
-                    this.lsvInvoiceItems.MultiSelect = true;
-                    return;
-                }
-                i++;
-            }
+            foreach (ListViewItem ListViewItem in this.lsvInvoiceItems.Items) ListViewItem.Selected = ((InvoiceItem)ListViewItem.Tag).Id == this.Bill.InvoiceItemLastInsertedId;
+            this.lsvInvoiceItems.MultiSelect = true;
+            this.lsvFiles.LastItemVisible();
         }
 
         private void btnInvoiceItemRemove_Click(object sender, EventArgs e)

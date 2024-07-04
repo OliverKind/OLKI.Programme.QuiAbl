@@ -317,11 +317,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 }
                 this._manageBill.Bill.BillChanged += new EventHandler(this.Project.ToggleSubItemChanged);
 
-                foreach (ListViewItem ListViewItem in this.lsvBills.Items)
-                {
-                    ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
-                }
-                if (this.lsvBills.Items.Count - 1 >= 0) this.lsvBills.Items[this.lsvBills.Items.Count - 1].EnsureVisible();
+                foreach (ListViewItem ListViewItem in this.lsvBills.Items) ListViewItem.Selected = ListViewItem.Index == NewBillIndex;
+                this.lsvBills.LastItemVisible();
                 this.Project.Changed = true;
             }
         }

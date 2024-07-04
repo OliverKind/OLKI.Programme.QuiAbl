@@ -183,12 +183,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                 Text = NewCompany.TitleNoText
             };
             this.lsvCompanies.Items.Add(NewItem);
-            Company CompanyItem;
-            for (int i = 0; i < this.lsvCompanies.Items.Count; i++)
-            {
-                CompanyItem = (Company)this.lsvCompanies.Items[i].Tag;
-                if (CompanyItem.Id == this._companyLastInsertedId) this.lsvCompanies.Items[i].Selected = true;
-            }
+            foreach (ListViewItem ListViewItem in this.lsvCompanies.Items) ListViewItem.Selected = ((Company)ListViewItem.Tag).Id == this._companyLastInsertedId;
+            this.lsvCompanies.LastItemVisible();
             this.txtTitle.Focus();
         }
 
