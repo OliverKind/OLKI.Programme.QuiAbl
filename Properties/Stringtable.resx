@@ -302,4 +302,13 @@ Wenn Sie nein wählen werden lediglich die Einträge zu den Dateien erzeugt, jed
 
 Dieser Vorgang kann nicht rückgängig gemacht werden.</value>
   </data>
+  <data name="0x0021c" xml:space="preserve">
+    <value>Fehler beim Löschen temporärer Dateien!</value>
+  </data>
+  <data name="0x0021m" xml:space="preserve">
+    <value>Einige temporär angelegte Dateien konnte nicht gelöscht werden.
+Wahrscheinlich sind die Dateien noch geöffnet.
+
+Bitte schließen Sie die Dateien und löschen diese anschließend manuell.</value>
+  </data>
 </root>

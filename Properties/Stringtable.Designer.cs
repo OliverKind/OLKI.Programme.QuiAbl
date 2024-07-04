@@ -544,5 +544,26 @@ namespace OLKI.Programme.QuiAbl.Properties {
                 return ResourceManager.GetString("0x0020m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Löschen temporärer Dateien! ähnelt.
+        /// </summary>
+        internal static string _0x0021c {
+            get {
+                return ResourceManager.GetString("0x0021c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Einige temporär angelegte Dateien konnte nicht gelöscht werden.
+        ///Wahrscheinlich sind die Dateien noch geöffnet.
+        ///
+        ///Bitte schließen Sie die Dateien und löschen diese anschließend manuell. ähnelt.
+        /// </summary>
+        internal static string _0x0021m {
+            get {
+                return ResourceManager.GetString("0x0021m", resourceCulture);
+            }
+        }
     }
 }
