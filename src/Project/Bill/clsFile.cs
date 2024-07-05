@@ -614,11 +614,11 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 string FileToOpen = TempFile;
                 if (this.ImageProcedet == null)
                 {
-                    FileToOpen += string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension;
+                    FileToOpen += " - " + (string.IsNullOrEmpty(this.OriginalFileName) ? Settings_AppConst.Default.ScanedImages_DefaultExtension : new System.IO.FileInfo(this.OriginalFileName).Extension);
                 }
                 else
                 {
-                    FileToOpen += this.GetImageFormatExtension(this.ImageProcedet);
+                    FileToOpen += " - " + this.GetImageFormatExtension(this.ImageProcedet);
                 }
                 System.IO.File.Move(TempFile, FileToOpen);
                 if (this.ImageProcedet == null)
