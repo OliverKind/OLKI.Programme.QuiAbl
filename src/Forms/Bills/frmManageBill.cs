@@ -473,22 +473,20 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void mtbDate_TextChanged(object sender, EventArgs e)
         {
-            this.mtbDates_TextChanged(sender, e);
-            DateTime.TryParse(this.mtbDate.Text, out DateTime BillDate);
-            this.Bill.Date = string.IsNullOrEmpty(this.mtbDate.Text.Replace(" ", "").Replace(".", "")) ? null : (DateTime?)BillDate;
+            this.mtbDates_TextChanged(sender, out DateTime? BillDate);
+            this.Bill.Date = string.IsNullOrEmpty(this.mtbDate.Text.Replace(" ", "").Replace(".", "")) ? null : BillDate;
         }
 
-        private void mtbDates_TextChanged(object sender, EventArgs e)
+        private void mtbDates_TextChanged(object sender, out DateTime? parsedDatae)
         {
             string SenderText = ((MaskedTextBox)sender).Text;
-            this.erpMannageBill.SetError((Control)sender, Validation.IsValidDate(((MaskedTextBox)sender).Text) ? "" : Stringtable._0x0009);
+            this.erpMannageBill.SetError((Control)sender, Validation.IsValidDate(((MaskedTextBox)sender).Text, true, out parsedDatae) ? "" : Stringtable._0x0009);
         }
 
         private void mtbExpidation_TextChanged(object sender, EventArgs e)
         {
-            this.mtbDates_TextChanged(sender, e);
-            DateTime.TryParse(this.mtbExpidation.Text, out DateTime BillExpidationDate);
-            this.Bill.Expiration = string.IsNullOrEmpty(this.mtbExpidation.Text.Replace(" ", "").Replace(".", "")) ? null : (DateTime?)BillExpidationDate;
+            this.mtbDates_TextChanged(sender, out DateTime? BillExpidationDate);
+            this.Bill.Expiration = string.IsNullOrEmpty(this.mtbExpidation.Text.Replace(" ", "").Replace(".", "")) ? null : BillExpidationDate;
         }
 
         private void trvBillClasses_AfterSelect(object sender, TreeViewEventArgs e)
