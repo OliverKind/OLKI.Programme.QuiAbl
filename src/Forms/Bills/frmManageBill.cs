@@ -481,14 +481,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void mtbDates_TextChanged(object sender, EventArgs e)
         {
             string SenderText = ((MaskedTextBox)sender).Text;
-            if (string.IsNullOrEmpty(System.Text.RegularExpressions.Regex.Replace(SenderText, @"[^0-9]", "")) || DateTime.TryParse(SenderText, out _))
-            {
-                this.erpMannageBill.SetError((Control)sender, "");
-            }
-            else
-            {
-                this.erpMannageBill.SetError((Control)sender, Stringtable._0x0009);
-            }
+            this.erpMannageBill.SetError((Control)sender, Validation.IsValidDate(((MaskedTextBox)sender).Text) ? "" : Stringtable._0x0009);
         }
 
         private void mtbExpidation_TextChanged(object sender, EventArgs e)
