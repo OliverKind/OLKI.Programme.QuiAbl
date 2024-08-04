@@ -211,7 +211,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     // Write data
                     string Header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
                     char[] Content = this.ToXElement().ToString().ToCharArray();
-                    String TempFileName = this.File.FullName + TEMP_FILE_EXTENSION;
+                    string TempFileName = this.File.FullName + TEMP_FILE_EXTENSION;
                     using (StreamWriter sw = new StreamWriter(System.IO.File.Open(TempFileName, FileMode.Create), Encoding.UTF8))
                     {
                         sw.WriteLine(Header);
