@@ -192,12 +192,9 @@ namespace OLKI.Programme.QuiAbl.src.Project
                 // If there is no project file, call Project_SaveAs() and continue saving by recalling tis function in Project_SaveAs()
                 if (this.File == null || string.IsNullOrEmpty(this.File.FullName) || !this.File.Exists)
                 {
-                    if (!this.Project_SaveAs(mainForm, worker, e))
-                    {
-                        // Nothing to do, beccause no file was specified to save to
-                        // Otherwise the Project_SaveAs function will call this function again 
-                        return false;
-                    }
+                    // Nothing to do, beccause no file was specified to save to
+                    // Otherwise the Project_SaveAs function will call this function again 
+                    if (!this.Project_SaveAs(mainForm, worker, e)) return false;
                 }
                 else
                 {
@@ -212,17 +209,17 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     string Header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
                     char[] Content = this.ToXElement().ToString().ToCharArray();
                     string TempFileName = this.File.FullName + TEMP_FILE_EXTENSION;
-                    using (StreamWriter sw = new StreamWriter(System.IO.File.Open(TempFileName, FileMode.Create), Encoding.UTF8))
+                    using (StreamWriter StreamWriter = new StreamWriter(System.IO.File.Open(TempFileName, FileMode.Create), Encoding.UTF8))
                     {
-                        sw.WriteLine(Header);
+                        StreamWriter.WriteLine(Header);
                         State.ProgressDescirption = Stringtable._0x0014;
 
                         int ReadLength;
                         int Limit = (int)Math.Ceiling((decimal)Content.Length / (decimal)WRITE_DATA_BUFFER_LENGTH);
                         for (int i = 0; i < Limit; i++)
                         {
-                            ReadLength = GetValidBufferReadLength(Content.Length, i, WRITE_DATA_BUFFER_LENGTH);
-                            sw.Write(Content, i * WRITE_DATA_BUFFER_LENGTH, ReadLength);
+                            ReadLength = this.GetValidBufferReadLength(Content.Length, i, WRITE_DATA_BUFFER_LENGTH);
+                            StreamWriter.Write(Content, i * WRITE_DATA_BUFFER_LENGTH, ReadLength);
                             worker?.ReportProgress((int)Matehmatics.Percentages(i + 1, Limit), State.Clone());
                         }
                     }
