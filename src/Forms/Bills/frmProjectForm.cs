@@ -600,13 +600,11 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
 
         private void mnuBillForm_Search_Bill_Click(object sender, EventArgs e)
         {
-            if (this._searchBill == null || this._searchBill.IsDisposed || !this._searchBill.Visible)
-            {
-                this._searchBill = new Search(this.Project);
-                this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
-                this._searchBill.Text = string.Format(this._searchBill.Text, new object[] { this.Project.ProjectTitle });
-                this._searchBill.Show(this);
-            }
+            if (this._searchBill != null && this._searchBill.Visible) return;
+            this._searchBill = new Search(this.Project);
+            this._searchBill.RequestListResults += new EventHandler(this._search_RequestListResults);
+            this._searchBill.Text = string.Format(this._searchBill.Text, new object[] { this.Project.ProjectTitle });
+            this._searchBill.Show(this);
         }
 
         private void mnuBillForm_Search_Reset_Click(object sender, EventArgs e)
