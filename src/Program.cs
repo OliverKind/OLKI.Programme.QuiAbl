@@ -80,7 +80,6 @@ namespace OLKI.Programme.QuiAbl.src
             {
                 Settings.Default.Upgrade();
                 Settings_AppConst.Default.Upgrade();
-                Settings_AppTemp.Default.Upgrade();
                 Settings_AppVar.Default.Upgrade();
 
                 Settings_AppVar.Default.SettingsUpgradet = true;

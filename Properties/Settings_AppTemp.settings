@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QuiAbl.Properties" GeneratedClassName="Settings_AppTemp">
-  <Profiles />
-  <Settings>
-    <Setting Name="TempFileList" Roaming="true" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-  </Settings>
-</SettingsFile>

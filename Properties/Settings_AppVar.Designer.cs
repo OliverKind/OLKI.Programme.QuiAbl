@@ -12,7 +12,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings_AppVar : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings_AppVar defaultInstance = ((Settings_AppVar)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings_AppVar())));
@@ -150,6 +150,19 @@ namespace OLKI.Programme.QuiAbl.Properties {
             }
             set {
                 this["InvoiceItemsColumnWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string TempFileList {
+            get {
+                return ((string)(this["TempFileList"]));
+            }
+            set {
+                this["TempFileList"] = value;
             }
         }
     }

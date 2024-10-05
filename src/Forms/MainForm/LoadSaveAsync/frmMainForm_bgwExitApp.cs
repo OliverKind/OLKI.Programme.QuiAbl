@@ -120,7 +120,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
 
             //Delete Temp files
             bool DelError = false;
-            foreach (string fileItem in Settings_AppTemp.Default.TempFileList.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (string fileItem in Settings_AppVar.Default.TempFileList.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 try
                 {
@@ -136,8 +136,8 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             {
                 this.Invoke((Action)delegate { MessageBox.Show(this, Stringtable._0x0021m, Stringtable._0x0021c, MessageBoxButtons.OK, MessageBoxIcon.Error); });
             }
-            Settings_AppTemp.Default.TempFileList = "";
-            Settings_AppTemp.Default.Save();
+            Settings_AppVar.Default.TempFileList = "";
+            Settings_AppVar.Default.Save();
 
             Worker.ReportProgress(COMPLETE_FLAG, null);
         }

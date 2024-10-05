@@ -629,8 +629,8 @@ namespace OLKI.Programme.QuiAbl.src.Project.Bill
                 {
                     this.ImageProcedet.Save(FileToOpen, this.GetImageFormat(this.ImageProcedet));
                 }
-                Settings_AppTemp.Default.TempFileList += '|' + FileToOpen;
-                Settings_AppTemp.Default.Save();
+                Settings_AppVar.Default.TempFileList += '|' + FileToOpen;
+                Settings_AppVar.Default.Save();
 
                 System.Diagnostics.Process FileOpener = new System.Diagnostics.Process();
                 FileOpener.StartInfo.FileName = "explorer";
