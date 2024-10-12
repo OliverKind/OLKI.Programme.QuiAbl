@@ -20,7 +20,7 @@ You can download the source code or use a installer of the last release, if you 
 > Download source code on [GitHub](https://github.com/OliverKind/OLKI.Programme.QuiAbl/archive/master.zip)
 > You also need to download the additional required repositories.
 
-> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=33)
+> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=61)
 
 ## Usage
 
