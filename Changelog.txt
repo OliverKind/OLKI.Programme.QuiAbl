@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [3.3.3.40] - 2024-10-12
+### Added
+- Missing liecense files
+
 ## [3.3.2.39] - 2024-10-05
 ### Added
 - Try to delte temporary Fiels if Application will be closed

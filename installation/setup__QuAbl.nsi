@@ -1,4 +1,4 @@
-;NSIS Installer for QuiAbl 3.3.2.39
+;NSIS Installer for QuiAbl 3.3.3.40
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QuiAbl'
-  !define Version          '3.3.2.39'
+  !define Version          '3.3.3.40'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um Quittungen und Rechnungen zu ordnen'
   !define Copyright        '2021 - Oliver Kind'
@@ -121,6 +121,7 @@ Section ""
   File ".\..\bin\Release\Resources\ProgamIcons\program_symbol\Program_Symbol.ico"
   
   SetOutPath "$INSTDIR\Licenses"
+  File ".\..\bin\Release\Licenses\CC4.0-License.txt"
   File ".\..\bin\Release\Licenses\CPOL-License.txt"
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
   File ".\..\bin\Release\Licenses\MIT-License (CroweMan; 22.06.2010).txt"
