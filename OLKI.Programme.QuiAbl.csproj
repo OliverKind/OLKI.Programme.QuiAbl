@@ -291,6 +291,9 @@
     <Content Include="doc\ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="licenses\CC4.0-License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="licenses\CPOL-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
