@@ -70,7 +70,7 @@ namespace OLKI.Programme.QuiAbl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei ist nicht mit dieser Progammversion kompatibel. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei ist nicht mit dieser Programmversion kompatibel. ähnelt.
         /// </summary>
         internal static string _0x0001m {
             get {

@@ -121,7 +121,7 @@
     <value>Inkompatible Datei!</value>
   </data>
   <data name="0x0001m" xml:space="preserve">
-    <value>Die Projektdatei ist nicht mit dieser Progammversion kompatibel.</value>
+    <value>Die Projektdatei ist nicht mit dieser Programmversion kompatibel.</value>
   </data>
   <data name="0x0002c" xml:space="preserve">
     <value>Ungespeicherte Änderungen!</value>
