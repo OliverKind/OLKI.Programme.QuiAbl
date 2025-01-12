@@ -377,7 +377,9 @@ namespace OLKI.Programme.QuiAbl.src.Forms
             {
                 if (string.IsNullOrEmpty(this.Searchtext)) return true;
 
+                if (!string.IsNullOrEmpty(bill.BillNumber) && bill.BillNumber.ToLower().Contains(this.Searchtext.ToLower())) return true;
                 if (!string.IsNullOrEmpty(bill.Comment) && bill.Comment.ToLower().Contains(this.Searchtext.ToLower())) return true;
+                if (!string.IsNullOrEmpty(bill.CustomNumber) && bill.CustomNumber.ToLower().Contains(this.Searchtext.ToLower())) return true;
                 if (!string.IsNullOrEmpty(bill.Title) && bill.Title.ToLower().Contains(this.Searchtext.ToLower())) return true;
 
                 foreach (KeyValuePair<int, File> FileItem in bill.Files)
