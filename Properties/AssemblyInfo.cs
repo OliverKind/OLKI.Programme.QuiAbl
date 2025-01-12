@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OLKI-Software")]
 [assembly: AssemblyProduct("QuiAbl")]
-[assembly: AssemblyCopyright("Copyright ©  2022 - Oliver Kind")]
+[assembly: AssemblyCopyright("Copyright ©  2025 - Oliver Kind")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.3.4.41")]
-[assembly: AssemblyFileVersion("3.3.4.41")]
+[assembly: AssemblyVersion("3.4.0.42")]
+[assembly: AssemblyFileVersion("3.4.0.42")]

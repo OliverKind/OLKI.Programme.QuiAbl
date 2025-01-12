@@ -1,4 +1,8 @@
 # QuiAbl - Quittungsablage
+## [3.4.0.42] - 2025-01-12
+### Changed
+- Add Bill number and Customer number to search
+
 ## [3.3.4.41] - 2024-10-19
 ### Fixed
 - Spelling
