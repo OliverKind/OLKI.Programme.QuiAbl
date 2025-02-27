@@ -581,7 +581,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
                     {
                         LinkPath = "",
                         Source = File.FileSource.File,
-                        Title = string.Format(MULTI_FILENAME_FORMAT, new object[] { this.lsvFiles.Items[OrgSelectedIndex].Text, (i + 1) })
+                        Title = string.Format(MULTI_FILENAME_FORMAT, new object[] { this.lsvFiles.Items[OrgSelectedIndex].Text, i + 1 })
                     };
                     this.Bill.Files.Add(this.Bill.FilesLastInsertedId, NewFile);
 
@@ -841,7 +841,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             {
                 File FileItem = (File)this.lsvFiles.SelectedItems[0].Tag;
 
-                this.grbFileModify.Enabled = (FileItem.Image != null && FileItem.Source != File.FileSource.Link);
+                this.grbFileModify.Enabled = FileItem.Image != null && FileItem.Source != File.FileSource.Link;
                 this.lblOriginalFileName.Text = FileItem.OriginalFileName;
                 this.lblFileSize.Visible = true;
                 this.txtFileComment.Text = FileItem.Comment;

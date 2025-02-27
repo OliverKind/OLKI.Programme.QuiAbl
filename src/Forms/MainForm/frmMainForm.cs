@@ -320,7 +320,6 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm
             //Check for file association
             if (Settings.Default.FileAssociation_CheckAtStartup) Program.CheckFileAssociationAndSet(false);
 
-
             // Check for Updates for the Apllication
             if (Settings.Default.AppUpdate_CheckAtStartUp) Program.CheckForUpdate(this, true);
         }

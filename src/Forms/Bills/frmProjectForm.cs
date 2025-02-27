@@ -200,7 +200,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
             }
 
             Bill SelectedBill = (Bill)this.lsvBills.SelectedItems[0].Tag;
-            this.pnlBillFiles.Enabled = (SelectedBill.Files.Count > 0);
+            this.pnlBillFiles.Enabled = SelectedBill.Files.Count > 0;
             this.lblBillFileNumber.Text = string.Format(this._lblBillFileNumber_OrgText, new object[] { SelectedBill.Files.Count > 0 ? this._selectedFileIndex + 1 : 0, SelectedBill.Files.Count });
 
             this.btnBillFileNext.Enabled = SelectedBill.Files.Count > 1 && this._selectedFileIndex + 1 < SelectedBill.Files.Count;
@@ -465,7 +465,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void btnBillFileOpen_Click(object sender, EventArgs e)
         {
             if (this.lsvBills.SelectedItems.Count != 1) return;
-            Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
+            Bill SelectedBill = (Bill)this.lsvBills.SelectedItems[0].Tag;
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
             if (FileItem.Source == File.FileSource.Link && new System.IO.FileInfo(FileItem.LinkPath).Exists)
@@ -481,7 +481,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.Bills
         private void btnBillFileSave_Click(object sender, EventArgs e)
         {
             if (this.lsvBills.SelectedItems.Count != 1) return;
-            Bill SelectedBill = ((Bill)this.lsvBills.SelectedItems[0].Tag);
+            Bill SelectedBill = (Bill)this.lsvBills.SelectedItems[0].Tag;
             File FileItem = SelectedBill.Files[SelectedBill.FilesIdList[this._selectedFileIndex]];
 
             if (FileItem.Image == null && string.IsNullOrEmpty(FileItem.FileBase64)) return;

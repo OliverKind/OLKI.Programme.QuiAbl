@@ -76,11 +76,11 @@ namespace OLKI.Programme.QuiAbl.src
         /// </summary>
         /// <param name="file">File to check if it is opend</param>
         /// <returns>True if the file is opend, otherwiese false</returns>
-        private bool CheckFileIsOpen(string file)
+        private bool FileIsOpen(string file)
         {
             foreach (Form Form in this._mainForm.MdiChildren)
             {
-                Forms.Bills.ProjectForm ProjectForm = ((Forms.Bills.ProjectForm)Form);
+                Forms.Bills.ProjectForm ProjectForm = (Forms.Bills.ProjectForm)Form;
                 if (ProjectForm.Project.File != null && ProjectForm.Project.File.FullName == file) return true;
             }
             return false;
@@ -105,7 +105,7 @@ namespace OLKI.Programme.QuiAbl.src
                 DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
                 Filter = Settings_AppConst.Default.ProjectFile_FilterList,
                 FilterIndex = Settings_AppConst.Default.ProjectFile_FilterIndex,
-                InitialDirectory = Settings.Default.ProjectFile_DefaultPath
+                InitialDirectory = Settings.Default.DirectoryFile_DefaultPath
             };
 
             DialogResult DialogResult = (DialogResult)this._mainForm.Invoke((Func<DialogResult>)(() => OpenFileDialog.ShowDialog()));
@@ -151,7 +151,7 @@ namespace OLKI.Programme.QuiAbl.src
                     }
                     else
                     {
-                        if (this.CheckFileIsOpen(path))
+                        if (this.FileIsOpen(path))
                         {
                             this._mainForm.Invoke((Func<DialogResult>)(() => MessageBox.Show(Stringtable._0x0012m, Stringtable._0x0012c, MessageBoxButtons.OK, MessageBoxIcon.Error)));
                             return false;

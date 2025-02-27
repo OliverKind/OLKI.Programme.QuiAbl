@@ -170,7 +170,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
         {
             if ((readStart * maxBufferLength + maxBufferLength) > dataBufferLength)
             {
-                return maxBufferLength - ((readStart * maxBufferLength + maxBufferLength) - dataBufferLength);
+                return maxBufferLength - (readStart * maxBufferLength + maxBufferLength - dataBufferLength);
             }
             return maxBufferLength;
         }
@@ -259,7 +259,7 @@ namespace OLKI.Programme.QuiAbl.src.Project
                     DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
                     Filter = Settings_AppConst.Default.ProjectFile_FilterList,
                     FilterIndex = Settings_AppConst.Default.ProjectFile_FilterIndex,
-                    InitialDirectory = Settings.Default.ProjectFile_DefaultPath
+                    InitialDirectory = Settings.Default.DirectoryFile_DefaultPath
                 };
                 DialogResult DialogResult = (DialogResult)mainForm.Invoke((Func<DialogResult>)(() => SaveFileDialog.ShowDialog()));
                 if (DialogResult == DialogResult.OK)

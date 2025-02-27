@@ -86,7 +86,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             this.nudScanDefaultResolution.Value = Settings.Default.Scan_DefaultResolution;
             this.tbaScanDefaultThreshold.Value = Settings.Default.Scan_DefaultThreshold;
             this.txtDateFormat.Text = Settings.Default.DateFormat;
-            this.txtProjectFileDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
+            this.txtProjectFileDefaultPath.Text = Settings.Default.DirectoryFile_DefaultPath;
             this.txtStartupDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
 
             this.tbaScanDefaultThreshold_Scroll(this, new EventArgs());
@@ -121,12 +121,12 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             FolderBrowserDialog FolderBrowserDialog = new FolderBrowserDialog
             {
                 Description = Stringtable._0x0016,
-                SelectedPath = Settings.Default.ProjectFile_DefaultPath
+                SelectedPath = Settings.Default.DirectoryFile_DefaultPath
             };
             if (FolderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
                 this.txtProjectFileDefaultPath.Text = FolderBrowserDialog.SelectedPath;
-                Settings.Default.ProjectFile_DefaultPath = FolderBrowserDialog.SelectedPath;
+                Settings.Default.DirectoryFile_DefaultPath = FolderBrowserDialog.SelectedPath;
             }
         }
 
@@ -141,7 +141,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             {
                 DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
                 Filter = Settings_AppConst.Default.ProjectFile_FilterList,
-                InitialDirectory = Settings.Default.ProjectFile_DefaultPath,
+                InitialDirectory = Settings.Default.DirectoryFile_DefaultPath,
                 Multiselect = false
             };
             if (OpenFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -172,7 +172,7 @@ namespace OLKI.Programme.QuiAbl.src.Forms.MainForm.SubForms
             Settings.Default.CropArea_SelectionWidth = (int)this.nudCropAreaSelectionWidth.Value;
             Settings.Default.DateFormat = this.txtDateFormat.Text;
             Settings.Default.FileAssociation_CheckAtStartup = this.chkFileAssociationCheckAtStartup.Checked;
-            Settings.Default.ProjectFile_DefaultPath = this.txtProjectFileDefaultPath.Text;
+            Settings.Default.DirectoryFile_DefaultPath = this.txtProjectFileDefaultPath.Text;
             Settings.Default.RecentFiles_MaxLength = (int)this.nudNumRecentFiles.Value;
             Settings.Default.Scan_DefaultColorMode = this.cboScanDefaultColorMode.SelectedIndex;
             Settings.Default.Scan_DefaultResolution = (int)this.nudScanDefaultResolution.Value;
