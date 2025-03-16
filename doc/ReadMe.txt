@@ -9,6 +9,7 @@ Inhalt
 ******
 
 0 - Wichtige Informationen, Haftungausschluss
+0.1 - Bekannte Probleme
 1 - Systemvoraussetzungen
 2 - Wichtige Voraussetzungen für eine Installation
 3 - Installations- und Deinstallationshinweise
@@ -35,6 +36,17 @@ sind Sie selbst verantwortlich.
 
 Eine kommerzielle Vermarktung der Software durch Dritte ist nicht gestattet.
 Das Recht der Vermarktung fällt somit exklusiv dem Autor der Software zu.
+
+
+0.1 - Bekannte Probleme
+***********************
+
+Bei der Verwendung unter nutzung verschiedner Benutzerkonten auf einem Computer kann es
+zu Problemen beim Speichern der eingegebenen Daten und von  Einstellungen kommen.
+Dieses Problem tritt auf, wenn die Software unter einem Benutzer mit Administratorrechten
+installiert wurde und unter einem Benutzer ohne Administratorrechte gestartet wird.
+Um dieses Problem zu umgehen, sollte die Software unter dem Benutzer mit Administratorrechten
+installiert und auch unter diesem Benutzer gestartet werden.
 
 
 1 - Systemvoraussetzungen
